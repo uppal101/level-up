@@ -23,7 +23,7 @@ DEL*					/rewards/:reward_id/
 GET						/rewards/campuses/:campus_id/
 GET						/rewards/campuses/:campus_id/suggestions
 POST					/rewards/campuses/:campus_id/suggestions
-PUT				   	/rewards/campuses/:campus_id/suggestions/:id
+PUT					   	/rewards/campuses/:campus_id/suggestions/:id
 DEL*					/rewards/campuses/:campus_id/suggestions/:id
 
 POST					/requests/															(Authorized for your own ID)
