@@ -6,12 +6,12 @@ const RewardSuggestionStudent = Bookshelf.Model.extend({
   tableName: 'reward_suggestions_students',
   hasTimestamps: true,
 
-  students: function() {
+  students() {
     return this.hasMany('Student');
   },
-  reward_suggestion: function() {
+  rewardSuggestion() {
     return this.hasOne('RewardSuggestion');
   },
 });
 
-module.exports = Bookshelf.model('RewardSuggestionStudent', RewardSuggestionsStudents);
+module.exports = Bookshelf.model('RewardSuggestionStudent', RewardSuggestionStudent);

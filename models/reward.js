@@ -7,15 +7,15 @@ const Reward = Bookshelf.Model.extend({
   tableName: 'rewards',
   hasTimestamps: true,
 
-  campuses: function() {
+  campuses() {
     return this.belongsToMany('Campus');
   },
-  category: function() {
+  category() {
     return this.belongsTo('Category');
-  }
-  reward_requests: function() {
-    return this.hasMany('RewardRequests')
-  }
+  },
+  rewardRequests() {
+    return this.hasMany('RewardRequests');
+  },
 });
 
 module.exports = Bookshelf.model('Reward', Reward);
