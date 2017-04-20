@@ -35,7 +35,7 @@ GET			/requests/				                              Gets all of a students rewards
 DEL			/requests/:request_id				                    Deletes a student request	- Authorized for your own ID
 GET			/requests/:user_name				                    Gets all of a students rewards requests - Authorized for Admins
 GET*		/requests/campuses/:campus_id/                  Gets all requests for campus
-GET*		/requests/campuses/:cohort_id/                  Gets all requests for a specific cohort
+GET*		/requests/campuses/cohort/:cohort_id/           Gets all requests for a specific cohort
 PUT*		/requests/admin/:request_id/                    Update a specific request - Approve a request
 
 POST*		/challenges/                                    Add a challenge to the database
@@ -50,7 +50,7 @@ PUT     /submissions/:submissions_id/		                Edit a submission/Approve
 DEL     /submissions/:submissions_id/		                Delete a specific submission - Authorized for your own ID
 GET*		/submissions/:submissions_id/			              Get a specific submission - Authorized for your own ID or Admin
 GET**		/submissions/campuses/:campus_id/               Gets all submissions for campus
-GET**		/submissions/campuses/:cohort_id/               Gets all submissions for a specific cohort
+GET**		/submissions/campuses/cohort/:cohort_id/        Gets all submissions for a specific cohort
 
 GET*		/campuses/                                      Get all campuses
 POST*		/campuses/                                      Add a campus
