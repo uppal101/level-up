@@ -4,11 +4,13 @@ GET 					/students/:student_id/									(Authorized for your own ID or Admin)
 PUT 					/students/:student_id/									(Authorized for your own ID)
 DEL*		 			/students/:student_id/
 GET*					/students/campuses/:campus_id/
+POST          /students/login/
 
 GET*					/admins/
 POST*					/admins/
 PUT*					/admins/:admin_id/
 DEL*					/admins/:admin_id/
+POST          /admins/login
 
 GET* 					/cohorts/
 POST*					/cohorts/
