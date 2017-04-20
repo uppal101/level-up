@@ -6,7 +6,7 @@ const RewardSuggestion = Bookshelf.Model.extend({
   tableName: 'reward_suggestions',
   hasTimestamps: true,
 
-  reward_suggest_students: function() {
+  reward_suggestion_students: function() {
     return this.belongsToMany('Student').through('RewardSuggestionStudent');
   },
 });
