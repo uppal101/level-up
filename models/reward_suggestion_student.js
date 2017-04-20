@@ -1,8 +1,10 @@
 const Bookshelf = require('../bookshelf');
+const LvlModel = require('./lvlModel');
+const LvlCollection = require('./lvlCollection');
 require('./reward_suggestion');
 require('./student');
 
-const RewardSuggestionStudent = Bookshelf.Model.extend({
+const RewardSuggestionStudent = LvlModel.extend({
   tableName: 'reward_suggestions_students',
   hasTimestamps: true,
 
@@ -14,4 +16,11 @@ const RewardSuggestionStudent = Bookshelf.Model.extend({
   },
 });
 
-module.exports = Bookshelf.model('RewardSuggestionStudent', RewardSuggestionStudent);
+const RewardSuggestionStudents = LvlCollection.extend({
+  model: RewardSuggestionStudent,
+});
+
+module.exports = {
+  RewardSuggestionStudent: Bookshelf.model('RewardSuggestionStudent', RewardSuggestionStudent),
+  RewardSuggestionStudents: Bookshelf.collection('RewardSuggestionStudents', RewardSuggestionStudents),
+};

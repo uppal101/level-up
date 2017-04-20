@@ -1,9 +1,11 @@
 const Bookshelf = require('../bookshelf');
+const LvlModel = require('./lvlModel');
+const LvlCollection = require('./lvlCollection');
 require('./cohort');
 require('./admin_cohort');
 require('./campus');
 
-const Admin = Bookshelf.Model.extend({
+const Admin = LvlModel.extend({
   tableName: 'admins',
   hasTimestamps: true,
 
@@ -15,4 +17,11 @@ const Admin = Bookshelf.Model.extend({
   },
 });
 
-module.exports = Bookshelf.model('Admin', Admin);
+const Admins = LvlCollection.extend({
+  model: Admin,
+});
+
+module.exports = {
+  Admin: Bookshelf.model('Admin', Admin),
+  Admins: Bookshelf.collection('Admins', Admins),
+};

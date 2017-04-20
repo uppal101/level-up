@@ -1,9 +1,11 @@
 const Bookshelf = require('../bookshelf');
+const LvlModel = require('./lvlModel');
+const LvlCollection = require('./lvlCollection');
 require('./category');
 require('./campus');
 require('./challenge_submission');
 
-const Challenge = Bookshelf.Model.extend({
+const Challenge = LvlModel.extend({
   tableName: 'challenges',
   hasTimestamps: true,
 
@@ -18,4 +20,11 @@ const Challenge = Bookshelf.Model.extend({
   },
 });
 
-module.exports = Bookshelf.model('Challenge', Challenge);
+const Challenges = LvlCollection.extend({
+  model: Challenge,
+});
+
+module.exports = {
+  Challenge: Bookshelf.model('Challenge', Challenge),
+  Challenges: Bookshelf.collection('Challenges', Challenges),
+};
