@@ -7,15 +7,15 @@ const Challenge = Bookshelf.Model.extend({
   tableName: 'challenges',
   hasTimestamps: true,
 
-  category: function() {
+  category() {
     return this.belongsTo('Category');
   },
-  campuses: function() {
+  campuses() {
     return this.belongsToMany('Campus');
-  }
-  challenge_submissions: function() {
-    return this.hasMany('ChallengeSubmission')
-  }
+  },
+  challenge_submissions() {
+    return this.hasMany('ChallengeSubmission');
+  },
 });
 
 module.exports = Bookshelf.model('Challenge', Challenge);

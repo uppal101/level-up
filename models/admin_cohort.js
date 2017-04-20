@@ -6,10 +6,10 @@ const AdminCohort = Bookshelf.Model.extend({
   tableName: 'admin_cohorts',
   hasTimestamps: true,
 
-  cohorts: function() {
+  cohorts() {
     return this.hasMany('Cohort');
   },
-  admin: function() {
+  admin() {
     return this.hasMany('Admin');
   },
 });

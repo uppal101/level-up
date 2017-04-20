@@ -6,10 +6,10 @@ const Campus = Bookshelf.Model.extend({
   tableName: 'campuses',
   hasTimestamps: true,
 
-  cohorts: function() {
+  cohorts() {
     return this.hasMany('Cohort');
   },
-  admins: function() {
+  admins() {
     return this.hasMany('Admin');
   },
 });

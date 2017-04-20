@@ -6,10 +6,10 @@ const RewardRequest = Bookshelf.Model.extend({
   tableName: 'reward_requests',
   hasTimestamps: true,
 
-  student: function() {
+  student() {
     return this.belongsTo('Student');
   },
-  reward: function() {
+  reward() {
     return this.belongsTo('Reward');
   },
 });

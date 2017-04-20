@@ -6,10 +6,10 @@ const ChallengeSubmission = Bookshelf.Model.extend({
   tableName: 'challenge_submissions',
   hasTimestamps: true,
 
-  challenge: function() {
+  challenge() {
     return this.belongsTo('Challenge');
   },
-  student: function() {
+  student() {
     return this.belongsTo('Student');
   },
 });

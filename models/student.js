@@ -7,15 +7,15 @@ const Student = Bookshelf.Model.extend({
   tableName: 'students',
   hasTimestamps: true,
 
-  cohort: function() {
+  cohort() {
     return this.belongsTo('Cohort');
   },
-  points: function() {
+  points() {
     return this.hasMany('Point');
   },
-  reward_suggestion_students: function() {
+  rewardSuggestionStudents() {
     return this.belongsToMany('RewardSuggestions').through('RewardSuggestionStudent');
-  }
+  },
 
 });
 
