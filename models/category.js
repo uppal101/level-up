@@ -6,10 +6,10 @@ const Category = Bookshelf.Model.extend({
   tableName: 'categories',
   hasTimestamps: true,
 
-  challenges: function() {
+  challenges() {
     return this.hasMany('Challenge');
   },
-  rewards: function() {
+  rewards() {
     return this.hasMany('Reward');
   },
 });

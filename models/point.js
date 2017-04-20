@@ -5,7 +5,7 @@ const Point = Bookshelf.Model.extend({
   tableName: 'points',
   hasTimestamps: true,
 
-  students: function() {
+  students() {
     return this.belongsToMany('Student');
   },
 });
