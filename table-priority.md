@@ -1,5 +1,4 @@
 campus
-points
 admin
 cohorts
 admin_cohorts
