@@ -4,6 +4,7 @@ GET 		/students/:student_id/		                      Gets a single Student - Auth
 PUT 		/students/:student_id/		                      Edits a single Student - Authorized for your own ID
 DEL*		/students/:student_id/                          Deleted a single Student
 GET*		/students/campuses/:campus_id/                  Gets all students at a single campus
+GET     /students/cohorts/:cohort_id/                   Gets all students in a single cohort
 POST    /students/login/                                Student Login with OAuth
 POST    /students/signup                                Student signup with OAuth
 
