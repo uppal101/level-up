@@ -1,14 +1,23 @@
 const Bookshelf = require('../bookshelf');
+const LvlModel = require('./lvlModel');
+const LvlCollection = require('./lvlCollection');
 require('./student');
 require('./reward_suggestion_student');
 
-const RewardSuggestion = Bookshelf.Model.extend({
+const RewardSuggestion = LvlModel.extend({
   tableName: 'reward_suggestions',
   hasTimestamps: true,
 
-  reward_suggestion_students: function() {
+  rewardSuggestionStudents() {
     return this.belongsToMany('Student').through('RewardSuggestionStudent');
   },
 });
 
-module.exports = Bookshelf.model('RewardSuggestions', RewardSuggestions);
+const RewardSuggestions = LvlCollection.extend({
+  model: RewardSuggestion,
+});
+
+module.exports = {
+  RewardSuggestion: Bookshelf.model('RewardSuggestion', RewardSuggestion),
+  RewardSuggestions: Bookshelf.collection('RewardSuggestions', RewardSuggestions),
+};

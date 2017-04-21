@@ -1,13 +1,22 @@
-const Bookshelf = require('../bookshelf');
-require('./student');
-
-const Point = Bookshelf.Model.extend({
-  tableName: 'points',
-  hasTimestamps: true,
-
-  students: function() {
-    return this.belongsToMany('Student');
-  },
-});
-
-module.exports = Bookshelf.model('Point', Point);
+// const Bookshelf = require('../bookshelf');
+// const LvlModel = require('./lvlModel');
+// const LvlCollection = require('./lvlCollection');
+// require('./student');
+//
+// const Point = LvlModel.extend({
+//   tableName: 'points',
+//   hasTimestamps: true,
+//
+//   students() {
+//     return this.belongsToMany('Student');
+//   },
+// });
+//
+// const Admins = LvlCollection.extend({
+//   model: Admin,
+// });
+//
+// module.exports = {
+//   Admin: Bookshelf.model('Admin', Admin),
+//   Admins: Bookshelf.collection('Admins', Admins),
+// };

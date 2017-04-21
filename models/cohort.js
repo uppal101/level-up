@@ -1,22 +1,31 @@
 const Bookshelf = require('../bookshelf');
+const LvlModel = require('./lvlModel');
+const LvlCollection = require('./lvlCollection');
 require('./student');
 require('./campus');
 require('./admin');
-require('./admin_cohort')
+require('./admin_cohort');
 
-const Cohort = Bookshelf.Model.extend({
+const Cohort = LvlModel.extend({
   tableName: 'cohorts',
   hasTimestamps: true,
 
-  students: function() {
+  students() {
     return this.hasMany('Student');
   },
-  campus: function() {
+  campus() {
     return this.belongsTo('Campus');
   },
-  admins: function() {
+  admins() {
     return this.belongsToMany('Admin').through('AdminCohort');
   },
 });
 
-module.exports = Bookshelf.model('Student', Student);
+const Cohorts = LvlCollection.extend({
+  model: Cohort,
+});
+
+module.exports = {
+  Cohort: Bookshelf.model('Cohort', Cohort),
+  Cohorts: Bookshelf.collection('Cohorts', Cohorts),
+};
