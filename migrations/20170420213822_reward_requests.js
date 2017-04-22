@@ -28,4 +28,4 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   table.timestamps(true, true);
 });
 
-exports.down = (knex, Promise) => knex.schema.dropTable('challenge_submissions');
+exports.down = (knex, Promise) => knex.schema.dropTable('reward_requests');
