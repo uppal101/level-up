@@ -9,8 +9,9 @@ exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   .notNullable();
   table.string('email', 'varchar(65)')
   .notNullable();
-  table.string('gravatar_url', 'varchar(65)')
+  table.string('hashed_password', 'char(60)')
   .notNullable();
+  table.string('gravatar_url', 'varchar(65)');
   table.integer('campus_id')
   .notNullable()
   .references('id')

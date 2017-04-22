@@ -1,7 +1,7 @@
-exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestions_students', (table) => {
+exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestion_students', (table) => {
   table.increments('id')
   .primary();
-  table.integer('reward_suggestions_id')
+  table.integer('reward_suggestion_id')
   .notNullable()
   .references('id')
   .inTable('reward_suggestions')
@@ -14,4 +14,4 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestions_stud
   table.timestamps(true, true);
 });
 
-exports.down = (knex, Promise) => knex.schema.dropTable('reward_suggestions_students');
+exports.down = (knex, Promise) => knex.schema.dropTable('reward_suggestion_students');

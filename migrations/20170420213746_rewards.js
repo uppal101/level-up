@@ -5,14 +5,14 @@ exports.up = (knex, Promise) => knex.schema.createTable('rewards', (table) => {
   .notNullable();
   table.integer('point_cost')
   .notNullable();
-  table.string('description', 'varchar(255)')
+  table.string('description')
   .notNullable();
   table.integer('campus_id')
   .notNullable()
   .references('id')
-  .inTable('campus')
+  .inTable('campuses')
   .onDelete('CASCADE');
-  table.integer('categories_id')
+  table.integer('category_id')
   .notNullable()
   .references('id')
   .inTable('categories')

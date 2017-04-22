@@ -6,7 +6,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('admin_cohorts', (table)
   .references('id')
   .inTable('admins')
   .onDelete('CASCADE');
-  table.integer('cohorts_id')
+  table.integer('cohort_id')
   .notNullable()
   .references('id')
   .inTable('cohorts')

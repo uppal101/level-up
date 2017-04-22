@@ -1,12 +1,12 @@
 exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestions', (table) => {
   table.increments('id')
   .primary();
-  table.string('title', 'varchar(64)')
+  table.string('title', 'varchar(65)')
   .notNullable();
-  table.string('description', 'varchar(256)')
+  table.string('description')
   .notNullable();
   table.integer('votes');
-  table.integer('categories_id')
+  table.integer('category_id')
   .notNullable()
   .references('id')
   .inTable('categories')

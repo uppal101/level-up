@@ -5,13 +5,13 @@ exports.up = (knex, Promise) => knex.schema.createTable('challenges', (table) =>
   .notNullable();
   table.integer('point_value')
   .notNullable();
-  table.string('description', 'varchar(255)')
+  table.string('description')
   .notNullable();
-  table.string('requirements_1', 'varchar(255)');
-  table.string('requirements_2', 'varchar(255)');
-  table.string('requirements_3', 'varchar(255)');
-  table.string('requirements_4', 'varchar(255)');
-  table.string('requirements_5', 'varchar(255)');
+  table.string('requirements_1');
+  table.string('requirements_2');
+  table.string('requirements_3');
+  table.string('requirements_4');
+  table.string('requirements_5');
   table.timestamps(true, true);
 });
 

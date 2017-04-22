@@ -2,8 +2,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('campuses', (table) => {
   table.increments('id')
   .primary();
   table.string('location')
-  .notNullable()
-  .unique();
+  .notNullable().unique();
   table.timestamps(true, true);
 });
 
