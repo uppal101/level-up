@@ -1,8 +1,17 @@
+exports.up = (knex, Promise) => knex.schema.createTable('admin_cohorts', (table) => {
+  table.increments('id')
+  .primary();
+  table.integer('admin_id')
+  .notNullable()
+  .references('id')
+  .inTable('admins')
+  .onDelete('CASCADE');
+  table.integer('cohorts_id')
+  .notNullable()
+  .references('id')
+  .inTable('cohorts')
+  .onDelete('CASCADE');
+  table.timestamps(true, true);
+});
 
-exports.up = function(knex, Promise) {
-  
-};
-
-exports.down = function(knex, Promise) {
-  
-};
+exports.down = (knex, Promise) => knex.schema.dropTable('admin_cohorts');
