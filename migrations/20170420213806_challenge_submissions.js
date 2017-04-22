@@ -10,6 +10,16 @@ exports.up = (knex, Promise) => knex.schema.createTable('challenge_submissions',
   .notNullable()
   .references('id')
   .inTable('challenges');
+  table.integer('campus_id')
+  .notNullable()
+  .references('id')
+  .inTable('campuses')
+  .onDelete('CASCADE');
+  table.integer('category_id')
+  .notNullable()
+  .references('id')
+  .inTable('categories')
+  .onDelete('CASCADE');
   table.string('submission_message');
   table.string('evaluation_message');
   table.string('submission_status', 'varchar(65)');
