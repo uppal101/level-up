@@ -10,7 +10,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestions', (t
   .notNullable()
   .references('id')
   .inTable('categories')
-  .onDelete('cascade');
+  .onDelete('CASCADE');
   table.timestamps(true, true);
 });
 
