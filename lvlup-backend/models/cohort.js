@@ -1,6 +1,6 @@
 const Bookshelf = require('../bookshelf');
 const LvlModel = require('./lvlModel');
-const LvlCollection = require('./lvlCollection');
+
 require('./student');
 require('./campus');
 require('./admin');
@@ -21,11 +21,4 @@ const Cohort = LvlModel.extend({
   },
 });
 
-const Cohorts = LvlCollection.extend({
-  model: Cohort,
-});
-
-module.exports = {
-  Cohort: Bookshelf.model('Cohort', Cohort),
-  Cohorts: Bookshelf.collection('Cohorts', Cohorts),
-};
+module.exports = Bookshelf.model('Cohort', Cohort);
