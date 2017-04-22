@@ -1,7 +1,7 @@
 exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (table) => {
   table.increments('id')
   .primary();
-  table.string('request_status', 'char(65)')
+  table.string('request_status', 'varchar(65)')
   .notNullable();
   table.integer('student_id')
   .notNullable()
@@ -15,7 +15,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   table.timestamp('updated_at')
   .notNullable()
   .defaultTo(knex.fn.now());
-  table.string('notes', 'char(256)');
+  table.string('notes', 'varchar(256)');
   table.boolean('reward_used')
   .notNullable();
   table.timestamps(true, true);
