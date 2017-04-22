@@ -7,7 +7,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   .notNullable()
   .references('id')
   .inTable('students')
-  .onDelete('cascade');
+  .onDelete('CASCADE');
   table.integer('rewards_id')
   .notNullable()
   .references('id')
