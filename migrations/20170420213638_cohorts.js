@@ -1,9 +1,9 @@
 exports.up = (knex, Promise) => knex.schema.createTable('cohorts', (table) => {
   table.increments('id')
   .primary();
-  table.string('name', 'char(6)')
+  table.string('name', 'varchar(6)')
   .notNullable();
-  table.string('type', 'char(3)')
+  table.string('type', 'varchar(3)')
   .notNullable();
   table.date('q1_start_date')
   .notNullable();

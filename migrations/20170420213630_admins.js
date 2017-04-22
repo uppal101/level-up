@@ -1,15 +1,15 @@
 exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   table.increments('id')
   .primary();
-  table.string('username', 'char(20)')
+  table.string('username', 'varchar(20)')
   .notNullable();
-  table.string('first_name', 'char(20)')
+  table.string('first_name', 'varchar(20)')
   .notNullable();
-  table.string('last_name', 'char(20)')
+  table.string('last_name', 'varchar(20)')
   .notNullable();
-  table.string('email', 'char(65)')
+  table.string('email', 'varchar(65)')
   .notNullable();
-  table.string('gravatar_url', 'char(65)')
+  table.string('gravatar_url', 'varchar(65)')
   .notNullable();
   table.integer('campus_id')
   .notNullable()
