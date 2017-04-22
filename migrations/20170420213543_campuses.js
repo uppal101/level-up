@@ -1,6 +1,9 @@
 exports.up = (knex, Promise) => knex.schema.createTable('campuses', (table) => {
-  table.increments('id').primary();
-  table.string('location').notNullable().unique();
+  table.increments('id')
+  .primary();
+  table.string('location')
+  .notNullable()
+  .unique();
   table.timestamps(true, true);
 });
 
