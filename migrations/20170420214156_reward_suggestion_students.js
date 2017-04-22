@@ -5,12 +5,12 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_suggestions_stud
   .notNullable()
   .references('id')
   .inTable('reward_suggestions')
-  .onDelete('cascade');
+  .onDelete('CASCADE');
   table.integer('voters')
   .notNullable()
   .references('id')
   .inTable('students')
-  .onDelete('cascade');
+  .onDelete('CASCADE');
   table.timestamps(true, true);
 });
 
