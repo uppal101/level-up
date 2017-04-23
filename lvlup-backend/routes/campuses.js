@@ -17,19 +17,19 @@ router.route('/campuses/')
     });
   })
 
-  // .post((req, res) => {
-  //   Campus.forge({
-  //     location: req.body.location,
-  //   })
-  //   .save()
-  //   .then((campus) => {
-  //     res.status(200).json(campus);
-  //   })
-  //   .catch(err => console.error(err))
-  // });
+  .post((req, res) => {
+    Campus.forge({
+      location: req.body.location,
+    })
+    .save()
+    .then((campus) => {
+      res.status(200).json(campus);
+    })
+    .catch(err => console.error(err))
+  });
+
   router.route('/campuses/:campus_id')
     .delete((req, res) => {
-      console.log('here');
       Campus.forge()
       .fetch({ require: true})
       .then((campus) => {
