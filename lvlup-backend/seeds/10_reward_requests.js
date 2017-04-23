@@ -10,7 +10,8 @@ exports.seed = function (knex, Promise) {
       fulfilled: false,
     },
     {
-      id: 2      student_id: 1,
+      id: 2,      
+      student_id: 1,
       reward_id: 7,
       status: 'Pending approval',
       fulfilled: false,
