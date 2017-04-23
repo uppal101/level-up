@@ -7,25 +7,86 @@ const supertest = require('supertest');
 const knex = require('../knex');
 const app = require('../app');
 
-before((done) => {
-  knex.migrate.rollback()
-  .then(function(){
-    return knex.migrate.latest()
-  })
-  .then(() => {
+
+beforeEach((done) => {
+  knex.migrate.latest().then(() => {
     done();
-  })
+  }).catch((err) => {
+    done(err);
+  });
+});
+
+afterEach(done => {
+  knex.migrate.rollback()
+  .then(() => done())
   .catch((err) => {
     done(err);
   });
 });
 
-beforeEach((done) => {
-  knex.seed.run()
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
+
+describe('GET /campuses/', () => {
+  it('should respond with all campuses', (done) => {
+    supertest(app)
+      .get('/campuses')
+      .set('Accept', 'application/json')
+      .expect(200, [
+        {
+          location: 'San Francisco',
+        }, {
+          location: 'Austin',
+        }, {
+          location: 'Boulder',
+        }, {
+          location: 'Denver-Platte',
+        }, {
+          location: 'Denver-Golden Triangle',
+        }, {
+          location: 'New York',
+        }, {
+          location: 'Phoenix',
+        }, {
+          location: 'Seattle',
+        }, {
+          location: 'All Campuses',
+        },
+      ],done);
+  });
+});
+
+describe('POST /campuses/', () => {
+  it('allows authorized user to add a campus in the database', (done) => {
+    supertest(app)
+      .post('/campuses')
+      .set('Accept', 'application/json')
+      .send({
+        location: 'Los Angeles',
+      })
+      .expect((campuses) => {
+        delete campuses.body.created_at;
+        delete campuses.body.updated_at;
+      })
+      .expect(200, [
+        {
+          id: 10
+          location: 'San Francisco',
+        },
+      ], done);
+  });
+  it('should respond with 400 when authorized user does not send a location', (done) => {
+    supertest(app)
+      .post('/campuses')
+      .set('Accept', 'application/json')
+      .send({
+
+      })
+      .expect((campuses) => {
+        delete campuses.body.created_at;
+        delete campuses.body.updated_at;
+      })
+      .expect(400, JSON.stringify({
+        code: 400,
+        message: "Please enter a location"
+      }, done))
+  })
 });
