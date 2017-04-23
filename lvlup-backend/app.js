@@ -29,25 +29,6 @@ app.use(students);
 // });
 
 
-// passport.use(new GitHubStrategy({
-//   clientID: process.env.GITHUB_CLIENT_ID,
-//   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-//   callbackURL: `${process.env.HOST}/auth/github/callback`,
-// },
-//   (accessToken, refreshToken, profile, done) => {
-//     console.log('profile:', profile);
-//   }));
-//
-// app.get('/auth/github',
-//   passport.authenticate('github', { scope: ['user:email'] }));
-//
-// app.get('/auth/github/callback',
-//   passport.authenticate('github', { failureRedirect: '/login' }),
-//   (req, res) => {
-//     // Successful authentication, redirect home.
-//     res.json(res);
-//   });
-
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
