@@ -2,10 +2,7 @@
 exports.up = (knex, Promise) => knex.schema.createTable('students', (table) => {
   table.increments('id')
   .primary();
-  table.string('first_name', 'varchar(20)')
-  .notNullable();
-  table.string('last_name', 'varchar(20)')
-  .notNullable();
+  table.string('name', 'varchar(40)');
   table.string('email', 'varchar(65)')
   .notNullable();
   table.string('github_user_name', 'varchar(65)')
