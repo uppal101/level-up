@@ -18,6 +18,7 @@ passport.use(new GitHubStrategy({
 },
   (accessToken, refreshToken, profile, done) => {
     console.log('profile:', profile);
+    // INSERT HERE THE THE DATABASE QUERY TO CONFIRM ACCOUNT
   }));
 
 router.get('/auth/github',
