@@ -11,10 +11,18 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(passport.initialize());
 app.use(passport.session());
 
+// const path = require('path');
+//
+// app.use(express.static(path.join('public')));
+
+const students = require('./routes/students');
+app.use(students);
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+console.log('hello');
 
 // passport.serializeUser(function (user, done) {
 //   done(null, user);

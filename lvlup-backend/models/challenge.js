@@ -1,6 +1,6 @@
 const Bookshelf = require('../bookshelf');
 const LvlModel = require('./lvlModel');
-const LvlCollection = require('./lvlCollection');
+
 require('./category');
 require('./campus');
 require('./challenge_submission');
@@ -20,11 +20,4 @@ const Challenge = LvlModel.extend({
   },
 });
 
-const Challenges = LvlCollection.extend({
-  model: Challenge,
-});
-
-module.exports = {
-  Challenge: Bookshelf.model('Challenge', Challenge),
-  Challenges: Bookshelf.collection('Challenges', Challenges),
-};
+module.exports = Bookshelf.model('Challenge', Challenge);
