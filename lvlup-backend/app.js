@@ -20,14 +20,6 @@ app.use(passport.session());
 app.use(login);
 app.use(students);
 
-// passport.serializeUser(function (user, done) {
-//   done(null, user);
-// });
-//
-// passport.deserializeUser(function (obj, done) {
-//   done(null, obj);
-// });
-
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
