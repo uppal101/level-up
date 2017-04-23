@@ -2,8 +2,7 @@ const Bookshelf = require('../bookshelf');
 const LvlModel = require('./lvlModel');
 
 require('./cohort');
-require('./point');
-require('./reward_suggestion');
+require('./reward_suggestion_student');
 
 const Student = LvlModel.extend({
   tableName: 'students',
@@ -11,9 +10,6 @@ const Student = LvlModel.extend({
 
   cohort() {
     return this.belongsTo('Cohort');
-  },
-  points() {
-    return this.hasMany('Point');
   },
   rewardSuggestionStudents() {
     return this.belongsToMany('RewardSuggestions').through('RewardSuggestionStudent');
