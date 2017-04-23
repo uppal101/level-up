@@ -90,3 +90,23 @@ describe('POST /campuses/', () => {
       }, done))
   })
 });
+
+describe('DELETE /campuses/{id}', () => {
+  it('should allow authorized user to delete a specific campus in the database', (done) => {
+    supertest(app)
+      .delete('/campuses/5')
+      .set('Accept', 'application/json')
+      .expect(200, [
+        {
+          id: 5,
+          location: 'Denver-Golden Triangle',
+        },
+      ],done);
+  });
+  it('should respond with 404 if user enters incorrect parameter', (done) => {
+    supertest(app)
+    .get('/campuses/Denver-GoldenTriangle')
+    .set('Accept', 'Application/json')
+    .expect(404, JSON.stringify({code:404, message: "Please enter valid information"}, done));
+  });
+});
