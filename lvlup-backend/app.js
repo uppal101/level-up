@@ -9,6 +9,13 @@ const students = require('./routes/students');
 const login = require('./routes/login');
 const campus = require('./routes/campuses');
 
+// const path = require('path');
+//
+// app.use(express.static(path.join('public')));
+
+const students = require('./routes/students');
+app.use(students);
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -21,14 +28,6 @@ app.use(passport.session());
 app.use(login);
 app.use(students);
 app.use(campus);
-
-// passport.serializeUser(function (user, done) {
-//   done(null, user);
-// });
-//
-// passport.deserializeUser(function (obj, done) {
-//   done(null, obj);
-// });
 
 
 app.listen(PORT, () => {
