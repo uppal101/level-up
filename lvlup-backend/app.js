@@ -6,8 +6,8 @@ const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const students = require('./routes/students');
-const login = require('./routes/login');
-const students = require('./routes/students');
+const loginRoute = require('./routes/login');
+const studentsRoute = require('./routes/students');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -18,8 +18,8 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(login);
-app.use(students);
+app.use(loginRoute);
+app.use(studentsRoute);
 
 
 app.listen(PORT, () => {
