@@ -37,11 +37,11 @@ router.get('/auth/github',
 router.get('/auth/github/callback',
   passport.authenticate('github'),
   (req, res) => {
-    Students.query('where', 'email', '=', req.user.emails[0].value)
-     .fetch()
+    Student.query({ where: { email: req.user.emails[0].value } })
+     .fetch({ withRelated: ['challegeSubmissions', 'rewardRequests', 'cohort'] })
      .then((student) => {
-       console.log(student.models[0].attributes);
-       res.json(student.models[0].attributes);
+       console.log(student);
+       res.json(student);
      });
   });
 
