@@ -7,6 +7,7 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const students = require('./routes/students');
 const login = require('./routes/login');
+const campus = require('./routes/campuses');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(passport.session());
 
 app.use(login);
 app.use(students);
+app.use(campus);
 
 // passport.serializeUser(function (user, done) {
 //   done(null, user);

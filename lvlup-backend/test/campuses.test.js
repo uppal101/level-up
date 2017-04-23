@@ -68,7 +68,7 @@ describe('POST /campuses/', () => {
       })
       .expect(200, [
         {
-          id: 10
+          id: 10,
           location: 'San Francisco',
         },
       ], done);
