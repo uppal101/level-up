@@ -1,6 +1,6 @@
 const Bookshelf = require('../bookshelf');
 const LvlModel = require('./lvlModel');
-const LvlCollection = require('./lvlCollection');
+
 require('./student');
 require('./reward');
 
@@ -16,11 +16,4 @@ const RewardRequest = LvlModel.extend({
   },
 });
 
-const RewardRequests = LvlCollection.extend({
-  model: RewardRequest,
-});
-
-module.exports = {
-  RewardRequest: Bookshelf.model('RewardRequest', RewardRequest),
-  RewardRequests: Bookshelf.collection('RewardRequests', RewardRequests),
-};
+module.exports = Bookshelf.model('RewardRequest', RewardRequest);
