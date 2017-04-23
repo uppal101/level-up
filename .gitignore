@@ -1,1 +1,5 @@
-node_modules
+node_modules;
+JWT_KEY=1QvfrKzWDdqcAe7FNjv1KeRIxA/GM//DKsz+vyt5jQdox8+NAUwpP5Rfwo7qofG2 o9mU+8kk2ggyeMBerwAKdQ==;
+GITHUB_CLIENT_ID="a010ebbfe828c89b5f7e"
+GITHUB_CLIENT_SECRET="c2fc81f1f17f5d530b064641e1bca3b3f7f45cea"
+HOST = "http://localhost:3000"
