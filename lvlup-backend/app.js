@@ -7,13 +7,7 @@ const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const students = require('./routes/students');
 const login = require('./routes/login');
-
-// const path = require('path');
-//
-// app.use(express.static(path.join('public')));
-
 const students = require('./routes/students');
-app.use(students);
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
