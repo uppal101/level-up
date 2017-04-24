@@ -17,5 +17,6 @@ exports.seed = function (knex, Promise) {
       id: 4,
       category: 'Life',
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'categories_id_seq\', (SELECT MAX(id) FROM categories))'));
 };

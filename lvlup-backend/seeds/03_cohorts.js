@@ -23,5 +23,6 @@ exports.seed = function (knex, Promise) {
       graduation_date: '2017-09-29',
       campus_id: 1,
     },
-  ]));
+  ]))
+    .then(() => knex.raw('SELECT setval(\'cohorts_id_seq\', (SELECT MAX(id) FROM cohorts))'));
 };

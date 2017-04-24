@@ -23,5 +23,6 @@ exports.seed = function (knex, Promise) {
       status: 'Pending approval',
       fulfilled: false,
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'reward_requests_id_seq\', (SELECT MAX(id) FROM reward_requests))'));
 };
