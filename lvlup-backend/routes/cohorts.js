@@ -19,9 +19,21 @@ router.route('/cohorts/')
   })
 
   .post((req, res) => {
-    Campus.forge({
-      
+    Cohort.forge({
+      name: req.body.name,
+      type: req.body.type,
+      q1_start_date: req.body.q1_start_date,
+      q2_start_date: req.body.q2_start_date,
+      q3_start_date: req.body.q3_start_date,
+      q4_start_date: req.body.q4_start_date,
+      graduation_date: req.body.graduation_date,
+      campus_id: req.body.campus_id,
     })
-  })
+    .save()
+    .then((cohort) => {
+      res.status(200).json(cohort);
+    })
+    .catch(err => console.error(err))
+  });
 
 module.exports = router;
