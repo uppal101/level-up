@@ -2,6 +2,7 @@ const Bookshelf = require('../bookshelf');
 const LvlModel = require('./lvlModel');
 
 require('./campus');
+require('./cohort');
 require('./category');
 require('./reward_request');
 
@@ -17,6 +18,9 @@ const Reward = LvlModel.extend({
   },
   rewardRequests() {
     return this.hasMany('RewardRequests');
+  },
+  cohorts() {
+    return this.belongsToMany('Cohort');
   },
 });
 

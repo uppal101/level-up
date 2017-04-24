@@ -3,6 +3,7 @@ const LvlModel = require('./lvlModel');
 
 require('./category');
 require('./campus');
+require('./cohort');
 require('./challenge_submission');
 
 const Challenge = LvlModel.extend({
@@ -17,6 +18,9 @@ const Challenge = LvlModel.extend({
   },
   challenge_submissions() {
     return this.hasMany('ChallengeSubmission');
+  },
+  cohorts() {
+    return this.belongsToMany('Cohort');
   },
 });
 
