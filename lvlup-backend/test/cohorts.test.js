@@ -90,7 +90,8 @@ describe('POST /cohorts/', () => {
           graduation_date: '2017-09-29',
           campus_id: 6,
         },
-      ], done);
+      ]);
+    done();
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
     supertest(app)
@@ -112,6 +113,7 @@ describe('POST /cohorts/', () => {
       .expect(400, JSON.stringify({
         code: 400,
         message: 'Please enter all fields'
-      }, done))
+      }));
+    done();
   });
 });
