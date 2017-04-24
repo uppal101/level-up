@@ -55,7 +55,8 @@ describe('GET /campuses/', () => {
         }, {
           location: 'All Campuses',
         },
-      ],done);
+      ]);
+      done()
   });
 });
 
@@ -76,7 +77,8 @@ describe('POST /campuses/', () => {
           id: 10,
           location: 'Los Angeles',
         },
-      ], done);
+      ]);
+    done();
   });
   it('should respond with 400 when authorized user does not send a location', (done) => {
     supertest(app)
@@ -91,8 +93,9 @@ describe('POST /campuses/', () => {
       })
       .expect(400, JSON.stringify({
         code: 400,
-        message: "Please enter a location"
-      }, done))
+        message: 'Please enter a location'
+      }));
+    done();
   });
 });
 
@@ -106,12 +109,14 @@ describe('DELETE /campuses/{id}', () => {
           id: 5,
           location: 'Denver-Golden Triangle',
         },
-      ],done);
+      ]);
+    done();
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
     .get('/campuses/Denver-GoldenTriangle')
     .set('Accept', 'Application/json')
-    .expect(404, JSON.stringify({code:404, message: "Please enter valid information"}, done));
+    .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }));
+    done();
   });
 });
