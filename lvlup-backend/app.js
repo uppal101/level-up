@@ -5,10 +5,11 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
-const students = require('./routes/students');
-const loginRoute = require('./routes/login');
 const studentsRoute = require('./routes/students');
 const cookieParser = require('cookie-parser');
+const loginRoute = require('./routes/login');
+const campusRoute = require('./routes/campuses');
+const cohortsRoute = require('./routes/cohorts');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -50,6 +51,8 @@ app.use((req, res, next) => {
 
 app.use(loginRoute);
 app.use(studentsRoute);
+app.use(campusRoute);
+app.use(cohortsRoute);
 
 
 app.listen(PORT, () => {
