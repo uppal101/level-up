@@ -10,11 +10,11 @@ router.route('/cohorts/')
     Cohorts.forge()
     .fetch()
     .then((cohorts) => {
-      // console.log(cohorts)
+      console.log(cohorts)
       res.json({ error: false, data: cohorts });
     })
     .catch((err) => {
-      res.status(500).json({error: true, data: { message: err.message } });
+      res.status(500).json({ error: true, data: { message: err.message } });
     });
   })
 

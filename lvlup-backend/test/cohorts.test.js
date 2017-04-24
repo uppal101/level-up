@@ -55,7 +55,8 @@ describe('GET /cohorts/', () => {
           graduation_date: '2017-09-29',
           campus_id: 1,
         },
-      ],done);
+      ]);
+    done();
   });
 });
 
