@@ -6,6 +6,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const knex = require('../knex.js');
 const Students = require('../collections/students');
 const Student = require('../models/student');
+const jwt = require('jsonwebtoken');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -37,12 +38,23 @@ router.get('/auth/github',
 router.get('/auth/github/callback',
   passport.authenticate('github'),
   (req, res) => {
-    Students.query('where', 'email', '=', req.user.emails[0].value)
-     .fetch()
-     .then((student) => {
-       console.log(student.models[0].attributes);
-       res.json(student.models[0].attributes);
-     });
+    Student.query({ where: { email: req.user.emails[0].value } })
+      .fetch({ withRelated: ['challegeSubmissions', 'rewardRequests', 'cohort'] })
+      .then((student) => {
+        if (student.id) {
+          const user = { userId: student.id };
+          const token = jwt.sign(user, process.env.JWT_KEY, {
+            expiresIn: '7 days',
+          });
+          res.set('Token', token);
+          res.json(student);
+        } else {
+          res.json(req.user._json);
+        }
+      })
+      .catch((err) => {
+        res.json(req.user._json);
+      });
   });
 
 module.exports = router;

@@ -27,5 +27,6 @@ exports.seed = function (knex, Promise) {
       reward_suggestion_id: 2,
       voters: 2,
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'reward_suggestion_students_id_seq\', (SELECT MAX(id) FROM reward_suggestion_students))'));
 };

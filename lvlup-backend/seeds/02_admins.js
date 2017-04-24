@@ -19,5 +19,6 @@ exports.seed = function (knex, Promise) {
       hashed_password: '$2a$06$s6LuQvVOqv7cdwo4KCwOmu28SnXWGcaqBpIXkM6iBZQLDBTMoI9Au',
       campus_id: 1,
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'admins_id_seq\', (SELECT MAX(id) FROM admins))'));
 };

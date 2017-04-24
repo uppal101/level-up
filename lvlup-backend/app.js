@@ -9,7 +9,7 @@ const studentsRoute = require('./routes/students');
 const loginRoute = require('./routes/login');
 const campusRoute = require('./routes/campuses');
 const cohortsRoute = require('./routes/cohorts');
-
+const signupRoute = require('./routes/signup');
 // const path = require('path');
 //
 // app.use(express.static(path.join('public')));
@@ -27,8 +27,12 @@ app.use(loginRoute);
 app.use(studentsRoute);
 app.use(campusRoute);
 app.use(cohortsRoute);
+app.use(signupRoute);
+
 
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
+
+module.exports = app;
