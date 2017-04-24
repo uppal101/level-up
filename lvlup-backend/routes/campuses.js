@@ -10,7 +10,15 @@ router.route('/campuses/')
     Campuses.forge()
     .fetch()
     .then((campuses) => {
-      res.json({ campuses });
+      // console.log('This is campuses ', campuses);
+      const campusesResponse = JSON.parse(JSON.stringify(campuses));
+      let locations = campusesResponse.map((ele) => {
+        delete ele.id;
+        delete ele.updated_at;
+        delete ele.created_at;
+        return ele;
+      });
+      res.json({ locations });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

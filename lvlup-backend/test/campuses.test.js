@@ -62,7 +62,7 @@ describe('GET /campuses/', () => {
         delete campuses.body.updated_at;
       })
       .expect(200, {
-        campuses: [
+        locations: [
           {
             location: 'San Francisco',
           }, {
