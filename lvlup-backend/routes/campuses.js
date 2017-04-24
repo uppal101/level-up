@@ -10,7 +10,12 @@ router.route('/campuses/')
     Campuses.forge()
     .fetch()
     .then((campuses) => {
-      res.json({ error: false, data: campuses.toJSON() });
+      // let campusResponse = JSON.parse(JSON.stringify(campuses));
+      // delete campusResponse.id;
+      // delete campusResponse.created_at;
+      // delete campusResponse.updated_at;
+      // console.log(campusResponse)
+      res.json({ error: false, data: campuses});
     })
     .catch((err) => {
       res.status(500).json({error: true, data: { message: err.message } });

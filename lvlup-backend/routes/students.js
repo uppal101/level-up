@@ -21,6 +21,6 @@ router.get('/students/:id', (req, res) => {
     res.status(200).json(student)
   })
   .catch(err => console.error(err));
-}
+})
 
 module.exports = router;
