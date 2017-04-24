@@ -8,6 +8,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const students = require('./routes/students');
 const loginRoute = require('./routes/login');
 const studentsRoute = require('./routes/students');
+const signupRoute = require('./routes/signup');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -20,8 +21,11 @@ app.use(passport.session());
 
 app.use(loginRoute);
 app.use(studentsRoute);
+app.use(signupRoute);
 
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
+
+module.exports = app;

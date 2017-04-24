@@ -29,5 +29,6 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 2,
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'challenge_submissions_id_seq\', (SELECT MAX(id) FROM challenge_submissions))'));
 };
