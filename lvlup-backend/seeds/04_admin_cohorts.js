@@ -21,5 +21,6 @@ exports.seed = function (knex, Promise) {
       admin_id: 2,
       cohort_id: 2,
     },
-  ]));
+  ]))
+  .then(() => knex.raw('SELECT setval(\'admin_cohorts_id_seq\', (SELECT MAX(id) FROM admin_cohorts))'));
 };

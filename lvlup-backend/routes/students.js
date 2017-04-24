@@ -9,10 +9,18 @@ router.get('/students', (req, res) => {
   Students.forge()
   .fetch()
   .then((students) => {
-    console.log(students.toJSON());
     res.status(200).json(students);
   })
   .catch(err => console.error(err));
 });
+
+router.get('/students/:id', (req, res) => {
+  Students.forge({id: req.params.id})
+  .fetch()
+  .then((student) => {
+    res.status(200).json(student)
+  })
+  .catch(err => console.error(err));
+}
 
 module.exports = router;
