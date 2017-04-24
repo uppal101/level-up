@@ -8,20 +8,48 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const students = require('./routes/students');
 const loginRoute = require('./routes/login');
 const studentsRoute = require('./routes/students');
-const signupRoute = require('./routes/signup');
+const cookieParser = require('cookie-parser');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-app.use(bodyParser.json());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
+app.use(session({
+  keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2],
+  secret: 'bam',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+
+passport.use(new GitHubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: `${process.env.HOST}/auth/github/callback`,
+},
+  (accessToken, refreshToken, profile, done) => {
+    process.nextTick(() => done(null, profile));
+  }));
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 
 app.use(loginRoute);
 app.use(studentsRoute);
-app.use(signupRoute);
 
 
 app.listen(PORT, () => {
