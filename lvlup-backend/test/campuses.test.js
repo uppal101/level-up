@@ -28,8 +28,13 @@ afterEach(done => {
 describe('GET /campuses/', () => {
   it('should respond with all campuses', (done) => {
     supertest(app)
-      .get('/campuses')
+      .get('/campuses/')
       .set('Accept', 'application/json')
+      .expect((campuses) => {
+        delete campuses.body.id;
+        delete campuses.body.created_at;
+        delete campuses.body.updated_at;
+      })
       .expect(200, [
         {
           location: 'San Francisco',
@@ -57,7 +62,7 @@ describe('GET /campuses/', () => {
 describe('POST /campuses/', () => {
   it('allows authorized user to add a campus in the database', (done) => {
     supertest(app)
-      .post('/campuses')
+      .post('/campuses/')
       .set('Accept', 'application/json')
       .send({
         location: 'Los Angeles',
@@ -69,13 +74,13 @@ describe('POST /campuses/', () => {
       .expect(200, [
         {
           id: 10,
-          location: 'San Francisco',
+          location: 'Los Angeles',
         },
       ], done);
   });
   it('should respond with 400 when authorized user does not send a location', (done) => {
     supertest(app)
-      .post('/campuses')
+      .post('/campuses/')
       .set('Accept', 'application/json')
       .send({
 
@@ -88,7 +93,7 @@ describe('POST /campuses/', () => {
         code: 400,
         message: "Please enter a location"
       }, done))
-  })
+  });
 });
 
 describe('DELETE /campuses/{id}', () => {

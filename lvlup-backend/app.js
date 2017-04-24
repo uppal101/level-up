@@ -8,6 +8,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const studentsRoute = require('./routes/students');
 const loginRoute = require('./routes/login');
 const campusRoute = require('./routes/campuses');
+const cohortsRoute = require('./routes/cohorts');
 
 // const path = require('path');
 //
@@ -25,6 +26,7 @@ app.use(passport.session());
 app.use(loginRoute);
 app.use(studentsRoute);
 app.use(campusRoute);
+app.use(cohortsRoute);
 
 
 app.listen(PORT, () => {
