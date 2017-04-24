@@ -10,7 +10,7 @@ router.route('/campuses/')
     Campuses.forge()
     .fetch()
     .then((campuses) => {
-      res.json({ error: false, data: campuses });
+      res.json({ campuses });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
@@ -35,7 +35,7 @@ router.route('/campuses/')
       .then((campus) => {
         campus.destroy()
         .then(() => {
-          res.json({ error: true, data: { message: 'User successfully deleted' } })
+          res.json({ message: 'Campus successfully deleted' })
         })
         .catch((err) => {
           res.status(500).json({ error: true, data: { message: err.message } });

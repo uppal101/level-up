@@ -11,7 +11,7 @@ router.route('/cohorts/')
     .fetch()
     .then((cohorts) => {
       console.log(cohorts)
-      res.json({ error: false, data: cohorts });
+      res.json({ cohorts });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
@@ -35,5 +35,18 @@ router.route('/cohorts/')
     })
     .catch(err => console.error(err))
   });
+
+router.route('/cohorts/:id')
+  .get((req, res) => {
+    Cohorts.forge()
+    .fetch()
+    .then((cohorts) => {
+      console.log(cohorts)
+      res.json({ cohorts });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  })
 
 module.exports = router;
