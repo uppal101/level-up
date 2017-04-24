@@ -3,6 +3,8 @@ const LvlModel = require('./lvlModel');
 
 require('./cohort');
 require('./admin');
+require('./challenge');
+require('./reward');
 
 const Campus = LvlModel.extend({
   tableName: 'campuses',
@@ -13,6 +15,12 @@ const Campus = LvlModel.extend({
   },
   admins() {
     return this.hasMany('Admin');
+  },
+  rewards() {
+    return this.hasMany('Reward');
+  },
+  challenges() {
+    return this.hasMany('Challenge');
   },
 });
 
