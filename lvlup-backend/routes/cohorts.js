@@ -16,6 +16,12 @@ router.route('/cohorts/')
     .catch((err) => {
       res.status(500).json({error: true, data: { message: err.message } });
     });
-  });
+  })
+
+  .post((req, res) => {
+    Campus.forge({
+      
+    })
+  })
 
 module.exports = router;
