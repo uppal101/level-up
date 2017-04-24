@@ -1,0 +1,52 @@
+{
+  "name": "level-up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkstang/level-up.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkstang/level-up/issues"
+  },
+  "homepage": "https://github.com/tkstang/level-up#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.17.1",
+    "bookshelf": "^0.10.3",
+    "bookshelf-modelbase": "^2.10.3",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.19.0",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "express-validation": "^1.0.2",
+    "joi": "^10.3.1",
+    "jsonwebtoken": "^7.3.0",
+    "knex": "^0.12.9",
+    "momentum": "^1.0.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
+    "pg": "^6.1.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}
