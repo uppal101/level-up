@@ -10,8 +10,15 @@ router.route('/cohorts/')
     Cohorts.forge()
     .fetch()
     .then((cohorts) => {
-      console.log(cohorts)
-      res.json({ cohorts });
+      const cohortsResponse = JSON.parse(JSON.stringify(cohorts))
+      let allCohorts = cohortsResponse.map((ele) => {
+        delete ele.id;
+        delete ele.updated_at;
+        delete ele.created_at;
+        return ele;
+      })
+      res.json({ allCohorts });
+
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

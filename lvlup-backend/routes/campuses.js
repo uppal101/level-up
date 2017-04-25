@@ -10,7 +10,6 @@ router.route('/campuses/')
     Campuses.forge()
     .fetch()
     .then((campuses) => {
-      // console.log('This is campuses ', campuses);
       const campusesResponse = JSON.parse(JSON.stringify(campuses));
       let locations = campusesResponse.map((ele) => {
         delete ele.id;

@@ -8,29 +8,6 @@ const knex = require('../knex');
 const app = require('../app');
 
 
-// before((done) => {
-//   knex.migrate.rollback()
-//   .then(function(){
-//     return knex.migrate.latest()
-//   })
-//   .then(() => {
-//     done();
-//   })
-//   .catch((err) => {
-//     done(err);
-//   });
-// });
-//
-// beforeEach((done) => {
-//   knex.seed.run()
-//     .then(() => {
-//       done();
-//     })
-//     .catch((err) => {
-//       done(err);
-//     });
-// });
-
 beforeEach((done) => {
   knex.migrate.latest()
   .then(() => {
@@ -64,24 +41,24 @@ describe('GET /cohorts/', () => {
         delete cohorts.body.campus_id;
       })
       .expect(200, {
-        cohorts: [
+        allCohorts: [
           {
             name: 'g42',
             type: 'WDI',
-            q1_start_date: '2017-01-09',
-            q2_start_date: '2017-02-21',
-            q3_start_date: '2017-04-03',
-            q4_start_date: '2017-05-15',
-            graduation_date: '2017-06-23',
+            q1_start_date: '2017-01-09T08:00:00.000Z',
+            q2_start_date: '2017-02-21T08:00:00.000Z',
+            q3_start_date: '2017-04-03T07:00:00.000Z',
+            q4_start_date: '2017-05-15T07:00:00.000Z',
+            graduation_date: '2017-06-23T07:00:00.000Z',
             campus_id: 1,
           }, {
             name: 'g52',
             type: 'WDI',
-            q1_start_date: '2017-04-17',
-            q2_start_date: '2017-5-29',
-            q3_start_date: '2017-07-10',
-            q4_start_date: '2017-08-21',
-            graduation_date: '2017-09-29',
+            q1_start_date: '2017-04-17T07:00:00.000Z',
+            q2_start_date: '2017-05-29T07:00:00.000Z',
+            q3_start_date: '2017-07-10T07:00:00.000Z',
+            q4_start_date: '2017-08-21T07:00:00.000Z',
+            graduation_date: '2017-09-29T07:00:00.000Z',
             campus_id: 1,
           }
         ]
