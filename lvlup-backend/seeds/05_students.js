@@ -24,6 +24,7 @@ exports.seed = function (knex, Promise) {
       email: 'daniel.marc.gardner@gmail.com',
       github_user_name: 'danielmarcgardner',
       cohort_id: 1,
+      photo_url: 'https://avatars2.githubusercontent.com/u/22782154?v=3',
     },
   ]))
     .then(() => knex.raw('SELECT setval(\'students_id_seq\', (SELECT MAX(id) FROM students))'));

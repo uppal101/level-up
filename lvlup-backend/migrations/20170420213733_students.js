@@ -10,12 +10,10 @@ exports.up = (knex, Promise) => knex.schema.createTable('students', (table) => {
   table.string('photo_url', 'varchar(65)');
   table.string('gravatar_url', 'varchar(65)');
   table.integer('cohort_id')
-  .notNullable()
   .references('id')
   .inTable('cohorts')
   .onDelete('CASCADE');
-  table.string('username', 'varchar(65)')
-  .notNullable();
+  table.string('username', 'varchar(65)');
   table.timestamps(true, true);
 });
 
