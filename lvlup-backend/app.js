@@ -11,6 +11,7 @@ const loginRoute = require('./routes/login');
 const campusRoute = require('./routes/campuses');
 const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
+const rewardsRoute = require('./routes/rewards');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -56,6 +57,7 @@ app.use(studentsRoute);
 app.use(campusRoute);
 app.use(cohortsRoute);
 app.use(adminsRoute);
+app.use(rewardsRoute);
 
 
 app.listen(PORT, () => {
