@@ -120,3 +120,33 @@ describe('DELETE students/:id', () => {
       .expect(500, done);
   });
 });
+
+describe('PUT students/:id', () => {
+  it('responds with JSON', (done) => {
+    supertest(app)
+    .put('/api/students/1')
+    .expect('Content-Type', /json/)
+    .expect(200, done);
+  });
+  it('responds with updated student', (done) => {
+    supertest(app)
+    .put('/api/students/1')
+    .set('Accept', 'application/json')
+    .send({ username: 'tommyboy' })
+    .expect((student) => {
+      delete student.body.created_at;
+      delete student.body.updated_at;
+    })
+    .expect(200,
+      {
+        id: 1,
+        name: 'Thomas Stang',
+        email: 'stang.tk@gmail.com',
+        github_user_name: 'tkstang',
+        photo_url: null,
+        gravatar_url: null,
+        cohort_id: 1,
+        username: 'tommyboy',
+      }, done);
+  });
+});
