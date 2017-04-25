@@ -77,31 +77,27 @@ router.route('/cohorts/')
 //   });
 
 router.route('/cohorts/:id')
-    .get((req, res) => {
-      Cohort.forge({ id: req.params.id })
-      .fetch()
-      .then((cohort) => {
-        res.status(200).json(cohort);
-      })
-      .catch((err) => {
-        res.status(500).json({ error: true, data: { message: err.message } });
-      });
+  .get((req, res) => {
+    Cohort.forge({ id: req.params.id })
+    .fetch()
+    .then((cohort) => {
+      res.status(200).json(cohort);
     })
-    .delete((req, res) => {
-      Cohort.forge({ id: req.params.id })
-      .fetch({ require: true })
-      .then((cohort) => {
-        cohort.destroy()
-        .then(() => {
-          res.json({ message: 'Cohort successfully deleted' });
-        })
-        .catch((err) => {
-          res.status(500).json({ error: true, data: { message: err.message } });
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: true, data: { message: err.message } });
-      });
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
     });
+  })
+
+  .delete((req, res) => {
+    Cohort.forge({ id: req.params.id })
+    .fetch({ require: true })
+    .then(cohort => cohort.destroy())
+    .then(() => {
+      res.json({ message: 'Cohort successfully deleted' });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  });
 
 module.exports = router;
