@@ -33,29 +33,40 @@ describe('GET /campuses/', () => {
     supertest(app)
     .get('/api/campuses/')
     .set('Accept', 'application/json')
-    .expect(200, {
-      locations: [
-        {
-          location: 'San Francisco',
-        }, {
-          location: 'Austin',
-        }, {
-          location: 'Boulder',
-        }, {
-          location: 'Denver-Platte',
-        }, {
-          location: 'Denver-Golden Triangle',
-        }, {
-          location: 'New York',
-        }, {
-          location: 'Phoenix',
-        }, {
-          location: 'Seattle',
-        }, {
-          location: 'All Campuses',
-        },
-      ],
-    }, done);
+    .expect(locations => locations.body.forEach((location) => {
+      delete location.created_at;
+      delete location.updated_at;
+    }))
+    .expect(200, [
+      {
+        id: 1,
+        location: 'San Francisco',
+      }, {
+        id: 2,
+        location: 'Austin',
+      }, {
+        id: 3,
+        location: 'Boulder',
+      }, {
+        id: 4,
+        location: 'Denver-Platte',
+      }, {
+        id: 5,
+        location: 'Denver-Golden Triangle',
+      }, {
+        id: 6,
+        location: 'New York',
+      }, {
+        id: 7,
+        location: 'Phoenix',
+      }, {
+        id: 8,
+        location: 'Seattle',
+      }, {
+        id: 9,
+        location: 'All Campuses',
+      },
+    ], done);
   });
 });
 
@@ -67,6 +78,7 @@ describe('POST /campuses/', () => {
     .send({
       location: 'Los Angeles',
     })
+    .expect()
     .expect(200, {
       location: 'Los Angeles',
       id: 10,

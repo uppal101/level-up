@@ -10,19 +10,13 @@ router.route('/campuses/')
     Campuses.forge()
     .fetch()
     .then((campuses) => {
-      const campusesResponse = JSON.parse(JSON.stringify(campuses));
-      const locations = campusesResponse.map((ele) => {
-        delete ele.id;
-        delete ele.updated_at;
-        delete ele.created_at;
-        return ele;
-      });
-      res.json({ locations });
+      res.json(campuses);
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
     });
   })
+
 
   .post((req, res) => {
     Campus.forge({
@@ -39,7 +33,7 @@ router.route('/campuses/:id')
   .delete((req, res) => {
     Campus.forge({ id: req.params.id })
     .fetch({ require: true })
-    .then((campus) => campus.destroy())
+    .then(campus => campus.destroy())
     .then(() => {
       res.json({ message: 'Campus successfully deleted' });
     })

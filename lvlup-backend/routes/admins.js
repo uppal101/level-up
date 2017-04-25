@@ -11,15 +11,7 @@ router.route('/admins/')
     Admins.forge()
     .fetch()
     .then((admins) => {
-      const adminsResponse = JSON.parse(JSON.stringify(admins));
-      const allAdmins = adminsResponse.map((ele) => {
-        delete ele.id;
-        delete ele.hashed_password;
-        delete ele.updated_at;
-        delete ele.created_at;
-        return ele;
-      });
-      res.json({ allAdmins });
+      res.json({ admins });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
@@ -37,12 +29,7 @@ router.route('/admins/:id')
       gravatar_url: req.body.gravatar_url || admin.get('gravatar_url'),
       campus_id: req.body.campus_id || admin.get('campus_id'),
     }))
-    .then((admin) => {
-      const updatedAdmin = JSON.parse(JSON.stringify(admin));
-      delete updatedAdmin.id;
-      delete updatedAdmin.hashed_password;
-      delete updatedAdmin.updated_at;
-      delete updatedAdmin.created_at;
+    .then((updatedAdmin) => {
       res.json({ updatedAdmin });
     })
     .catch((err) => {

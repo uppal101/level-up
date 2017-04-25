@@ -33,8 +33,9 @@ describe('GET /admins/', () => {
     .get('/api/admins/')
     .set('Accept', 'application/json')
     .expect(200, {
-      allAdmins: [
+      admins: [
         {
+          id: 1,
           username: 'jennyboo',
           name: 'Jenny Engard',
           email: 'jenny.engard@galvanize.com',
@@ -42,6 +43,7 @@ describe('GET /admins/', () => {
           campus_id: 1,
         },
         {
+          id: 2,
           username: 'tweetordie',
           name: 'Mary Ann Barge',
           email: 'maryann.barge@galvanize.com',
