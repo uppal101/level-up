@@ -23,3 +23,37 @@ afterEach((done) => {
     done(err);
   });
 });
+
+describe('GET /admins/', () => {
+  it('should respond with all admins', (done) => {
+    supertest(app)
+    .get('/admins/')
+    .set('Accept', 'application/json')
+    .expect((admins) => {
+      delete admins.body.id;
+      delete admins.body.hashed_password;
+      delete admins.body.created_at;
+      delete admins.body.updated_at;
+    })
+    .expect(200, {
+      allAdmins: [
+        {
+          username: 'jennyboo',
+          first_name: 'Jenny',
+          last_name: 'Engard',
+          email: 'jenny.engard@galvanize.com',
+          gravatar_url: null,
+          campus_id: 1,
+        },
+        {
+          username: 'tweetordie',
+          first_name: 'Mary Ann',
+          last_name: 'Barge',
+          email: 'maryann.barge@galvanize.com',
+          gravatar_url: null,
+          campus_id: 1,
+        },
+      ],
+    }, done);
+  });
+});
