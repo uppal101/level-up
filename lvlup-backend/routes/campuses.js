@@ -35,7 +35,7 @@ router.route('/campuses/')
   .catch(err => console.error(err));
 });
 
-router.route('/campuses/:campus_id')
+router.route('/campuses/:id')
 .delete((req, res) => {
   Campus.forge()
   .fetch({ require: true })

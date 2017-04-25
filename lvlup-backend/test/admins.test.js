@@ -57,3 +57,50 @@ describe('GET /admins/', () => {
     }, done);
   });
 });
+
+describe('PUT /admins/:id', () => {
+  it('allows authorized user to update entire admin information', (done) => {
+    supertest(app)
+    .post('/admins/1')
+    .set('Accept', 'application/json')
+    .send({
+      username: 'operajenny',
+      first_name: 'Jenny',
+      last_name: 'Engard',
+      email: 'jenny.engard@galvanize.com',
+      gravatar_url: null,
+      campus_id: 1,
+    })
+    .expect((admin) => {
+      delete admin.body.created_at;
+      delete admin.body.updated_at;
+    })
+    .expect(200,
+      { updatedAdmin:
+      {
+        username: 'operajenny',
+        first_name: 'Jenny',
+        last_name: 'Engard',
+        email: 'jenny.engard@galvanize.com',
+        gravatar_url: null,
+        campus_id: 1,
+      } }, done);
+  });
+
+  it('should respond with 400 when authorized user does not send any information', (done) => {
+    supertest(app)
+      .post('/admin/1')
+      .set('Accept', 'application/json')
+      .send({
+
+      })
+      .expect((admin) => {
+        delete admin.body.created_at;
+        delete admin.body.updated_at;
+      })
+      .expect(400, JSON.stringify({
+        code: 400,
+        message: 'Please update a field',
+      }, done));
+  });
+});

@@ -128,7 +128,7 @@ describe('POST /cohorts/', () => {
   });
 });
 
-describe('GET /cohorts/:cohort_id', () => {
+describe('GET /cohorts/:id', () => {
   it('should respond with the specified cohort of the id requested', (done) => {
     supertest(app)
       .get('/cohorts/1')
@@ -158,7 +158,7 @@ describe('GET /cohorts/:cohort_id', () => {
   });
 });
 
-describe('DELETE /cohorts/:cohort_id', () => {
+describe('DELETE /cohorts/:id', () => {
   it('should allow authorized user to delete a specific cohort in the database', (done) => {
     supertest(app)
         .delete('/cohorts/1')
