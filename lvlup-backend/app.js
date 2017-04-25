@@ -17,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());

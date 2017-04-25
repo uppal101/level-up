@@ -39,9 +39,7 @@ router.route('/campuses/:id')
   .delete((req, res) => {
     Campus.forge({ id: req.params.id })
     .fetch({ require: true })
-    .then((campus) => {
-      campus.destroy();
-    })
+    .then((campus) => campus.destroy())
     .then(() => {
       res.json({ message: 'Campus successfully deleted' });
     })
