@@ -104,3 +104,21 @@ describe('PUT /admins/:id', () => {
       }, done));
   });
 });
+
+describe('DELETE /admins/:id', () => {
+  it('should allow authorized user to delete a specific admin in the database', (done) => {
+    supertest(app)
+        .delete('/admins/1')
+        .set('Accept', 'application/json')
+        .expect(200,
+      {
+        message: 'Admin successfully deleted',
+      }, done);
+  });
+  it('should respond with 404 if user enters incorrect parameter', (done) => {
+    supertest(app)
+          .get('/cohorts/jenny')
+          .set('Accept', 'Application/json')
+          .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+  });
+});

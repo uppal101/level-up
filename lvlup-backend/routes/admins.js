@@ -51,6 +51,23 @@ router.route('/admins/:id')
   .catch((err) => {
     res.status(500).json({ error: true, data: { message: err.message } });
   });
+})
+
+.delete((req, res) => {
+  Admin.forge({ id: req.params.id })
+  .fetch({ require: true })
+  .then((admin) => {
+    admin.destroy()
+    .then(() => {
+      res.json({ message: 'Admin successfully deleted' });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  })
+  .catch((err) => {
+    res.status(500).json({ error: true, data: { message: err.message } });
+  });
 });
 
 
