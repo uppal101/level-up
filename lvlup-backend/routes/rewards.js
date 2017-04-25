@@ -5,22 +5,19 @@ const Reward = require('../models/reward');
 
 const router = express.Router();
 
-// router.route('/rewards/');
-//   .post((req, res) => {
-//     Reward.forge({
-//       name: req.body.name,
-//       type: req.body.type,
-//       q1_start_date: req.body.q1_start_date,
-//       q2_start_date: req.body.q2_start_date,
-//       q3_start_date: req.body.q3_start_date,
-//       q4_start_date: req.body.q4_start_date,
-//       graduation_date: req.body.graduation_date,
-//       campus_id: req.body.campus_id,
-//     })
-//     .save()
-//     .then((cohort) => {
-//       res.status(200).json(cohort);
-//     })
-//     .catch(err => console.error(err));
-//   });
+router.route('/rewards/')
+  .post((req, res) => {
+    Reward.forge({
+      name: req.body.name,
+      point_cost: req.body.point_cost,
+      description: req.body.description,
+      campus_id: req.body.campus_id,
+      category_id: req.body.category_id,
+    })
+    .save()
+    .then((reward) => {
+      res.status(200).json(reward);
+    })
+    .catch(err => console.error(err));
+  });
 module.exports = router;

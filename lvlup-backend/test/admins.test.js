@@ -101,8 +101,8 @@ describe('DELETE /admins/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-          .get('/api/cohorts/jenny')
+          .delete('/api/cohorts/jenny')
           .set('Accept', 'Application/json')
-          .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+          .expect(500, done);
   });
 });
