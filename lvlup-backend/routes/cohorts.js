@@ -42,40 +42,6 @@ router.route('/cohorts/')
     .catch(err => console.error(err));
   });
 
-// router.route('/cohorts/:id')
-//   .get((req, res) => {
-//     Cohort.forge({ id: req.params.id })
-//     .fetch()
-//     .then((cohort) => {
-//       // if (!cohort) {
-//       //   res.status(404).json({ error: true, data: {} })
-//       // }
-//       // else {
-//       res.status(200).json(cohort);
-//       // }
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: true, data: { message: err.message } });
-//     });
-//   })
-//   .delete((req, res) => {
-//     Cohort.forge({ id: req.params.id })
-//     .fetch({ require: true })
-//     .then((cohort) => {
-//       console.log(cohort);
-//       cohort.destroy()
-//       .then(() => {
-//         res.json({ message: 'Cohort successfully deleted' });
-//       })
-//       .catch((err) => {
-//         res.status(500).json({ error: true, data: { message: err.message } });
-//       });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: true, data: { message: err.message } });
-//     });
-//   });
-
 router.route('/cohorts/:id')
   .get((req, res) => {
     Cohort.forge({ id: req.params.id })
@@ -92,8 +58,22 @@ router.route('/cohorts/:id')
     Cohort.forge({ id: req.params.id })
     .fetch({ require: true })
     .then(cohort => cohort.destroy())
-    .then(() => {
-      res.json({ message: 'Cohort successfully deleted' });
+    .then(() => res.json({ message: 'Cohort successfully deleted' }))
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  });
+
+router.route('/cohorts/campuses/:campus_id')
+  .get((req, res) => {
+    Cohort.forge({ campus_id: req.params.campus_id })
+    .fetch()
+    .then((cohorts) => {
+      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
+      delete cohortsResponse.id;
+      delete cohortsResponse.created_at;
+      delete cohortsResponse.updated_at;
+      res.json({ cohortsResponse });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

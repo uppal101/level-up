@@ -4,19 +4,17 @@ exports.seed = function (knex, Promise) {
     {
       id: 1,
       username: 'jennyboo',
-      first_name: 'Jenny',
-      last_name: 'Engard',
+      name: 'Jenny Engard',
       email: 'jenny.engard@galvanize.com',
-      hashed_password: '$2a$06$s6LuQvVOqv7cdwo4KCwOmu28SnXWGcaqBpIXkM6iBZQLDBTMoI9Au',
+      hashed_password: '$2a$04$kQf8f8uARgwB1zjHkoDwjOsxyglqS38c4yi.ViFcHR59g.CLvk8Ma',
       campus_id: 1,
     },
     {
       id: 2,
       username: 'tweetordie',
-      first_name: 'Mary Ann',
-      last_name: 'Barge',
+      name: 'Mary Ann Barge',
       email: 'maryann.barge@galvanize.com',
-      hashed_password: '$2a$06$s6LuQvVOqv7cdwo4KCwOmu28SnXWGcaqBpIXkM6iBZQLDBTMoI9Au',
+      hashed_password: '$2a$04$kQf8f8uARgwB1zjHkoDwjOsxyglqS38c4yi.ViFcHR59g.CLvk8Ma',
       campus_id: 1,
     },
   ]))

@@ -8,6 +8,7 @@ require('./campus');
 const Admin = LvlModel.extend({
   tableName: 'admins',
   hasTimestamps: true,
+  hidden: ['hashed_password', 'created_at', 'updated_at'],
 
   cohorts() {
     return this.belongsToMany('Cohort').through('AdminCohort');

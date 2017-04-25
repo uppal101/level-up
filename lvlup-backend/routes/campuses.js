@@ -35,11 +35,11 @@ router.route('/campuses/')
     .catch(err => console.error(err));
   });
 
-router.route('/campuses/:campus_id')
+router.route('/campuses/:id')
   .delete((req, res) => {
-    Campus.forge()
+    Campus.forge({ id: req.params.id })
     .fetch({ require: true })
-    .then(campus => campus.destroy())
+    .then((campus) => campus.destroy())
     .then(() => {
       res.json({ message: 'Campus successfully deleted' });
     })
