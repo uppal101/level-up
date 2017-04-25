@@ -45,11 +45,15 @@ router.route('/cohorts/')
 
 router.route('/cohorts/:id')
   .get((req, res) => {
-    Cohorts.forge()
+    Cohort.forge({ id: req.params.id })
     .fetch()
-    .then((cohorts) => {
-      console.log(cohorts)
-      res.json({ cohorts });
+    .then((cohort) => {
+      // if (!cohort) {
+      //   res.status(404).json({ error: true, data: {} })
+      // }
+      // else {
+        res.status(200).json(cohort);
+      // }
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

@@ -131,20 +131,18 @@ describe('GET /cohorts/:id', () => {
         delete cohorts.body.id;
         delete cohorts.body.created_at;
         delete cohorts.body.updated_at;
-        delete cohorts.body.campus_id;
       })
-      .expect(200, [
+      .expect(200,
         {
           name: 'g42',
           type: 'WDI',
-          q1_start_date: '2017-01-09',
-          q2_start_date: '2017-02-21',
-          q3_start_date: '2017-04-03',
-          q4_start_date: '2017-05-15',
-          graduation_date: '2017-06-23',
+          q1_start_date: '2017-01-09T08:00:00.000Z',
+          q2_start_date: '2017-02-21T08:00:00.000Z',
+          q3_start_date: '2017-04-03T07:00:00.000Z',
+          q4_start_date: '2017-05-15T07:00:00.000Z',
+          graduation_date: '2017-06-23T07:00:00.000Z',
           campus_id: 1,
-        },
-      ], done);
+        }, done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
