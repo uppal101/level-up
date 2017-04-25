@@ -146,7 +146,25 @@ describe('GET /cohorts/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-    .get('/campuses/g42')
+    .get('/cohorts/g42')
+    .set('Accept', 'Application/json')
+    .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+  });
+});
+
+describe('DELETE /cohorts/:id', () => {
+  it('should allow authorized user to delete a specific cohort in the database', (done) => {
+    supertest(app)
+      .delete('/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(200,
+        {
+          message: 'Cohort successfully deleted'
+        }, done);
+  });
+  it('should respond with 404 if user enters incorrect parameter', (done) => {
+    supertest(app)
+    .get('/cohorts/g42')
     .set('Accept', 'Application/json')
     .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });

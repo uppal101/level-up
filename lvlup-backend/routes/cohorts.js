@@ -59,5 +59,21 @@ router.route('/cohorts/:id')
       res.status(500).json({ error: true, data: { message: err.message } });
     });
   })
+  .delete((req, res) => {
+    Cohort.forge()
+    .fetch({ require: true})
+    .then((cohort) => {
+      cohort.destroy()
+      .then(() => {
+        res.json({ message: 'Cohort successfully deleted' })
+      })
+      .catch((err) => {
+        res.status(500).json({ error: true, data: { message: err.message } });
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  });
 
 module.exports = router;
