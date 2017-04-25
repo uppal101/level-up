@@ -24,10 +24,14 @@ afterEach((done) => {
   });
 });
 
+after(() => {
+  knex.destroy();
+});
+
 describe('GET /campuses/', () => {
   it('should respond with all campuses', (done) => {
     supertest(app)
-    .get('/campuses/')
+    .get('/api/campuses/')
     .set('Accept', 'application/json')
     .expect((campuses) => {
       delete campuses.body.id;
@@ -63,7 +67,7 @@ describe('GET /campuses/', () => {
 describe('POST /campuses/', () => {
   it('allows authorized user to add a campus in the database', (done) => {
     supertest(app)
-    .post('/campuses/')
+    .post('/api/campuses/')
     .set('Accept', 'application/json')
     .send({
       location: 'Los Angeles',
@@ -80,7 +84,7 @@ describe('POST /campuses/', () => {
   });
   it('should respond with 400 when authorized user does not send a location', (done) => {
     supertest(app)
-      .post('/campuses/')
+      .post('/api/campuses/')
       .set('Accept', 'application/json')
       .send({
 
@@ -99,7 +103,7 @@ describe('POST /campuses/', () => {
 describe('DELETE /campuses/:id', () => {
   it('should allow authorized user to delete a specific campus in the database', (done) => {
     supertest(app)
-      .delete('/campuses/5')
+      .delete('/api/campuses/5')
       .set('Accept', 'application/json')
       .expect(200,
       {
@@ -108,7 +112,7 @@ describe('DELETE /campuses/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-        .get('/campuses/Denver-GoldenTriangle')
+        .get('/api/campuses/Denver-GoldenTriangle')
         .set('Accept', 'Application/json')
         .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });

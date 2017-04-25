@@ -1,8 +1,7 @@
 process.env.NODE_ENV = 'test';
 
-const assert = require('chai').assert;
-const supertest = require('supertest');
 const knex = require('../knex');
+const supertest = require('supertest');
 const app = require('../app');
 
 beforeEach((done) => {
@@ -24,10 +23,14 @@ afterEach((done) => {
   });
 });
 
+after(() => {
+  knex.destroy();
+});
+
 describe('GET /admins/', () => {
   it('should respond with all admins', (done) => {
     supertest(app)
-    .get('/admins/')
+    .get('/api/admins/')
     .set('Accept', 'application/json')
     .expect((admins) => {
       delete admins.body.id;
@@ -39,16 +42,14 @@ describe('GET /admins/', () => {
       allAdmins: [
         {
           username: 'jennyboo',
-          first_name: 'Jenny',
-          last_name: 'Engard',
+          name: 'Jenny Engard',
           email: 'jenny.engard@galvanize.com',
           gravatar_url: null,
           campus_id: 1,
         },
         {
           username: 'tweetordie',
-          first_name: 'Mary Ann',
-          last_name: 'Barge',
+          name: 'Mary Ann Barge',
           email: 'maryann.barge@galvanize.com',
           gravatar_url: null,
           campus_id: 1,
@@ -61,12 +62,11 @@ describe('GET /admins/', () => {
 describe('PUT /admins/:id', () => {
   it('allows authorized user to update entire admin information', (done) => {
     supertest(app)
-    .post('/admins/1')
+    .post('/api/admins/1')
     .set('Accept', 'application/json')
     .send({
       username: 'operajenny',
-      first_name: 'Jenny',
-      last_name: 'Engard',
+      name: 'Jenny Engard',
       email: 'jenny.engard@galvanize.com',
       gravatar_url: null,
       campus_id: 1,
@@ -79,8 +79,7 @@ describe('PUT /admins/:id', () => {
       { updatedAdmin:
       {
         username: 'operajenny',
-        first_name: 'Jenny',
-        last_name: 'Engard',
+        name: 'Jenny Engard',
         email: 'jenny.engard@galvanize.com',
         gravatar_url: null,
         campus_id: 1,
@@ -89,7 +88,7 @@ describe('PUT /admins/:id', () => {
 
   it('should respond with 400 when authorized user does not send any information', (done) => {
     supertest(app)
-      .post('/admin/1')
+      .post('/api/admin/1')
       .set('Accept', 'application/json')
       .send({
 
@@ -108,7 +107,7 @@ describe('PUT /admins/:id', () => {
 describe('DELETE /admins/:id', () => {
   it('should allow authorized user to delete a specific admin in the database', (done) => {
     supertest(app)
-        .delete('/admins/1')
+        .delete('/api/admins/1')
         .set('Accept', 'application/json')
         .expect(200,
       {
@@ -117,7 +116,7 @@ describe('DELETE /admins/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-          .get('/cohorts/jenny')
+          .get('/api/cohorts/jenny')
           .set('Accept', 'Application/json')
           .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });

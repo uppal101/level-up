@@ -29,17 +29,14 @@ router.route('/admins/')
 router.route('/admins/:id')
   .put((req, res) => {
     Admin.forge({ id: req.params.id })
-    .fetch({ require: true })
-    .then((admin) => {
-      admin.save({
-        username: req.body.username || admin.get('username'),
-        first_name: req.body.first_name || admin.get('first_name'),
-        last_name: req.body.last_name || admin.get('last_name'),
-        email: req.body.email || admin.get('email'),
-        gravatar_url: req.body.gravatar_url || admin.get('gravatar_url'),
-        campus_id: req.body.campus_id || admin.get('campus_id'),
-      });
-    })
+    .fetch()
+    .then(admin => admin.save({
+      username: req.body.username || admin.get('username'),
+      name: req.body.name || admin.get('name'),
+      email: req.body.email || admin.get('email'),
+      gravatar_url: req.body.gravatar_url || admin.get('gravatar_url'),
+      campus_id: req.body.campus_id || admin.get('campus_id'),
+    }))
     .then((admin) => {
       const updatedAdmin = JSON.parse(JSON.stringify(admin));
       delete updatedAdmin.id;

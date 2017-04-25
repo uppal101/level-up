@@ -55,10 +55,10 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(loginRoute);
 app.use(studentsRoute);
-app.use(campusRoute);
-app.use(cohortsRoute);
-app.use(adminsRoute);
-app.use(rewardsRoute);
+app.use('/api', campusRoute);
+app.use('/api', cohortsRoute);
+app.use('/api', adminsRoute);
+app.use('/api', rewardsRoute);
 
 
 app.listen(PORT, () => {

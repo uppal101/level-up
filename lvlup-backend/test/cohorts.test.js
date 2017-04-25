@@ -1,10 +1,8 @@
 process.env.NODE_ENV = 'test';
 
-const assert = require('chai').assert;
 const supertest = require('supertest');
-const knex = require('../knex');
 const app = require('../app');
-
+const knex = require('../knex');
 
 beforeEach((done) => {
   knex.migrate.latest()
@@ -25,10 +23,14 @@ afterEach((done) => {
   });
 });
 
+after(() => {
+  knex.destroy();
+});
+
 describe('GET /cohorts/', () => {
   it('should respond with all cohorts across all campuses', (done) => {
     supertest(app)
-    .get('/cohorts/')
+    .get('/api/cohorts/')
     .set('Accept', 'application/json')
     .expect((cohorts) => {
       delete cohorts.body.id;
@@ -75,7 +77,7 @@ describe('GET /cohorts/', () => {
 describe('POST /cohorts/', () => {
   it('allows authorized user to add a cohort in the database', (done) => {
     supertest(app)
-    .post('/cohorts/')
+    .post('/api/cohorts/')
     .set('Accept', 'application/json')
     .send({
       name: 'g100',
@@ -106,7 +108,7 @@ describe('POST /cohorts/', () => {
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
     supertest(app)
-      .post('/cohorts/')
+      .post('/api/cohorts/')
       .set('Accept', 'application/json')
       .send({
         name: 'g53',
@@ -131,7 +133,7 @@ describe('POST /cohorts/', () => {
 describe('GET /cohorts/:id', () => {
   it('should respond with the specified cohort of the id requested', (done) => {
     supertest(app)
-      .get('/cohorts/1')
+      .get('/api/cohorts/1')
       .set('Accept', 'application/json')
       .expect((cohorts) => {
         delete cohorts.body.id;
@@ -152,7 +154,7 @@ describe('GET /cohorts/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-        .get('/cohorts/g42')
+        .get('/api/cohorts/g42')
         .set('Accept', 'Application/json')
         .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });
@@ -161,7 +163,7 @@ describe('GET /cohorts/:id', () => {
 describe('DELETE /cohorts/:id', () => {
   it('should allow authorized user to delete a specific cohort in the database', (done) => {
     supertest(app)
-        .delete('/cohorts/1')
+        .delete('/api/cohorts/1')
         .set('Accept', 'application/json')
         .expect(200,
       {
@@ -170,7 +172,7 @@ describe('DELETE /cohorts/:id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-          .get('/cohorts/g42')
+          .get('/api/cohorts/g42')
           .set('Accept', 'Application/json')
           .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });
@@ -179,7 +181,7 @@ describe('DELETE /cohorts/:id', () => {
 describe('GET /cohorts/campuses/:campus_id', () => {
   it('should respond with all cohorts at a specified campus', (done) => {
     supertest(app)
-          .get('/cohorts/campuses/2')
+          .get('/api/cohorts/campuses/2')
           .set('Accept', 'application/json')
           .expect((cohorts) => {
             delete cohorts.body.id;
@@ -203,7 +205,7 @@ describe('GET /cohorts/campuses/:campus_id', () => {
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
-            .get('/cohorts/campuses/g53')
+            .get('/api/cohorts/campuses/g53')
             .set('Accept', 'Application/json')
             .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });
