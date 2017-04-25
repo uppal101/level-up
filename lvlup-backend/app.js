@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(loginRoute);
-app.use(studentsRoute);
+app.use('/api', studentsRoute);
 app.use(campusRoute);
 app.use(cohortsRoute);
 app.use(adminsRoute);
