@@ -32,12 +32,6 @@ describe('GET /admins/', () => {
     supertest(app)
     .get('/api/admins/')
     .set('Accept', 'application/json')
-    .expect((admins) => {
-      delete admins.body.id;
-      delete admins.body.hashed_password;
-      delete admins.body.created_at;
-      delete admins.body.updated_at;
-    })
     .expect(200, {
       allAdmins: [
         {
@@ -71,10 +65,6 @@ describe('PUT /admins/:id', () => {
       gravatar_url: null,
       campus_id: 1,
     })
-    .expect((admin) => {
-      delete admin.body.created_at;
-      delete admin.body.updated_at;
-    })
     .expect(200,
       { updatedAdmin:
       {
@@ -93,10 +83,6 @@ describe('PUT /admins/:id', () => {
       .send({
 
       })
-      .expect((admin) => {
-        delete admin.body.created_at;
-        delete admin.body.updated_at;
-      })
       .expect(400, JSON.stringify({
         code: 400,
         message: 'Please update a field',
@@ -109,10 +95,9 @@ describe('DELETE /admins/:id', () => {
     supertest(app)
         .delete('/api/admins/1')
         .set('Accept', 'application/json')
-        .expect(200,
-      {
-        message: 'Admin successfully deleted',
-      }, done);
+        .expect(200, {
+          message: 'Admin successfully deleted',
+        }, done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)

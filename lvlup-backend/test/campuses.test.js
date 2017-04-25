@@ -33,11 +33,6 @@ describe('GET /campuses/', () => {
     supertest(app)
     .get('/api/campuses/')
     .set('Accept', 'application/json')
-    .expect((campuses) => {
-      delete campuses.body.id;
-      delete campuses.body.created_at;
-      delete campuses.body.updated_at;
-    })
     .expect(200, {
       locations: [
         {
@@ -72,15 +67,10 @@ describe('POST /campuses/', () => {
     .send({
       location: 'Los Angeles',
     })
-    .expect((campuses) => {
-      delete campuses.body.created_at;
-      delete campuses.body.updated_at;
-    })
-    .expect(200,
-      {
-        location: 'Los Angeles',
-        id: 10,
-      }, done);
+    .expect(200, {
+      location: 'Los Angeles',
+      id: 10,
+    }, done);
   });
   it('should respond with 400 when authorized user does not send a location', (done) => {
     supertest(app)
@@ -88,10 +78,6 @@ describe('POST /campuses/', () => {
       .set('Accept', 'application/json')
       .send({
 
-      })
-      .expect((campuses) => {
-        delete campuses.body.created_at;
-        delete campuses.body.updated_at;
       })
       .expect(400, JSON.stringify({
         code: 400,
@@ -105,8 +91,7 @@ describe('DELETE /campuses/:id', () => {
     supertest(app)
       .delete('/api/campuses/5')
       .set('Accept', 'application/json')
-      .expect(200,
-      {
+      .expect(200, {
         message: 'Campus successfully deleted',
       }, done);
   });

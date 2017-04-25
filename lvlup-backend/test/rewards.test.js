@@ -39,19 +39,14 @@ describe('POST /rewards/', () => {
       campus_id: 1,
       category_id: 4,
     })
-    .expect((cohort) => {
-      delete cohort.body.created_at;
-      delete cohort.body.updated_at;
-    })
-    .expect(200,
-      {
-        id: 9,
-        name: 'Gift Card to Gather',
-        point_cost: 75,
-        description: '$100 gift card to the Gather cafe.',
-        campus_id: 1,
-        category_id: 4,
-      }, done);
+    .expect(200, {
+      id: 9,
+      name: 'Gift Card to Gather',
+      point_cost: 75,
+      description: '$100 gift card to the Gather cafe.',
+      campus_id: 1,
+      category_id: 4,
+    }, done);
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
     supertest(app)
@@ -65,10 +60,6 @@ describe('POST /rewards/', () => {
         q3_start_date: '2017-07-10',
         q4_start_date: '2017-08-21',
         campus: 'New York',
-      })
-      .expect((cohort) => {
-        delete cohort.body.created_at;
-        delete cohort.body.updated_at;
       })
       .expect(400, JSON.stringify({
         code: 400,
