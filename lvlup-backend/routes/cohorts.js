@@ -42,9 +42,9 @@ router.route('/cohorts/')
   .catch(err => console.error(err));
 });
 
-router.route('/cohorts/:cohort_id')
+router.route('/cohorts/:id')
   .get((req, res) => {
-    Cohort.forge({ id: req.params.cohort_id })
+    Cohort.forge({ id: req.params.id })
     .fetch()
     .then((cohort) => {
       res.status(200).json(cohort);
@@ -54,7 +54,7 @@ router.route('/cohorts/:cohort_id')
     });
   })
   .delete((req, res) => {
-    Cohort.forge()
+    Cohort.forge({ id: req.params.id })
     .fetch({ require: true })
     .then((cohort) => {
       cohort.destroy()
