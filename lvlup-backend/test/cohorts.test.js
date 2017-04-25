@@ -60,7 +60,17 @@ describe('GET /cohorts/', () => {
             q4_start_date: '2017-08-21T07:00:00.000Z',
             graduation_date: '2017-09-29T07:00:00.000Z',
             campus_id: 1,
-          }
+          },
+          {
+            name: 'g53',
+            type: 'WDI',
+            q1_start_date: '2017-04-17T07:00:00.000Z',
+            q2_start_date: '2017-05-29T07:00:00.000Z',
+            q3_start_date: '2017-07-10T07:00:00.000Z',
+            q4_start_date: '2017-08-21T07:00:00.000Z',
+            graduation_date: '2017-09-29T07:00:00.000Z',
+            campus_id: 2,
+          },
         ]
       }, done);
   });
@@ -72,7 +82,7 @@ describe('POST /cohorts/', () => {
       .post('/cohorts/')
       .set('Accept', 'application/json')
       .send({
-        name: 'g53',
+        name: 'g100',
         type: 'WDI',
         q1_start_date: '2017-04-17',
         q2_start_date: '2017-5-29',
@@ -87,7 +97,7 @@ describe('POST /cohorts/', () => {
       })
       .expect(200,
         {
-          name: 'g53',
+          name: 'g100',
           type: 'WDI',
           q1_start_date: '2017-04-17',
           q2_start_date: '2017-5-29',
@@ -95,7 +105,7 @@ describe('POST /cohorts/', () => {
           q4_start_date: '2017-08-21',
           graduation_date: '2017-09-29',
           campus_id: 6,
-          id: 3,
+          id: 4,
         }, done);
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
@@ -122,7 +132,7 @@ describe('POST /cohorts/', () => {
   });
 });
 
-describe('GET /cohorts/:id', () => {
+describe('GET /cohorts/:cohort_id', () => {
   it('should respond with the specified cohort of the id requested', (done) => {
     supertest(app)
       .get('/cohorts/1')
@@ -152,7 +162,7 @@ describe('GET /cohorts/:id', () => {
   });
 });
 
-describe('DELETE /cohorts/:id', () => {
+describe('DELETE /cohorts/:cohort_id', () => {
   it('should allow authorized user to delete a specific cohort in the database', (done) => {
     supertest(app)
       .delete('/cohorts/1')
@@ -165,6 +175,36 @@ describe('DELETE /cohorts/:id', () => {
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)
     .get('/cohorts/g42')
+    .set('Accept', 'Application/json')
+    .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+  });
+});
+
+describe('GET /cohorts/campuses/:campus_id', () => {
+  it('should respond with all cohorts at a specified campus', (done) => {
+    supertest(app)
+      .get('/cohorts/campuses/2')
+      .set('Accept', 'application/json')
+      .expect((cohorts) => {
+        delete cohorts.body.id;
+        delete cohorts.body.created_at;
+        delete cohorts.body.updated_at;
+      })
+      .expect(200,
+        {
+          name: 'g53',
+          type: 'WDI',
+          q1_start_date: '2017-04-17',
+          q2_start_date: '2017-5-29',
+          q3_start_date: '2017-07-10',
+          q4_start_date: '2017-08-21',
+          graduation_date: '2017-09-29',
+          campus_id: 2,
+        }, done);
+  });
+  it('should respond with 404 if user enters incorrect parameter', (done) => {
+    supertest(app)
+    .get('/cohorts/campuses/g53')
     .set('Accept', 'Application/json')
     .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });

@@ -43,7 +43,7 @@ router.route('/cohorts/')
     .catch(err => console.error(err))
   });
 
-router.route('/cohorts/:id')
+router.route('/cohorts/:cohort_id')
   .get((req, res) => {
     Cohort.forge({ id: req.params.id })
     .fetch()
