@@ -48,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-
+app.use(bodyParser.json());
 app.use(loginRoute);
 app.use(studentsRoute);
 app.use(campusRoute);

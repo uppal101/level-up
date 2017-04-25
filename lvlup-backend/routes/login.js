@@ -9,6 +9,9 @@ const Student = require('../models/student');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bcrypt = require('bcrypt-as-promised');
+const Admin = require('../models/admin');
+const AdminCohort = require('../models/admin_cohort');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -44,4 +47,76 @@ router.get('/student/login', (req, res) => {
     });
 });
 
+router.post('/admin/login', (req, res) => {
+  Admin.query({ where: { email: req.body.email } })
+    .fetch()
+    .then((passToCompare) => {
+      if (passToCompare === null) {
+        res.status(400).json('Invalid password or username');
+      } else {
+        bcrypt.compare(req.body.password, passToCompare.attributes.hashed_password)
+        .then(() => {
+          Admin.query({ where: { email: req.body.email } })
+          .fetch({ withRelated: ['cohorts.campus'] })
+          .then((admin) => {
+            const user = { userId: admin.id };
+            const token = jwt.sign(user, process.env.JWT_KEY, {
+              expiresIn: '7 days',
+            });
+            res.cookie('authToken', token);
+            res.json(admin);
+          });
+        })
+        .catch((err) => {
+          res.status(400).json('Invalid password or username');
+        });
+      }
+    });
+});
+
+router.post('/admin/signup', (req, res) => {
+  Admin.query({ where: { email: req.body.email } })
+  .fetch()
+  .then((checkToSeeIfAlreadyRegistered) => {
+    if (checkToSeeIfAlreadyRegistered === null) {
+      bcrypt.hash(req.body.password, 1)
+      .then((hashed) => {
+        Admin.forge({
+          username: req.body.username,
+          name: req.body.name,
+          email: req.body.email,
+          campus_id: Number(req.body.campus_id),
+          hashed_password: hashed,
+        })
+        .save()
+        .then((newAdmin) => {
+          const cohortsArr = req.body.cohorts;
+          const promiseArr = [];
+          for (let i = 0; i < cohortsArr.length; i++) {
+            promiseArr.push(AdminCohort.forge({
+              cohort_id: cohortsArr[i],
+              admin_id: newAdmin.id,
+            }).save());
+          }
+          Promise.all(promiseArr);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .then(() => {
+          Admin.query({ where: { email: req.body.email } })
+          .fetch({ withRelated: ['cohorts.campus'] })
+          .then((adminToSend) => {
+            res.json(adminToSend);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+        });
+      });
+    } else {
+      res.status(400).json('User already exists!');
+    }
+  });
+});
 module.exports = router;
