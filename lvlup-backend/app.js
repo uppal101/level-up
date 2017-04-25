@@ -54,11 +54,11 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(loginRoute);
-app.use(studentsRoute);
 app.use('/api', campusRoute);
 app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
 app.use('/api', rewardsRoute);
+app.use('/api', studentsRoute);
 
 
 app.listen(PORT, () => {
