@@ -15,7 +15,7 @@ router.get('/students', (req, res) => {
 });
 
 router.get('/students/:id', (req, res) => {
-  Students.forge({ id: req.params.id })
+  Student.forge({ id: req.params.id })
   .fetch()
   .then((student) => {
     res.status(200).json(student);
