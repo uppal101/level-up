@@ -76,3 +76,32 @@ describe('GET students', () => {
     ], done);
   });
 });
+
+describe('GET students/:id', () => {
+  it('responds with JSON', (done) => {
+    supertest(app)
+    .get('/api/students/1')
+    .expect('Content-Type', /json/)
+    .expect(200, done);
+  });
+  it('responds with a single student specificied by id', (done) => {
+    supertest(app)
+    .get('/api/students/1')
+    .set('Accept', 'application/json')
+    .expect((student) => {
+      delete student.body.created_at;
+      delete student.body.updated_at;
+    })
+    .expect(200,
+      {
+        id: 1,
+        name: 'Thomas Stang',
+        email: 'stang.tk@gmail.com',
+        github_user_name: 'tkstang',
+        photo_url: null,
+        gravatar_url: null,
+        cohort_id: 1,
+        username: 'algorythmist',
+      }, done);
+  });
+});
