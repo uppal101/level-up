@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser');
 const loginRoute = require('./routes/login');
 const campusRoute = require('./routes/campuses');
 const cohortsRoute = require('./routes/cohorts');
+const adminsRoute = require('./routes/admins');
+const rewardsRoute = require('./routes/rewards');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -18,6 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(session({
   keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2],
   secret: 'bam',
@@ -53,6 +56,8 @@ app.use(loginRoute);
 app.use(studentsRoute);
 app.use(campusRoute);
 app.use(cohortsRoute);
+app.use(adminsRoute);
+app.use(rewardsRoute);
 
 
 app.listen(PORT, () => {
