@@ -1,8 +1,19 @@
-import React from 'react';
-import { Input } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Form, Input } from 'semantic-ui-react';
+import './loginview.css';
 
-const InputExampleFocus = () => (
-  <Input focus error placeholder="Search..." />
-);
+class Email extends Component {
+  render() {
+    return (
+      <Form className="email">
+        <Form.Field inline>
+          <label>Galvanize Email</label>
+          <Input placeholder="Email" />
+        </Form.Field>
+      </Form>
+    );
+  }
+}
 
-export default InputExampleFocus;
+
+export default Email;
