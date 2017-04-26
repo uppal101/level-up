@@ -10,15 +10,14 @@ router.route('/cohorts/')
     Cohorts.forge()
     .fetch()
     .then((cohorts) => {
-      const cohortsResponse = JSON.parse(JSON.stringify(cohorts))
-      let allCohorts = cohortsResponse.map((ele) => {
+      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
+      const allCohorts = cohortsResponse.map((ele) => {
         delete ele.id;
         delete ele.updated_at;
         delete ele.created_at;
         return ele;
-      })
+      });
       res.json({ allCohorts });
-
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
@@ -40,36 +39,41 @@ router.route('/cohorts/')
     .then((cohort) => {
       res.status(200).json(cohort);
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
   });
 
-router.route('/cohorts/:cohort_id')
+router.route('/cohorts/:id')
   .get((req, res) => {
     Cohort.forge({ id: req.params.id })
     .fetch()
     .then((cohort) => {
-      // if (!cohort) {
-      //   res.status(404).json({ error: true, data: {} })
-      // }
-      // else {
-        res.status(200).json(cohort);
-      // }
+      res.status(200).json(cohort);
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
     });
   })
+
   .delete((req, res) => {
-    Cohort.forge()
-    .fetch({ require: true})
-    .then((cohort) => {
-      cohort.destroy()
-      .then(() => {
-        res.json({ message: 'Cohort successfully deleted' })
-      })
-      .catch((err) => {
-        res.status(500).json({ error: true, data: { message: err.message } });
-      });
+    Cohort.forge({ id: req.params.id })
+    .fetch({ require: true })
+    .then(cohort => cohort.destroy())
+    .then(() => res.json({ message: 'Cohort successfully deleted' }))
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
+  });
+
+router.route('/cohorts/campuses/:campus_id')
+  .get((req, res) => {
+    Cohort.forge({ campus_id: req.params.campus_id })
+    .fetch()
+    .then((cohorts) => {
+      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
+      delete cohortsResponse.id;
+      delete cohortsResponse.created_at;
+      delete cohortsResponse.updated_at;
+      res.json({ cohortsResponse });
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

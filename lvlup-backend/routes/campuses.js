@@ -11,7 +11,7 @@ router.route('/campuses/')
     .fetch()
     .then((campuses) => {
       const campusesResponse = JSON.parse(JSON.stringify(campuses));
-      let locations = campusesResponse.map((ele) => {
+      const locations = campusesResponse.map((ele) => {
         delete ele.id;
         delete ele.updated_at;
         delete ele.created_at;
@@ -32,25 +32,20 @@ router.route('/campuses/')
     .then((campus) => {
       res.status(200).json(campus);
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
   });
 
-  router.route('/campuses/:campus_id')
-    .delete((req, res) => {
-      Campus.forge()
-      .fetch({ require: true})
-      .then((campus) => {
-        campus.destroy()
-        .then(() => {
-          res.json({ message: 'Campus successfully deleted' })
-        })
-        .catch((err) => {
-          res.status(500).json({ error: true, data: { message: err.message } });
-        });
-      })
-      .catch((err) => {
-        res.status(500).json({ error: true, data: { message: err.message } });
-      });
+router.route('/campuses/:id')
+  .delete((req, res) => {
+    Campus.forge({ id: req.params.id })
+    .fetch({ require: true })
+    .then((campus) => campus.destroy())
+    .then(() => {
+      res.json({ message: 'Campus successfully deleted' });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
     });
+  });
 
 module.exports = router;
