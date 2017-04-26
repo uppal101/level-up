@@ -14,10 +14,12 @@ class NavBar extends Component {
       <Menu size="massive" className="nav">
         <Menu.Item className="left" header><div className="name">lvl^</div></Menu.Item>
         <Menu.Item className="right">
-          <a href={'http://localhost:3000/api/auth/github'}><Button color="grey">
-            {/* <Button color="grey" onClick={this.props.loggingInAction()}> */}
+          {/* <a href={'http://localhost:3000/api/auth/github'}> */}
+          {/* <Button color="grey"> */}
+            <Button color="grey" onClick={this.props.loggingInAction()}>
             <Icon name="github" /> Log In or Sign Up with Github
-          </Button></a>
+          </Button>
+        {/* </a> */}
         </Menu.Item>
       </Menu>
     );
