@@ -24,70 +24,77 @@ afterEach((done) => {
   });
 });
 
+after(() => {
+  knex.destroy();
+});
+
 describe('GET /campuses/', () => {
   it('should respond with all campuses', (done) => {
     supertest(app)
-    .get('/campuses/')
+    .get('/api/campuses/')
     .set('Accept', 'application/json')
-    .expect((campuses) => {
-      delete campuses.body.id;
-      delete campuses.body.created_at;
-      delete campuses.body.updated_at;
-    })
-    .expect(200, {
-      locations: [
-        {
-          location: 'San Francisco',
-        }, {
-          location: 'Austin',
-        }, {
-          location: 'Boulder',
-        }, {
-          location: 'Denver-Platte',
-        }, {
-          location: 'Denver-Golden Triangle',
-        }, {
-          location: 'New York',
-        }, {
-          location: 'Phoenix',
-        }, {
-          location: 'Seattle',
-        }, {
-          location: 'All Campuses',
-        },
-      ],
-    }, done);
+    .expect(locations => locations.body.forEach((location) => {
+      delete location.created_at;
+      delete location.updated_at;
+    }))
+    .expect(200, [
+      {
+        id: 1,
+        location: 'San Francisco',
+      }, {
+        id: 2,
+        location: 'Austin',
+      }, {
+        id: 3,
+        location: 'Boulder',
+      }, {
+        id: 4,
+        location: 'Denver-Platte',
+      }, {
+        id: 5,
+        location: 'Denver-Golden Triangle',
+      }, {
+        id: 6,
+        location: 'New York',
+      }, {
+        id: 7,
+        location: 'Phoenix',
+      }, {
+        id: 8,
+        location: 'Seattle',
+      }, {
+        id: 9,
+        location: 'All Campuses',
+      },
+    ], done);
+
   });
 });
 
 describe('POST /campuses/', () => {
   it('allows authorized user to add a campus in the database', (done) => {
     supertest(app)
-    .post('/campuses/')
+    .post('/api/campuses/')
+
     .set('Accept', 'application/json')
     .send({
       location: 'Los Angeles',
     })
-    .expect((campuses) => {
-      delete campuses.body.created_at;
-      delete campuses.body.updated_at;
+    .expect((campus) => {
+      delete campus.body.created_at;
+      delete campus.body.updated_at;
     })
-    .expect(200,
-      {
-        location: 'Los Angeles',
-        id: 10,
-      }, done);
+    .expect(200, {
+      location: 'Los Angeles',
+      id: 10,
+    }, done);
   });
   it('should respond with 400 when authorized user does not send a location', (done) => {
     supertest(app)
-      .post('/campuses/')
+      .post('/api/campuses/')
       .set('Accept', 'application/json')
       .send({
 
-      })
-      .expect((campuses) => {
-        delete campuses.body.created_at;
-        delete campuses.body.updated_at;
       })
       .expect(400, JSON.stringify({
         code: 400,
@@ -99,17 +106,16 @@ describe('POST /campuses/', () => {
 describe('DELETE /campuses/:id', () => {
   it('should allow authorized user to delete a specific campus in the database', (done) => {
     supertest(app)
-      .delete('/campuses/5')
+      .delete('/api/campuses/5')
       .set('Accept', 'application/json')
-      .expect(200,
-      {
+      .expect(200, {
         message: 'Campus successfully deleted',
       }, done);
   });
-  it('should respond with 404 if user enters incorrect parameter', (done) => {
+  it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
-        .get('/campuses/Denver-GoldenTriangle')
+        .delete('/api/campuses/Denver-GoldenTriangle')
         .set('Accept', 'Application/json')
-        .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+        .expect(500, done);
   });
 });

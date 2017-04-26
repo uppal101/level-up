@@ -10,14 +10,7 @@ router.route('/cohorts/')
     Cohorts.forge()
     .fetch()
     .then((cohorts) => {
-      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
-      const allCohorts = cohortsResponse.map((ele) => {
-        delete ele.id;
-        delete ele.updated_at;
-        delete ele.created_at;
-        return ele;
-      });
-      res.json({ allCohorts });
+      res.json(cohorts);
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
@@ -69,11 +62,7 @@ router.route('/cohorts/campuses/:campus_id')
     Cohort.forge({ campus_id: req.params.campus_id })
     .fetch()
     .then((cohorts) => {
-      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
-      delete cohortsResponse.id;
-      delete cohortsResponse.created_at;
-      delete cohortsResponse.updated_at;
-      res.json({ cohortsResponse });
+      res.json(cohorts);
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
