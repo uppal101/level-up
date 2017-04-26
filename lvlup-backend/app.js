@@ -55,8 +55,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
+
 app.use('/api', loginRoute);
-app.use('/api', campusRoute);
+app.use('/api', campusesRoute);
 app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
 app.use('/api', rewardsRoute);
