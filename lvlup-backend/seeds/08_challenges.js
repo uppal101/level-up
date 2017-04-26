@@ -38,7 +38,7 @@ exports.seed = function (knex, Promise) {
       name: 'Publish Article',
       point_value: 75,
       description: 'Publish an original article on Medium with a minimum 750 word length.',
-      campus_id: 9,
+      campus_id: 1,
       category_id: 3,
     },
   ]))

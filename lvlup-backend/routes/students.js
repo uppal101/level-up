@@ -4,6 +4,19 @@ const Student = require('../models/student');
 
 const router = express.Router();
 
+let sessionEmail;
+
+const isAdmin = req => !!req.cookies.authToken;
+
+const isUser = req => !!((req.session.passport || req.cookies.authToken));
+
+const verifyEmail = (req, student) => {
+  if (!req.session.passport) {
+    return false;
+  }
+  return req.session.passport.user._json.email === student.attributes.email;
+};
+
 router.route('/students')
   .get((req, res) => {
     Students.forge()

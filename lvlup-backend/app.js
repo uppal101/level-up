@@ -14,6 +14,7 @@ const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
 const cors = require('cors');
+const authorize = require('./middleware/authorize');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -56,13 +57,18 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+app.use('/api/students', authorize.isUser);
+app.get('/api/students/:id', authorize.isAuthorized);
+app.get('/api/students', authorize.isAdmin);
+
 app.use('/api', loginRoute);
+app.use('/api', campusesRoute);
+app.use('/api', cohortsRoute);
+app.use('/api', adminsRoute);
+app.use('/api', rewardsRoute);
 app.use('/api', studentsRoute);
-app.use(campusesRoute);
 app.use('/api', challengesRoute);
-app.use(cohortsRoute);
-app.use(adminsRoute);
-app.use(rewardsRoute);
 
 
 app.listen(PORT, () => {

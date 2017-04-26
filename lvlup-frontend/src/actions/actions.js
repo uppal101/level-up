@@ -1,9 +1,11 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
-const config = { headers: { 'Access-Control-Allow-Methods': 'GET,PUT,PATCH,POST,DELETE', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' } };
+// const config = { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept', 'Access-Control-Allow-Methods': 'GET,PUT,PATCH,POST,DELETE', 'Content-Type': 'application/json' } };
+const config = { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,PATCH,POST,DELETE', 'Content-Type': 'application/json' } };
 
-const fetchStudent = () => axios.get('http://localhost:3000/api/student/login', config).then(response => response.data);
+
+const fetchStudent = () => axios.get('http://localhost:3000/api/auth/github', config).then(response => response.data);
 
 export const loggingInAction = () => ({
   type: CONST.STUDENT_LOGIN,
