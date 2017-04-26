@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import HamburgerAdmin from './hamburger';
 import NavBarLoggedIn from '../navbar-loggedin';
 import ChallengesHeader from './pending-challenges/header';
+import SubmissionsHeader from './pending-submissions/header';
 import ChallengesTable from './pending-challenges/challenges-table';
+import SubmissionsTable from './pending-submissions/submissions-table';
 
 class AdminHome extends Component {
   render() {
@@ -10,10 +12,14 @@ class AdminHome extends Component {
       <div>
         <NavBarLoggedIn />
         <HamburgerAdmin />
-        <div className="challenges">
+        <div className="dashboard">
           <ChallengesHeader />
           <ChallengesTable />
+          <SubmissionsHeader />
+          <SubmissionsTable />
         </div>
+
+
 
       </div>
     );

@@ -1,42 +1,41 @@
 import React, { Component } from 'react';
-import { Icon, Menu, Table, Grid, Container } from 'semantic-ui-react';
+import { Icon, Menu, Table, Popup, Container } from 'semantic-ui-react';
 import '../admin-styles.css';
 
-class ChallengesTable extends Component {
+class SubmissionsTable extends Component {
   render() {
     return (
-      // <Grid celled>
-      //   <Grid.Row>
-      //     <Grid.Column width={10}>
       <Container>
         <Table celled>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Title</Table.HeaderCell>
+              <Table.HeaderCell>Reward</Table.HeaderCell>
               <Table.HeaderCell>Date Submitted</Table.HeaderCell>
-              <Table.HeaderCell>View</Table.HeaderCell>
+              <Table.HeaderCell>Notes</Table.HeaderCell>
+              <Table.HeaderCell>Approve</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
             <Table.Row>
-              <Table.Cell>Thomas</Table.Cell>
-              <Table.Cell>Article</Table.Cell>
-              <Table.Cell>4/17/17</Table.Cell>
-              <Table.Cell><Icon name="eye" /></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Daniel</Table.Cell>
-              <Table.Cell>Breakout Session</Table.Cell>
-              <Table.Cell>5/07/17</Table.Cell>
-              <Table.Cell><Icon name="eye" /></Table.Cell>
+              <Table.Cell>Sanjeet</Table.Cell>
+              <Table.Cell>Pizza Party</Table.Cell>
+              <Table.Cell>6/01/17</Table.Cell>
+              <Table.Cell>
+                <Popup
+                  trigger={<Icon circular name="comments" />}
+                  wide
+                > No Veggie Pizza
+                </Popup>
+              </Table.Cell>
+              <Table.Cell><Icon name="close" /> <Icon name="checkmark" /></Table.Cell>
             </Table.Row>
           </Table.Body>
 
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell colSpan="4">
+              <Table.HeaderCell colSpan="5">
                 <Menu floated="right" pagination>
                   <Menu.Item as="a" icon>
                     <Icon name="left chevron" />
@@ -54,13 +53,8 @@ class ChallengesTable extends Component {
           </Table.Footer>
         </Table>
       </Container>
-
-      //     </Grid.Column>
-      //   </Grid.Row>
-      // </Grid>
-
     );
   }
 }
 
-export default ChallengesTable;
+export default SubmissionsTable;
