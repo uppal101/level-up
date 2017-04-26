@@ -68,3 +68,30 @@ describe('POST /rewards/', () => {
       }, done));
   });
 });
+
+describe('GET /rewards/:id', () => {
+  it('should respond with the specified reward of the id requested', (done) => {
+    supertest(app)
+      .get('/api/rewards/1')
+      .set('Accept', 'application/json')
+      .expect((reward) => {
+        delete reward.body.created_at;
+        delete reward.body.updated_at;
+      })
+      .expect(200,
+      {
+        id: 1,
+        name: 'Gift Card to Gather',
+        point_cost: 25,
+        description: '$5 gift card to the Gather cafe.',
+        campus_id: 1,
+        category_id: 4,
+      }, done);
+  });
+  it('should respond with 404 if user enters incorrect parameter', (done) => {
+    supertest(app)
+        .get('/api/rewards/giftcard')
+        .set('Accept', 'Application/json')
+        .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
+  });
+});
