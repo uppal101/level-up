@@ -8,7 +8,8 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const studentsRoute = require('./routes/students');
 const cookieParser = require('cookie-parser');
 const loginRoute = require('./routes/login');
-const campusRoute = require('./routes/campuses');
+const campusesRoute = require('./routes/campuses');
+const challengesRoute = require('./routes/challenges');
 const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
@@ -59,6 +60,7 @@ app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
 app.use('/api', rewardsRoute);
 app.use('/api', studentsRoute);
+app.use('/api', challengesRoute);
 
 
 app.listen(PORT, () => {

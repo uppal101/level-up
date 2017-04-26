@@ -67,6 +67,7 @@ describe('GET /campuses/', () => {
         location: 'All Campuses',
       },
     ], done);
+
   });
 });
 
@@ -74,6 +75,7 @@ describe('POST /campuses/', () => {
   it('allows authorized user to add a campus in the database', (done) => {
     supertest(app)
     .post('/api/campuses/')
+
     .set('Accept', 'application/json')
     .send({
       location: 'Los Angeles',

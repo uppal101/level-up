@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
-const knex = require('../knex');
 const supertest = require('supertest');
+const knex = require('../knex');
 const app = require('../app');
 
 beforeEach((done) => {
@@ -136,3 +136,4 @@ describe('PUT /rewards/:id', () => {
       }, done));
   });
 });
+
