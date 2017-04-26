@@ -6,6 +6,17 @@ const router = express.Router();
 
 let sessionEmail;
 
+const isAdmin = req => !!req.cookies.authToken;
+
+const isUser = req => !!((req.session.passport || req.cookies.authToken));
+
+const verifyEmail = (req, student) => {
+  if (!req.session.passport) {
+    return false;
+  }
+  return req.session.passport.user._json.email === student.attributes.email;
+};
+
 router.route('/students')
   .get((req, res) => {
     Students.forge()
@@ -18,14 +29,13 @@ router.route('/students')
 
 router.route('/students/:id')
   .get((req, res) => {
-    // should we use this?
-    if (req.session.passport) sessionEmail = req.session.passport.user._json.email;
     Student.forge({ id: req.params.id })
     .fetch()
     .then((student) => {
-      if (!req.session.passport && !req.cookies.authToken) {
+      console.log(isUser(req));
+      if (!isUser(req)) {
         res.status(404).json('You must be logged in');
-      } else if (req.session.passport && req.session.passport.user._json.email !== student.attributes.email) {
+      } else if (!isAdmin(req) && !verifyEmail(req, student)) {
         res.status(404).json('Unauthorized');
       } else {
         res.status(200).json(student);
