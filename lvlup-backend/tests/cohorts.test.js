@@ -165,7 +165,7 @@ describe('DELETE /cohorts/:id', () => {
         message: 'Cohort successfully deleted',
       }, done);
   });
-  it('should respond with 404 if user enters incorrect parameter', (done) => {
+  it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
           .delete('/api/cohorts/g42')
           .set('Accept', 'Application/json')

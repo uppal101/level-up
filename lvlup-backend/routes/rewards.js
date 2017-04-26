@@ -49,5 +49,19 @@ router.route('/rewards/:id')
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });
     });
+  })
+
+  .delete((req, res) => {
+    Reward.forge({ id: req.params.id })
+    .fetch({ require: true })
+    .then((reward) => {
+      reward.destroy();
+    })
+    .then(() => {
+      res.json({ message: 'Reward successfully deleted' });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: true, data: { message: err.message } });
+    });
   });
 module.exports = router;

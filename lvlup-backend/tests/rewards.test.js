@@ -136,3 +136,21 @@ describe('PUT /rewards/:id', () => {
       }, done));
   });
 });
+
+describe('DELETE /rewards/:id', () => {
+  it('should allow authorized user to delete a specific reward in the database', (done) => {
+    supertest(app)
+        .delete('/api/rewards/1')
+        .set('Accept', 'application/json')
+        .expect(200,
+      {
+        message: 'Reward successfully deleted',
+      }, done);
+  });
+  it('should respond with 500 if invalid parameter is given', (done) => {
+    supertest(app)
+          .delete('/api/rewards/giftcard')
+          .set('Accept', 'Application/json')
+          .expect(500, done);
+  });
+});
