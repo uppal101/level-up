@@ -60,6 +60,8 @@ app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
 app.use('/api', rewardsRoute);
 app.use('/api', studentsRoute);
+app.use('/api', challengesRoute);
+
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);

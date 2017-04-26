@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
-const knex = require('../knex');
 const supertest = require('supertest');
+const knex = require('../knex');
 const app = require('../app');
 
 beforeEach((done) => {
@@ -43,9 +43,11 @@ describe('GET /admins/', () => {
           campus_id: 1,
         },
         {
+
           id: 2,
           username: 'tweetordie',
           name: 'Mary Ann Barge',
+
           email: 'maryann.barge@galvanize.com',
           gravatar_url: null,
           campus_id: 1,
@@ -63,6 +65,7 @@ describe('PUT /admins/:id', () => {
     .send({
       username: 'operajenny',
       name: 'Jenny Engard',
+
       email: 'jenny.engard@galvanize.com',
       gravatar_url: null,
       campus_id: 1,
@@ -107,5 +110,6 @@ describe('DELETE /admins/:id', () => {
           .delete('/api/cohorts/jenny')
           .set('Accept', 'Application/json')
           .expect(500, done);
+
   });
 });

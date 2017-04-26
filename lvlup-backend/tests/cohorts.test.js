@@ -1,8 +1,8 @@
 process.env.NODE_ENV = 'test';
 
 const supertest = require('supertest');
-const app = require('../app');
 const knex = require('../knex');
+const app = require('../app');
 
 beforeEach((done) => {
   knex.migrate.latest()
