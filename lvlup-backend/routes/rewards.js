@@ -65,6 +65,5 @@ router.route('/rewards/:id')
     });
   });
 
-  // arbitrary
 
 module.exports = router;

@@ -56,7 +56,7 @@ const newUser = {
 describe('User Log In and Sign Ups', (done) => {
   it('Should log an admin successfully with their information and token', (done) => {
     supertest(app)
-    .post('/admin/login')
+    .post('/api/admin/login')
     .set('Accept', 'application/json')
     .send(login)
     .expect((res) => {
@@ -120,7 +120,7 @@ describe('User Log In and Sign Ups', (done) => {
 
   it('Should send an error message if a user is not signed up and tries to log in', (done) => {
     supertest(app)
-    .post('/admin/login')
+    .post('/api/admin/login')
     .set('Accept', 'application/json')
     .send(noAccount)
     .expect(400, JSON.stringify('Invalid password or username'), done);
@@ -128,7 +128,7 @@ describe('User Log In and Sign Ups', (done) => {
 
   it('Should send an error message if a user enters a bad password', (done) => {
     supertest(app)
-    .post('/admin/login')
+    .post('/api/admin/login')
     .set('Accept', 'application/json')
     .send(badPass)
     .expect(400, JSON.stringify('Invalid password or username'), done);
@@ -136,7 +136,7 @@ describe('User Log In and Sign Ups', (done) => {
 
   it('Should send an error message if a user enters a bad email', (done) => {
     supertest(app)
-    .post('/admin/login')
+    .post('/api/admin/login')
     .set('Accept', 'application/json')
     .send(badEmail)
     .expect(400, JSON.stringify('Invalid password or username'), done);
@@ -144,7 +144,7 @@ describe('User Log In and Sign Ups', (done) => {
 
   it('Should sign up an admin successfully with their information and give an access token', (done) => {
     supertest(app)
-    .post('/admin/signup')
+    .post('/api/admin/signup')
     .set('Accept', 'application/json')
     .send(newUser)
     .expect((res) => {
@@ -215,7 +215,7 @@ describe('User Log In and Sign Ups', (done) => {
       password: 'galvanize',
     };
     supertest(app)
-    .post('/admin/signup')
+    .post('/api/admin/signup')
     .set('Accept', 'application/json')
     .send(login)
     // .expect('set-cookie', /token=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
