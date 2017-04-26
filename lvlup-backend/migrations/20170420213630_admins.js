@@ -3,9 +3,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   .primary();
   table.string('username', 'varchar(20)')
   .notNullable();
-  table.string('first_name', 'varchar(20)')
-  .notNullable();
-  table.string('last_name', 'varchar(20)')
+  table.string('name', 'varchar(20)')
   .notNullable();
   table.string('email', 'varchar(65)')
   .notNullable();
