@@ -58,6 +58,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api/students', authorize.isUser);
+app.get('/api/students/:id', authorize.isAuthorized);
 app.get('/api/students', authorize.isAdmin);
 
 app.use('/api', loginRoute);

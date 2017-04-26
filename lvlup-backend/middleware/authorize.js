@@ -1,6 +1,7 @@
+const Student = require('../models/student');
+
 const isAdmin = (req, res, next) => {
   if (req.cookies.authToken) {
-    console.log('isAdmin');
     next();
   } else {
     res.status(404).json('You must be an Administrator');
@@ -15,14 +16,25 @@ const isUser = (req, res, next) => {
   }
 };
 
+const isAuthorized = (req, res, next) => {
+  if (req.cookies.authToken) {
+    next();
+  } else {
+    Student.forge({ id: req.params.id })
+    .fetch()
+    .then((student) => {
+      console.log(student);
+      if (req.session.passport.user._json.email === student.attributes.email) {
+        next();
+      } else {
+        res.status(404).json('Unauthorized');
+      }
+    });
+  }
+};
+
 module.exports = {
   isAdmin,
   isUser,
+  isAuthorized,
 };
-
-// const verifyEmail = (req, res, next) => {
-//   if (!req.session.passport) {
-//     return false;
-//   }
-//   return req.session.passport.user._json.email === student.attributes.email;
-// };

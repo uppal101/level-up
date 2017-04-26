@@ -32,14 +32,7 @@ router.route('/students/:id')
     Student.forge({ id: req.params.id })
     .fetch()
     .then((student) => {
-      console.log(isUser(req));
-      if (!isUser(req)) {
-        res.status(404).json('You must be logged in');
-      } else if (!isAdmin(req) && !verifyEmail(req, student)) {
-        res.status(404).json('Unauthorized');
-      } else {
-        res.status(200).json(student);
-      }
+      res.status(200).json(student);
     })
     .catch(err => res.status(500).json(err.message));
   })
