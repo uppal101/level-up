@@ -81,7 +81,7 @@ describe('PUT /admins/:id', () => {
 
   it('should respond with 400 when authorized user does not send any information', (done) => {
     supertest(app)
-      .put('/api/admin/1')
+      .put('/api/admins/1')
       .set('Accept', 'application/json')
       .send({
 

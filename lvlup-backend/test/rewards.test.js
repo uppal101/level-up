@@ -95,3 +95,44 @@ describe('GET /rewards/:id', () => {
         .expect(404, JSON.stringify({ code: 404, message: 'Please enter valid information' }, done));
   });
 });
+
+describe('PUT /rewards/:id', () => {
+  it('allows authorized user to update a reward', (done) => {
+    supertest(app)
+    .put('/api/rewards/1')
+    .set('Accept', 'application/json')
+    .send({
+      name: 'Gift Card to Gather',
+      point_cost: 30,
+      description: '$5 gift card to the Gather cafe.',
+      campus_id: 1,
+      category_id: 4,
+    })
+    .expect((reward) => {
+      delete reward.body.created_at;
+      delete reward.body.updated_at;
+    })
+    .expect(200,
+      {
+        id: 1,
+        name: 'Gift Card to Gather',
+        point_cost: 30,
+        description: '$5 gift card to the Gather cafe.',
+        campus_id: 1,
+        category_id: 4,
+      }, done);
+  });
+
+  it('should respond with 400 when authorized user does not send any information', (done) => {
+    supertest(app)
+      .put('/api/rewards/1')
+      .set('Accept', 'application/json')
+      .send({
+
+      })
+      .expect(400, JSON.stringify({
+        code: 400,
+        message: 'Please update a field',
+      }, done));
+  });
+});
