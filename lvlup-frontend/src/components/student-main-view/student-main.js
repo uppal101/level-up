@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import HamburgerStudent from './hamburger';
+import NavBarLoggedIn from '../navbar-loggedin';
 
 class StudentHome extends Component {
   render() {
     return (
       <div>
-        <h1> WELCOME TO THE STUDENT HOME PAGE</h1>
-        <h2> HERE IS WHERE THE DASHBOARD GOES</h2>
+        <NavBarLoggedIn />
+        <HamburgerStudent />
       </div>
     );
   }
