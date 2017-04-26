@@ -3,6 +3,7 @@ import Home from './components/homepage-view/home';
 import StudentHome from './components/student-main-view/student-main';
 // import SignUpForm from './components/admin-signup/signup-page.js';
 import AdminLogin from './components/admin-login/login';
+import AdminHome from './components/admin-main-view/admin-main';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -17,6 +18,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard/student" component={StudentHome} />
           <Route exact path="/admin-login" component={AdminLogin} />
+          <Route exact path="/dashboard/admin" component={AdminHome} />
         </div>
       </Router>
     );
