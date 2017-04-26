@@ -58,7 +58,7 @@ describe('GET /admins/', () => {
 describe('PUT /admins/:id', () => {
   it('allows authorized user to update entire admin information', (done) => {
     supertest(app)
-    .post('/api/admins/1')
+    .put('/api/admins/1')
     .set('Accept', 'application/json')
     .send({
       username: 'operajenny',
@@ -74,13 +74,14 @@ describe('PUT /admins/:id', () => {
         name: 'Jenny Engard',
         email: 'jenny.engard@galvanize.com',
         gravatar_url: null,
+        id: 1,
         campus_id: 1,
       } }, done);
   });
 
   it('should respond with 400 when authorized user does not send any information', (done) => {
     supertest(app)
-      .post('/api/admin/1')
+      .put('/api/admin/1')
       .set('Accept', 'application/json')
       .send({
 

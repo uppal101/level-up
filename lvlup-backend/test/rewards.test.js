@@ -39,6 +39,10 @@ describe('POST /rewards/', () => {
       campus_id: 1,
       category_id: 4,
     })
+    .expect((reward) => {
+      delete reward.body.created_at;
+      delete reward.body.updated_at;
+    })
     .expect(200, {
       id: 9,
       name: 'Who said there is not such a thing as free lunch',

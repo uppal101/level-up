@@ -88,6 +88,10 @@ describe('POST /cohorts/', () => {
       graduation_date: '2017-09-29',
       campus_id: 6,
     })
+    .expect((cohort) => {
+      delete cohort.body.created_at;
+      delete cohort.body.updated_at;
+    })
     .expect(200,
       {
         name: 'g100',
@@ -126,8 +130,13 @@ describe('GET /cohorts/:id', () => {
     supertest(app)
       .get('/api/cohorts/1')
       .set('Accept', 'application/json')
+      .expect((cohort) => {
+        delete cohort.body.created_at;
+        delete cohort.body.updated_at;
+      })
       .expect(200,
       {
+        id: 1,
         name: 'g42',
         type: 'WDI',
         q1_start_date: '2017-01-09T08:00:00.000Z',
@@ -169,18 +178,20 @@ describe('GET /cohorts/campuses/:campus_id', () => {
     supertest(app)
           .get('/api/cohorts/campuses/2')
           .set('Accept', 'application/json')
+          .expect((cohort) => {
+            delete cohort.body.created_at;
+            delete cohort.body.updated_at;
+          })
           .expect(200, {
-            cohortsResponse:
-            {
-              campus_id: 2,
-              name: 'g53',
-              type: 'WDI',
-              q1_start_date: '2017-04-17T07:00:00.000Z',
-              q2_start_date: '2017-05-29T07:00:00.000Z',
-              q3_start_date: '2017-07-10T07:00:00.000Z',
-              q4_start_date: '2017-08-21T07:00:00.000Z',
-              graduation_date: '2017-09-29T07:00:00.000Z',
-            },
+            id: 3,
+            campus_id: 2,
+            name: 'g53',
+            type: 'WDI',
+            q1_start_date: '2017-04-17T07:00:00.000Z',
+            q2_start_date: '2017-05-29T07:00:00.000Z',
+            q3_start_date: '2017-07-10T07:00:00.000Z',
+            q4_start_date: '2017-08-21T07:00:00.000Z',
+            graduation_date: '2017-09-29T07:00:00.000Z',
           }, done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
