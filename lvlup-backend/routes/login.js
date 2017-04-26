@@ -28,6 +28,7 @@ router.route('/auth/github/callback')
 
 router.route('/student/login')
   .get((req, res) => {
+    console.log(req.session);
     Student.query({ where: { email: req.session.passport.user._json.email } })
     .fetch()
     .then((student) => {

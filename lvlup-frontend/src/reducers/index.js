@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { loginInfo, loggedIn } from './studentReducer';
+import { loginInfo } from './studentReducer';
 
 const lvlupApp = combineReducers({
-  loginInfo, loggedIn,
+  loginInfo,
 });
 
 export default lvlupApp;
