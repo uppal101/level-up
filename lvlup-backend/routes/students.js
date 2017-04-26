@@ -16,10 +16,17 @@ router.route('/students')
 
 router.route('/students/:id')
   .get((req, res) => {
+    const sessionEmail = req.session.passport.user._json.email;
     Student.forge({ id: req.params.id })
     .fetch()
     .then((student) => {
-      res.status(200).json(student);
+      if (!req.session.passport) {
+        res.status(404).json('You must be logged in');
+      } else if (sessionEmail !== student.attributes.email) {
+        res.status(404).json('Unauthorized');
+      } else {
+        res.status(200).json(student);
+      }
     })
     .catch(err => res.status(500).json(err.message));
   })
