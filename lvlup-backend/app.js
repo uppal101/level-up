@@ -34,7 +34,7 @@ app.use(session({
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: `${process.env.HOST}/auth/github/callback`,
+  callbackURL: `${process.env.HOST}/api/auth/github/callback`,
 },
   (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => done(null, profile));
@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use(loginRoute);
+app.use('/api', loginRoute);
 app.use('/api', studentsRoute);
 app.use(campusesRoute);
 app.use('/api', challengesRoute);

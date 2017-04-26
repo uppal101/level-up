@@ -23,7 +23,7 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    res.redirect('/dashboard');
+    res.redirect('http://localhost:3006/dashboard/student');
   });
 
 router.route('/student/login')
