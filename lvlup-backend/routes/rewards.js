@@ -64,4 +64,7 @@ router.route('/rewards/:id')
       res.status(500).json({ error: true, data: { message: err.message } });
     });
   });
+
+  // arbitrary
+
 module.exports = router;
