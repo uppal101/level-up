@@ -10,14 +10,13 @@ router.route('/cohorts/')
     Cohorts.forge()
     .fetch()
     .then((cohorts) => {
-      const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
-      const allCohorts = cohortsResponse.map((ele) => {
-        delete ele.id;
-        delete ele.updated_at;
-        delete ele.created_at;
-        return ele;
-      });
-      res.json({ allCohorts });
+      // const cohortsResponse = JSON.parse(JSON.stringify(cohorts));
+      // const allCohorts = cohortsResponse.map((ele) => {
+      //   delete ele.id;
+      //   delete ele.updated_at;
+      //   delete ele.created_at;
+      //   return ele;
+      res.json(cohorts);
     })
     .catch((err) => {
       res.status(500).json({ error: true, data: { message: err.message } });

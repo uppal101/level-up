@@ -78,7 +78,10 @@ describe('POST /campuses/', () => {
     .send({
       location: 'Los Angeles',
     })
-    .expect()
+    .expect((campus) => {
+      delete campus.body.created_at;
+      delete campus.body.updated_at;
+    })
     .expect(200, {
       location: 'Los Angeles',
       id: 10,

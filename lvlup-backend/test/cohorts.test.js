@@ -32,39 +32,44 @@ describe('GET /cohorts/', () => {
     supertest(app)
     .get('/api/cohorts/')
     .set('Accept', 'application/json')
-    .expect(200, {
-      allCohorts: [
-        {
-          name: 'g42',
-          type: 'WDI',
-          q1_start_date: '2017-01-09T08:00:00.000Z',
-          q2_start_date: '2017-02-21T08:00:00.000Z',
-          q3_start_date: '2017-04-03T07:00:00.000Z',
-          q4_start_date: '2017-05-15T07:00:00.000Z',
-          graduation_date: '2017-06-23T07:00:00.000Z',
-          campus_id: 1,
-        }, {
-          name: 'g52',
-          type: 'WDI',
-          q1_start_date: '2017-04-17T07:00:00.000Z',
-          q2_start_date: '2017-05-29T07:00:00.000Z',
-          q3_start_date: '2017-07-10T07:00:00.000Z',
-          q4_start_date: '2017-08-21T07:00:00.000Z',
-          graduation_date: '2017-09-29T07:00:00.000Z',
-          campus_id: 1,
-        },
-        {
-          name: 'g53',
-          type: 'WDI',
-          q1_start_date: '2017-04-17T07:00:00.000Z',
-          q2_start_date: '2017-05-29T07:00:00.000Z',
-          q3_start_date: '2017-07-10T07:00:00.000Z',
-          q4_start_date: '2017-08-21T07:00:00.000Z',
-          graduation_date: '2017-09-29T07:00:00.000Z',
-          campus_id: 2,
-        },
-      ],
-    }, done);
+    .expect(cohorts => cohorts.body.forEach((cohort) => {
+      delete cohort.created_at;
+      delete cohort.updated_at;
+    }))
+    .expect(200, [
+      {
+        id: 1,
+        name: 'g42',
+        type: 'WDI',
+        q1_start_date: '2017-01-09T08:00:00.000Z',
+        q2_start_date: '2017-02-21T08:00:00.000Z',
+        q3_start_date: '2017-04-03T07:00:00.000Z',
+        q4_start_date: '2017-05-15T07:00:00.000Z',
+        graduation_date: '2017-06-23T07:00:00.000Z',
+        campus_id: 1,
+      }, {
+        id: 2,
+        name: 'g52',
+        type: 'WDI',
+        q1_start_date: '2017-04-17T07:00:00.000Z',
+        q2_start_date: '2017-05-29T07:00:00.000Z',
+        q3_start_date: '2017-07-10T07:00:00.000Z',
+        q4_start_date: '2017-08-21T07:00:00.000Z',
+        graduation_date: '2017-09-29T07:00:00.000Z',
+        campus_id: 1,
+      },
+      {
+        id: 3,
+        name: 'g53',
+        type: 'WDI',
+        q1_start_date: '2017-04-17T07:00:00.000Z',
+        q2_start_date: '2017-05-29T07:00:00.000Z',
+        q3_start_date: '2017-07-10T07:00:00.000Z',
+        q4_start_date: '2017-08-21T07:00:00.000Z',
+        graduation_date: '2017-09-29T07:00:00.000Z',
+        campus_id: 2,
+      },
+    ], done);
   });
 });
 
