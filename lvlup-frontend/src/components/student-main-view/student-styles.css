@@ -7,3 +7,13 @@
   margin-top: 5px;
   text-align: center;
 }
+
+.studentDashboard {
+  width: 50%;
+  float: right;
+  margin-right: 25%;
+}
+
+.headerStudent{
+  text-align: center;
+}
