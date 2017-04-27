@@ -3,7 +3,7 @@ import Home from './components/homepage-view/home';
 // import Footer from './components/homepage-view/footer';
 import NavBar from './components/navbar';
 import StudentHome from './components/Student/student-main-view/student-main';
-// import SignUpForm from './components/admin-signup/signup-page.js';
+// import SignUpForm from './components/Admin/admin-signup/signup-page.js';
 import AdminLogin from './components/Admin/admin-login/login';
 import IndividualPendingChallenge from './components/Admin/admin-individual-pending-challenge/individual-pending-main';
 import AdminHome from './components/Admin/admin-main-view/admin-main';
@@ -13,9 +13,12 @@ import AddChallenge from './components/Admin/admin-add-challenge/add-challenge-m
 import EditChallenge from './components/Admin/admin-edit-challenge/edit-challenge-main';
 import AddReward from './components/Admin/admin-add-reward/add-reward-main';
 import EditReward from './components/Admin/admin-edit-reward/edit-reward-main';
+
 import StudentChallenges from './components/Student/challenges/challenges';
 import HamburgerStudent from './components/Student/student-main-view/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
+import AdminConfiguration from './components/Admin/admin-config/config-main';
+
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -45,8 +48,6 @@ export default class App extends Component {
           </div>
         </Router>
       </div>
-
-
     );
   }
 }
