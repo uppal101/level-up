@@ -6,6 +6,7 @@ import AdminLogin from './components/admin-login/login';
 import IndividualPendingChallenge from './components/admin-individual-pending-challenge/individual-pending-main';
 import AdminHome from './components/admin-main-view/admin-main';
 import AdminChallenges from './components/admin-challenges/admin-challenges-main';
+import AdminRewards from './components/admin-rewards/admin-rewards-main';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -23,6 +24,7 @@ export default class App extends Component {
           <Route exact path="/admin/dashboard" component={AdminHome} />
           <Route exact path="/admin/individual-pending-challenge" component={IndividualPendingChallenge} />
           <Route exact path="/admin/challenges" component={AdminChallenges} />
+          <Route exact path="/admin/rewards" component={AdminRewards} />
         </div>
       </Router>
     );
