@@ -12,9 +12,9 @@ class HamburgerStudent extends Component {
             <h4>tweetordie</h4>
           </div>
         </Menu.Item>
-        <Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item>
-        <Menu.Item><Icon name="chevron up" /><a href="admin/challenges">Challenges</a></Menu.Item>
-        <Menu.Item><Icon name="gift" /><a href="admin/rewards">Rewards</a></Menu.Item>
+        <Menu.Item><Icon name="dashboard" /><a href="/admin/dashboard">Dashboard</a></Menu.Item>
+        <Menu.Item><Icon name="chevron up" /><a href="/admin/challenges">Challenges</a></Menu.Item>
+        <Menu.Item><Icon name="gift" /><a href="/admin/rewards">Rewards</a></Menu.Item>
         <Menu.Item><Icon name="setting" />Configuration</Menu.Item>
       </Menu>
     );

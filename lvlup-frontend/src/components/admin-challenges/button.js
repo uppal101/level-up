@@ -8,7 +8,7 @@ class AddButton extends Component {
   render() {
     return (
       <div className="button">
-        <Button content="Add Challenge" />
+        <a href="/admin/challenge-add"><Button content="Add Challenge" /></a>
       </div>
 
     );

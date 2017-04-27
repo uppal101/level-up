@@ -18,9 +18,6 @@ class AdminHome extends Component {
           <SubmissionsHeader />
           <SubmissionsTable />
         </div>
-
-
-
       </div>
     );
   }
