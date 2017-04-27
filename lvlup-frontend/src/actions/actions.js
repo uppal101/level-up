@@ -6,8 +6,14 @@ import * as CONST from '../constants/constants';
 
 
 const fetchStudent = () => axios('http://lvlup-testing-backend.herokuapp.com/api/student/login', { withCredentials: false }).then(response => response.data);
+// const oauthCheck = () => axios('http://lvlup-testing-backend.herokuapp.com/api/auth/github', { withCredentials: false }).then(response => response.data);
 
 export const loggingInAction = () => ({
   type: CONST.STUDENT_LOGIN,
   payload: fetchStudent(),
 });
+
+// export const logIn = () => ({
+//   type: CONST.STUDENT_LOGGEDIN,
+//   payload: oauthCheck(),
+// });
