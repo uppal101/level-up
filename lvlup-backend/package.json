@@ -2,7 +2,7 @@
   "name": "level-up",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "mocha tests/*.test.js",
     "start": "nodemon app.js"
@@ -25,6 +25,7 @@
     "bookshelf": "^0.10.3",
     "bookshelf-modelbase": "^2.10.3",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.3",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0",
     "express": "^4.15.2",
