@@ -45,6 +45,7 @@ export default class App extends Component {
             <Route exact path="/admin/challenge-edit" component={EditChallenge} />
             <Route exact path="/admin/reward-add" component={AddReward} />
             <Route exact path="/admin/reward-edit" component={EditReward} />
+            <Route exact path="/admin/configuration" component={AdminConfiguration} />
           </div>
         </Router>
       </div>
