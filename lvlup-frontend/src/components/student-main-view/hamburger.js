@@ -16,7 +16,7 @@ class HamburgerStudent extends Component {
         </Menu.Item>
         <Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item>
         <Menu.Item><Icon name="chevron up" />Challenges</Menu.Item>
-        <Menu.Item><Icon name="student" />Rewards</Menu.Item>
+        <Menu.Item><Icon name="gift" />Rewards</Menu.Item>
       </Menu>
     );
   }
