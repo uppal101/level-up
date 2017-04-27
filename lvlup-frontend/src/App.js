@@ -8,6 +8,7 @@ import AdminHome from './components/admin-main-view/admin-main';
 import AdminChallenges from './components/admin-challenges/admin-challenges-main';
 import AdminRewards from './components/admin-rewards/admin-rewards-main';
 import AddChallenge from './components/admin-add-challenge/add-challenge-main';
+import EditChallenge from './components/admin-edit-challenge/edit-challenge-main';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ export default class App extends Component {
           <Route exact path="/admin/challenges" component={AdminChallenges} />
           <Route exact path="/admin/rewards" component={AdminRewards} />
           <Route exact path="/admin/challenge-add" component={AddChallenge} />
+          <Route exact path="/admin/challenge-edit" component={EditChallenge} />
         </div>
       </Router>
     );
