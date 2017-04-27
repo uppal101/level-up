@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Icon, Menu, Table, Grid, Container } from 'semantic-ui-react';
-// import '../admin-styles.css';
+import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import './admin-challenges-style.css';
 
 class ChallengesTable extends Component {
   render() {

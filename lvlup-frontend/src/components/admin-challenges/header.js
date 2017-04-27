@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../admin-styles.css';
+import './admin-challenges-style.css';
 
 const ChallengesHeader = () => (<h2 className="header">Challenges</h2>);
 
