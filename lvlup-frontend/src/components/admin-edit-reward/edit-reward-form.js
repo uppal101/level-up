@@ -17,7 +17,7 @@ const campuses = [
   { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
   { key: 'ny', text: 'New York', value: 'New York' },
   { key: 'p', text: 'Phoenix', value: 'Seattle' },
-  { key: 'a', text: 'All campuses', value: 'All Campuses' },
+  { key: 'all', text: 'All campuses', value: 'All Campuses' },
 ];
 
 class EditRewardForm extends Component {
