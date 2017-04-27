@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HamburgerAdmin from '../admin-common/hamburger';
-import NavBarLoggedIn from '../../navbar-loggedin';
 import ChallengesHeader from './pending-challenges/header';
 import SubmissionsHeader from './pending-submissions/header';
 import ChallengesTable from './pending-challenges/challenges-table';
@@ -10,7 +9,6 @@ class AdminHome extends Component {
   render() {
     return (
       <div>
-        <NavBarLoggedIn />
         <HamburgerAdmin />
         <div className="dashboard">
           <ChallengesHeader />

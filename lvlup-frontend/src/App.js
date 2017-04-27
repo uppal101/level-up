@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Home from './components/homepage-view/home';
-import StudentHome from './components/student-main-view/student-main';
+// import Footer from './components/homepage-view/footer';
+import NavBar from './components/navbar';
+import StudentHome from './components/Student/student-main-view/student-main';
 // import SignUpForm from './components/Admin/admin-signup/signup-page.js';
 import AdminLogin from './components/Admin/admin-login/login';
 import IndividualPendingChallenge from './components/Admin/admin-individual-pending-challenge/individual-pending-main';
@@ -11,7 +13,12 @@ import AddChallenge from './components/Admin/admin-add-challenge/add-challenge-m
 import EditChallenge from './components/Admin/admin-edit-challenge/edit-challenge-main';
 import AddReward from './components/Admin/admin-add-reward/add-reward-main';
 import EditReward from './components/Admin/admin-edit-reward/edit-reward-main';
+
+import StudentChallenges from './components/Student/challenges/challenges';
+import HamburgerStudent from './components/Student/student-main-view/hamburger';
+import StudentDashboard from './components/Student/dashboard/student-dashboard';
 import AdminConfiguration from './components/Admin/admin-config/config-main';
+
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -21,22 +28,26 @@ import {
 export default class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/dashboard/student" component={StudentHome} />
-          <Route exact path="/admin-login" component={AdminLogin} />
-          <Route exact path="/admin/dashboard" component={AdminHome} />
-          <Route exact path="/admin/individual-pending-challenge" component={IndividualPendingChallenge} />
-          <Route exact path="/admin/challenges" component={AdminChallenges} />
-          <Route exact path="/admin/rewards" component={AdminRewards} />
-          <Route exact path="/admin/challenge-add" component={AddChallenge} />
-          <Route exact path="/admin/challenge-edit" component={EditChallenge} />
-          <Route exact path="/admin/reward-add" component={AddReward} />
-          <Route exact path="/admin/reward-edit" component={EditReward} />
-          <Route exact path="/admin/configuration" component={AdminConfiguration} />
-        </div>
-      </Router>
+      <div>
+        <NavBar />
+        <Router>
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route path="/student" component={HamburgerStudent} />
+            <Route exact path="/student/dashboard" component={StudentDashboard} />
+            <Route exact path="/student/challenges" component={StudentChallenges} />
+            <Route exact path="/admin-login" component={AdminLogin} />
+            <Route exact path="/admin/dashboard" component={AdminHome} />
+            <Route exact path="/admin/individual-pending-challenge" component={IndividualPendingChallenge} />
+            <Route exact path="/admin/challenges" component={AdminChallenges} />
+            <Route exact path="/admin/rewards" component={AdminRewards} />
+            <Route exact path="/admin/challenge-add" component={AddChallenge} />
+            <Route exact path="/admin/challenge-edit" component={EditChallenge} />
+            <Route exact path="/admin/reward-add" component={AddReward} />
+            <Route exact path="/admin/reward-edit" component={EditReward} />
+          </div>
+        </Router>
+      </div>
     );
   }
 }
