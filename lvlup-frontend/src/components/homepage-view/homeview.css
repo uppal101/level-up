@@ -4,7 +4,9 @@
 }
 
 .ui.massive.nav.menu {
-  background-color: orange;
+  background-color: #636363 !important;
+  margin-bottom: 0px;
+  border-radius: 0% !important;
 }
 
 .description {
@@ -15,7 +17,7 @@
 
 .footer{
   text-align: center;
-  background-color: orange;
+  background-color: #636363 !important;
   position: fixed;
   bottom: 0;
   width: 100%;
