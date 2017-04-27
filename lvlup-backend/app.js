@@ -14,12 +14,14 @@ const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
 const pointsRoute = require('./routes/points');
+const cors = require('cors');
 const authorize = require('./middleware/authorize');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());

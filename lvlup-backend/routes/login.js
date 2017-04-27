@@ -23,11 +23,14 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    res.redirect('http://localhost:3006/dashboard/student');
+    console.log('here in callback');
+    // res.redirect('http://localhost:3006/dashboard/student');
+    res.redirect('http://localhost:3000/api/student/login');
   });
 
 router.route('/student/login')
   .get((req, res) => {
+    console.log(req.session);
     Student.query({ where: { email: req.session.passport.user._json.email } })
     .fetch()
     .then((student) => {

@@ -1,0 +1,24 @@
+.ui.massive.nav.menu {
+  background-color: orange;
+}
+
+.email {
+  margin-top: 200px;
+}
+
+.password {
+  margin-top: 20px;
+}
+
+.signup {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.login {
+  text-align: center;
+}
