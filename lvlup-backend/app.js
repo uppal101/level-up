@@ -13,8 +13,8 @@ const challengesRoute = require('./routes/challenges');
 const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
+const pointsRoute = require('./routes/points');
 const authorize = require('./middleware/authorize');
-
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -31,7 +31,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
-
 
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
@@ -62,6 +61,7 @@ app.get('/api/students/:id', authorize.isAuthorized);
 app.get('/api/students', authorize.isAdmin);
 
 app.use('/api', loginRoute);
+app.use('/api', pointsRoute);
 app.use('/api', campusesRoute);
 app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
