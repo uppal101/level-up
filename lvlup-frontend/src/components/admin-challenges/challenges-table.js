@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, Menu, Table, Grid, Container } from 'semantic-ui-react';
-import '../admin-styles.css';
+// import '../admin-styles.css';
 
 class ChallengesTable extends Component {
   render() {
@@ -9,31 +9,37 @@ class ChallengesTable extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Date Submitted</Table.HeaderCell>
-              <Table.HeaderCell>View</Table.HeaderCell>
+              <Table.HeaderCell>Category</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Edit</Table.HeaderCell>
+              <Table.HeaderCell>Remove</Table.HeaderCell>
+              <Table.HeaderCell>Points</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
             <Table.Row>
-              <Table.Cell>Thomas</Table.Cell>
-              <Table.Cell>Article</Table.Cell>
-              <Table.Cell>4/17/17</Table.Cell>
-              <Table.Cell><a href="/admin/individual-pending-challenge"><Icon name="eye" /></a></Table.Cell>
+              <Table.Cell>Tutor Session</Table.Cell>
+              <Table.Cell>lvl ^ Education</Table.Cell>
+              <Table.Cell>Description</Table.Cell>
+              <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
+              <Table.Cell><Icon name="trash" /></Table.Cell>
+              <Table.Cell>30</Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>Daniel</Table.Cell>
-              <Table.Cell>Breakout Session</Table.Cell>
-              <Table.Cell>5/07/17</Table.Cell>
-              <Table.Cell><a href="/admin/individual-pending-challenge"><Icon name="eye" /></a></Table.Cell>
+              <Table.Cell>Job Fair</Table.Cell>
+              <Table.Cell>lvl ^ Career</Table.Cell>
+              <Table.Cell>Description</Table.Cell>
+              <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
+              <Table.Cell><Icon name="trash" /></Table.Cell>
+              <Table.Cell>30</Table.Cell>
             </Table.Row>
           </Table.Body>
 
           <Table.Footer>
             <Table.Row>
-              <Table.HeaderCell colSpan="4">
+              <Table.HeaderCell colSpan="6">
                 <Menu floated="right" pagination>
                   <Menu.Item as="a" icon>
                     <Icon name="left chevron" />

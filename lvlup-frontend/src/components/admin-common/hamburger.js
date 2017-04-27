@@ -13,7 +13,7 @@ class HamburgerStudent extends Component {
           </div>
         </Menu.Item>
         <Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item>
-        <Menu.Item><Icon name="chevron up" />Challenges</Menu.Item>
+        <Menu.Item><Icon name="chevron up" /><a href="admin/challenges">Challenges</a></Menu.Item>
         <Menu.Item><Icon name="gift" />Rewards</Menu.Item>
         <Menu.Item><Icon name="setting" />Configuration</Menu.Item>
       </Menu>
