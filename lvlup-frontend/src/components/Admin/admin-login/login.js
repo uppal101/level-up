@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './navbar.js';
 import Email from './email.js';
 import Password from './password.js';
 import LoginButton from './button.js';
@@ -9,7 +8,6 @@ class AdminLogin extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <div className="login">
           <Email />
           <Password />

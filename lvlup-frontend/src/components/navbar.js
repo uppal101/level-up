@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Menu, Button, Icon } from 'semantic-ui-react';
-import './homeview.css';
-import { logIn } from '../../actions/actions';
+import './homepage-view/homeview.css';
+// import { logIn } from '../../actions/actions';
 // import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
 
-const mapDispatchToProps = dispatch => bindActionCreators({ logIn }, dispatch);
+// const mapDispatchToProps = dispatch => bindActionCreators({ logIn }, dispatch);
 
 
 class NavBar extends Component {
@@ -17,7 +17,7 @@ class NavBar extends Component {
         <Menu.Item className="right">
           {/* <Link to={'dashboard/student'}> */}
           <a href={'http://lvlup-testing-backend.herokuapp.com/api/auth/github/'}>
-            <Button color="grey">
+            <Button color="orange">
               {/* <Button color="grey" onClick={() => this.props.logIn()}> */}
               <Icon name="github" /> Log In or Sign Up with Github
             </Button>
@@ -29,5 +29,5 @@ class NavBar extends Component {
   }
 }
 
-// export default NavBar;
-export default connect(null, mapDispatchToProps)(NavBar);
+export default NavBar;
+// export default connect(null, mapDispatchToProps)(NavBar);

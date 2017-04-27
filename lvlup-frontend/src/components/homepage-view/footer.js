@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import './homeview.css';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
   render() {
     return (
       <div className="footer">
         <Button.Group floated="right">
-          <Button color="grey" href="/admin-login">Admin Login</Button>
-          <Button color="grey">Admin Sign Up</Button>
+          <Link to={'/admin-login'}><Button color="orange">Admin</Button></Link>
         </Button.Group>
       </div>
     );
