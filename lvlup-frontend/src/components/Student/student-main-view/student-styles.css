@@ -1,6 +1,8 @@
 .studentHamburger {
-  height: 750px;
+  height: 1000px;
   float: left;
+  background-color: #3c3f44 !important;
+  border-radius: 0% !important;
 }
 
 .userdiv {
@@ -12,6 +14,7 @@
   width: 50%;
   float: right;
   margin-right: 25%;
+  overflow: scroll;
 }
 
 .headerStudent{

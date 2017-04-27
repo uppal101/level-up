@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavBar from './navbar.js';
 import Footer from './footer.js';
 import './homeview.css';
 
@@ -7,7 +6,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <h1 className="header">lvl^</h1>
         <div className="description">
           <p>
