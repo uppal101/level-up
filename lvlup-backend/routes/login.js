@@ -23,9 +23,8 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    console.log('here in callback');
-    // res.redirect('http://localhost:3006/dashboard/student');
-    res.redirect('http://localhost:3000/api/student/login');
+    res.redirect('http://localhost:3006/dashboard/student');
+    // res.redirect('http://lvlup-testing-backend.herokuapp.com/api/student/login');
   });
 
 router.route('/student/login')
