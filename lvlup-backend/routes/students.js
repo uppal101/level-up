@@ -4,19 +4,6 @@ const Student = require('../models/student');
 
 const router = express.Router();
 
-let sessionEmail;
-
-const isAdmin = req => !!req.cookies.authToken;
-
-const isUser = req => !!((req.session.passport || req.cookies.authToken));
-
-const verifyEmail = (req, student) => {
-  if (!req.session.passport) {
-    return false;
-  }
-  return req.session.passport.user._json.email === student.attributes.email;
-};
-
 router.route('/students')
   .get((req, res) => {
     Students.forge()
@@ -82,23 +69,5 @@ router.route('/students/cohorts/:cohort_id')
     })
     .catch(err => res.status(500).json(err.message));
   });
-
-
-// router.get('/students/:id', (req, res) => {
-//   Student.forge({ id: req.params.id })
-//   .fetch({
-//     columns: ['email', 'first_name', 'id'],
-//     withRelated: [ 'challengeSubmissions'
-//       // {'challengeSubmissions': function(qb) { qb.column('id', 'challenge_id'); } }
-//      , { 'challengeSubmissions.challenge': function (qb) {
-//        console.log(qb);
-//        qb.column('id', 'point_value', 'description'); } }
-//    ],
-//   })
-//   .then((student) => {
-//     res.status(200).json(student);
-//   })
-//   .catch(err => console.error(err));
-// });
 
 module.exports = router;

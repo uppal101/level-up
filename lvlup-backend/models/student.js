@@ -4,6 +4,7 @@ const LvlModel = require('./lvlModel');
 require('./cohort');
 require('./reward_suggestion_student');
 require('./challenge_submission');
+require('./challenge_submission_pts');
 require('./reward_request');
 
 const Student = LvlModel.extend({
@@ -18,6 +19,9 @@ const Student = LvlModel.extend({
   },
   challegeSubmissions() {
     return this.hasMany('ChallengeSubmission');
+  },
+  challengeSubmissionsPts() {
+    return this.hasMany('ChallengeSubmissionPts');
   },
   rewardRequests() {
     return this.hasMany('RewardRequest');
