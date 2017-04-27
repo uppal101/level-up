@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Button, Icon } from 'semantic-ui-react';
+import { Menu, Button } from 'semantic-ui-react';
 import './homepage-view/homeview.css';
 // import { Link } from 'react-router-dom';
 
