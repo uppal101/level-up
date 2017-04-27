@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
-import './admin-styles.css';
+import './admin-nav.css';
 
 class HamburgerStudent extends Component {
 
