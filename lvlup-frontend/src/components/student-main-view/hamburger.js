@@ -10,7 +10,7 @@ class HamburgerStudent extends Component {
         <Menu.Item><Image src="https://avatars2.githubusercontent.com/u/22782154?v=3" shape="circular" size="tiny" centered />
           <div className="userdiv">
             <h4>dan_m_g</h4>
-            <p>1000 points</p>
+            <p>250 points</p>
             <p>G42, San Francisco</p>
           </div>
         </Menu.Item>
