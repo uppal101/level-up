@@ -272,6 +272,28 @@ describe('GET challenges/:id', () => {
   });
 });
 
+describe('DELETE challenges/:challenge_id', () => {
+  it('responds with 401 status if user is not an admin', (done) => {
+    supertest(app)
+    .delete('/api/challenges/1')
+    .expect(401, done);
+  });
+  it('should respond with success message if challenge is deleted', (done) => {
+    supertest(app)
+    .delete('/api/challenges/6')
+    .set('Cookie', 'authToken=adminToken')
+    .set('Accept', 'application/json')
+    .expect(200, { message: 'challenge successfully deleted' }, done);
+  });
+  it('should respond with 500 a challenge is specified which has a related challenge submission', (done) => {
+    supertest(app)
+    .delete('/api/challenges/10')
+    .set('Cookie', 'authToken=adminToken')
+    .set('Accept', 'Application/json')
+    .expect(500, done);
+  });
+});
+
 //
 // describe('GET students/:id', () => {
 //   it('responds with JSON', (done) => {
