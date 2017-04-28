@@ -36,6 +36,21 @@ router.route('/challenges/')
   });
 
 router.route('/challenges/:challenge_id')
+  .get((req, res) => {
+    Challenge.forge({ id: req.params.challenge_id })
+    .fetch()
+    .then(challenge => res.status(200).json(challenge))
+    .catch(err => res.status(500).json(err.message));
+  })
+
+  .delete((req, res) => {
+    Challenge.forge({ id: req.params.challenge_id })
+    .fetch()
+    .then(challenge => challenge.destroy())
+    .then(() => res.status(200).json({ message: 'Challenge successfully deleted' }))
+    .catch(err => res.status(500).json(err.message));
+  })
+
   .put((req, res) => {
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
