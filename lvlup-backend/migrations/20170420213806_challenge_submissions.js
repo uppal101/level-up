@@ -10,10 +10,10 @@ exports.up = (knex, Promise) => knex.schema.createTable('challenge_submissions',
   .notNullable()
   .references('id')
   .inTable('challenges');
-  table.integer('campus_id')
+  table.integer('cohort_id')
   .notNullable()
   .references('id')
-  .inTable('campuses')
+  .inTable('cohorts')
   .onDelete('CASCADE');
   table.integer('category_id')
   .notNullable()
