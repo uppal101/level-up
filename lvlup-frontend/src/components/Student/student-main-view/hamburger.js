@@ -25,17 +25,17 @@ class HamburgerStudent extends Component {
 
   render() {
     if (!this.props.loginInfo.username && !this.props.studentPointsAndCampus) {
-      return(
+      return (
         <div>LOADING</div>
-      )
+      );
     }
     return (
       <Menu inverted vertical className="studentHamburger">
         <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
           <div className="userdiv">
             <h4>{this.props.loginInfo.username}</h4>
-            <p>{this.props.studentPointsAndCampus.totalEarned}</p>
-            <p>{this.props.studentPointsAndCampus.cohortType this.props.studentPointsAndCampus.cohort, this.props.studentPointsAndCampus.location}</p>
+            <p>{`${this.props.studentPointsAndCampus.totalEarned}Points Earned`}</p>
+            <p>{`${this.props.studentPointsAndCampus.cohort}  ${this.props.studentPointsAndCampus.cohortType},  ${this.props.studentPointsAndCampus.location}`}</p>
           </div>
         </Menu.Item>
         <Link to={'/student/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
