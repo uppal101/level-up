@@ -46,8 +46,8 @@ router.route('/cohorts/:id')
 
 router.route('/cohorts/campuses/:campus_id')
   .get((req, res) => {
-    Cohort.forge({ campus_id: req.params.campus_id })
-    .fetch()
+    Cohort.where({ campus_id: req.params.campus_id })
+    .fetchAll()
     .then(cohorts => res.status(200).json(cohorts))
     .catch(err => res.status(500).json(err.message));
   });
