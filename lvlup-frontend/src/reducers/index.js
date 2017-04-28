@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { loginInfo, logedInOauth } from './studentReducer';
+import { loginInfo, studentPointsAndCampus } from './studentReducer';
 
 const lvlupApp = combineReducers({
-  loginInfo, logedInOauth,
+  loginInfo, studentPointsAndCampus,
 });
 
 export default lvlupApp;

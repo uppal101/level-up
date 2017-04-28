@@ -17,7 +17,10 @@ const mapStateToProps = state => ({
 
 class HamburgerStudent extends Component {
   componentWillMount() {
-    this.props.loggingInAction().then(this.props.moreStudentInfo(this.props.loginInfo.id));
+    this.props.loggingInAction()
+    .then(() => {
+      this.props.moreStudentInfo(this.props.loginInfo.id);
+    });
   }
 
   render() {
