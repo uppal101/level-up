@@ -81,6 +81,7 @@ app.use('/api/challenges', authorize.isUser);
 app.get('/api/students/:id', authorize.isAuthorized);
 app.get('/api/students', authorize.isAdmin);
 app.post('/api/challenges', authorize.isAdmin);
+app.delete('/api/challenges/:challenge_id', authorize.isAdmin);
 
 app.use('/api', loginRoute);
 app.use('/api', campusesRoute);

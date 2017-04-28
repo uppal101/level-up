@@ -233,6 +233,45 @@ describe('PUT challenges/:challenge_id', () => {
   });
 });
 
+describe('GET challenges/:id', () => {
+  it('responds with 401 status if user is not logged in', (done) => {
+    supertest(app)
+    .get('/api/students')
+    .expect('Content-Type', /plain/)
+    .expect(401, 'You must be logged in', done);
+  });
+  it('responds with JSON if user is logged in', (done) => {
+    supertest(app)
+    .get('/api/challenges/1')
+    .set('Cookie', 'authToken=adminToken')
+    .expect('Content-Type', /json/)
+    .expect(200, done);
+  });
+  it('responds with a single challenge specificied by id', (done) => {
+    supertest(app)
+    .get('/api/challenges/1')
+    .set('Cookie', 'authToken=adminToken')
+    .set('Accept', 'application/json')
+    .expect((challenge) => {
+      delete challenge.body.created_at;
+      delete challenge.body.updated_at;
+    })
+    .expect(200, {
+      id: 1,
+      name: 'Hold TA Hours',
+      point_value: 25,
+      description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+      campus_id: 1,
+      category_id: 2,
+      requirements_1: null,
+      requirements_2: null,
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    }, done);
+  });
+});
+
 //
 // describe('GET students/:id', () => {
 //   it('responds with JSON', (done) => {
