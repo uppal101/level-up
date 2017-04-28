@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
 import './student-styles.css';
 import { Link } from 'react-router-dom';
-import { loggingInAction } from '../../../actions/actions';
+import { loggingInAction, moreStudentInfo } from '../../../actions/actions';
 import { bindActionCreators } from 'redux';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction, moreStudentInfo }, dispatch);
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
+  studentPointsAndCampus: state.studentPointsAndCampus,
 });
 
 class HamburgerStudent extends Component {
   componentWillMount() {
-    this.props.loggingInAction();
+    this.props.loggingInAction().then(this.props.moreStudentInfo(this.props.loginInfo.id));
   }
 
   render() {
