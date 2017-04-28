@@ -19,8 +19,6 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   table.string('status', 'varchar(65)')
   .notNullable();
   table.string('notes');
-  table.boolean('fulfilled')
-  .notNullable();
   table.timestamps(true, true);
 });
 
