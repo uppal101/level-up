@@ -3,7 +3,7 @@ import Home from './components/homepage-view/home';
 // import Footer from './components/homepage-view/footer';
 import NavBar from './components/navbar';
 import StudentHome from './components/Student/student-main-view/student-main';
-// import SignUpForm from './components/Admin/admin-signup/signup-page.js';
+import AdminSignUp from './components/Admin/admin-signup/signup';
 import AdminLogin from './components/Admin/admin-login/login';
 import IndividualPendingChallenge from './components/Admin/admin-individual-pending-challenge/individual-pending-main';
 import AdminHome from './components/Admin/admin-main-view/admin-main';
@@ -39,6 +39,7 @@ export default class App extends Component {
             <Route exact path="/student/dashboard" component={StudentDashboard} />
             <Route exact path="/student/challenges" component={StudentChallenges} />
             <Route exact path="/admin-login" component={AdminLogin} />
+            <Route exact path="/admin-signup" component={AdminSignUp} />
             <Route exact path="/admin/dashboard" component={AdminHome} />
             <Route exact path="/admin/individual-pending-challenge" component={IndividualPendingChallenge} />
             <Route exact path="/admin/challenges" component={AdminChallenges} />
