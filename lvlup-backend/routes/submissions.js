@@ -1,4 +1,5 @@
 const express = require('express');
+const knex = require('../knex.js');
 const Challenges = require('../collections/challenges');
 const Challenge = require('../models/challenge');
 const ChallengeSubmissions = require('../collections/challenge_submissions');
@@ -9,16 +10,31 @@ const Student = require('../models/student');
 
 const router = express.Router();
 
+// router.route('/submissions/cohorts/:cohort_id')
+//   .get((req, res) => {
+//     ChallengeSubmission.where({ cohort_id: req.params.cohort_id })
+//     .fetchAll({ withRelated: ['challenge', 'student'] })
+//     .then((submissions) => {
+//       console.log(submissions);
+//       const submissions2 = submissions.related('challengeSubmiossions');
+//       res.status(200).json(submissions2);
+//     })
+//     .catch(err => res.status(500).json(err.message));
+//   });
 router.route('/submissions/cohorts/:cohort_id')
   .get((req, res) => {
-    Cohort.where({ id: req.params.cohort_id })
-    .fetch({ withRelated: ['challengeSubmissions'] })
-    .then((cohort) => {
-      const submissions = cohort.related('challengeSubmissions');
+    knex('challenge_submissions')
+    .where('challenge_submissions.cohort_id', req.params.cohort_id)
+    .select(['challenge_submissions.id', 'challenge_submissions.submission_message', 'challenge_submissions.submission_attachment_1', 'challenge_submissions.submission_attachment_2', 'challenge_submissions.submission_attachment_3', 'challenge_submissions.submission_image_link_1', 'challenge_submissions.submission_image_link_2', 'challenge_submissions.submission_image_link_3', 'challenge_submissions.created_at', 'challenges.point_value', 'challenges.name', 'challenges.description', 'students.name', 'students.id'])
+    .innerJoin('challenges', 'challenges.id', 'challenge_submissions.challenge_id')
+    .join('students', 'students.id', 'challenge_submissions.student_id')
+    .then((submissions) => {
+      console.log(submissions);
       res.status(200).json(submissions);
     })
     .catch(err => res.status(500).json(err.message));
   });
+
 
 router.route('/submissions')
   .post((req, res) => {

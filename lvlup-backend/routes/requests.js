@@ -12,11 +12,20 @@ const router = express.Router();
 router.route('/requests/cohorts/:cohort_id')
   .get((req, res) => {
     RewardRequest.where({ id: req.params.cohort_id })
-    .fetch({ withRelated: ['rewardRequests'] })
-    .then((cohort) => {
-      const requests = cohort.related('rewardRequests');
+    .fetch({ withRelated: ['student'] })
+    .then((student) => {
+      console.log(student);
+      const requests = student.related('rewardRequests');
       res.status(200).json(requests);
     })
+    .catch(err => res.status(500).json(err.message));
+  });
+
+router.route('/requests/students/:student_id')
+  .get((req, res) => {
+    RewardRequest.where({ student_id: req.params.student_id })
+    .fetchAll()
+    .then(request => res.status(200).json(request))
     .catch(err => res.status(500).json(err.message));
   });
 
