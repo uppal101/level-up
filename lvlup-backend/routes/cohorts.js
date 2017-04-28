@@ -8,12 +8,8 @@ router.route('/cohorts/')
   .get((req, res) => {
     Cohorts.forge()
     .fetch()
-    .then((cohorts) => {
-      res.json(cohorts);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(cohorts => res.status(200).json(cohorts))
+    .catch(err => res.status(500).json(err.message));
   })
 
   .post((req, res) => {
@@ -28,22 +24,16 @@ router.route('/cohorts/')
       campus_id: req.body.campus_id,
     })
     .save()
-    .then((cohort) => {
-      res.status(200).json(cohort);
-    })
-    .catch(err => console.error(err));
+    .then(cohort => res.status(200).json(cohort))
+    .catch(err => res.status(500).json(err.message));
   });
 
 router.route('/cohorts/:id')
   .get((req, res) => {
     Cohort.forge({ id: req.params.id })
     .fetch()
-    .then((cohort) => {
-      res.status(200).json(cohort);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(cohort => res.status(200).json(cohort))
+    .catch(err => res.status(500).json(err.message));
   })
 
   .delete((req, res) => {
@@ -51,21 +41,15 @@ router.route('/cohorts/:id')
     .fetch({ require: true })
     .then(cohort => cohort.destroy())
     .then(() => res.json({ message: 'Cohort successfully deleted' }))
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .catch(err => res.status(500).json(err.message));
   });
 
 router.route('/cohorts/campuses/:campus_id')
   .get((req, res) => {
     Cohort.forge({ campus_id: req.params.campus_id })
     .fetch()
-    .then((cohorts) => {
-      res.json(cohorts);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(cohorts => res.status(200).json(cohorts))
+    .catch(err => res.status(500).json(err.message));
   });
 
 module.exports = router;

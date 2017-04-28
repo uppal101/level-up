@@ -32,7 +32,7 @@ router.route('/challenges/')
     })
     .save()
     .then(challenge => res.status(200).json(challenge))
-    .catch(err => console.error(err));
+    .catch(err => res.status(500).json(err.message));
   });
 
 router.route('/challenges/:challenge_id')
