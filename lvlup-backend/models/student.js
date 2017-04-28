@@ -17,7 +17,7 @@ const Student = LvlModel.extend({
   rewardSuggestionStudents() {
     return this.belongsToMany('RewardSuggestions').through('RewardSuggestionStudent');
   },
-  challegeSubmissions() {
+  challengeSubmissions() {
     return this.hasMany('ChallengeSubmission');
   },
   challengeSubmissionsPts() {

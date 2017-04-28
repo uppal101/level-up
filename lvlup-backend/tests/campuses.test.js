@@ -67,7 +67,6 @@ describe('GET /campuses/', () => {
         location: 'All Campuses',
       },
     ], done);
-
   });
 });
 

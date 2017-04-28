@@ -131,15 +131,15 @@ describe('GET students/:id', () => {
 xdescribe('DELETE students/:id', () => {
   it('should respond with success message if student is deleted', (done) => {
     supertest(app)
-      .delete('/api/students/1')
-      .set('Accept', 'application/json')
-      .expect(200, { message: 'Student successfully deleted' }, done);
+    .delete('/api/students/1')
+    .set('Accept', 'application/json')
+    .expect(200, { message: 'Student successfully deleted' }, done);
   });
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
-      .delete('/api/students/6')
-      .set('Accept', 'Application/json')
-      .expect(500, done);
+    .delete('/api/students/6')
+    .set('Accept', 'Application/json')
+    .expect(500, done);
   });
 });
 

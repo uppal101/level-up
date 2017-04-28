@@ -5,6 +5,7 @@ require('./student');
 require('./campus');
 require('./admin');
 require('./admin_cohort');
+require('./challenge_submission');
 
 const Cohort = LvlModel.extend({
   tableName: 'cohorts',
@@ -18,6 +19,9 @@ const Cohort = LvlModel.extend({
   },
   admins() {
     return this.belongsToMany('Admin').through('AdminCohort');
+  },
+  challengeSubmissions() {
+    return this.hasMany('ChallengeSubmission');
   },
 });
 
