@@ -1,5 +1,4 @@
 const express = require('express');
-const knex = require('../knex.js');
 const Cohorts = require('../collections/cohorts');
 const Cohort = require('../models/cohort');
 
