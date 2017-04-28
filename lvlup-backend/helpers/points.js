@@ -133,6 +133,7 @@ const calculatePts = () => {
   points.cohort = cohortName;
   points.cohortType = cohortType;
   points.location = location;
+  points.currentQuarter = determineQuarter(moment());
   points.totalEarned = totalEarned.reduce((acc, pts) => acc + pts);
   points.totalUsed = totalUsed.reduce((acc, pts) => acc + pts);
   points.q1Earned = q1Earned.reduce((acc, pts) => acc + pts);
