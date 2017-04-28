@@ -13,20 +13,35 @@ const challengesRoute = require('./routes/challenges');
 const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
-const pointsRoute = require('./routes/points');
 const cors = require('cors');
 const authorize = require('./middleware/authorize');
+const path = require('path');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+const allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  if (req.method == 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
+  }
+};
+
+app.use(allowCrossDomain);
+
 app.use(cors());
 app.use(bodyParser.json());
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.use(session({
   keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2],
   secret: 'bam',
@@ -34,13 +49,17 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: `${process.env.HOST}/api/auth/github/callback`,
+  callbackURL: 'http://lvlup-testing-backend.herokuapp.com/api/auth/github/callback',
 },
   (accessToken, refreshToken, profile, done) => {
-    process.nextTick(() => done(null, profile));
+    // process.nextTick(() => done(null, profile));
+    done(null, profile);
   }));
 
 passport.serializeUser((user, done) => {
@@ -56,14 +75,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.json());
 
 app.use('/api/students', authorize.isUser);
 app.get('/api/students/:id', authorize.isAuthorized);
 app.get('/api/students', authorize.isAdmin);
 
 app.use('/api', loginRoute);
-app.use('/api', pointsRoute);
 app.use('/api', campusesRoute);
 app.use('/api', cohortsRoute);
 app.use('/api', adminsRoute);
