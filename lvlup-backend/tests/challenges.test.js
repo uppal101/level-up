@@ -103,6 +103,19 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_4: null,
         requirements_5: null,
       },
+      {
+        id: 6,
+        name: 'Feed the Hamid',
+        point_value: 10,
+        description: 'Feed your favorite evil instructor.',
+        campus_id: 1,
+        category_id: 4,
+        requirements_1: null,
+        requirements_2: null,
+        requirements_3: null,
+        requirements_4: null,
+        requirements_5: null,
+      },
     ], done);
   });
 });
@@ -154,7 +167,7 @@ describe('POST challenges', () => {
       delete challenge.body.updated_at;
     })
     .expect(200, {
-      id: 6,
+      id: 7,
       name: 'Kiss ass',
       point_value: 0,
       description: 'Suck up to your favorite instructor.',
@@ -283,7 +296,7 @@ describe('DELETE challenges/:challenge_id', () => {
     .delete('/api/challenges/6')
     .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
-    .expect(200, { message: 'challenge successfully deleted' }, done);
+    .expect(200, { message: 'Challenge successfully deleted' }, done);
   });
   it('should respond with 500 a challenge is specified which has a related challenge submission', (done) => {
     supertest(app)
