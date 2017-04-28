@@ -1,6 +1,9 @@
 const knex = require('../knex.js');
 const moment = require('moment');
 
+let location;
+let cohortName;
+let cohortType;
 let ptsEarned;
 let ptsUsed;
 let q1;
@@ -50,12 +53,16 @@ const getPtsUsed = studentId => new Promise((resolve) => {
     .catch(err => console.error(err));
 });
 
-const getCohortSchedule = studentId => new Promise((resolve) => {
+const getStudentInfo = studentId => new Promise((resolve) => {
   knex('students')
     .where('students.id', studentId)
-    .select(['q1_start_date', 'q2_start_date', 'q3_start_date', 'q4_start_date', 'graduation_date'])
+    .select(['q1_start_date', 'q2_start_date', 'q3_start_date', 'q4_start_date', 'graduation_date', 'cohorts.name', 'cohorts.type', 'campuses.location'])
     .innerJoin('cohorts', 'cohorts.id', 'students.cohort_id')
+    .join('campuses', 'campuses.id', 'cohorts.campus_id')
     .then((dates) => {
+      cohortName = dates[0].name;
+      cohortType = dates[0].type;
+      location = dates[0].location;
       q1 = dates[0].q1_start_date;
       q2 = dates[0].q2_start_date;
       q3 = dates[0].q3_start_date;
@@ -120,8 +127,12 @@ const distributePts = () => {
   });
 };
 
+
 const calculatePts = () => {
   const points = {};
+  points.cohort = cohortName;
+  points.cohortType = cohortType;
+  points.location = location;
   points.totalEarned = totalEarned.reduce((acc, pts) => acc + pts);
   points.totalUsed = totalUsed.reduce((acc, pts) => acc + pts);
   points.q1Earned = q1Earned.reduce((acc, pts) => acc + pts);
@@ -139,7 +150,7 @@ const calculatePts = () => {
 module.exports = {
   getPtsEarned,
   getPtsUsed,
-  getCohortSchedule,
+  getStudentInfo,
   determineQuarter,
   distributePts,
   calculatePts,

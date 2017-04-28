@@ -9,6 +9,7 @@ const points = require('../helpers/points');
 const router = express.Router();
 
 router.get('/points/students/:student_id', (req, res) => {
+  console.log('points');
   points.getPtsEarned(req.params.student_id)
   .then(() => points.getPtsUsed(req.params.student_id))
   .then(() => points.getCohortSchedule(req.params.student_id))
@@ -18,29 +19,5 @@ router.get('/points/students/:student_id', (req, res) => {
   })
   .catch(err => res.status(500).json(err.message));
 });
-
-// Student.forge({ id: req.params.student_id })
-// .fetch({
-//   columns: ['id'],
-//   withRelated: ['challengeSubmissionsPts', { 'challengeSubmissionsPts.challenge': function (qb) {
-//     qb.column('id', 'point_value');
-//   } }],
-// })
-// router.get('/students/:id', (req, res) => {
-//   Student.forge({ id: req.params.id })
-//   .fetch({
-//     columns: ['email', 'first_name', 'id'],
-//     withRelated: [ 'challengeSubmissions'
-//       // {'challengeSubmissions': function(qb) { qb.column('id', 'challenge_id'); } }
-//      , { 'challengeSubmissions.challenge': function (qb) {
-//        console.log(qb);
-//        qb.column('id', 'point_value', 'description'); } }
-//    ],
-//   })
-//   .then((student) => {
-//     res.status(200).json(student);
-//   })
-//   .catch(err => console.error(err));
-// });
 
 module.exports = router;

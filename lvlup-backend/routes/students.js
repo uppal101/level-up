@@ -1,6 +1,11 @@
 const express = require('express');
 const Students = require('../collections/students');
 const Student = require('../models/student');
+const ChallengeSubmissionsPts = require('../collections/challenge_submissions_pts');
+const Challenge = require('../models/challenge');
+const Reward = require('../models/reward');
+const RewardRequests = require('../collections/reward_requests');
+const points = require('../helpers/points');
 
 const router = express.Router();
 
@@ -59,5 +64,16 @@ router.route('/students/cohorts/:cohort_id')
     .then(students => res.status(200).json(students))
     .catch(err => res.status(500).json(err.message));
   });
+
+router.get('/students/:student_id/info', (req, res) => {
+  points.getPtsEarned(req.params.student_id)
+    .then(() => points.getPtsUsed(req.params.student_id))
+    .then(() => points.getStudentInfo(req.params.student_id))
+    .then(() => {
+      points.distributePts();
+      res.status(200).json(points.calculatePts());
+    })
+    .catch(err => res.status(500).json(err.message));
+});
 
 module.exports = router;
