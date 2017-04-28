@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.route('/requests/cohorts/:cohort_id')
   .get((req, res) => {
-    Cohort.where({ id: req.params.cohort_id })
+    RewardRequest.where({ id: req.params.cohort_id })
     .fetch({ withRelated: ['rewardRequests'] })
     .then((cohort) => {
       const requests = cohort.related('rewardRequests');
@@ -26,16 +26,8 @@ router.route('/requests')
       student_id: req.body.student_id,
       reward_id: req.body.reward_id,
       cohort_id: req.body.cohort_id,
-      category_id: req.body.category_id,
-      request_message: req.body.request_message,
-      evaluation_message: req.body.evaluation_message,
-      request_status: req.body.request_status,
-      request_attachment_1: req.body.request_attachment_1,
-      request_attachment_2: req.body.request_attachment_2,
-      request_attachment_3: req.body.request_attachment_3,
-      request_image_link_1: req.body.request_image_link_1,
-      request_image_link_2: req.body.request_image_link_2,
-      request_image_link_3: req.body.request_image_link_3,
+      status: req.body.status,
+      notes: req.body.notes,
     })
     .save()
     .then(request => res.status(200).json(request))
