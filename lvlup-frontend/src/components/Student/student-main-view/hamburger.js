@@ -31,7 +31,7 @@ class HamburgerStudent extends Component {
         </Menu.Item>
         <Link to={'/student/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
         <Link to={'/student/challenges'}><Menu.Item><Icon name="chevron up" />Challenges</Menu.Item></Link>
-        <Menu.Item><Icon name="gift" />Rewards</Menu.Item>
+        <Link to={'/student/rewards'}><Menu.Item><Icon name="gift" />Rewards</Menu.Item></Link>
       </Menu>
     );
   }
