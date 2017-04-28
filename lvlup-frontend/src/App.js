@@ -16,6 +16,7 @@ import EditReward from './components/Admin/admin-edit-reward/edit-reward-main';
 
 import StudentChallenges from './components/Student/challenges/challenges';
 import HamburgerStudent from './components/Student/student-main-view/hamburger';
+import HamburgerAdmin from './components/Admin/admin-common/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
 import AdminConfiguration from './components/Admin/admin-config/config-main';
 
@@ -34,6 +35,7 @@ export default class App extends Component {
           <div>
             <Route exact path="/" component={Home} />
             <Route path="/student" component={HamburgerStudent} />
+            <Route path="/admin" component={HamburgerAdmin} />
             <Route exact path="/student/dashboard" component={StudentDashboard} />
             <Route exact path="/student/challenges" component={StudentChallenges} />
             <Route exact path="/admin-login" component={AdminLogin} />

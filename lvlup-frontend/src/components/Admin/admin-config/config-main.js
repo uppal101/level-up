@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import HamburgerAdmin from '../admin-common/hamburger';
+import Accordian from './config-accordian';
 
 
 class AdminConfiguration extends Component {
   render() {
     return (
-      <div>
-        <HamburgerAdmin />
-        <div className="admin-config" />
+      <div className="admin-config">
+        <Accordian />
       </div>
     );
   }
