@@ -30,10 +30,9 @@ router.route('/admins/:id')
   .delete((req, res) => {
     Admin.forge({ id: req.params.id })
     .fetch({ require: true })
-    .then((admin) => admin.destroy())
+    .then(admin => admin.destroy())
     .then(() => res.status(200).json({ message: 'Admin successfully deleted' }))
-    .catch((err) => res.status(500).json(err.message);
-    });
+    .catch(err => res.status(500).json(err.message));
   });
 
 module.exports = router;

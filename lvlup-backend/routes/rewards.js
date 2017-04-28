@@ -15,7 +15,7 @@ router.route('/rewards/')
     })
     .save()
     .then(reward => res.status(200).json(reward))
-    .catch(err => console.error(err));
+    .catch(err => res.status(500).json({ message: err.message }));
   });
 
 router.route('/rewards/campuses/:campus_id')
@@ -54,7 +54,7 @@ router.route('/rewards/:id')
     .then((reward) => {
       reward.destroy();
     })
-    .then(() => res.json({ message: 'Reward successfully deleted' }))
+    .then(() => res.status(200).json({ message: 'Reward successfully deleted' }))
     .catch(err => res.status(500).json({ message: err.message }));
   });
 
