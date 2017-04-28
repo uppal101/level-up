@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 class StudentDashboard extends Component {
   render() {
-    if (!this.props.studentPointsAndCampus) {
+    if (!this.props.studentPointsAndCampus.currentQuarter) {
       return (<div>LOADING</div>);
     }
     return (
@@ -34,7 +34,7 @@ class StudentDashboard extends Component {
                 {quarterConverter(this.props.studentPointsAndCampus.currentQuarter)}
               </Table.Cell>
               <Table.Cell>
-                {quarterPointFinder(this.props.studentPointsAndCampus.currentQuarter)}
+                {quarterPointFinder(this.props.studentPointsAndCampus)}
               </Table.Cell>
               <Table.Cell>
                 {this.props.studentPointsAndCampus.totalEarned}

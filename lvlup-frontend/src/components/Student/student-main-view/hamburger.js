@@ -34,7 +34,7 @@ class HamburgerStudent extends Component {
         <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
           <div className="userdiv">
             <h4>{this.props.loginInfo.username}</h4>
-            <p>{`${this.props.studentPointsAndCampus.totalEarned}Points Earned`}</p>
+            <p>{`${this.props.studentPointsAndCampus.totalEarned}  Points Earned`}</p>
             <p>{`${this.props.studentPointsAndCampus.cohort}  ${this.props.studentPointsAndCampus.cohortType},  ${this.props.studentPointsAndCampus.location}`}</p>
           </div>
         </Menu.Item>
