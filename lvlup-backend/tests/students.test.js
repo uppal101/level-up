@@ -91,28 +91,24 @@ describe('GET students', () => {
   });
 });
 
-xdescribe('GET students/:id', () => {
-  it('responds with 401 status if user is not a user', (done) => {
+describe('GET students/:id', () => {
+  it('responds with 401 status if user is not logged in', (done) => {
     supertest(app)
-    .get('/api/students/1')
-    .expect('Content-Type', /json/)
-    .expect(401, done);
-  });
-  it('responds with 401 status if user is not a user', (done) => {
-    supertest(app)
-    .get('/api/students/1')
-    .expect('Content-Type', /json/)
-    .expect(401, done);
+    .get('/api/students')
+    .expect('Content-Type', /plain/)
+    .expect(401, 'You must be logged in', done);
   });
   it('responds with JSON', (done) => {
     supertest(app)
     .get('/api/students/1')
+    .set('Cookie', 'authToken=adminToken')
     .expect('Content-Type', /json/)
     .expect(200, done);
   });
   it('responds with a single student specificied by id', (done) => {
     supertest(app)
     .get('/api/students/1')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
     .expect((student) => {
       delete student.body.created_at;
@@ -133,7 +129,7 @@ xdescribe('GET students/:id', () => {
 });
 
 xdescribe('DELETE students/:id', () => {
-  it('should respond respond with success message if student is deleted', (done) => {
+  it('should respond with success message if student is deleted', (done) => {
     supertest(app)
       .delete('/api/students/1')
       .set('Accept', 'application/json')
