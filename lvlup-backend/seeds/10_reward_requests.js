@@ -26,7 +26,7 @@ exports.seed = function (knex, Promise) {
       student_id: 3,
       reward_id: 8,
       status: 'Approved',
-np      fulfilled: false,
+      fulfilled: false,
       created_at: '2017-04-01T10:00:00.000Z',
       updated_at: '2017-04-02T12:00:00.000Z',
     },

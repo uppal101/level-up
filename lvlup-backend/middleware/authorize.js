@@ -4,7 +4,8 @@ const isAdmin = (req, res, next) => {
   if (req.cookies.authToken) {
     next();
   } else {
-    res.status(404).json('You must be an Administrator');
+    res.set('Content-Type', 'text/plain');
+    res.status(401).send('You must be an Administrator');
   }
 };
 
@@ -12,7 +13,8 @@ const isUser = (req, res, next) => {
   if (req.session.passport || req.cookies.authToken) {
     next();
   } else {
-    res.status(404).json('You must be logged in');
+    res.set('Content-Type', 'text/plain');
+    res.status(401).send('You must be logged in');
   }
 };
 
@@ -27,7 +29,8 @@ const isAuthorized = (req, res, next) => {
       if (req.session.passport.user._json.email === student.attributes.email) {
         next();
       } else {
-        res.status(404).json('Unauthorized');
+        res.set('Content-Type', 'text/plain');
+        res.status(401).send('Unauthorized');
       }
     });
   }

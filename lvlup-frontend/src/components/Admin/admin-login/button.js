@@ -6,7 +6,7 @@ class LoginButton extends Component {
   render() {
     return (
       <div className="button">
-        <Button content="Submit" />
+        <Button content="Log In" />
       </div>
 
     );

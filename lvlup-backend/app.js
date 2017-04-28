@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const loginRoute = require('./routes/login');
 const campusesRoute = require('./routes/campuses');
 const challengesRoute = require('./routes/challenges');
+const submissionsRoute = require('./routes/challenge_submissions');
 const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
@@ -77,8 +78,12 @@ app.use((req, res, next) => {
 
 
 app.use('/api/students', authorize.isUser);
+app.use('/api/challenges', authorize.isUser);
 app.get('/api/students/:id', authorize.isAuthorized);
 app.get('/api/students', authorize.isAdmin);
+app.post('/api/challenges', authorize.isAdmin);
+app.put('/api/challenges', authorize.isAdmin);
+app.delete('/api/challenges/:challenge_id', authorize.isAdmin);
 
 app.use('/api', loginRoute);
 app.use('/api', campusesRoute);
@@ -87,6 +92,7 @@ app.use('/api', adminsRoute);
 app.use('/api', rewardsRoute);
 app.use('/api', studentsRoute);
 app.use('/api', challengesRoute);
+app.use('/api', submissionsRoute);
 
 
 app.listen(PORT, () => {

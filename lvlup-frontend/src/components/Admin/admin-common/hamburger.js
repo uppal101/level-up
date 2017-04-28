@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import './admin-nav.css';
 
 class HamburgerStudent extends Component {
@@ -12,10 +13,10 @@ class HamburgerStudent extends Component {
             <h4>tweetordie</h4>
           </div>
         </Menu.Item>
-        <Menu.Item><Icon name="dashboard" /><a href="/admin/dashboard">Dashboard</a></Menu.Item>
-        <Menu.Item><Icon name="chevron up" /><a href="/admin/challenges">Challenges</a></Menu.Item>
-        <Menu.Item><Icon name="gift" /><a href="/admin/rewards">Rewards</a></Menu.Item>
-        <Menu.Item><Icon name="setting" />Configuration</Menu.Item>
+        <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
+        <Link to={'/admin/challenges'}><Menu.Item><Icon name="chevron up" />Challenges</Menu.Item></Link>
+        <Link to={'/admin/rewards'}><Menu.Item><Icon name="gift" />Rewards</Menu.Item></Link>
+        <Link to={'/admin/configuration'}><Menu.Item><Icon name="setting" />Configuration</Menu.Item></Link>
       </Menu>
     );
   }

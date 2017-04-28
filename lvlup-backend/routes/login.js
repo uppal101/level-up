@@ -3,7 +3,6 @@ const app = express();
 const router = express.Router();
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
-const knex = require('../knex.js');
 const Students = require('../collections/students');
 const Student = require('../models/student');
 const jwt = require('jsonwebtoken');

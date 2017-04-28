@@ -110,6 +110,5 @@ describe('DELETE /admins/:id', () => {
           .delete('/api/cohorts/jenny')
           .set('Accept', 'Application/json')
           .expect(500, done);
-
   });
 });
