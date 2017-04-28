@@ -28,15 +28,23 @@ after(() => {
 });
 
 describe('GET challenges/campuses/:campus_id', () => {
+  it('responds with 401 status if user is not logged in', (done) => {
+    supertest(app)
+    .get('/api/challenges/campuses/1')
+    .expect('Content-Type', /plain/)
+    .expect(401, 'You must be logged in', done);
+  });
   it('responds with JSON', (done) => {
     supertest(app)
     .get('/api/challenges/campuses/1')
+    .set('Cookie', 'authToken=adminToken')
     .expect('Content-Type', /json/)
     .expect(200, done);
   });
   it('responds with all challenges in the database', (done) => {
     supertest(app)
     .get('/api/challenges/campuses/1')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
     .expect(challenges => challenges.body.forEach((challenge) => {
       delete challenge.created_at;
@@ -98,6 +106,70 @@ describe('GET challenges/campuses/:campus_id', () => {
     ], done);
   });
 });
+
+describe('POST challenges', () => {
+  it('responds with 401 status if user is not an admin', (done) => {
+    supertest(app)
+    .post('/api/challenges')
+    // .expect('Content-Type', /plain/)
+    .expect(401, done);
+  });
+  it('responds with JSON if user is an admin', (done) => {
+    supertest(app)
+    .post('/api/challenges')
+    .set('Cookie', 'authToken=adminToken')
+    .send({
+      name: 'Kiss ass',
+      point_value: 0,
+      description: 'Suck up to your favorite instructor.',
+      campus_id: 1,
+      category_id: 4,
+      requirements_1: 'Instructor must smile',
+      requirements_2: null,
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    })
+    .expect('Content-Type', /json/)
+    .expect(200, done);
+  });
+  it('allows admins to add a challenge to the database', (done) => {
+    supertest(app)
+    .post('/api/challenges/')
+    .set('Cookie', 'authToken=adminToken')
+    .set('Accept', 'application/json')
+    .send({
+      name: 'Kiss ass',
+      point_value: 0,
+      description: 'Suck up to your favorite instructor.',
+      campus_id: 1,
+      category_id: 4,
+      requirements_1: 'Instructor must smile',
+      requirements_2: null,
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    })
+    .expect((challenge) => {
+      delete challenge.body.created_at;
+      delete challenge.body.updated_at;
+    })
+    .expect(200, {
+      id: 6,
+      name: 'Kiss ass',
+      point_value: 0,
+      description: 'Suck up to your favorite instructor.',
+      campus_id: 1,
+      category_id: 4,
+      requirements_1: 'Instructor must smile',
+      requirements_2: null,
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    }, done);
+  });
+});
+
 //
 // describe('GET students/:id', () => {
 //   it('responds with JSON', (done) => {
