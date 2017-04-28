@@ -12,6 +12,7 @@ const session = require('express-session');
 const bcrypt = require('bcrypt-as-promised');
 const Admin = require('../models/admin');
 const AdminCohort = require('../models/admin_cohort');
+const path = require('path');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -23,14 +24,14 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    console.log('here in callback');
-    // res.redirect('http://localhost:3006/dashboard/student');
-    res.redirect('http://localhost:3000/api/student/login');
+    // console.log( 'here is req.user IN CALLBACK--->', req.user);
+    res.redirect('http://localhost:3006/student/dashboard');
+    // res.redirect('http://localhost:3000/api/student/login');
   });
 
 router.route('/student/login')
   .get((req, res) => {
-    console.log(req.session);
+    console.log('here is req.session--->', req.session);
     Student.query({ where: { email: req.session.passport.user._json.email } })
     .fetch()
     .then((student) => {
