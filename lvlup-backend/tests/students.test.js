@@ -28,7 +28,7 @@ after(() => {
 });
 
 describe('GET students', () => {
-  it('responds with 401 status if user is not a user', (done) => {
+  it('responds with 401 status if user is not logged in', (done) => {
     supertest(app)
     .get('/api/students')
     .expect('Content-Type', /plain/)
