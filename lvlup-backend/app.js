@@ -15,7 +15,7 @@ const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
 const cors = require('cors');
 const authorize = require('./middleware/authorize');
-const OAuth2RefreshTokenStrategy = require('passport-oauth2-middleware').Strategy;
+const path = require('path');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -23,7 +23,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const allowCrossDomain = function (req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
-  console.log(req.headers);
   res.header('Access-Control-Allow-Origin', req.headers.origin);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
@@ -40,6 +39,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(session({
   keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2],

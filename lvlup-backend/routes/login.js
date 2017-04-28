@@ -12,6 +12,7 @@ const session = require('express-session');
 const bcrypt = require('bcrypt-as-promised');
 const Admin = require('../models/admin');
 const AdminCohort = require('../models/admin_cohort');
+const path = require('path');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
