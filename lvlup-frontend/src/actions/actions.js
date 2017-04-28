@@ -5,7 +5,7 @@ import * as CONST from '../constants/constants';
 // const config = { headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,PATCH,POST,DELETE', 'Content-Type': 'application/json' } };
 
 
-const fetchStudent = () => axios('http://lvlup-testing-backend.herokuapp.com/api/student/login', { withCredentials: false }).then(response => response.data);
+const fetchStudent = () => axios('http://lvlup-testing-backend.herokuapp.com/api/student/login', { withCredentials: false }).then(response => response.data).then((data) => axios(`http://lvlup-testing-backend.herokuapp.com/api/students/${data.id}/info`).then(secondResponse => secondResponse.info)
 // const oauthCheck = () => axios('http://lvlup-testing-backend.herokuapp.com/api/auth/github', { withCredentials: false }).then(response => response.data);
 
 export const loggingInAction = () => ({
