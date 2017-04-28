@@ -5,6 +5,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 1,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 6,
       status: 'Approved',
       fulfilled: true,
@@ -15,6 +16,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 2,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 7,
       status: 'Pending approval',
       fulfilled: false,
@@ -24,6 +26,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 3,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Approved',
       fulfilled: false,
@@ -33,6 +36,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 4,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 1,
       status: 'Approved',
       fulfilled: true,
@@ -42,6 +46,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 5,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Denied',
       fulfilled: false,
@@ -51,6 +56,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 6,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Denied',
       fulfilled: false,
@@ -60,6 +66,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 7,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Denied',
       fulfilled: false,
@@ -69,6 +76,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 8,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 7,
       status: 'Approved',
       fulfilled: true,
@@ -78,6 +86,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 9,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 1,
       status: 'Approved',
       fulfilled: true,
@@ -87,6 +96,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 10,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Approved',
       fulfilled: false,
@@ -96,6 +106,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 11,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 7,
       status: 'Pending approval',
       fulfilled: false,
@@ -105,6 +116,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 12,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 7,
       status: 'Pending approval',
       fulfilled: false,
@@ -114,6 +126,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 13,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 4,
       status: 'Approved',
       fulfilled: false,
@@ -123,6 +136,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 14,
       student_id: 1,
+      cohort_id: 1,
       reward_id: 6,
       status: 'Pending approval',
       fulfilled: false,
@@ -132,6 +146,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 15,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 8,
       status: 'Approved',
       fulfilled: false,
@@ -141,6 +156,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 16,
       student_id: 2,
+      cohort_id: 1,
       reward_id: 5,
       status: 'Pending approval',
       fulfilled: false,
@@ -150,6 +166,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 17,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 7,
       status: 'Approved',
       fulfilled: true,
@@ -159,6 +176,7 @@ exports.seed = function (knex, Promise) {
     {
       id: 18,
       student_id: 3,
+      cohort_id: 1,
       reward_id: 6,
       status: 'Pending approval',
       fulfilled: false,
