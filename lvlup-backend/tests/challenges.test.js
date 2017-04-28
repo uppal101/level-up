@@ -111,7 +111,6 @@ describe('POST challenges', () => {
   it('responds with 401 status if user is not an admin', (done) => {
     supertest(app)
     .post('/api/challenges')
-    // .expect('Content-Type', /plain/)
     .expect(401, done);
   });
   it('responds with JSON if user is an admin', (done) => {
@@ -163,6 +162,70 @@ describe('POST challenges', () => {
       category_id: 4,
       requirements_1: 'Instructor must smile',
       requirements_2: null,
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    }, done);
+  });
+});
+
+describe('PUT challenges/:challenge_id', () => {
+  it('responds with 401 status if user is not an admin', (done) => {
+    supertest(app)
+    .put('/api/challenges/4')
+    .expect(401, done);
+  });
+  it('responds with JSON if user is an admin', (done) => {
+    supertest(app)
+    .put('/api/challenges/4')
+    .set('Cookie', 'authToken=adminToken')
+    .send({
+      id: 4,
+      name: 'Full-stack Side Project',
+      point_value: 250,
+      description: 'Develop a side project using curriculum technology.',
+      campus_id: 1,
+      category_id: 1,
+      requirements_1: 'Must implement a front end',
+      requirements_2: 'Must implement a server and database',
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    })
+    .expect('Content-Type', /json/)
+    .expect(200, done);
+  });
+  it('allows admins to add a challenge to the database', (done) => {
+    supertest(app)
+    .put('/api/challenges/4')
+    .set('Cookie', 'authToken=adminToken')
+    .set('Accept', 'application/json')
+    .send({
+      id: 4,
+      name: 'Full-stack Side Project',
+      point_value: 250,
+      description: 'Develop a side project using curriculum technology.',
+      campus_id: 1,
+      category_id: 1,
+      requirements_1: 'Must implement a front end',
+      requirements_2: 'Must implement a server and database',
+      requirements_3: null,
+      requirements_4: null,
+      requirements_5: null,
+    })
+    .expect((challenge) => {
+      delete challenge.body.created_at;
+      delete challenge.body.updated_at;
+    })
+    .expect(200, {
+      id: 4,
+      name: 'Full-stack Side Project',
+      point_value: 250,
+      description: 'Develop a side project using curriculum technology.',
+      campus_id: 1,
+      category_id: 1,
+      requirements_1: 'Must implement a front end',
+      requirements_2: 'Must implement a server and database',
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
