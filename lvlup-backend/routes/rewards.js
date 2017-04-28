@@ -15,22 +15,24 @@ router.route('/rewards/')
       category_id: req.body.category_id,
     })
     .save()
-    .then((reward) => {
-      res.status(200).json(reward);
-    })
+    .then(reward => res.status(200).json(reward))
     .catch(err => console.error(err));
+  });
+
+router.route('/rewards/campuses/:campus_id')
+  .get((req, res) => {
+    Rewards.forge({ campus_id: req.params.campus_id })
+    .fetch()
+    .then(rewards => res.status(200).json(rewards))
+    .catch(err => res.status(500).json({ message: err.message }));
   });
 
 router.route('/rewards/:id')
   .get((req, res) => {
     Reward.forge({ id: req.params.id })
     .fetch()
-    .then((reward) => {
-      res.status(200).json(reward);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(reward => res.status(200).json(reward))
+    .catch(err => res.status(500).json({ message: err.message }));
   })
 
   .put((req, res) => {
@@ -43,12 +45,8 @@ router.route('/rewards/:id')
       campus_id: req.body.campus_id || reward.get('campus_id'),
       category_id: req.body.category_id || reward.get('category_id'),
     }))
-    .then((updatedReward) => {
-      res.json(updatedReward);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(updatedReward => res.status(200).json(updatedReward))
+    .catch(err => res.status(500).json({ message: err.message }));
   })
 
   .delete((req, res) => {
@@ -57,13 +55,8 @@ router.route('/rewards/:id')
     .then((reward) => {
       reward.destroy();
     })
-    .then(() => {
-      res.json({ message: 'Reward successfully deleted' });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: true, data: { message: err.message } });
-    });
+    .then(() => res.json({ message: 'Reward successfully deleted' }))
+    .catch(err => res.status(500).json({ message: err.message }));
   });
-
 
 module.exports = router;
