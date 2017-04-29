@@ -13,7 +13,8 @@ const router = express.Router();
 router.route('/submissions/cohorts/:cohort_id')
   .get((req, res) => {
     ChallengeSubmission.where({ cohort_id: req.params.cohort_id })
-    .fetchAll({ withRelated: ['challenge', 'student'] })
+    .fetchAll({ withRelated: [{
+      challenge: (q) => { q.column('id', 'name', 'point_value', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(submissions => res.status(200).json(submissions))
     .catch(err => res.status(500).json(err.message));
   });
@@ -22,7 +23,7 @@ router.route('/submissions/cohorts/:cohort_id')
 //   .get((req, res) => {
 //     knex('challenge_submissions')
 //     .where('challenge_submissions.cohort_id', req.params.cohort_id)
-//     .select(['challenge_submissions.id as submission_id', 'challenge_submissions.submission_message', 'challenge_submissions.submission_attachment_1 as attachment_1', 'challenge_submissions.submission_attachment_2 as attachment_2', 'challenge_submissions.submission_attachment_3 as attachment_3', 'challenge_submissions.submission_image_link_1 as image_1', 'challenge_submissions.submission_image_link_2 as image_2 ', 'challenge_submissions.submission_image_link_3 as image_3', 'challenge_submissions.created_at', 'challenges.point_value', 'challenges.name as challenge', 'challenges.description as challenge_description', 'students.username', 'students.name as student', 'students.id as student_id'])
+//     .select(['challenge_submissions.id as submission_id', 'challenge_submissions.submission_message', 'challenge_submissions.submission_status',  'challenge_submissions.submission_attachment_1 as attachment_1', 'challenge_submissions.submission_attachment_2 as attachment_2', 'challenge_submissions.submission_attachment_3 as attachment_3', 'challenge_submissions.submission_image_link_1 as image_1', 'challenge_submissions.submission_image_link_2 as image_2 ', 'challenge_submissions.submission_image_link_3 as image_3', 'challenge_submissions.created_at', 'challenges.point_value', 'challenges.name as challenge', 'challenges.description as challenge_description', 'students.username', 'students.name as student', 'students.id as student_id'])
 //     .innerJoin('challenges', 'challenges.id', 'challenge_submissions.challenge_id')
 //     .join('students', 'students.id', 'challenge_submissions.student_id')
 //     .then(submissions => res.status(200).json(submissions))
@@ -54,7 +55,8 @@ router.route('/submissions')
 router.route('/submissions/students/:student_id')
   .get((req, res) => {
     ChallengeSubmission.where({ student_id: req.params.student_id })
-    .fetchAll({ withRelated: ['student', 'challenge'] })
+    .fetchAll({ withRelated: [{
+      challenge: (q) => { q.column('id', 'name', 'point_value', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(submissions => res.status(200).json(submissions))
     .catch(err => res.status(500).json(err.message));
   });
@@ -62,7 +64,8 @@ router.route('/submissions/students/:student_id')
 router.route('/submissions/:submission_id')
   .get((req, res) => {
     ChallengeSubmission.where({ id: req.params.submission_id })
-    .fetch({ withRelated: ['student', 'challenge'] })
+    .fetch({ withRelated: [{
+      challenge: (q) => { q.column('id', 'name', 'point_value', 'description', 'requirements_1', 'requirements_2', 'requirements_3', 'requirements_4', 'requirements_5'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(submission => res.status(200).json(submission))
     .catch(err => res.status(500).json(err.message));
   })
