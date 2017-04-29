@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Input } from 'semantic-ui-react';
-import './reward-submission-style.css';
+import './challenge-submission-style.css';
 
-class RewardTitle extends Component {
+class ChallengeTitle extends Component {
   render() {
     return (
-      <Form className="reward-title">
+      <Form className="challenge-title">
         <Form.Field inline>
-          <label>Reward Title</label>
-          <Input placeholder="Pizza Party" />
+          <label>Challenge Title</label>
+          <Input placeholder="Tutor Session" readOnly />
         </Form.Field>
       </Form>
     );
@@ -16,4 +16,4 @@ class RewardTitle extends Component {
 }
 
 
-export default RewardTitle;
+export default ChallengeTitle;

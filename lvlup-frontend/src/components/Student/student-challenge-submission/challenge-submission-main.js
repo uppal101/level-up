@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import RewardTitle from './reward-title.js';
-import Submit from './button.js';
-import Notes from './notes.js';
+import ChallengeTitle from './challenge-title';
+import Submit from './button';
+import Links from './links';
+import ChallengeSubmissionHeader from './header';
 
-class StudentRewardSubmission extends Component {
+
+class StudentChallengeSubmission extends Component {
   render() {
     return (
-      <div className="reward-submission">
-        <RewardTitle />
-        <Notes />
+      <div className="challenge-submission">
+        <ChallengeSubmissionHeader />
+        <ChallengeTitle />
+        <Links />
         <Submit />
       </div>
     );
   }
 }
 
-export default StudentRewardSubmission;
+export default StudentChallengeSubmission;
