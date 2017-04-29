@@ -10,7 +10,7 @@ export const loginInfo = (state = {}, action) => {
 };
 export const studentPointsAndCampus = (state = {}, action) => {
   switch (action.type) {
-    case CONST.CONST.POINTS_COHORT_FULFILLED:
+    case CONST.POINTS_COHORT_FULFILLED:
       return action.payload;
     default:
       return state;
