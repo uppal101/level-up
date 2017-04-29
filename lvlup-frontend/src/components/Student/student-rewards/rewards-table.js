@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container } from 'semantic-ui-react';
 import './student-rewards-style.css';
 
 class RewardsTable extends Component {
@@ -19,18 +19,18 @@ class RewardsTable extends Component {
 
           <Table.Body>
             <Table.Row>
-              <Table.Cell>Tutor Session</Table.Cell>
-              <Table.Cell>lvl ^ Education</Table.Cell>
+              <Table.Cell>Pizza Party</Table.Cell>
+              <Table.Cell>lvl ^ Life</Table.Cell>
               <Table.Cell>Description</Table.Cell>
-              <Table.Cell>30</Table.Cell>
-              <Table.Cell><a href="/student/reward-submission"><Icon name="long arrow right" /></a></Table.Cell>
+              <Table.Cell>75 per person</Table.Cell>
+              <Table.Cell><a href="/student/reward-request"><Icon name="long arrow right" /></a></Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>Job Fair</Table.Cell>
               <Table.Cell>lvl ^ Career</Table.Cell>
               <Table.Cell>Description</Table.Cell>
               <Table.Cell>30</Table.Cell>
-              <Table.Cell><a href="/student/reward-submission"><Icon name="long arrow right" /></a></Table.Cell>
+              <Table.Cell><a href="/student/reward-request"><Icon name="long arrow right" /></a></Table.Cell>
             </Table.Row>
           </Table.Body>
 
