@@ -23,9 +23,7 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    // console.log( 'here is req.user IN CALLBACK--->', req.user);
-    res.redirect('http://localhost:3006/student/dashboard');
-    // res.redirect('http://localhost:3000/api/student/login');
+    res.redirect('/');
   });
 
 router.route('/student/login')

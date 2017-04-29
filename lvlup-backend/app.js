@@ -57,7 +57,7 @@ app.use(passport.session());
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: 'http://lvlup-testing-backend.herokuapp.com/api/auth/github/callback',
+  callbackURL: 'http://localhost:3000/api/auth/github/callback',
 },
   (accessToken, refreshToken, profile, done) => {
     // process.nextTick(() => done(null, profile));
