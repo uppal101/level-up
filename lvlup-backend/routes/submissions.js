@@ -25,13 +25,10 @@ router.route('/submissions/cohorts/:cohort_id')
   .get((req, res) => {
     knex('challenge_submissions')
     .where('challenge_submissions.cohort_id', req.params.cohort_id)
-    .select(['challenge_submissions.id', 'challenge_submissions.submission_message', 'challenge_submissions.submission_attachment_1', 'challenge_submissions.submission_attachment_2', 'challenge_submissions.submission_attachment_3', 'challenge_submissions.submission_image_link_1', 'challenge_submissions.submission_image_link_2', 'challenge_submissions.submission_image_link_3', 'challenge_submissions.created_at', 'challenges.point_value', 'challenges.name', 'challenges.description', 'students.name', 'students.id'])
+    .select(['challenge_submissions.id as submission_id', 'challenge_submissions.submission_message', 'challenge_submissions.submission_attachment_1 as attachment_1', 'challenge_submissions.submission_attachment_2 as attachment_2', 'challenge_submissions.submission_attachment_3 as attachment_3', 'challenge_submissions.submission_image_link_1 as image_1', 'challenge_submissions.submission_image_link_2 as image_2 ', 'challenge_submissions.submission_image_link_3 as image_3', 'challenge_submissions.created_at', 'challenges.point_value', 'challenges.name as challenge', 'challenges.description as challenge_description', 'students.name as student', 'students.id as student_id'])
     .innerJoin('challenges', 'challenges.id', 'challenge_submissions.challenge_id')
     .join('students', 'students.id', 'challenge_submissions.student_id')
-    .then((submissions) => {
-      console.log(submissions);
-      res.status(200).json(submissions);
-    })
+    .then(submissions => res.status(200).json(submissions))
     .catch(err => res.status(500).json(err.message));
   });
 
