@@ -82,19 +82,42 @@ router.route('/submissions/:submission_id')
     ChallengeSubmission.forge({ id: req.params.submission_id })
     .fetch()
     .then(submission => submission.save({
-      student_id: req.body.student_id || submission.get('student_id'),
-      challenge_id: req.body.challenge_id || submission.get('challenge_id'),
-      cohort_id: req.body.cohort_id || submission.get('cohort_id'),
-      category_id: req.body.category_id || submission.get('category_id'),
+      student_id: submission.get('student_id'),
+      challenge_id: submission.get('challenge_id'),
+      cohort_id: submission.get('cohort_id'),
+      category_id: submission.get('category_id'),
+      submission_status: submission.get('submission_status'),
+      evaluation_message: submission.get('evaluation_message'),
       submission_message: req.body.submission_message || submission.get('submission_message'),
-      evaluation_message: req.body.evaluation_message || submission.get('evaluation_message'),
-      submission_status: req.body.submission_status || submission.get('submission_status'),
       submission_attachment_1: req.body.submission_attachment_1 || submission.get('submission_attachment_1'),
       submission_attachment_2: req.body.submission_attachment_2 || submission.get('submission_attachment_2'),
       submission_attachment_3: req.body.submission_attachment_3 || submission.get('submission_attachment_3'),
       submission_image_link_1: req.body.submission_image_link_1 || submission.get('submission_image_link_1'),
       submission_image_link_2: req.body.submission_image_link_2 || submission.get('submission_image_link_2'),
       submission_image_link_3: req.body.submission_image_link_3 || submission.get('submission_image_link_3'),
+    }))
+    .then(submission => res.status(200).json(submission))
+    .catch(err => res.status(500).json(err.message));
+  });
+
+router.route('/submissions/:submission_id/admin')
+  .put((req, res) => {
+    ChallengeSubmission.forge({ id: req.params.submission_id })
+    .fetch()
+    .then(submission => submission.save({
+      student_id: submission.get('student_id'),
+      challenge_id: submission.get('challenge_id'),
+      cohort_id: submission.get('cohort_id'),
+      category_id: submission.get('category_id'),
+      submission_message: submission.get('submission_message'),
+      evaluation_message: req.body.evaluation_message || submission.get('evaluation_message'),
+      submission_status: req.body.submission_status || submission.get('submission_status'),
+      submission_attachment_1: submission.get('submission_attachment_1'),
+      submission_attachment_2: submission.get('submission_attachment_2'),
+      submission_attachment_3: submission.get('submission_attachment_3'),
+      submission_image_link_1: submission.get('submission_image_link_1'),
+      submission_image_link_2: submission.get('submission_image_link_2'),
+      submission_image_link_3: submission.get('submission_image_link_3'),
     }))
     .then(submission => res.status(200).json(submission))
     .catch(err => res.status(500).json(err.message));
