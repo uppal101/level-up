@@ -36,40 +36,51 @@ describe('GET /cohorts/', () => {
       delete cohort.created_at;
       delete cohort.updated_at;
     }))
-    .expect(200, [
-      {
-        id: 1,
-        name: 'g42',
-        type: 'WDI',
-        q1_start_date: '2017-01-09T08:00:00.000Z',
-        q2_start_date: '2017-02-21T08:00:00.000Z',
-        q3_start_date: '2017-04-03T07:00:00.000Z',
-        q4_start_date: '2017-05-15T07:00:00.000Z',
-        graduation_date: '2017-06-23T07:00:00.000Z',
-        campus_id: 1,
-      }, {
-        id: 2,
-        name: 'g52',
-        type: 'WDI',
-        q1_start_date: '2017-04-17T07:00:00.000Z',
-        q2_start_date: '2017-05-29T07:00:00.000Z',
-        q3_start_date: '2017-07-10T07:00:00.000Z',
-        q4_start_date: '2017-08-21T07:00:00.000Z',
-        graduation_date: '2017-09-29T07:00:00.000Z',
-        campus_id: 1,
-      },
-      {
-        id: 3,
-        name: 'g53',
-        type: 'WDI',
-        q1_start_date: '2017-04-17T07:00:00.000Z',
-        q2_start_date: '2017-05-29T07:00:00.000Z',
-        q3_start_date: '2017-07-10T07:00:00.000Z',
-        q4_start_date: '2017-08-21T07:00:00.000Z',
-        graduation_date: '2017-09-29T07:00:00.000Z',
-        campus_id: 2,
-      },
-    ], done);
+    .expect(200, [{ id: 1,
+      name: 'g42',
+      type: 'WDI',
+      q1_start_date: '2017-01-09T08:00:00.000Z',
+      q2_start_date: '2017-02-21T08:00:00.000Z',
+      q3_start_date: '2017-04-03T07:00:00.000Z',
+      q4_start_date: '2017-05-15T07:00:00.000Z',
+      graduation_date: '2017-06-23T07:00:00.000Z',
+      campus_id: 1 },
+    { id: 2,
+      name: 'g52',
+      type: 'WDI',
+      q1_start_date: '2017-04-17T07:00:00.000Z',
+      q2_start_date: '2017-05-29T07:00:00.000Z',
+      q3_start_date: '2017-07-10T07:00:00.000Z',
+      q4_start_date: '2017-08-21T07:00:00.000Z',
+      graduation_date: '2017-09-29T07:00:00.000Z',
+      campus_id: 1 },
+    { id: 3,
+      name: 'g53',
+      type: 'WDI',
+      q1_start_date: '2017-04-17T07:00:00.000Z',
+      q2_start_date: '2017-05-29T07:00:00.000Z',
+      q3_start_date: '2017-07-10T07:00:00.000Z',
+      q4_start_date: '2017-08-21T07:00:00.000Z',
+      graduation_date: '2017-09-29T07:00:00.000Z',
+      campus_id: 2 },
+    { id: 4,
+      name: 'g54',
+      type: 'WDI',
+      q1_start_date: '2017-04-17T07:00:00.000Z',
+      q2_start_date: '2017-05-29T07:00:00.000Z',
+      q3_start_date: '2017-07-10T07:00:00.000Z',
+      q4_start_date: '2017-08-21T07:00:00.000Z',
+      graduation_date: '2017-09-29T07:00:00.000Z',
+      campus_id: 3 },
+    { id: 5,
+      name: 'g55',
+      type: 'WDI',
+      q1_start_date: '2017-04-17T07:00:00.000Z',
+      q2_start_date: '2017-05-29T07:00:00.000Z',
+      q3_start_date: '2017-07-10T07:00:00.000Z',
+      q4_start_date: '2017-08-21T07:00:00.000Z',
+      graduation_date: '2017-09-29T07:00:00.000Z',
+      campus_id: 4 }], done);
   });
 });
 
@@ -93,8 +104,7 @@ describe('POST /cohorts/', () => {
       delete cohort.body.updated_at;
     })
     .expect(200,
-      {
-        name: 'g100',
+      { name: 'g100',
         type: 'WDI',
         q1_start_date: '2017-04-17',
         q2_start_date: '2017-5-29',
@@ -102,8 +112,7 @@ describe('POST /cohorts/', () => {
         q4_start_date: '2017-08-21',
         graduation_date: '2017-09-29',
         campus_id: 6,
-        id: 4,
-      }, done);
+        id: 6 }, done);
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
     supertest(app)
@@ -179,12 +188,10 @@ describe('GET /cohorts/campuses/:campus_id', () => {
           .get('/api/cohorts/campuses/2')
           .set('Accept', 'application/json')
           .expect((cohort) => {
-            delete cohort.body.created_at;
-            delete cohort.body.updated_at;
+            delete cohort.body[0].created_at;
+            delete cohort.body[0].updated_at;
           })
-          .expect(200, {
-            id: 3,
-            campus_id: 2,
+          .expect(200, [{ id: 3,
             name: 'g53',
             type: 'WDI',
             q1_start_date: '2017-04-17T07:00:00.000Z',
@@ -192,7 +199,8 @@ describe('GET /cohorts/campuses/:campus_id', () => {
             q3_start_date: '2017-07-10T07:00:00.000Z',
             q4_start_date: '2017-08-21T07:00:00.000Z',
             graduation_date: '2017-09-29T07:00:00.000Z',
-          }, done);
+            campus_id: 2,
+          }], done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
     supertest(app)

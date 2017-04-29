@@ -107,6 +107,7 @@ describe('DELETE /campuses/:id', () => {
     supertest(app)
       .delete('/api/campuses/5')
       .set('Accept', 'application/json')
+      .set('Cookie', 'authToken=adminToken')
       .expect(200, {
         message: 'Campus successfully deleted',
       }, done);
@@ -114,7 +115,15 @@ describe('DELETE /campuses/:id', () => {
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
         .delete('/api/campuses/Denver-GoldenTriangle')
+        .set('Cookie', 'authToken=adminToken')
         .set('Accept', 'Application/json')
         .expect(500, done);
+  });
+  it('should respond with 401 if not logged in', (done) => {
+    supertest(app)
+        .delete('/api/campuses/Denver-GoldenTriangle')
+
+        .set('Accept', 'Application/json')
+        .expect(401, 'You must be an Administrator', done);
   });
 });

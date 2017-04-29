@@ -1,5 +1,6 @@
 const express = require('express');
 const RewardRequest = require('../models/reward_request');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -31,7 +32,6 @@ router.route('/requests')
       student_id: req.body.student_id,
       reward_id: req.body.reward_id,
       cohort_id: req.body.cohort_id,
-      status: req.body.status,
       notes: req.body.notes,
     })
     .save()
@@ -65,7 +65,7 @@ router.route('/requests/:request_id')
       student_id: request.get('student_id'),
       reward_id: request.get('reward_id'),
       cohort_id: request.get('cohort_id'),
-      status: req.body.status || request.get('status'),
+      status: request.get('status'),
       notes: req.body.notes || request.get('notes'),
     }))
     .then(request => res.status(200).json(request))
@@ -73,7 +73,7 @@ router.route('/requests/:request_id')
   });
 
 router.route('/requests/:request_id/admin')
-  .put((req, res) => {
+  .put(authorize.isAdmin, (req, res) => {
     RewardRequest.forge({ id: req.params.request_id })
     .fetch()
     .then(request => request.save({
