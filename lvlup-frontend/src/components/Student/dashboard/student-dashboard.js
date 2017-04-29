@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { Icon, Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
+import { connect } from 'react-redux';
+import { quarterConverter, quarterPointFinder } from '../../../actions/actions';
+
+
+const mapStateToProps = state => ({
+  loginInfo: state.loginInfo,
+  studentPointsAndCampus: state.studentPointsAndCampus,
+});
+
 
 class StudentDashboard extends Component {
   render() {
+    if (!this.props.studentPointsAndCampus.currentQuarter) {
+      return (<div>LOADING</div>);
+    }
     return (
       <div className="studentDashboard">
         <h1 className="headerStudent">Welcome, Daniel Gardner</h1>
@@ -19,16 +31,16 @@ class StudentDashboard extends Component {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                Quarter 3
+                {quarterConverter(this.props.studentPointsAndCampus.currentQuarter)}
               </Table.Cell>
               <Table.Cell>
-                250 points
+                {quarterPointFinder(this.props.studentPointsAndCampus)}
               </Table.Cell>
               <Table.Cell>
-                275 points
+                {this.props.studentPointsAndCampus.totalEarned}
               </Table.Cell>
               <Table.Cell>
-                250 points
+                {this.props.studentPointsAndCampus.currentTotal}
               </Table.Cell>
             </Table.Row>
           </Table.Body>
@@ -167,4 +179,4 @@ class StudentDashboard extends Component {
   }
 }
 
-export default StudentDashboard;
+export default connect(mapStateToProps)(StudentDashboard);

@@ -1,7 +1,6 @@
 import * as CONST from '../constants/constants';
 
 export const loginInfo = (state = {}, action) => {
-  console.log(action);
   switch (action.type) {
     case CONST.STUDENT_LOGIN_FULFILLED:
       return action.payload;
@@ -9,10 +8,9 @@ export const loginInfo = (state = {}, action) => {
       return state;
   }
 };
-export const logedInOauth = (state = 'not loggedIn', action) => {
-  console.log(action);
+export const studentPointsAndCampus = (state = {}, action) => {
   switch (action.type) {
-    case CONST.STUDENT_LOGGEDIN_FULFILLED:
+    case CONST.CONST.POINTS_COHORT_FULFILLED:
       return action.payload;
     default:
       return state;
