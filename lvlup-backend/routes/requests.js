@@ -62,19 +62,26 @@ router.route('/requests/:request_id')
     RewardRequest.forge({ id: req.params.request_id })
     .fetch()
     .then(request => request.save({
-      student_id: req.body.student_id || request.get('student_id'),
-      reward_id: req.body.reward_id || request.get('reward_id'),
-      cohort_id: req.body.cohort_id || request.get('cohort_id'),
-      category_id: req.body.category_id || request.get('category_id'),
-      request_message: req.body.request_message || request.get('request_message'),
-      evaluation_message: req.body.evaluation_message || request.get('evaluation_message'),
-      request_status: req.body.request_status || request.get('request_status'),
-      request_attachment_1: req.body.request_attachment_1 || request.get('request_attachment_1'),
-      request_attachment_2: req.body.request_attachment_2 || request.get('request_attachment_2'),
-      request_attachment_3: req.body.request_attachment_3 || request.get('request_attachment_3'),
-      request_image_link_1: req.body.request_image_link_1 || request.get('request_image_link_1'),
-      request_image_link_2: req.body.request_image_link_2 || request.get('request_image_link_2'),
-      request_image_link_3: req.body.request_image_link_3 || request.get('request_image_link_3'),
+      student_id: request.get('student_id'),
+      reward_id: request.get('reward_id'),
+      cohort_id: request.get('cohort_id'),
+      status: req.body.status || request.get('status'),
+      notes: req.body.notes || request.get('notes'),
+    }))
+    .then(request => res.status(200).json(request))
+    .catch(err => res.status(500).json(err.message));
+  });
+
+router.route('/requests/:request_id/admin')
+  .put((req, res) => {
+    RewardRequest.forge({ id: req.params.request_id })
+    .fetch()
+    .then(request => request.save({
+      student_id: request.get('student_id'),
+      reward_id: request.get('reward_id'),
+      cohort_id: request.get('cohort_id'),
+      status: req.body.status || request.get('status'),
+      notes: request.get('notes'),
     }))
     .then(request => res.status(200).json(request))
     .catch(err => res.status(500).json(err.message));
