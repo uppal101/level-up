@@ -16,6 +16,11 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   .references('id')
   .inTable('cohorts')
   .onDelete('CASCADE');
+  table.integer('category_id')
+  .notNullable()
+  .references('id')
+  .inTable('categories')
+  .onDelete('CASCADE');
   table.string('status', 'varchar(65)')
   .notNullable();
   table.string('notes');
