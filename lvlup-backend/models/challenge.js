@@ -15,7 +15,7 @@ const Challenge = LvlModel.extend({
   campuses() {
     return this.belongsToMany('Campus');
   },
-  challenge_submissions() {
+  challengeSubmissions() {
     return this.hasMany('ChallengeSubmission');
   },
 });

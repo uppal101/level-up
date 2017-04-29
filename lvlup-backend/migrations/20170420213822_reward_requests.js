@@ -11,11 +11,14 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   .references('id')
   .inTable('rewards')
   .onDelete('CASCADE');
+  table.integer('cohort_id')
+  .notNullable()
+  .references('id')
+  .inTable('cohorts')
+  .onDelete('CASCADE');
   table.string('status', 'varchar(65)')
   .notNullable();
   table.string('notes');
-  table.boolean('fulfilled')
-  .notNullable();
   table.timestamps(true, true);
 });
 

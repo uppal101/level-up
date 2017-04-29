@@ -2,31 +2,40 @@ import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
 import './student-styles.css';
 import { Link } from 'react-router-dom';
-import { loggingInAction } from '../../../actions/actions';
+import { loggingInAction, moreStudentInfo } from '../../../actions/actions';
 import { bindActionCreators } from 'redux';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction, moreStudentInfo }, dispatch);
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
+  studentPointsAndCampus: state.studentPointsAndCampus,
 });
 
 class HamburgerStudent extends Component {
   componentWillMount() {
-    this.props.loggingInAction();
+    this.props.loggingInAction()
+    .then(() => {
+      this.props.moreStudentInfo(this.props.loginInfo.id);
+    });
   }
 
   render() {
+    if (!this.props.loginInfo.username && !this.props.studentPointsAndCampus) {
+      return (
+        <div>LOADING</div>
+      );
+    }
     return (
       <Menu inverted vertical className="studentHamburger">
-        <Menu.Item><Image src="https://avatars2.githubusercontent.com/u/22782154?v=3" shape="circular" size="tiny" centered />
+        <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
           <div className="userdiv">
-            <h4>dan_m_g</h4>
-            <p>250 points</p>
-            <p>G42, San Francisco</p>
+            <h4>{this.props.loginInfo.username}</h4>
+            <p>{`${this.props.studentPointsAndCampus.totalEarned}  Points Earned`}</p>
+            <p>{`${this.props.studentPointsAndCampus.cohort}  ${this.props.studentPointsAndCampus.cohortType},  ${this.props.studentPointsAndCampus.location}`}</p>
           </div>
         </Menu.Item>
         <Link to={'/student/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>

@@ -66,9 +66,9 @@ router.route('/students/cohorts/:cohort_id')
   });
 
 router.get('/students/:student_id/info', (req, res) => {
-  points.getPtsEarned(req.params.student_id)
-    .then(() => points.getPtsUsed(req.params.student_id))
-    .then(() => points.getStudentInfo(req.params.student_id))
+  points.getPtsEarned(Number(req.params.student_id))
+    .then(() => points.getPtsUsed(Number(req.params.student_id)))
+    .then(() => points.getStudentInfo(Number(req.params.student_id)))
     .then(() => {
       points.distributePts();
       res.status(200).json(points.calculatePts());
