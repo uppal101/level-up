@@ -12,7 +12,8 @@ const router = express.Router();
 router.route('/requests/cohorts/:cohort_id')
   .get((req, res) => {
     RewardRequest.where({ id: req.params.cohort_id })
-    .fetch({ withRelated: ['reward', 'student'] })
+    .fetchAll({ withRelated: [{
+      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(requests => res.status(200).json(requests))
     .catch(err => res.status(500).json(err.message));
   });
@@ -20,8 +21,9 @@ router.route('/requests/cohorts/:cohort_id')
 router.route('/requests/students/:student_id')
   .get((req, res) => {
     RewardRequest.where({ student_id: req.params.student_id })
-    .fetchAll()
-    .then(request => res.status(200).json(request))
+    .fetchAll({ withRelated: [{
+      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
+    .then(requests => res.status(200).json(requests))
     .catch(err => res.status(500).json(err.message));
   });
 
@@ -39,31 +41,11 @@ router.route('/requests')
     .catch(err => res.status(500).json(err.message));
   });
 
-// router.route('/requests/students/:student_id')
-//   .get((req, res) => {
-//     Student.forge({ id: req.params.student_id })
-//     .fetch({ withRelated: ['rewardRequests'] })
-//     .then((student) => {
-//       const requests = student.related('rewardRequests');
-//       res.status(200).json(requests);
-//     })
-//     .catch(err => res.status(500).json(err.message));
-//   });
-
-// ---- ^^^^ AS AN EXAMPLE THE ABOVE ROUTE DOES THE SAME THING ^^^^ -----
-
-router.route('/requests/students/:student_id')
-  .get((req, res) => {
-    RewardRequest.where({ student_id: req.params.student_id })
-    .fetchAll()
-    .then(requests => res.status(200).json(requests))
-    .catch(err => res.status(500).json(err.message));
-  });
-
 router.route('/requests/:request_id')
   .get((req, res) => {
     RewardRequest.where({ id: req.params.request_id })
-    .fetch()
+    .fetch({ withRelated: [{
+      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(request => res.status(200).json(request))
     .catch(err => res.status(500).json(err.message));
   })
