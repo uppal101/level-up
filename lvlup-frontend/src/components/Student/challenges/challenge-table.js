@@ -12,6 +12,7 @@ class StudentChallengesTable extends Component {
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Requirement</Table.HeaderCell>
             <Table.HeaderCell>Points</Table.HeaderCell>
+            <Table.HeaderCell>Challenge Submission</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -28,6 +29,7 @@ class StudentChallengesTable extends Component {
               </List>
             </Table.Cell>
             <Table.Cell>30</Table.Cell>
+            <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
           </Table.Row>
           <Table.Row>
             <Table.Cell>Job Fair</Table.Cell>
@@ -41,9 +43,9 @@ class StudentChallengesTable extends Component {
               </List>
             </Table.Cell>
             <Table.Cell>30</Table.Cell>
+            <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
           </Table.Row>
         </Table.Body>
-
       </Table>
     );
   }

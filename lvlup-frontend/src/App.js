@@ -16,7 +16,7 @@ import AddReward from './components/Admin/admin-add-reward/add-reward-main';
 import EditReward from './components/Admin/admin-edit-reward/edit-reward-main';
 import StudentChallenges from './components/Student/challenges/challenges';
 import StudentRewards from './components/Student/student-rewards/student-rewards-main';
-import StudentRewardSubmission from './components/Student/student-reward-submission/reward-submission-main';
+import StudentRewardSubmission from './components/Student/student-reward-request/reward-submission-main';
 import HamburgerStudent from './components/Student/student-main-view/hamburger';
 import HamburgerAdmin from './components/Admin/admin-common/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
@@ -42,7 +42,7 @@ export default class App extends Component {
             <Route exact path="/student/dashboard" component={StudentDashboard} />
             <Route exact path="/student/challenges" component={StudentChallenges} />
             <Route exact path="/student/rewards" component={StudentRewards} />
-            <Route exact path="/student/reward-submission" component={StudentRewardSubmission} />
+            <Route exact path="/student/reward-request" component={StudentRewardSubmission} />
             <Route exact path="/login-admin" component={AdminLogin} />
             <Route exact path="/signup-admin" component={AdminSignUp} />
             <Route exact path="/admin/dashboard" component={AdminHome} />
