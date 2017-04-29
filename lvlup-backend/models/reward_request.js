@@ -3,6 +3,7 @@ const LvlModel = require('./lvlModel');
 
 require('./student');
 require('./reward');
+require('./category');
 
 const RewardRequest = LvlModel.extend({
   tableName: 'reward_requests',
@@ -13,6 +14,9 @@ const RewardRequest = LvlModel.extend({
   },
   reward() {
     return this.belongsTo('Reward');
+  },
+  category() {
+    return this.belongsTo('Category');
   },
 });
 

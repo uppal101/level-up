@@ -1,19 +1,15 @@
 const express = require('express');
-const Rewards = require('../collections/rewards');
-const Reward = require('../models/reward');
-const RewardRequests = require('../collections/reward_requests');
 const RewardRequest = require('../models/reward_request');
-const Campus = require('../models/campus');
-const Cohort = require('../models/cohort');
-const Student = require('../models/student');
 
 const router = express.Router();
 
 router.route('/requests/cohorts/:cohort_id')
   .get((req, res) => {
     RewardRequest.where({ id: req.params.cohort_id })
-    .fetchAll({ withRelated: [{
-      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
+    .fetchAll({ withRelated: [
+      { category: (q) => { q.column('id', 'category'); } },
+      { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
+      { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(requests => res.status(200).json(requests))
     .catch(err => res.status(500).json(err.message));
   });
@@ -21,8 +17,10 @@ router.route('/requests/cohorts/:cohort_id')
 router.route('/requests/students/:student_id')
   .get((req, res) => {
     RewardRequest.where({ student_id: req.params.student_id })
-    .fetchAll({ withRelated: [{
-      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
+    .fetchAll({ withRelated: [
+      { category: (q) => { q.column('id', 'category'); } },
+      { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
+      { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(requests => res.status(200).json(requests))
     .catch(err => res.status(500).json(err.message));
   });
@@ -44,8 +42,10 @@ router.route('/requests')
 router.route('/requests/:request_id')
   .get((req, res) => {
     RewardRequest.where({ id: req.params.request_id })
-    .fetch({ withRelated: [{
-      reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } }, { student: (q) => { q.column('id', 'username', 'name'); } }] })
+    .fetch({ withRelated: [
+      { category: (q) => { q.column('id', 'category'); } },
+      { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
+      { student: (q) => { q.column('id', 'username', 'name'); } }] })
     .then(request => res.status(200).json(request))
     .catch(err => res.status(500).json(err.message));
   })
