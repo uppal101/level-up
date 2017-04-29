@@ -3,6 +3,7 @@ import Home from './components/homepage-view/home';
 // import Footer from './components/homepage-view/footer';
 import NavBar from './components/navbar';
 import StudentHome from './components/Student/student-main-view/student-main';
+import StudentSignUp from './components/Student/student-signup/signup';
 import AdminSignUp from './components/Admin/admin-signup/signup';
 import AdminLogin from './components/Admin/admin-login/login';
 import IndividualPendingChallenge from './components/Admin/admin-individual-pending-challenge/individual-pending-main';
@@ -13,8 +14,9 @@ import AddChallenge from './components/Admin/admin-add-challenge/add-challenge-m
 import EditChallenge from './components/Admin/admin-edit-challenge/edit-challenge-main';
 import AddReward from './components/Admin/admin-add-reward/add-reward-main';
 import EditReward from './components/Admin/admin-edit-reward/edit-reward-main';
-
 import StudentChallenges from './components/Student/challenges/challenges';
+import StudentRewards from './components/Student/student-rewards/student-rewards-main';
+import StudentRewardSubmission from './components/Student/student-reward-submission/reward-submission-main';
 import HamburgerStudent from './components/Student/student-main-view/hamburger';
 import HamburgerAdmin from './components/Admin/admin-common/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
@@ -36,10 +38,13 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/student" component={HamburgerStudent} />
             <Route path="/admin" component={HamburgerAdmin} />
+            <Route exact path="/signup-student" component={StudentSignUp} />
             <Route exact path="/student/dashboard" component={StudentDashboard} />
             <Route exact path="/student/challenges" component={StudentChallenges} />
-            <Route exact path="/admin-login" component={AdminLogin} />
-            <Route exact path="/admin-signup" component={AdminSignUp} />
+            <Route exact path="/student/rewards" component={StudentRewards} />
+            <Route exact path="/student/reward-submission" component={StudentRewardSubmission} />
+            <Route exact path="/login-admin" component={AdminLogin} />
+            <Route exact path="/signup-admin" component={AdminSignUp} />
             <Route exact path="/admin/dashboard" component={AdminHome} />
             <Route exact path="/admin/individual-pending-challenge" component={IndividualPendingChallenge} />
             <Route exact path="/admin/challenges" component={AdminChallenges} />
