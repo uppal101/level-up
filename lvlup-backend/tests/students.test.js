@@ -34,13 +34,7 @@ describe('GET students', () => {
     .expect('Content-Type', /plain/)
     .expect(401, 'You must be logged in', done);
   });
-  // it('responds with 401 status if user is not an admin', (done) => {
-  //   supertest(app)
-  //   .get('/api/students')
-  //   .expect('Content-Type', /plain/)
-  //   .expect(401, 'You must be an Administrator', done);
-  // });
-  it('responds with JSON', (done) => {
+  it('responds with JSON if authorized', (done) => {
     supertest(app)
     .get('/api/students')
     .set('Cookie', 'authToken=adminToken')

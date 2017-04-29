@@ -3,6 +3,8 @@ const LvlModel = require('./lvlModel');
 
 require('./challenge');
 require('./reward');
+require('./challenge_submission');
+require('./reward_request');
 
 const Category = LvlModel.extend({
   tableName: 'categories',
@@ -13,6 +15,12 @@ const Category = LvlModel.extend({
   },
   rewards() {
     return this.hasMany('Reward');
+  },
+  challengeSubmissions() {
+    return this.hasMany('ChallengeSubmission');
+  },
+  rewardRequests() {
+    return this.hasMany('RewardRequest');
   },
 });
 

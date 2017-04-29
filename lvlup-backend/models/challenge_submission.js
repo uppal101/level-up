@@ -3,6 +3,7 @@ const LvlModel = require('./lvlModel');
 
 require('./challenge');
 require('./student');
+require('./category');
 
 const ChallengeSubmission = LvlModel.extend({
   tableName: 'challenge_submissions',
@@ -13,6 +14,9 @@ const ChallengeSubmission = LvlModel.extend({
   },
   student() {
     return this.belongsTo('Student');
+  },
+  category() {
+    return this.belongsTo('Category');
   },
 });
 
