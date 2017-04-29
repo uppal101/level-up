@@ -79,7 +79,7 @@ router.route('/submissions/students/:student_id')
 router.route('/submissions/:submission_id')
   .get((req, res) => {
     ChallengeSubmission.where({ id: req.params.submission_id })
-    .fetch()
+    .fetch({ withRelated: ['student', 'challenge'] })
     .then(submission => res.status(200).json(submission))
     .catch(err => res.status(500).json(err.message));
   })
