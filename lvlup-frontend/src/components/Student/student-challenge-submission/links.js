@@ -5,7 +5,7 @@ import './challenge-submission-style.css';
 class Links extends Component {
   render() {
     return (
-      <Form className="links">
+      <Form className="challenge-submission-form">
         <Form.Field inline>
           <label>Link 1</label>
           <Input />

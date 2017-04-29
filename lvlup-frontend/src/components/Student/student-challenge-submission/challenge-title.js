@@ -5,7 +5,7 @@ import './challenge-submission-style.css';
 class ChallengeTitle extends Component {
   render() {
     return (
-      <Form className="challenge-title">
+      <Form className="challenge-submission-form">
         <Form.Field inline>
           <label>Challenge Title</label>
           <Input placeholder="Tutor Session" readOnly />
