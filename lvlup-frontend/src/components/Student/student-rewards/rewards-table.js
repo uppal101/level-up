@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container } from 'semantic-ui-react';
 import './student-rewards-style.css';
 
 class RewardsTable extends Component {

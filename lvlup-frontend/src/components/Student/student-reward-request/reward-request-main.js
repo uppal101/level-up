@@ -6,7 +6,7 @@ import Notes from './notes.js';
 class StudentRewardSubmission extends Component {
   render() {
     return (
-      <div className="reward-submission">
+      <div className="reward-request">
         <RewardTitle />
         <Notes />
         <Submit />

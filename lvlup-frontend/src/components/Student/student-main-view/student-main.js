@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import HamburgerStudent from './hamburger';
 import StudentDashboard from '../dashboard/student-dashboard';
 import { loggingInAction } from '../../../actions/actions';
 import { bindActionCreators } from 'redux';

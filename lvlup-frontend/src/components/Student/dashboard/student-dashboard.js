@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
 import { quarterConverter, quarterPointFinder } from '../../../actions/actions';
