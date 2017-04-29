@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import RewardTitle from './reward-title.js';
+import Submit from './button.js';
+import Notes from './notes.js';
 
 class StudentRewardSubmission extends Component {
   render() {
     return (
-      <p>Student reward request will be here</p>
+      <div className="reward-submission">
+        <RewardTitle />
+        <Notes />
+        <Submit />
+      </div>
     );
   }
 }
