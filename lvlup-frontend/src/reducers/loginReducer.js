@@ -5,7 +5,7 @@ const loggedIn = (state = initialState.loggedIn, action) => {
     case 'LOGIN_PENDING':
       return state;
     case 'LOGIN_FULFILLED':
-      return actin.payload.data;
+      return action.payload;
     case 'LOGIN_REJECTED':
       return action.payload;
     default:

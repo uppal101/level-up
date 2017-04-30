@@ -19,7 +19,7 @@ class LoginForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Form className="email" onSubmit={handleSubmit(this.props.login())}>
+      <Form className="email" onSubmit={handleSubmit(this.props.login)}>
         <Form.Field inline>
           <label>Galvanize Email</label>
           <Field name="email" component="input" type="email" placeholder="Email" />
