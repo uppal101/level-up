@@ -31,9 +31,10 @@ describe('GET /admins/', () => {
   it('should respond with all admins', (done) => {
     supertest(app)
     .get('/api/admins/')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
-    .expect(200, {
-      admins: [
+    .expect(200,
+      [
         {
           id: 1,
           username: 'jennyboo',
@@ -52,8 +53,7 @@ describe('GET /admins/', () => {
           gravatar_url: null,
           campus_id: 1,
         },
-      ],
-    }, done);
+      ], done);
   });
 });
 
@@ -61,6 +61,7 @@ describe('PUT /admins/:id', () => {
   it('allows authorized user to update entire admin information', (done) => {
     supertest(app)
     .put('/api/admins/1')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
     .send({
       username: 'operajenny',
@@ -71,20 +72,19 @@ describe('PUT /admins/:id', () => {
       campus_id: 1,
     })
     .expect(200,
-      { updatedAdmin:
-      {
+      { id: 1,
         username: 'operajenny',
         name: 'Jenny Engard',
         email: 'jenny.engard@galvanize.com',
         gravatar_url: null,
-        id: 1,
         campus_id: 1,
-      } }, done);
+      }, done);
   });
 
   it('should respond with 400 when authorized user does not send any information', (done) => {
     supertest(app)
       .put('/api/admins/1')
+      .set('Cookie', 'authToken=adminToken')
       .set('Accept', 'application/json')
       .send({
 
@@ -99,16 +99,28 @@ describe('PUT /admins/:id', () => {
 describe('DELETE /admins/:id', () => {
   it('should allow authorized user to delete a specific admin in the database', (done) => {
     supertest(app)
-        .delete('/api/admins/1')
-        .set('Accept', 'application/json')
-        .expect(200, {
-          message: 'Admin successfully deleted',
-        }, done);
+      .delete('/api/admins/1')
+      .set('Cookie', 'authToken=adminToken')
+      .set('Accept', 'application/json')
+      .expect(200, {
+        message: 'Admin successfully deleted',
+      }, done);
   });
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
-          .delete('/api/cohorts/jenny')
-          .set('Accept', 'Application/json')
-          .expect(500, done);
+      .delete('/api/cohorts/jenny')
+      .set('Accept', 'Application/json')
+      .expect(500, done);
+  });
+});
+
+describe('POST /admins/:id/cohorts', () => {
+  it('should allow an admin to update their cohorts and return a new list of updated cohorts', (done) => {
+    const newCohorts = [3, 4];
+    supertest(app)
+      .post('/api/admins/1/cohorts')
+      .set('Cookie', 'authToken=adminToken')
+      .send(newCohorts)
+      .expect(200, ['g42', 'g52', 'g53', 'g54'], done);
   });
 });

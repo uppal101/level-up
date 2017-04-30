@@ -1,6 +1,7 @@
 const express = require('express');
 const Cohorts = require('../collections/cohorts');
 const Cohort = require('../models/cohort');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ router.route('/cohorts/')
     .catch(err => res.status(500).json(err.message));
   })
 
-  .post((req, res) => {
+  .post(authorize.isAdmin, (req, res) => {
     Cohort.forge({
       name: req.body.name,
       type: req.body.type,
@@ -36,7 +37,7 @@ router.route('/cohorts/:id')
     .catch(err => res.status(500).json(err.message));
   })
 
-  .delete((req, res) => {
+  .delete(authorize.isAdmin, (req, res) => {
     Cohort.forge({ id: req.params.id })
     .fetch({ require: true })
     .then(cohort => cohort.destroy())

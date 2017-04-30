@@ -8,11 +8,11 @@ const AdminCohort = LvlModel.extend({
   tableName: 'admin_cohorts',
   hasTimestamps: true,
 
-  cohorts() {
-    return this.hasMany('Cohort');
+  cohort() {
+    return this.belongsTo('Cohort');
   },
   admin() {
-    return this.hasMany('Admin');
+    return this.belongsTo('Admin');
   },
 });
 
