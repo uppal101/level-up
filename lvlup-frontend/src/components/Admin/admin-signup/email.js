@@ -7,28 +7,39 @@ import { signup, allCohorts, allCampuses } from '../../../actions/adminsignup';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ signup }, dispatch);
+  return bindActionCreators({ signup, setCampuses, setCohorts, allCampuses, allCohorts }, dispatch);
 }
 function mapStateToProps(dispatch) {
   return {
     signedUp: false,
+    cohorts: state.cohorts,
+    campuses: state.campuses,
   };
 }
+const campusesDropDown = campuses => campuses.map((campus) => {
+  const obj = {};
+  obj.value = campus.id;
+  obj.text = campus.location;
+  return obj;
+});
+const cohortsDropDown = (cohorts) => {
 
-const cohorts = [
-  { key: '42', text: 'G42', value: 'g42' },
-  { key: '52', text: 'G52', value: 'g52' },
-];
-const campuses = [
-  { key: 'sf', text: 'San Francisco', value: 'San Francisco' },
-  { key: 'a', text: 'Austin', value: 'Austin' },
-  { key: 'b', text: 'Boulder', value: 'Boulder' },
-  { key: 'dp', text: 'Denver-Platte', value: 'Denver-Platte' },
-  { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
-  { key: 'ny', text: 'New York', value: 'New York' },
-  { key: 'p', text: 'Phoenix', value: 'Seattle' },
-  { key: 'all', text: 'All campuses', value: 'All Campuses' },
-];
+};
+
+// const cohorts = [
+//   { key: '42', text: 'G42', value: 'g42' },
+//   { key: '52', text: 'G52', value: 'g52' },
+// ];
+// const campuses = [
+//   { key: 'sf', text: 'San Francisco', value: 'San Francisco' },
+//   { key: 'a', text: 'Austin', value: 'Austin' },
+//   { key: 'b', text: 'Boulder', value: 'Boulder' },
+//   { key: 'dp', text: 'Denver-Platte', value: 'Denver-Platte' },
+//   { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
+//   { key: 'ny', text: 'New York', value: 'New York' },
+//   { key: 'p', text: 'Phoenix', value: 'Seattle' },
+//   { key: 'all', text: 'All campuses', value: 'All Campuses' },
+// ];
 
 class SignupForm extends Component {
   componentWillMount() {
