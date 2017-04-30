@@ -17,7 +17,7 @@ class AdminLogin extends Component {
         </div>
         <div className="signup">
           <p>
-            Need an account?<Link to={'/admin-signup'}> Sign Up</Link>. Valid Galvanize email required. </p>
+            Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
         </div>
       </div>
     );

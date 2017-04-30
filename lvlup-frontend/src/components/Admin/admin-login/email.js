@@ -26,7 +26,7 @@ class LoginForm extends Component {
         </Form.Field>
         <Form.Field inline>
           <label>Password</label>
-          <Field name="password" component="input" type="text" placeholder="Password" />
+          <Field name="password" component="input" type="password" placeholder="Password" />
         </Form.Field>
         <Form.Button>Login</Form.Button>
       </Form>
