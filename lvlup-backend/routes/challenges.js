@@ -2,6 +2,7 @@ const express = require('express');
 const Challenges = require('../collections/challenges');
 const Challenge = require('../models/challenge');
 const Campus = require('../models/campus');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.route('/challenges/campuses/:campus_id')
   });
 
 router.route('/challenges/')
-  .post((req, res) => {
+  .post(authorize.isAdmin, (req, res) => {
     Challenge.forge({
       name: req.body.name,
       point_value: req.body.point_value,
@@ -43,7 +44,7 @@ router.route('/challenges/:challenge_id')
     .catch(err => res.status(500).json(err.message));
   })
 
-  .delete((req, res) => {
+  .delete(authorize.isAdmin, (req, res) => {
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
     .then(challenge => challenge.destroy())
@@ -51,7 +52,7 @@ router.route('/challenges/:challenge_id')
     .catch(err => res.status(500).json(err.message));
   })
 
-  .put((req, res) => {
+  .put(authorize.isAdmin, (req, res) => {
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
     .then(challenge => challenge.save({

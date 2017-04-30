@@ -1,5 +1,6 @@
 const express = require('express');
 const ChallengeSubmission = require('../models/challenge_submission');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -91,7 +92,7 @@ router.route('/submissions/:submission_id')
   });
 
 router.route('/submissions/:submission_id/admin')
-  .put((req, res) => {
+  .put(authorize.isAdmin, (req, res) => {
     ChallengeSubmission.forge({ id: req.params.submission_id })
     .fetch()
     .then(submission => submission.save({

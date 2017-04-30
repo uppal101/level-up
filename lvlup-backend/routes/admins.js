@@ -1,6 +1,8 @@
 const express = require('express');
 const Admins = require('../collections/admins');
 const Admin = require('../models/admin');
+const AdminCohort = require('../models/admin_cohort');
+
 
 const router = express.Router();
 
@@ -33,6 +35,28 @@ router.route('/admins/:id')
     .then(admin => admin.destroy())
     .then(() => res.status(200).json({ message: 'Admin successfully deleted' }))
     .catch(err => res.status(500).json(err.message));
+  });
+
+router.route('/admins/:id/cohorts')
+  .post((req, res) => {
+    const cohortsArr = req.body.cohorts;
+    const promiseArr = [];
+    for (let i = 0; i < cohortsArr.length; i++) {
+      promiseArr.push(AdminCohort.forge({
+        cohort_id: Number(cohortsArr[i]),
+        admin_id: Number(req.params.id),
+      }).save());
+    }
+    Promise.all(promiseArr)
+    .then(newInfo => AdminCohort.where({ admin_id: Number(req.params.id) })
+      .fetchAll({ withRelated: { cohort: q => q.column('id', 'name') } }))
+    .then((adminsCohorts) => {
+      const cohortsList = adminsCohorts.models.map(ele => ele.relations.cohort.attributes.name);
+      res.status(200).json(cohortsList);
+    });
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   });
 
 module.exports = router;

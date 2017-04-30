@@ -34,6 +34,28 @@ exports.seed = function (knex, Promise) {
       graduation_date: '2017-09-29',
       campus_id: 2,
     },
+    {
+      id: 4,
+      name: 'g54',
+      type: 'WDI',
+      q1_start_date: '2017-04-17',
+      q2_start_date: '2017-5-29',
+      q3_start_date: '2017-07-10',
+      q4_start_date: '2017-08-21',
+      graduation_date: '2017-09-29',
+      campus_id: 3,
+    },
+    {
+      id: 5,
+      name: 'g55',
+      type: 'WDI',
+      q1_start_date: '2017-04-17',
+      q2_start_date: '2017-5-29',
+      q3_start_date: '2017-07-10',
+      q4_start_date: '2017-08-21',
+      graduation_date: '2017-09-29',
+      campus_id: 4,
+    },
   ]))
     .then(() => knex.raw('SELECT setval(\'cohorts_id_seq\', (SELECT MAX(id) FROM cohorts))'));
 };
