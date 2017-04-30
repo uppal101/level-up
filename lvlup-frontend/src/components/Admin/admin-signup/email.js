@@ -3,32 +3,38 @@ import { Form, Input, Dropdown, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { signup } from '../../../actions/adminsignup';
 import './signupview.css';
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ signup }, dispatch);
+}
+function mapStateToProps(dispatch) {
+  return {
+    signedUp: false,
+  };
+}
 
 const cohorts = [
   { key: '42', text: 'G42', value: 'g42' },
   { key: '52', text: 'G52', value: 'g52' },
 ];
 
-class Email extends Component {
+class SignupForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
       <Form className="forms" onSubmit={handleSubmit(this.props.signup)}>
         <Form.Field inline>
           <label>Galvanize Email</label>
-          <Input placeholder="Email" />
           <Field name="email" component="input" type="email" placeholder="Email" />
         </Form.Field>
         <Form.Field inline>
           <label>Password</label>
-          <Input placeholder="Password" />
           <Field name="password" component="input" type="password" placeholder="Password" />
         </Form.Field>
         <Form.Field inline>
           <label>Confirm Password</label>
-          <Input placeholder=" Confirm Password" />
           <Field name="confirm-password" component="input" type="password" placeholder="Confirm Password" />
         </Form.Field>
         <Form.Field inline>
@@ -43,4 +49,5 @@ class Email extends Component {
 }
 
 
-export default Email;
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
+  form: 'signup' })(SignupForm));

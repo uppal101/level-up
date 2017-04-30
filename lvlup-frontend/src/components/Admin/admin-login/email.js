@@ -35,5 +35,5 @@ class LoginForm extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'contact',
+  form: 'login',
 })(LoginForm));
