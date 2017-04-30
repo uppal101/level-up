@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route('/requests/cohorts/:cohort_id')
   .get((req, res) => {
-    RewardRequest.where({ id: req.params.cohort_id })
+    RewardRequest.where({ cohort_id: req.params.cohort_id })
     .fetchAll({ withRelated: [
       { category: (q) => { q.column('id', 'category'); } },
       { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
@@ -33,6 +33,8 @@ router.route('/requests')
       reward_id: req.body.reward_id,
       cohort_id: req.body.cohort_id,
       notes: req.body.notes,
+      category_id: req.body.category_id,
+      status: 'Pending approval',
     })
     .save()
     .then(request => res.status(200).json(request))

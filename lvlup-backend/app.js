@@ -82,8 +82,8 @@ app.use('/api/students', authorize.isUser);
 app.use('/api/submissions', authorize.isUser);
 app.use('/api/requests', authorize.isUser);
 app.use('/api/challenges', authorize.isUser);
+app.use('/api/rewards', authorize.isUser);
 app.use('/api/admins', authorize.isAdmin);
-app.put('/api/requests/:request_id/admin', authorize.isUser);
 
 app.use('/api', loginRoute);
 app.use('/api', campusesRoute);

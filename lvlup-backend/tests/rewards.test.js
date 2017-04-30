@@ -32,6 +32,7 @@ describe('POST /rewards/', () => {
   it('allows authorized user to add a reward in the database', (done) => {
     supertest(app)
     .post('/api/rewards/')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
     .send({
       name: 'Who said there is not such a thing as free lunch',
@@ -75,6 +76,7 @@ describe('GET /rewards/:id', () => {
     supertest(app)
       .get('/api/rewards/1')
       .set('Accept', 'application/json')
+      .set('Cookie', 'authToken=adminToken')
       .expect((reward) => {
         delete reward.body.created_at;
         delete reward.body.updated_at;
@@ -101,6 +103,7 @@ describe('PUT /rewards/:id', () => {
   it('allows authorized user to update a reward', (done) => {
     supertest(app)
     .put('/api/rewards/1')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'application/json')
     .send({
       name: 'Gift Card to Gather',
@@ -142,6 +145,7 @@ describe('DELETE /rewards/:id', () => {
   it('should allow authorized user to delete a specific reward in the database', (done) => {
     supertest(app)
         .delete('/api/rewards/1')
+        .set('Cookie', 'authToken=adminToken')
         .set('Accept', 'application/json')
         .expect(200,
       {
@@ -151,6 +155,7 @@ describe('DELETE /rewards/:id', () => {
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
           .delete('/api/rewards/giftcard')
+          .set('Cookie', 'authToken=adminToken')
           .set('Accept', 'Application/json')
           .expect(500, done);
   });

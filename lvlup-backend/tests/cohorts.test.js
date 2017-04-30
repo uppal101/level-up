@@ -89,6 +89,7 @@ describe('POST /cohorts/', () => {
     supertest(app)
     .post('/api/cohorts/')
     .set('Accept', 'application/json')
+    .set('Cookie', 'authToken=adminToken')
     .send({
       name: 'g100',
       type: 'WDI',
@@ -118,6 +119,7 @@ describe('POST /cohorts/', () => {
     supertest(app)
       .post('/api/cohorts/')
       .set('Accept', 'application/json')
+      .set('Cookie', 'authToken=adminToken')
       .send({
         name: 'g53',
         type: 'WDI',
@@ -168,6 +170,7 @@ describe('DELETE /cohorts/:id', () => {
   it('should allow authorized user to delete a specific cohort in the database', (done) => {
     supertest(app)
         .delete('/api/cohorts/1')
+        .set('Cookie', 'authToken=adminToken')
         .set('Accept', 'application/json')
         .expect(200,
       {

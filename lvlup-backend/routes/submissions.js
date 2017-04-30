@@ -69,7 +69,7 @@ router.route('/submissions/:submission_id')
     .catch(err => res.status(500).json(err.message));
   })
 
-  .put(authorize.isAuthorized(req, res) => {
+  .put((req, res) => {
     ChallengeSubmission.forge({ id: req.params.submission_id })
     .fetch()
     .then(submission => submission.save({

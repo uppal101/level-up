@@ -1,11 +1,12 @@
 const express = require('express');
 const Rewards = require('../collections/rewards');
 const Reward = require('../models/reward');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
 router.route('/rewards/')
-  .post((req, res) => {
+  .post(authorize.isAdmin, (req, res) => {
     Reward.forge({
       name: req.body.name,
       point_cost: req.body.point_cost,
@@ -34,7 +35,7 @@ router.route('/rewards/:id')
     .catch(err => res.status(500).json({ message: err.message }));
   })
 
-  .put((req, res) => {
+  .put(authorize.isAdmin, (req, res) => {
     Reward.forge({ id: req.params.id })
     .fetch()
     .then(reward => reward.save({
@@ -48,7 +49,7 @@ router.route('/rewards/:id')
     .catch(err => res.status(500).json({ message: err.message }));
   })
 
-  .delete((req, res) => {
+  .delete(authorize.isAdmin, (req, res) => {
     Reward.forge({ id: req.params.id })
     .fetch({ require: true })
     .then((reward) => {
