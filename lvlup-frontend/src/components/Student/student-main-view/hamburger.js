@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
 import './student-styles.css';
 import { Link } from 'react-router-dom';
-import { loggingInAction, moreStudentInfo } from '../../../actions/actions';
+import { loggingInAction, moreStudentInfo } from '../../../actions/student-dash-actions';
 import { bindActionCreators } from 'redux';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';

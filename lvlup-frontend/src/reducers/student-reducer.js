@@ -16,3 +16,14 @@ export const studentPointsAndCampus = (state = {}, action) => {
       return state;
   }
 };
+
+export const submissions = (state = { submissions: [] }, action) => {
+  switch (action.type) {
+    case CONST.SUBMISSIONS_FULFILLED:
+      return Object.assign({}, state, {
+        submissions: state.submissions.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};

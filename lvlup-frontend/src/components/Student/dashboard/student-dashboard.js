@@ -2,23 +2,32 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
-import { quarterConverter, quarterPointFinder } from '../../../actions/actions';
-
+import { quarterConverter, quarterPointFinder } from '../../../actions/helpers';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
-  studentPointsAndCampus: state.studentPointsAndCampus,
+  lvlUpInfo: state.studentPointsAndCampus,
 });
 
+const renderSubmissions = list => (
+  list.map(item => (
+    <Table.Row key={item.id}>
+      <Table.Cell>{item.challenge.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.challenge.point_value}</Table.Cell>
+      <Table.Cell>{item.category.created_at}</Table.Cell>
+    </Table.Row>
+  ))
+);
 
 class StudentDashboard extends Component {
   render() {
-    if (!this.props.studentPointsAndCampus.currentQuarter) {
+    if (!this.props.lvlUpInfo.currentQuarter) {
       return (<div>LOADING</div>);
     }
     return (
       <div className="studentDashboard">
-        <h1 className="headerStudent">Welcome, Daniel Gardner</h1>
+        <h1 className="headerStudent">{`Welcome ${this.props.loginInfo.name}`}</h1>
         <Table celled>
           <Table.Header>
             <Table.Row>
@@ -31,16 +40,16 @@ class StudentDashboard extends Component {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                {quarterConverter(this.props.studentPointsAndCampus.currentQuarter)}
+                {quarterConverter(this.props.lvlUpInfo.currentQuarter)}
               </Table.Cell>
               <Table.Cell>
-                {quarterPointFinder(this.props.studentPointsAndCampus)}
+                {quarterPointFinder(this.props.lvlUpInfo)}
               </Table.Cell>
               <Table.Cell>
-                {this.props.studentPointsAndCampus.totalEarned}
+                {this.props.lvlUpInfo.totalEarned}
               </Table.Cell>
               <Table.Cell>
-                {this.props.studentPointsAndCampus.currentTotal}
+                {this.props.lvlUpInfo.currentTotal}
               </Table.Cell>
             </Table.Row>
           </Table.Body>
