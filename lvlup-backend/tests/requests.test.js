@@ -34,11 +34,10 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
       .set('Accept', 'application/json')
       .set('Cookie', 'authToken=adminToken')
       .expect((response) => {
-        for (var i = 0; i < response.length; i++) {
-          response[i];
+        for (let i = 0; i < response.body.length; i++) {
+          delete response.body[i].created_at;
+          delete response.body[i].updated_at;
         }
-        delete response[i].created_at;
-        delete response[i].updated_at;
       })
       .expect(200,
       [
@@ -476,17 +475,25 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
         },
       ], done);
   });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
+  });
 });
 
-describe('GET /api/requests/students/:student_id', () => {
+describe('GET requests/students/:student_id', () => {
   it('Should get all requests from a specific students', (done) => {
     supertest(app)
       .get('/api/requests/students/1')
       .set('Accept', 'application/json')
       .set('Cookie', 'authToken=adminToken')
       .expect((response) => {
-        delete response.body.created_at;
-        delete response.body.updated_at;
+        for (let i = 0; i < response.body.length; i++) {
+          delete response.body[i].created_at;
+          delete response.body[i].updated_at;
+        }
       })
       .expect(200,
       [
@@ -636,6 +643,12 @@ describe('GET /api/requests/students/:student_id', () => {
         },
       ], done);
   });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
+  });
 });
 
 describe('POST /requests', () => {
@@ -667,6 +680,12 @@ describe('POST /requests', () => {
         status: 'Pending approval',
         id: 19,
       }, done);
+  });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
   });
 });
 
@@ -706,6 +725,12 @@ describe('GET requests/:request_id', () => {
         },
       }, done);
   });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
+  });
 });
 
 describe('DELETE requests/:request_id', () => {
@@ -714,7 +739,13 @@ describe('DELETE requests/:request_id', () => {
       .delete('/api/requests/1')
       .set('Accept', 'application/json')
       .set('Cookie', 'authToken=adminToken')
-      .expect(200, 'Request successfully deleted', done);
+      .expect(200, { message: 'Request successfully deleted' }, done);
+  });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
   });
 });
 
@@ -742,6 +773,12 @@ describe('PUT /requests/:request_id', () => {
         notes: 'Here is a new note',
       }, done);
   });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
+  });
 });
 
 describe('PUT /requests/:request_id/admin', () => {
@@ -759,13 +796,19 @@ describe('PUT /requests/:request_id/admin', () => {
         delete response.body.updated_at;
       })
       .expect(200, {
-        id: 3,
-        student_id: 3,
-        reward_id: 8,
+        id: 2,
+        student_id: 1,
+        reward_id: 7,
         cohort_id: 1,
-        category_id: 3,
+        category_id: 2,
         status: 'Approved',
         notes: null,
       }, done);
+  });
+  it('Should return unauthorized when not logged in', (done) => {
+    supertest(app)
+      .get('/api/requests/cohorts/1')
+      .set('Accept', 'application/json')
+      .expect(401, 'You must be logged in', done);
   });
 });
