@@ -54,7 +54,6 @@ class SignupForm extends Component {
     this.props.allCohorts();
   }
   render() {
-    console.log(this.props, this.props.cohorts, this.props.campuses);
     if (this.props.cohorts.length === 0 && this.props.campuses.length === 0) {
       return <div>LOADING</div>;
     }
