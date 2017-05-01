@@ -27,3 +27,14 @@ export const submissions = (state = { submissions: [] }, action) => {
       return state;
   }
 };
+
+export const requests = (state = { requests: [] }, action) => {
+  switch (action.type) {
+    case CONST.REQUESTS_FULFILLED:
+      return Object.assign({}, state, {
+        requests: state.requests.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};

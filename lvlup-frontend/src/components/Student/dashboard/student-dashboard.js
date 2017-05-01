@@ -10,8 +10,8 @@ const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
   submissions: state.submissions.submissions,
+  requests: state.requests.requests,
 });
-
 
 const renderSubmissions = list => (
   list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
@@ -38,7 +38,6 @@ const renderSubmissions = list => (
 
 const renderAchievements = list => (
   list.filter(submission => submission.submission_status === 'Approved').map(item => (
-
     <Table.Row key={item.id}>
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
@@ -48,9 +47,21 @@ const renderAchievements = list => (
   ))
 );
 
+const renderRewardsEarned = list => (
+  list.filter(request => request.status === 'Approved').map(item => (
+    <Table.Row key={item.id}>
+      <Table.Cell>{item.reward.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.reward.point_cost}</Table.Cell>
+      <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+    </Table.Row>
+  ))
+);
+
 class StudentDashboard extends Component {
   render() {
     console.log(this.props.submissions);
+    console.log(this.props.requests);
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
       return (<div>LOADING</div>);
     }
@@ -128,20 +139,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>
-                $5 Gather Cafe Gift Card
-              </Table.Cell>
-              <Table.Cell>
-                Life
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
+            {renderRewardsEarned(this.props.requests)}
           </Table.Body>
         </Table>
       </div>
