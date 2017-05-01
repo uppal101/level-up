@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
-const fetchSubmissions = studentId => axios(`http://localhost:3000/api/submissions//${studentId}`)
+const fetchSubmissions = studentId => axios(`http://localhost:3000/api/submissions/students/${studentId}`)
 .then(response => response.data);
 
 const fetchStudent = () => axios('http://localhost:3000/api/student/login', { withCredentials: false }).then(response => response.data);
@@ -18,7 +18,7 @@ export const moreStudentInfo = studentId => ({
   payload: pointsAndCohort(studentId),
 });
 
-export const submissions = studentId => ({
+export const submissionsAction = studentId => ({
   type: CONST.SUBMISSIONS,
   payload: fetchSubmissions(studentId),
 });

@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
-import { quarterConverter, quarterPointFinder } from '../../../actions/helpers';
+import { bindActionCreators } from 'redux';
+import { quarterConverter, quarterPointFinder } from '../../../helpers/dashboard';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
+  submissions: state.submissions,
 });
+
 
 const renderSubmissions = list => (
   list.map(item => (
@@ -15,14 +18,14 @@ const renderSubmissions = list => (
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.challenge.point_value}</Table.Cell>
-      <Table.Cell>{item.category.created_at}</Table.Cell>
+      <Table.Cell>{item.created_at}</Table.Cell>
     </Table.Row>
   ))
 );
 
 class StudentDashboard extends Component {
   render() {
-    if (!this.props.lvlUpInfo.currentQuarter) {
+    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
       return (<div>LOADING</div>);
     }
     return (
@@ -67,7 +70,8 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row positive>
+            {renderSubmissions(this.props.submissions.submissions)}
+            {/* <Table.Row positive>
               <Table.Cell>
                 Build A Side Project
               </Table.Cell>
@@ -122,7 +126,7 @@ class StudentDashboard extends Component {
               <Table.Cell>
                 4/26/17
               </Table.Cell>
-            </Table.Row>
+            </Table.Row> */}
           </Table.Body>
         </Table>
         <Table celled>

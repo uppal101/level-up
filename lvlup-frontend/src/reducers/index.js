@@ -4,7 +4,7 @@ import { loginInfo, studentPointsAndCampus, submissions } from './student-reduce
 const lvlupApp = combineReducers({
   loginInfo,
   studentPointsAndCampus,
-  submissions.
+  submissions,
 });
 
 export default lvlupApp;
