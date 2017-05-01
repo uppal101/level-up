@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Button, Icon } from 'semantic-ui-react';
-import './homepage-view/homeview.css';
+import './Home/homeview.css';
 // import { logIn } from '../../actions/actions';
 // import { Link } from 'react-router-dom';
 // import { bindActionCreators } from 'redux';
