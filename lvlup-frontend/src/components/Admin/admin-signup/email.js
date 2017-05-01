@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Dropdown, Button } from 'semantic-ui-react';
+import { Form, Dropdown, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -29,20 +29,13 @@ const cohortsDropDown = cohorts => cohorts.map((cohort) => {
   return obj;
 });
 
-// const cohorts = [
-//   { key: '42', text: 'G42', value: 'g42' },
-//   { key: '52', text: 'G52', value: 'g52' },
-// ];
-// const campuses = [
-//   { key: 'sf', text: 'San Francisco', value: 'San Francisco' },
-//   { key: 'a', text: 'Austin', value: 'Austin' },
-//   { key: 'b', text: 'Boulder', value: 'Boulder' },
-//   { key: 'dp', text: 'Denver-Platte', value: 'Denver-Platte' },
-//   { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
-//   { key: 'ny', text: 'New York', value: 'New York' },
-//   { key: 'p', text: 'Phoenix', value: 'Seattle' },
-//   { key: 'all', text: 'All campuses', value: 'All Campuses' },
-// ];
+// const required = value => value ? undefined : 'Required';
+// const minValue = min => (value) => { value && value < min ? `Must be at least ${min} characters` : undefined; };
+// const minValue7 = minValue(7);
+// const email = value =>
+//   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+//   'Invalid email address' : undefined;
+
 
 class SignupForm extends Component {
   componentWillMount() {
@@ -50,6 +43,9 @@ class SignupForm extends Component {
     this.props.allCohorts();
   }
   render() {
+    if (this.props.cohorts.length === 0 && this.props.campuses.length === 0) {
+      return <div>LOADING</div>;
+    }
     const { handleSubmit } = this.props;
     return (
       <Form className="forms" onSubmit={handleSubmit(this.props.signup)}>
