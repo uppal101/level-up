@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
 import './student-styles.css';
 import { Link } from 'react-router-dom';
-import { loggingInAction, moreStudentInfo } from '../../../actions/actions';
+import { loggingInAction, moreStudentInfo, submissionsAction } from '../../../actions/student-dash-actions';
 import { bindActionCreators } from 'redux';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction, moreStudentInfo }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction, moreStudentInfo, submissionsAction }, dispatch);
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -18,8 +18,10 @@ const mapStateToProps = state => ({
 class HamburgerStudent extends Component {
   componentWillMount() {
     this.props.loggingInAction()
+    .then(() => this.props.moreStudentInfo(this.props.loginInfo.id))
     .then(() => {
-      this.props.moreStudentInfo(this.props.loginInfo.id);
+      console.log(this.props.loginInfo.id);
+      this.props.submissionsAction(this.props.loginInfo.id);
     });
   }
 
