@@ -23,6 +23,7 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
+    console.log(req.session);
     res.redirect('/');
   });
 

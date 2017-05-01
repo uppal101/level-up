@@ -8,7 +8,7 @@ class RewardTitle extends Component {
       <Form className="reward-title">
         <Form.Field inline>
           <label>Reward Title</label>
-          <Input placeholder="Pizza Party" />
+          <Input placeholder="Pizza Party" readOnly />
         </Form.Field>
       </Form>
     );

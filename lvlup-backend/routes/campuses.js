@@ -1,6 +1,7 @@
 const express = require('express');
 const Campuses = require('../collections/campuses');
 const Campus = require('../models/campus');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.route('/campuses/')
   });
 
 router.route('/campuses/:id')
-  .delete((req, res) => {
+  .delete(authorize.isAdmin, (req, res) => {
     Campus.forge({ id: req.params.id })
     .fetch({ require: true })
     .then(campus => campus.destroy())

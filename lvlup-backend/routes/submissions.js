@@ -1,5 +1,6 @@
 const express = require('express');
 const ChallengeSubmission = require('../models/challenge_submission');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
@@ -23,8 +24,7 @@ router.route('/submissions')
       cohort_id: req.body.cohort_id,
       category_id: req.body.category_id,
       submission_message: req.body.submission_message,
-      evaluation_message: req.body.evaluation_message,
-      submission_status: req.body.submission_status,
+      submission_status: 'Pending approval',
       submission_attachment_1: req.body.submission_attachment_1,
       submission_attachment_2: req.body.submission_attachment_2,
       submission_attachment_3: req.body.submission_attachment_3,
@@ -91,7 +91,7 @@ router.route('/submissions/:submission_id')
   });
 
 router.route('/submissions/:submission_id/admin')
-  .put((req, res) => {
+  .put(authorize.isAdmin, (req, res) => {
     ChallengeSubmission.forge({ id: req.params.submission_id })
     .fetch()
     .then(submission => submission.save({

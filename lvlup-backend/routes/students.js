@@ -6,11 +6,12 @@ const Challenge = require('../models/challenge');
 const Reward = require('../models/reward');
 const RewardRequests = require('../collections/reward_requests');
 const points = require('../helpers/points');
+const authorize = require('../middleware/authorize');
 
 const router = express.Router();
 
 router.route('/students')
-  .get((req, res) => {
+  .get(authorize.isAdmin, (req, res) => {
     Students.forge()
     .fetch()
     .then(students => res.status(200).json(students))
@@ -18,7 +19,7 @@ router.route('/students')
   });
 
 router.route('/students/:id')
-  .get((req, res) => {
+  .get(authorize.isAuthorized, (req, res) => {
     Student.forge({ id: req.params.id })
     .fetch()
     .then(student => res.status(200).json(student))

@@ -1,0 +1,1 @@
+const UPLOADCARE_PUBLIC_KEY = '1c7b669f9c1e6b59ad80';

@@ -22,7 +22,8 @@ exports.up = (knex, Promise) => knex.schema.createTable('reward_requests', (tabl
   .inTable('categories')
   .onDelete('CASCADE');
   table.string('status', 'varchar(65)')
-  .notNullable();
+  .notNullable()
+  .default('Pending approval');
   table.string('notes');
   table.timestamps(true, true);
 });
