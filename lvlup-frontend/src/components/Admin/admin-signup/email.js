@@ -3,13 +3,13 @@ import { Form, Input, Dropdown, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { signup, allCohorts, allCampuses } from '../../../actions/adminsignup';
+import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/adminsignup';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ signup, setCampuses, setCohorts, allCampuses, allCohorts }, dispatch);
 }
-function mapStateToProps(dispatch) {
+function mapStateToProps(state, ownProps) {
   return {
     signedUp: false,
     cohorts: state.cohorts,
@@ -22,9 +22,12 @@ const campusesDropDown = campuses => campuses.map((campus) => {
   obj.text = campus.location;
   return obj;
 });
-const cohortsDropDown = (cohorts) => {
-
-};
+const cohortsDropDown = cohorts => cohorts.map((cohort) => {
+  const obj = {};
+  obj.value = cohort.id;
+  obj.text = cohort.name;
+  return obj;
+});
 
 // const cohorts = [
 //   { key: '42', text: 'G42', value: 'g42' },
