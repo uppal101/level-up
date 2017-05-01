@@ -12,22 +12,11 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state, ownProps) {
   return {
     signedUp: false,
-    cohorts: state.cohorts,
-    campuses: state.campuses,
+    cohorts: state.allCohorts,
+    campuses: state.allCampuses,
   };
 }
-const campusesDropDown = campuses => campuses.map((campus) => {
-  const obj = {};
-  obj.value = campus.id;
-  obj.text = campus.location;
-  return obj;
-});
-const cohortsDropDown = cohorts => cohorts.map((cohort) => {
-  const obj = {};
-  obj.value = cohort.id;
-  obj.text = cohort.name;
-  return obj;
-});
+
 
 const required = value => value ? undefined : 'Required';
 const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
@@ -43,12 +32,21 @@ const renderField = ({ input, dropdown, label, type, meta: { touched, error } })
       <input {...input} placeholder={label} type={type} />
       {touched && ((error && <span>{error}</span>))}
     </div>
+  </div>
+);
+
+const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
     <div>
-      <dropdown {...dropdown} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
+      <select {...input}>
+        {children}
+      </select>
+      {touched && error && <span>{error}</span>}
     </div>
   </div>
 );
+
 
 class SignupForm extends Component {
   componentWillMount() {
@@ -56,6 +54,7 @@ class SignupForm extends Component {
     this.props.allCohorts();
   }
   render() {
+    console.log(this.props, this.props.cohorts, this.props.campuses);
     if (this.props.cohorts.length === 0 && this.props.campuses.length === 0) {
       return <div>LOADING</div>;
     }
@@ -86,7 +85,6 @@ class SignupForm extends Component {
         </Form.Field>
 
         <Form.Field inline>
-          <label>Password</label>
           <Field
             name="password"
             component={renderField}
@@ -98,7 +96,6 @@ class SignupForm extends Component {
         </Form.Field>
 
         <Form.Field inline>
-          <label>Confirm Password</label>
           <Field
             name="confirm-password"
             component={renderField}
@@ -110,42 +107,31 @@ class SignupForm extends Component {
         </Form.Field>
 
         <Form.Field inline>
-          <label>Campuses</label>
-          <Dropdown
-            placeholder="Campuses" multiple selection
-            options={campusesDropDown(this.props.campuses)}
-            onChange={(event, result) => {
-              const { value } = result;
-              this.props.setCampuses(value);
-            }}
-          />
           <Field
             name="campuses"
-            component={renderField}
+            component={renderSelectField}
             type="text"
             label="Campuses"
             placeholder="Select Campuses"
             validate={[required]}
-          />
+            multiple
+          >
+            { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+          </Field>
         </Form.Field>
 
         <Form.Field inline>
-          <label>Cohorts</label>
-          <Dropdown
-            placeholder="Cohorts" multiple selection options={cohortsDropDown(this.props.cohorts)}
-            onChange={(event, result) => {
-              const { value } = result;
-              this.props.setCohorts(value);
-            }}
-          />
           <Field
             name="cohorts"
-            component={renderField}
+            component={renderSelectField}
             type="text"
             label="Cohorts"
             placeholder="Select Cohorts"
             validate={[required]}
-          />
+            multiple
+          >
+            { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
+          </Field>
         </Form.Field>
         <Button content="Sign Up" />
       </Form>
