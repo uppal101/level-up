@@ -8,7 +8,7 @@ class Footer extends Component {
     return (
       <div className="footer">
         <Button.Group floated="right">
-          <Link to={'/admin-login'}><Button color="orange">Admin</Button></Link>
+          <Link to={'/login-admin'}><Button color="orange">Admin</Button></Link>
         </Button.Group>
       </div>
     );
