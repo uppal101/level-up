@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
-import './reward-submission-style.css';
+import './challenge-submission-style.css';
 
 class Submit extends Component {
   render() {
