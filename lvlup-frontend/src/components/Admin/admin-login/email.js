@@ -38,18 +38,16 @@ class LoginForm extends Component {
     return (
       <Form className="email" onSubmit={handleSubmit(this.props.login)}>
         <Form.Field inline>
-          <label>Galvanize Email</label>
           <Field
             name="email"
             component={renderField}
             type="email"
-            label="Email"
+            label=" Galvanize Email"
             placeholder="Email"
             validate={[required, email]}
           />
         </Form.Field>
         <Form.Field inline>
-          <label>Password</label>
           <Field
             name="password"
             component={renderField}
