@@ -41,7 +41,6 @@ class StudentChallengesTable extends Component {
     if (this.props.challenges.challenges.length === 0) {
       return (<div>LOADING</div>);
     }
-    console.log(this.props.challenges);
     return (
       <Table celled>
         <Table.Header>

@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
-<<<<<<< HEAD
-// import { bindActionCreators } from 'redux';
-import { quarterConverter, quarterPointFinder } from '../../../helpers/dashboard';
-=======
 import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
 import renderIf from 'render-if';
->>>>>>> d778d23295c8c097d3cbd64d961387c70a5050a9
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -112,7 +107,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderSubmissions(this.props.submissions.submissions)}
+            {renderSubmissions(this.props.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
