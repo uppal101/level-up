@@ -25,10 +25,6 @@ class RewardsTable extends Component {
     this.props.campusRewards(this.props.lvlUpInfo.campusId);
   }
 
-  handleClick(item) {
-    this.props.selectReward(item);
-  }
-
   renderRewards(list) {
     return list.map(item => (
       <Table.Row key={item.id}>
@@ -37,8 +33,8 @@ class RewardsTable extends Component {
         <Table.Cell>{item.description}</Table.Cell>
         <Table.Cell>{item.point_cost}</Table.Cell>
         <Table.Cell>
-          <Link to={`/student/reward-request/${item.id}`} onClick={this.props.selectReward(item)}>
-            <Icon name="long arrow right" />
+          <Link to={`/student/reward-request/${item.id}`}>
+            <Icon onClick={() => this.props.selectReward(item)} name="long arrow right" />
           </Link>
         </Table.Cell>
       </Table.Row>
