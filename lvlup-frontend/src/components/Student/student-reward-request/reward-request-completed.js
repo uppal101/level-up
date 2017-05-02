@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import { Label, Table } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import './reward-request-style.css';
+
+const mapStateToProps = state => ({
+  reward: state.selectedReward,
+  requestedReward: state.requestedReward.data,
+});
+
+class RequestCompleted extends Component {
+  render() {
+    return (
+      <Table celled>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Reward Request Successful!</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>
+              <Label ribbon>Requested Reward</Label>
+              {this.props.reward.name}
+            </Table.Cell>
+          </Table.Row>
+          {this.props.requestedReward.notes ?
+            <Table.Row>
+              <Table.Cell>
+                <Label ribbon>Request Notes</Label>
+                {this.props.requestedReward.notes}
+              </Table.Cell>
+            </Table.Row> : null}
+        </Table.Body>
+      </Table>
+    );
+  }
+}
+
+export default connect(mapStateToProps)(RequestCompleted);
