@@ -3,29 +3,66 @@ import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { quarterConverter, quarterPointFinder } from '../../../helpers/dashboard';
+import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
+import renderIf from 'render-if';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
-  submissions: state.submissions,
+  submissions: state.submissions.submissions,
+  requests: state.requests.requests,
 });
 
-
 const renderSubmissions = list => (
-  list.map(item => (
+  list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
+    if (item.submission_status === 'Denied') {
+      return (
+        <Table.Row negative key={item.id}>
+          <Table.Cell>{item.challenge.name}</Table.Cell>
+          <Table.Cell>{item.category.category}</Table.Cell>
+          <Table.Cell>{item.challenge.point_value}</Table.Cell>
+          <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+        </Table.Row>
+      );
+    }
+    return (
+      <Table.Row key={item.id}>
+        <Table.Cell>{item.challenge.name}</Table.Cell>
+        <Table.Cell>{item.category.category}</Table.Cell>
+        <Table.Cell>{item.challenge.point_value}</Table.Cell>
+        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+      </Table.Row>
+    );
+  })
+);
+
+const renderAchievements = list => (
+  list.filter(submission => submission.submission_status === 'Approved').map(item => (
     <Table.Row key={item.id}>
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.challenge.point_value}</Table.Cell>
-      <Table.Cell>{item.created_at}</Table.Cell>
+      <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+    </Table.Row>
+  ))
+);
+
+const renderRewardsEarned = list => (
+  list.filter(request => request.status === 'Approved').map(item => (
+    <Table.Row key={item.id}>
+      <Table.Cell>{item.reward.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.reward.point_cost}</Table.Cell>
+      <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
     </Table.Row>
   ))
 );
 
 class StudentDashboard extends Component {
   render() {
-    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
+    console.log(this.props.submissions);
+    console.log(this.props.requests);
+    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
       return (<div>LOADING</div>);
     }
     return (
@@ -70,63 +107,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderSubmissions(this.props.submissions.submissions)}
-            {/* <Table.Row positive>
-              <Table.Cell>
-                Build A Side Project
-              </Table.Cell>
-              <Table.Cell>
-                Career
-              </Table.Cell>
-              <Table.Cell>
-                250 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                Build A Side Project
-              </Table.Cell>
-              <Table.Cell>
-                Career
-              </Table.Cell>
-              <Table.Cell>
-                250 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row positive>
-              <Table.Cell>
-                Mentor A Student
-              </Table.Cell>
-              <Table.Cell>
-                Education
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row negative>
-              <Table.Cell>
-                Lead a Breakout Session
-              </Table.Cell>
-              <Table.Cell>
-                Education
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row> */}
+            {renderSubmissions(this.props.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -142,20 +123,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row positive>
-              <Table.Cell>
-                Mentor A Student
-              </Table.Cell>
-              <Table.Cell>
-                Education
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
+            {renderAchievements(this.props.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -171,20 +139,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>
-                $5 Gather Cafe Gift Card
-              </Table.Cell>
-              <Table.Cell>
-                Life
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
+            {renderRewardsEarned(this.props.requests)}
           </Table.Body>
         </Table>
       </div>
