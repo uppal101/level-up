@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { loginInfo, studentPointsAndCampus, submissions, challenges, requests } from './student-reducer';
+import { loginInfo, studentPointsAndCampus, submissions, challenges, requests, selectedChallenge, selectedReward } from './student-reducer';
 import { reducer as formReducer } from 'redux-form';
 import { loggedIn } from './adminLoginReducer';
 import { signedUp, allCampuses, allCohorts, setCampus, setCohort } from './adminSignupReducer';
@@ -19,8 +19,12 @@ const lvlupApp = combineReducers({
   setCampus,
   setCohort,
   challenges,
+  rewards,
+  selectedReward,
   challengeAdded,
   rewardAdded,
+  selectedChallenge,
+
 });
 
 export default lvlupApp;
