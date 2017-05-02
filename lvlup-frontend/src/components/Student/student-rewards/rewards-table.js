@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { Icon, Table, Container } from 'semantic-ui-react';
-import { campusRewards } from '../../../actions/student-rewards-actions';
+import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
 import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
@@ -10,26 +11,40 @@ const mapStateToProps = state => ({
   rewards: state.rewards.rewards,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, selectReward }, dispatch);
 
-const renderRewards = list => (
-  list.map(item => (
-    <Table.Row key={item.id}>
-      <Table.Cell>{item.name}</Table.Cell>
-      <Table.Cell>{item.category.category}</Table.Cell>
-      <Table.Cell>{item.description}</Table.Cell>
-      <Table.Cell>{item.point_cost}</Table.Cell>
-      <Table.Cell>
-        <a href="/student/reward-request"><Icon name="long arrow right" /></a>
-      </Table.Cell>
-    </Table.Row>
-  ))
-);
 
 class RewardsTable extends Component {
+  constructor(props) {
+    super(props);
+    this.renderRewards = this.renderRewards.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   componentWillMount() {
     this.props.campusRewards(this.props.lvlUpInfo.campusId);
   }
+
+  handleClick(item) {
+    this.props.selectReward(item);
+  }
+
+  renderRewards(list) {
+    return list.map(item => (
+      <Table.Row key={item.id}>
+        <Table.Cell>{item.name}</Table.Cell>
+        <Table.Cell>{item.category.category}</Table.Cell>
+        <Table.Cell>{item.description}</Table.Cell>
+        <Table.Cell>{item.point_cost}</Table.Cell>
+        <Table.Cell>
+          <Link to={`/student/reward-request/${item.id}`} onClick={this.props.selectReward(item)}>
+            <Icon name="long arrow right" />
+          </Link>
+        </Table.Cell>
+      </Table.Row>
+  ));
+  }
+
   render() {
     console.log(this.props.rewards);
     if (this.props.rewards.length === 0) {
@@ -49,7 +64,7 @@ class RewardsTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {renderRewards(this.props.rewards)}
+            {this.renderRewards(this.props.rewards)}
           </Table.Body>
 
         </Table>

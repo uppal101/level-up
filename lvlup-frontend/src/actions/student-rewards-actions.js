@@ -7,3 +7,8 @@ export const campusRewards = campusId => ({
   type: CONST.REWARDS_CAMPUS,
   payload: fetchRewards(campusId),
 });
+
+export const selectReward = reward => ({
+  type: CONST.SELECTED_REWARD,
+  reward,
+});

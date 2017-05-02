@@ -17,6 +17,15 @@ export const studentPointsAndCampus = (state = {}, action) => {
   }
 };
 
+export const selectedReward = (state = {}, action) => {
+  switch (action.type) {
+    case CONST.SELECTED_REWARD:
+      return Object.assign({}, action.reward);
+    default:
+      return state;
+  }
+};
+
 export const submissions = (state = { submissions: [] }, action) => {
   switch (action.type) {
     case CONST.SUBMISSIONS_FULFILLED:

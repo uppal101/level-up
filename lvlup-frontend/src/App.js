@@ -44,7 +44,7 @@ export default class App extends Component {
             <Route exact path="/student/challenges" component={StudentChallenges} />
             <Route exact path="/student/challenge-submission" component={StudentChallengeSubmission} />
             <Route exact path="/student/rewards" component={StudentRewards} />
-            <Route exact path="/student/reward-request" component={StudentRewardRequest} />
+            <Route exact path="/student/reward-request/:id" component={StudentRewardRequest} />
             <Route exact path="/login-admin" component={AdminLogin} />
             <Route exact path="/signup-admin" component={AdminSignUp} />
             <Route exact path="/admin/dashboard" component={AdminHome} />
