@@ -27,7 +27,14 @@ const renderRewards = list => (
 );
 
 class RewardsTable extends Component {
+  componentWillMount() {
+    this.props.campusRewards(this.props.lvlUpInfo.campusId);
+  }
   render() {
+    console.log(this.props.rewards);
+    if (this.props.rewards.length === 0) {
+      return (<div>LOADING</div>);
+    }
     return (
       <Container>
         <Table celled>

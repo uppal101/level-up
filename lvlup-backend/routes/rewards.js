@@ -21,8 +21,8 @@ router.route('/rewards/')
 
 router.route('/rewards/campuses/:campus_id')
   .get((req, res) => {
-    Rewards.forge({ campus_id: req.params.campus_id })
-    .fetch()
+    Reward.forge({ campus_id: req.params.campus_id })
+    .fetchAll({ withRelated: ['category'] })
     .then(rewards => res.status(200).json(rewards))
     .catch(err => res.status(500).json({ message: err.message }));
   });

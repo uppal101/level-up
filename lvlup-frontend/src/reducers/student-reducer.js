@@ -44,7 +44,7 @@ export const rewards = (state = { rewards: [] }, action) => {
   switch (action.type) {
     case CONST.REWARDS_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
-        rewards: state.rewareds.concat(action.payload),
+        rewards: state.rewards.concat(action.payload),
       });
     default:
       return state;
