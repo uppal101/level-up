@@ -27,11 +27,21 @@ const categories = [
 const required = value => value ? undefined : 'Required';
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
 
-const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>{error}</span>))}
+    </div>
+  </div>
+);
+
+const renderTextAreaField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <textarea {...input} placeholder={label} type={type} />
       {touched && ((error && <span>{error}</span>))}
     </div>
   </div>
@@ -61,26 +71,25 @@ class AddChallengeForm extends Component {
     return (
       <Container>
         <Form onSubmit={handleSubmit(this.props.addChallenge)}>
-          <Form.Group widths="equal">
+          <Form.Group>
             <Field
-              name="title"
+              name="name"
               component={renderField}
               type="text"
-              label="Title"
-              placeholder="Title"
+              label="Name"
+              placeholder="Name"
               validate={[required]}
             />
             <Field
-              name="points"
+              name="point_value"
               component={renderField}
               type="number"
-              label="Points"
-              placeholder="Points"
+              label="Point Value"
+              placeholder="Point Value"
               validate={[required, number]}
             />
-            {/* <Form.Select label="Select Category" options={categories} placeholder="Select Category" /> */}
             <Field
-              name="requirement"
+              name="requirements_1"
               component={renderField}
               type="text"
               label="Requirement"
@@ -91,7 +100,7 @@ class AddChallengeForm extends Component {
           </Form.Group>
           <Form.Field>
             <Field
-              name="campuses"
+              name="campus_id"
               component={renderSelectField}
               type="text"
               label="Campuses"
@@ -104,19 +113,20 @@ class AddChallengeForm extends Component {
             </Field>
 
             <Field
-              name="category"
+              name="category_id"
               component={renderSelectField}
               type="text"
               label="Select Category"
               placeholder="Select Category"
               validate={required}
-            />
-            <option default>Select Category</option>
-            { categories.map(option => <option value={option.key}>{option.text}</option>)}
+            >
+              <option default>Select Category</option>
+              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+            </Field>
           </Form.Field>
           <Field
             name="description"
-            component={renderField}
+            component={renderTextAreaField}
             type="text"
             label="Description"
             placeholder="Describe challenge..."
