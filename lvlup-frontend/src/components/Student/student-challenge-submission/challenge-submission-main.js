@@ -9,7 +9,7 @@ import uploadcare from 'uploadcare-widget';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
-  // challenges: state.challenges,
+  selectedChallenge: state.selectedChallenge,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ challengeSubmission }, dispatch);
@@ -29,24 +29,27 @@ class StudentChallengeSubmission extends Component {
 
   submit(values) {
     values.student_id = this.props.loginInfo.id;
+    values.challenge_id = this.props.selectedChallenge.id;
     console.log(values);
   }
 
   render() {
     const { handleSubmit } = this.props;
+    if (!this.props.selectedChallenge.name) {
+      return (<div>LOADING</div>);
+    }
     return (
       <div className="challenge-submission">
-        <h2 className="header">Challenge Submission</h2>
+        <h2 className="header">{`Challenge Submission: ${this.props.selectedChallenge.name}`}</h2>
         <Form className="challenge-submission-form" onSubmit={handleSubmit(this.submit)}>
-          <Form.Field inline>
+          <Form.TextArea inline>
             <Field
               name="submission_message"
               component="input"
-              type="text"
               label="Submission Message"
               placeholder="Enter Submission Message"
             />
-          </Form.Field>
+          </Form.TextArea>
           <Form.Field inline>
             <Field
               name="submission_attachment_1"

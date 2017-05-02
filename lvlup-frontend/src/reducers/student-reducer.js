@@ -59,3 +59,12 @@ export const submissionChallenge = (state = { status: false }, action) => {
       return state;
   }
 };
+
+export const selectedChallenge = (state = {}, action) => {
+  switch (action.type) {
+    case CONST.SELECTED_CHALLENGE:
+      return Object.assign({}, action.challenge);
+    default:
+      return state;
+  }
+};

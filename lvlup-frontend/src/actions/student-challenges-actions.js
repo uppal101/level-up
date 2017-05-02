@@ -17,3 +17,8 @@ export const challengeSubmission = props => ({
   type: CONST.CHALLENGE_SUBMISSION,
   payload: challengeSubmissionCall(props),
 });
+
+export const selectChallenge = challenge => ({
+  type: CONST.SELECTED_CHALLENGE,
+  challenge,
+});
