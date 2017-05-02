@@ -19,7 +19,7 @@ const lvlupApp = combineReducers({
   setCampus,
   setCohort,
   challenges,
-  rewards,
+  // rewards,
   selectedReward,
   challengeAdded,
   rewardAdded,
