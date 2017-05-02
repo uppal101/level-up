@@ -17,6 +17,7 @@
     "redux-form": "^6.6.3",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
+    "render-if": "^0.1.1",
     "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {

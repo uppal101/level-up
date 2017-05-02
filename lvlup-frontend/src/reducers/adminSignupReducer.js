@@ -39,7 +39,7 @@ export const allCohorts = (state = [], action) => {
   }
 };
 
-export const setCampus = (state = 1, action) => {
+export const setCampus = (state = '', action) => {
   switch (action.type) {
     case 'SET_CAMPUSES':
       return action.campus;
@@ -48,7 +48,7 @@ export const setCampus = (state = 1, action) => {
   }
 };
 
-export const setCohort = (state = 1, action) => {
+export const setCohort = (state = '', action) => {
   switch (action.type) {
     case 'SET_COHORT':
       return action.cohort;

@@ -11,7 +11,7 @@ export const loginInfo = (state = {}, action) => {
 export const studentPointsAndCampus = (state = {}, action) => {
   switch (action.type) {
     case CONST.POINTS_COHORT_FULFILLED:
-      return action.payload;
+      return Object.assign({}, action.payload);
     default:
       return state;
   }
@@ -28,12 +28,23 @@ export const submissions = (state = { submissions: [] }, action) => {
   }
 };
 
+
 export const challenges = (state = { challenges: [] }, action) => {
-  console.log('here');
   switch (action.type) {
     case CONST.CHALLNGES_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
         challenges: state.challenges.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};
+
+export const requests = (state = { requests: [] }, action) => {
+  switch (action.type) {
+    case CONST.REQUESTS_FULFILLED:
+      return Object.assign({}, state, {
+        requests: state.requests.concat(action.payload),
       });
     default:
       return state;

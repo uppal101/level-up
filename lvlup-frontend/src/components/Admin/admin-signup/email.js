@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Dropdown, Button } from 'semantic-ui-react';
+import { Form, Dropdown, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -12,37 +12,41 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state, ownProps) {
   return {
     signedUp: false,
-    cohorts: state.cohorts,
-    campuses: state.campuses,
+    cohorts: state.allCohorts,
+    campuses: state.allCampuses,
   };
 }
-const campusesDropDown = campuses => campuses.map((campus) => {
-  const obj = {};
-  obj.value = campus.id;
-  obj.text = campus.location;
-  return obj;
-});
-const cohortsDropDown = cohorts => cohorts.map((cohort) => {
-  const obj = {};
-  obj.value = cohort.id;
-  obj.text = cohort.name;
-  return obj;
-});
 
-// const cohorts = [
-//   { key: '42', text: 'G42', value: 'g42' },
-//   { key: '52', text: 'G52', value: 'g52' },
-// ];
-// const campuses = [
-//   { key: 'sf', text: 'San Francisco', value: 'San Francisco' },
-//   { key: 'a', text: 'Austin', value: 'Austin' },
-//   { key: 'b', text: 'Boulder', value: 'Boulder' },
-//   { key: 'dp', text: 'Denver-Platte', value: 'Denver-Platte' },
-//   { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
-//   { key: 'ny', text: 'New York', value: 'New York' },
-//   { key: 'p', text: 'Phoenix', value: 'Seattle' },
-//   { key: 'all', text: 'All campuses', value: 'All Campuses' },
-// ];
+
+const required = value => value ? undefined : 'Required';
+const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
+const minValue7 = minValue(7);
+const email = value =>
+  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
+  'Invalid email address' : undefined;
+
+const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>{error}</span>))}
+    </div>
+  </div>
+);
+
+const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input}>
+        {children}
+      </select>
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+);
+
 
 class SignupForm extends Component {
   componentWillMount() {
@@ -50,82 +54,85 @@ class SignupForm extends Component {
     this.props.allCohorts();
   }
   render() {
+    if (this.props.cohorts.length === 0 && this.props.campuses.length === 0) {
+      return <div>LOADING</div>;
+    }
     const { handleSubmit } = this.props;
     return (
       <Form className="forms" onSubmit={handleSubmit(this.props.signup)}>
 
         <Form.Field inline>
-          <label>Galvanize Email</label>
           <Field
             name="email"
-            component="input"
+            component={renderField}
             type="email"
+            label="Galvanize Email"
             placeholder="Email"
+            validate={[required, email]}
           />
         </Form.Field>
 
         <Form.Field inline>
-          <label>Username</label>
           <Field
             name="username"
-            component="input"
+            component={renderField}
             type="text"
+            label="Username"
             placeholder="Username"
+            validate={[required, minValue7]}
           />
         </Form.Field>
 
         <Form.Field inline>
-          <label>Password</label>
           <Field
             name="password"
-            component="input"
+            component={renderField}
             type="password"
+            label="Password"
             placeholder="Password"
+            validate={[required, minValue7]}
           />
         </Form.Field>
 
         <Form.Field inline>
-          <label>Confirm Password</label>
           <Field
             name="confirm-password"
-            component="input"
+            component={renderField}
             type="password"
+            label="Confirm Password"
             placeholder="Confirm Password"
+            validate={[required, minValue7]}
           />
         </Form.Field>
 
         <Form.Field inline>
-          <label>Campuses</label>
-          <Dropdown
-            placeholder="Campuses" multiple selection options={campusesDropDown(this.props.campuses)}
-            onChange={(event, result) => {
-              const { value } = result;
-              this.props.setCampuses(value);
-            }}
-          />
           <Field
             name="campuses"
-            component="dropdown"
+            component={renderSelectField}
             type="text"
+            label="Campuses"
             placeholder="Select Campuses"
-          />
+            validate={[required]}
+            multiple
+          >
+            <option default>Select Campus(es)</option>
+            { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+          </Field>
         </Form.Field>
 
         <Form.Field inline>
-          <label>Cohorts</label>
-          <Dropdown
-            placeholder="Cohorts" multiple selection options={cohortsDropDown(this.props.cohorts)}
-            onChange={(event, result) => {
-              const { value } = result;
-              this.props.setCohorts(value);
-            }}
-          />
           <Field
             name="cohorts"
-            component="dropdown"
+            component={renderSelectField}
             type="text"
+            label="Cohorts"
             placeholder="Select Cohorts"
-          />
+            validate={[required]}
+            multiple
+          >
+            <option default>Select Cohort(s)</option>
+            { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
+          </Field>
         </Form.Field>
         <Button content="Sign Up" />
       </Form>
