@@ -18,7 +18,8 @@
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
     "render-if": "^0.1.1",
-    "semantic-ui-react": "^0.68.2"
+    "semantic-ui-react": "^0.68.2",
+    "uploadcare-widget": "^2.10.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
