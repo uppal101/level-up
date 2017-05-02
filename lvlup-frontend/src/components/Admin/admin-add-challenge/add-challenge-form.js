@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { allCampuses } from '../../../actions/adminsignup';
+import { addChallenge } from '../../../actions/addChallenge';
 import './admin-add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
@@ -32,12 +33,26 @@ const categories = [
 //   { key: 'p', text: 'Phoenix', value: 'Seattle' },
 //   { key: 'all', text: 'All campuses', value: 'All Campuses' },
 // ];
+const required = value => value ? undefined : 'Required';
+
+const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input}>
+        {children}
+      </select>
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+);
 
 class AddChallengeForm extends Component {
   componentWillMount() {
     this.props.allCampuses();
   }
   render() {
+    console.log(this.props.campuses);
     if (this.props.campuses.length === 0) {
       return <div>LOADING</div>;
     }
@@ -70,7 +85,7 @@ class AddChallengeForm extends Component {
               label="Select Category"
               placeholder="Select Category"
             />
-            <Form.Select label="Select Campus" options={campuses} placeholder="Select Campus" />
+            {/* <Form.Select label="Select Campus" options={campuses} placeholder="Select Campus" /> */}
             <Field
               name="campuses"
               component="dropdown"
@@ -83,12 +98,17 @@ class AddChallengeForm extends Component {
             <label>Requirement</label>
             <input placeholder="Requirement" />
             <Field
-              name="requirement"
-              component="input"
+              name="campuses"
+              component={renderSelectField}
               type="text"
-              label="Requirement"
-              placeholder="Requirement"
-            />
+              label="Campuses"
+              placeholder="Select Campuses"
+              validate={[required]}
+              multiple
+            >
+              <option default>Select Campus</option>
+              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+            </Field>
           </Form.Field>
           <Form.Button>Add Requirement</Form.Button>
           <Form.TextArea label="Description" placeholder="Describe challenge" />
@@ -106,4 +126,4 @@ class AddChallengeForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddChallengeForm);
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'addChallenge' })(AddChallengeForm));

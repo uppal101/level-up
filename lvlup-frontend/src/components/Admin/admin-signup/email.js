@@ -115,6 +115,7 @@ class SignupForm extends Component {
             validate={[required]}
             multiple
           >
+            <option default>Select Campus(es)</option>
             { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
           </Field>
         </Form.Field>
@@ -129,6 +130,7 @@ class SignupForm extends Component {
             validate={[required]}
             multiple
           >
+            <option default>Select Cohort(s)</option>
             { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
           </Field>
         </Form.Field>
