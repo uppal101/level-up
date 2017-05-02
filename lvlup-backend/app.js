@@ -95,6 +95,9 @@ app.use('/api', studentsRoute);
 app.use('/api', challengesRoute);
 app.use('/api', submissionsRoute);
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
