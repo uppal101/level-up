@@ -2,12 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Icon, Table, Container } from 'semantic-ui-react';
+import { campusRewards } from '../../../actions/student-rewards-actions';
 import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
   lvlUpInfo: state.studentPointsAndCampus,
-  rewards: state.rewards,
+  rewards: state.rewards.rewards,
 });
+
+const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards }, dispatch);
+
+const renderRewards = list => (
+  list.map(item => (
+    <Table.Row key={item.id}>
+      <Table.Cell>{item.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.description}</Table.Cell>
+      <Table.Cell>{item.point_cost}</Table.Cell>
+      <Table.Cell>
+        <a href="/student/reward-request"><Icon name="long arrow right" /></a>
+      </Table.Cell>
+    </Table.Row>
+  ))
+);
 
 class RewardsTable extends Component {
   render() {
@@ -25,20 +42,7 @@ class RewardsTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>Pizza Party</Table.Cell>
-              <Table.Cell>lvl ^ Life</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell>75 per person</Table.Cell>
-              <Table.Cell><a href="/student/reward-request"><Icon name="long arrow right" /></a></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Job Fair</Table.Cell>
-              <Table.Cell>lvl ^ Career</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell>30</Table.Cell>
-              <Table.Cell><a href="/student/reward-request"><Icon name="long arrow right" /></a></Table.Cell>
-            </Table.Row>
+            {renderRewards(this.props.rewards)}
           </Table.Body>
 
         </Table>

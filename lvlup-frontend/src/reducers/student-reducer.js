@@ -40,6 +40,17 @@ export const challenges = (state = { challenges: [] }, action) => {
   }
 };
 
+export const rewards = (state = { rewards: [] }, action) => {
+  switch (action.type) {
+    case CONST.REWARDS_CAMPUS_FULFILLED:
+      return Object.assign({}, state, {
+        rewards: state.rewareds.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};
+
 export const requests = (state = { requests: [] }, action) => {
   switch (action.type) {
     case CONST.REQUESTS_FULFILLED:
