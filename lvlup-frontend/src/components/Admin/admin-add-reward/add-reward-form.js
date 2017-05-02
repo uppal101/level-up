@@ -17,10 +17,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 const categories = [
-  { key: 'e', text: 'Education', value: 'education' },
-  { key: 'co', text: 'Community', value: 'community' },
-  { key: 'c', text: 'Career', value: 'career' },
-  { key: 'l', text: 'Life', value: 'life' },
+  { key: 1, text: 'Education', value: 'education' },
+  { key: 2, text: 'Community', value: 'community' },
+  { key: 3, text: 'Career', value: 'career' },
+  { key: 4, text: 'Life', value: 'life' },
 ];
 
 const required = value => value ? undefined : 'Required';
@@ -80,15 +80,13 @@ class AddRewardForm extends Component {
               validate={[required]}
             />
             <Field
-              name="point_value"
+              name="point_cost"
               component={renderField}
               type="number"
               label="Point Value"
               placeholder="Point Value"
               validate={[required, number]}
             />
-            {/* <Form.Input label="Title" placeholder="Title" />
-            <Form.Input label="Points" placeholder="Points" /> */}
             <Field
               name="campus_id"
               component={renderSelectField}
@@ -113,8 +111,6 @@ class AddRewardForm extends Component {
               <option default>Select Category</option>
               { categories.map(option => <option value={option.key}>{option.text}</option>)}
             </Field>
-            {/* <Form.Select label="Select Category" options={categories} placeholder="Select Category" />
-            <Form.Select label="Select Campus" options={campuses} placeholder="Select Campus" /> */}
           </Form.Group>
           <Field
             name="description"
@@ -124,7 +120,6 @@ class AddRewardForm extends Component {
             placeholder="Describe reward..."
             validate={[required]}
           />
-          {/* <Form.TextArea label="Description" placeholder="Describe challenge" /> */}
           <Form.Button>Submit</Form.Button>
         </Form>
       </Container>

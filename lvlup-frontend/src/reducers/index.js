@@ -4,6 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 import { loggedIn } from './adminLoginReducer';
 import { signedUp, allCampuses, allCohorts, setCampus, setCohort } from './adminSignupReducer';
 import { challengeAdded } from './addChallengeReducer.js';
+import { rewardAdded } from './addRewardReducer.js';
 
 const lvlupApp = combineReducers({
   loginInfo,
@@ -19,6 +20,7 @@ const lvlupApp = combineReducers({
   setCohort,
   challenges,
   challengeAdded,
+  rewardAdded,
 });
 
 export default lvlupApp;
