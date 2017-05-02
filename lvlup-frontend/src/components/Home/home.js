@@ -21,6 +21,7 @@ class Home extends Component {
           </p>
           <Link to={'/student/dashboard'}><Button>CLICK HERE FOR DASHBOARD</Button></Link>
           <Link to={'/admin/challenge-add'}><Button>CLICK HERE TO ADD CHALLENGE</Button></Link>
+          <Link to={'/admin/reward-add'}><Button>CLICK HERE TO ADD REWARD</Button></Link>
         </div>
         <Footer />
       </div>

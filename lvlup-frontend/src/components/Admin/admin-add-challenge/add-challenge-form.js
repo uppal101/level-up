@@ -71,7 +71,7 @@ class AddChallengeForm extends Component {
     return (
       <Container>
         <Form onSubmit={handleSubmit(this.props.addChallenge)}>
-          <Form.Group>
+          <Form.Group widths="equal">
             <Field
               name="name"
               component={renderField}
