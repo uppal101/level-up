@@ -11,6 +11,7 @@ let q2;
 let q3;
 let q4;
 let grad;
+let campusId;
 const q1Earned = [0];
 const q2Earned = [0];
 const q3Earned = [0];
@@ -21,6 +22,7 @@ const q2Used = [0];
 const q3Used = [0];
 const q4Used = [0];
 const totalUsed = [0];
+
 
 const getPtsEarned = studentId => new Promise((resolve) => {
   knex('challenge_submissions')
@@ -56,7 +58,7 @@ const getPtsUsed = studentId => new Promise((resolve) => {
 const getStudentInfo = studentId => new Promise((resolve) => {
   knex('students')
   .where('students.id', studentId)
-  .select(['q1_start_date', 'q2_start_date', 'q3_start_date', 'q4_start_date', 'graduation_date', 'cohorts.name', 'cohorts.type', 'campuses.location'])
+  .select(['q1_start_date', 'q2_start_date', 'q3_start_date', 'q4_start_date', 'graduation_date', 'cohorts.name', 'cohorts.type', 'campuses.location', 'campuses.id as campus_id'])
   .innerJoin('cohorts', 'cohorts.id', 'students.cohort_id')
   .join('campuses', 'campuses.id', 'cohorts.campus_id')
   .then((dates) => {
@@ -68,6 +70,7 @@ const getStudentInfo = studentId => new Promise((resolve) => {
     q3 = dates[0].q3_start_date;
     q4 = dates[0].q4_start_date;
     grad = dates[0].graduation_date;
+    campusId = dates[0].campus_id;
     resolve(dates);
   })
   .catch(err => console.error(err));
@@ -133,6 +136,7 @@ const calculatePts = () => {
   points.cohort = cohortName;
   points.cohortType = cohortType;
   points.location = location;
+  points.campusId = campusId;
   points.currentQuarter = determineQuarter(moment());
   points.totalEarned = totalEarned.reduce((acc, pts) => acc + pts);
   points.totalUsed = totalUsed.reduce((acc, pts) => acc + pts);

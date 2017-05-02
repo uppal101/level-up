@@ -24,7 +24,7 @@ router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
     console.log(req.session);
-    res.redirect('/');
+    res.redirect('/student/dashboard');
   });
 
 router.route('/student/login')

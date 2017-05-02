@@ -20,7 +20,6 @@ class HamburgerStudent extends Component {
     this.props.loggingInAction()
     .then(() => this.props.moreStudentInfo(this.props.loginInfo.id))
     .then(() => {
-      console.log(this.props.loginInfo.id);
       this.props.submissionsAction(this.props.loginInfo.id);
     });
   }

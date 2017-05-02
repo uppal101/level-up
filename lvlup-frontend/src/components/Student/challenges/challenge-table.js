@@ -1,8 +1,47 @@
 import React, { Component } from 'react';
 import { Table, List } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { campusChallenges } from '../../../actions/student-challenges-actions';
+
+const mapStateToProps = state => ({
+  loginInfo: state.loginInfo,
+  lvlUpInfo: state.studentPointsAndCampus,
+  challenges: state.challenges,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges }, dispatch);
+
+const renderTable = list => (
+  list.map(item => (
+    <Table.Row key={item.id}>
+      <Table.Cell>{item.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.description}</Table.Cell>
+      <Table.Cell>
+        {item.requirements_1 ? <List bulleted>
+          <List.Item>{item.requirements_1}</List.Item>
+          {item.requirements_2 ? <List.Item>{item.requirements_2}</List.Item> : null}
+          {item.requirements_3 ? <List.Item>{item.requirements_3}</List.Item> : null}
+          {item.requirements_4 ? <List.Item>{item.requirements_4}</List.Item> : null}
+          {item.requirements_5 ? <List.Item>{item.requirements_5}</List.Item> : null}
+        </List> : 'No requirements!'}
+      </Table.Cell>
+      <Table.Cell>{item.point_value}</Table.Cell>
+      <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
+    </Table.Row>
+    ))
+);
 
 class StudentChallengesTable extends Component {
+  componentWillMount() {
+    this.props.campusChallenges(this.props.lvlUpInfo.campusId);
+  }
   render() {
+    if (this.props.challenges.challenges.length === 0) {
+      return (<div>LOADING</div>);
+    }
+    console.log(this.props.challenges);
     return (
       <Table celled>
         <Table.Header>
@@ -17,38 +56,11 @@ class StudentChallengesTable extends Component {
         </Table.Header>
 
         <Table.Body>
-          <Table.Row>
-            <Table.Cell>Tutor Session</Table.Cell>
-            <Table.Cell>lvl ^ Education</Table.Cell>
-            <Table.Cell>Mentor a student in a lower cohort</Table.Cell>
-            <Table.Cell>
-              <List bulleted>
-                <List.Item>Spend an hour</List.Item>
-                <List.Item>Review a current topic</List.Item>
-                <List.Item>Instructor Approved</List.Item>
-              </List>
-            </Table.Cell>
-            <Table.Cell>30</Table.Cell>
-            <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Job Fair</Table.Cell>
-            <Table.Cell>lvl ^ Career</Table.Cell>
-            <Table.Cell>Attend a Job Fair</Table.Cell>
-            <Table.Cell>
-              <List bulleted>
-                <List.Item>Submit a receipt or take picture</List.Item>
-                <List.Item>Talk to two companies</List.Item>
-                <List.Item>Career Services Approved</List.Item>
-              </List>
-            </Table.Cell>
-            <Table.Cell>30</Table.Cell>
-            <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
-          </Table.Row>
+          {renderTable(this.props.challenges.challenges)}
         </Table.Body>
       </Table>
     );
   }
 }
 
-export default StudentChallengesTable;
+export default connect(mapStateToProps, mapDispatchToProps)(StudentChallengesTable);

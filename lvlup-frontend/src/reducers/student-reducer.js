@@ -27,3 +27,15 @@ export const submissions = (state = { submissions: [] }, action) => {
       return state;
   }
 };
+
+export const challenges = (state = { challenges: [] }, action) => {
+  console.log('here');
+  switch (action.type) {
+    case CONST.CHALLNGES_CAMPUS_FULFILLED:
+      return Object.assign({}, state, {
+        challenges: state.challenges.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};

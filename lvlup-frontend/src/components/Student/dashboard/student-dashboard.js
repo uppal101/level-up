@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder } from '../../../helpers/dashboard';
 
 const mapStateToProps = state => ({
@@ -71,62 +71,6 @@ class StudentDashboard extends Component {
           </Table.Header>
           <Table.Body>
             {renderSubmissions(this.props.submissions.submissions)}
-            {/* <Table.Row positive>
-              <Table.Cell>
-                Build A Side Project
-              </Table.Cell>
-              <Table.Cell>
-                Career
-              </Table.Cell>
-              <Table.Cell>
-                250 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>
-                Build A Side Project
-              </Table.Cell>
-              <Table.Cell>
-                Career
-              </Table.Cell>
-              <Table.Cell>
-                250 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row positive>
-              <Table.Cell>
-                Mentor A Student
-              </Table.Cell>
-              <Table.Cell>
-                Education
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row negative>
-              <Table.Cell>
-                Lead a Breakout Session
-              </Table.Cell>
-              <Table.Cell>
-                Education
-              </Table.Cell>
-              <Table.Cell>
-                25 points
-              </Table.Cell>
-              <Table.Cell>
-                4/26/17
-              </Table.Cell>
-            </Table.Row> */}
           </Table.Body>
         </Table>
         <Table celled>
