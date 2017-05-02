@@ -60,8 +60,6 @@ const renderRewardsEarned = list => (
 
 class StudentDashboard extends Component {
   render() {
-    console.log(this.props.submissions);
-    console.log(this.props.requests);
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
       return (<div>LOADING</div>);
     }

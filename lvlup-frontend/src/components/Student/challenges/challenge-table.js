@@ -3,6 +3,7 @@ import { Table, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { campusChallenges } from '../../../actions/student-challenges-actions';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -28,7 +29,7 @@ const renderTable = list => (
         </List> : 'No requirements!'}
       </Table.Cell>
       <Table.Cell>{item.point_value}</Table.Cell>
-      <Table.Cell><a href="/student/challenge-submission">lvl ^</a></Table.Cell>
+      <Table.Cell><Link to={'/student/challenge-submission'}>lvl^</Link></Table.Cell>
     </Table.Row>
     ))
 );

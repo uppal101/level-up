@@ -31,7 +31,7 @@ export const submissions = (state = { submissions: [] }, action) => {
 
 export const challenges = (state = { challenges: [] }, action) => {
   switch (action.type) {
-    case CONST.CHALLNGES_CAMPUS_FULFILLED:
+    case CONST.CHALLENGES_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
         challenges: state.challenges.concat(action.payload),
       });
@@ -46,6 +46,15 @@ export const requests = (state = { requests: [] }, action) => {
       return Object.assign({}, state, {
         requests: state.requests.concat(action.payload),
       });
+    default:
+      return state;
+  }
+};
+
+export const submissionChallenge = (state = { status: false }, action) => {
+  switch (action.type) {
+    case CONST.CHALLENGE_SUBMISSION_FULFILLED:
+      return action.payload;
     default:
       return state;
   }
