@@ -8,14 +8,14 @@ const router = express.Router();
 
 router.route('/challenges/campuses/:campus_id')
   .get((req, res) => {
-    Campus.forge({ id: req.params.campus_id })
-    .fetch({ withRelated: ['challenges'] })
-    .then((campuses) => {
-      const challenges = campuses.related('challenges');
+    Challenge.forge({ campus_id: req.params.campus_id })
+    .fetchAll({ withRelated: ['category'] })
+    .then((challenges) => {
       res.status(200).json(challenges);
     })
     .catch(err => res.status(500).json(err.message));
   });
+
 
 router.route('/challenges/')
   .post(authorize.isAdmin, (req, res) => {

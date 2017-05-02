@@ -9,6 +9,7 @@ require('./reward_request');
 const Category = LvlModel.extend({
   tableName: 'categories',
   hasTimestamps: true,
+  hidden: ['created_at', 'updated_at'],
 
   challenges() {
     return this.hasMany('Challenge');

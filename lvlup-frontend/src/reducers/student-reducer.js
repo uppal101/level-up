@@ -28,6 +28,18 @@ export const submissions = (state = { submissions: [] }, action) => {
   }
 };
 
+
+export const challenges = (state = { challenges: [] }, action) => {
+  switch (action.type) {
+    case CONST.CHALLNGES_CAMPUS_FULFILLED:
+      return Object.assign({}, state, {
+        challenges: state.challenges.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};
+
 export const requests = (state = { requests: [] }, action) => {
   switch (action.type) {
     case CONST.REQUESTS_FULFILLED:
