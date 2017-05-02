@@ -12,16 +12,16 @@ let q3;
 let q4;
 let grad;
 let campusId;
-const q1Earned = [0];
-const q2Earned = [0];
-const q3Earned = [0];
-const q4Earned = [0];
-const totalEarned = [0];
-const q1Used = [0];
-const q2Used = [0];
-const q3Used = [0];
-const q4Used = [0];
-const totalUsed = [0];
+let q1Earned;
+let q2Earned;
+let q3Earned;
+let q4Earned;
+let totalEarned;
+let q1Used;
+let q2Used;
+let q3Used;
+let q4Used;
+let totalUsed;
 
 
 const getPtsEarned = studentId => new Promise((resolve) => {
@@ -90,6 +90,11 @@ const determineQuarter = (time) => {
 };
 
 const distributePts = () => {
+  totalEarned = [0];
+  q1Earned = [0];
+  q2Earned = [0];
+  q3Earned = [0];
+  q4Earned = [0];
   ptsEarned.forEach((submission) => {
     totalEarned.push(submission.point_value);
     switch (determineQuarter(submission.updated_at)) {
@@ -110,6 +115,11 @@ const distributePts = () => {
     }
   });
   ptsUsed.forEach((request) => {
+    totalUsed = [0];
+    q1Used = [0];
+    q2Used = [0];
+    q3Used = [0];
+    q4Used = [0];
     totalUsed.push(request.point_cost);
     switch (determineQuarter(request.updated_at)) {
       case 'q1':
