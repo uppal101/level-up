@@ -17,6 +17,15 @@ export const studentPointsAndCampus = (state = {}, action) => {
   }
 };
 
+export const selectedReward = (state = {}, action) => {
+  switch (action.type) {
+    case CONST.SELECTED_REWARD:
+      return Object.assign({}, action.reward);
+    default:
+      return state;
+  }
+};
+
 export const submissions = (state = { submissions: [] }, action) => {
   switch (action.type) {
     case CONST.SUBMISSIONS_FULFILLED:
@@ -34,6 +43,17 @@ export const challenges = (state = { challenges: [] }, action) => {
     case CONST.CHALLNGES_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
         challenges: state.challenges.concat(action.payload),
+      });
+    default:
+      return state;
+  }
+};
+
+export const rewards = (state = { rewards: [] }, action) => {
+  switch (action.type) {
+    case CONST.REWARDS_CAMPUS_FULFILLED:
+      return Object.assign({}, state, {
+        rewards: state.rewards.concat(action.payload),
       });
     default:
       return state;
