@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Icon, Table, Container } from 'semantic-ui-react';
 import './student-rewards-style.css';
+
+const mapStateToProps = state => ({
+  lvlUpInfo: state.studentPointsAndCampus,
+  rewards: state.rewards,
+});
 
 class RewardsTable extends Component {
   render() {
@@ -40,4 +47,4 @@ class RewardsTable extends Component {
   }
 }
 
-export default RewardsTable;
+export default connect(mapStateToProps, mapDispatchToProps)(RewardsTable);

@@ -14,25 +14,13 @@ const mapStateToProps = state => ({
 });
 
 const renderSubmissions = list => (
-  list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
-    if (item.submission_status === 'Denied') {
-      return (
-        <Table.Row negative key={item.id}>
-          <Table.Cell>{item.challenge.name}</Table.Cell>
-          <Table.Cell>{item.category.category}</Table.Cell>
-          <Table.Cell>{item.challenge.point_value}</Table.Cell>
-          <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
-        </Table.Row>
-      );
-    }
-    return (
-      <Table.Row key={item.id}>
-        <Table.Cell>{item.challenge.name}</Table.Cell>
-        <Table.Cell>{item.category.category}</Table.Cell>
-        <Table.Cell>{item.challenge.point_value}</Table.Cell>
-        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
-      </Table.Row>
-    );
+  list.filter(submission => submission.submission_status !== 'Approved').map(item => {
+     {item.submission_status === 'Denied' ? <Table.Row negative key={item.id}> : <Table.Row key={item.id}>}
+      <Table.Cell>{item.challenge.name}</Table.Cell>
+      <Table.Cell>{item.category.category}</Table.Cell>
+      <Table.Cell>{item.challenge.point_value}</Table.Cell>
+      <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+    </Table.Row>
   })
 );
 
