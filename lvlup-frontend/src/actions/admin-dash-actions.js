@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 
-// const fetchSubmissions = studentId => axios(`http://localhost:3000/api/submissions/students/${studentId}`)
+// const fetchSubmissions = studentId => axios(`/api/submissions/students/${studentId}`)
 // .then(response => response.data);
 //
-// const fetchRequests = studentId => axios(`http://localhost:3000/api/requests/students/${studentId}`)
+// const fetchRequests = studentId => axios(`/api/requests/students/${studentId}`)
 // .then(response => response.data);
 
-const fetchAdmin = () => axios.post('http://localhost:3000/api/admin/login', { withCredentials: false });
+const fetchAdmin = () => axios.post('/api/admin/login', { withCredentials: false });
 
 
 export const loggingInAction = () => ({
