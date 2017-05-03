@@ -30,3 +30,8 @@ export const requestsAction = studentId => ({
   type: CONST.REQUESTS,
   payload: fetchRequests(studentId),
 });
+
+// export const hamburgerUpdateOff = () => ({
+//   type: CONST.HAMBURGER_UPDATE_OFF,
+//   payload: false,
+// });

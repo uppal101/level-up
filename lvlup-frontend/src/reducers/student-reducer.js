@@ -104,3 +104,12 @@ export const requestedReward = (state = { fulfilled: false }, action) => {
       return state;
   }
 };
+
+export const hamburgerUpdate = (state = true, action) => {
+  switch (action.type) {
+    case CONST.HAMBURGER_UPDATE_OFF:
+      return action.payload;
+    default:
+      return state;
+  }
+};

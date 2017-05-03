@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { loggingInAction, moreStudentInfo, submissionsAction, requestsAction } from '../../../actions/student-dash-actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import SignupInfo from './student-signup';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ loggingInAction, moreStudentInfo, submissionsAction, requestsAction }, dispatch);
 
@@ -25,11 +24,9 @@ class HamburgerStudent extends Component {
     .then(() => this.props.submissionsAction(this.props.loginInfo.id))
     .then(() => this.props.requestsAction(this.props.loginInfo.id));
   }
-  componentWillUpdate(nextProps, nextState) {
-    if (nextProps.loginInfo.username) {
-      this.props.moreStudentInfo(this.props.loginInfo.id)
-      .then(() => this.props.submissionsAction(this.props.loginInfo.id))
-      .then(() => this.props.requestsAction(this.props.loginInfo.id));
+  componentDidUpdate(prevProps) {
+    if (prevProps.loginInfo.cohort_id !== this.props.loginInfo.cohort_id) {
+      this.props.moreStudentInfo(this.props.loginInfo.id);
     }
   }
   render() {

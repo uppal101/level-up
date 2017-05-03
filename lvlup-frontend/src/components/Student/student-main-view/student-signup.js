@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { allCohorts } from '../../../actions/admin-signup';
-import { signupStudent } from '../../../actions/student-signup';
+import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,10 +10,11 @@ import './student-styles.css';
 
 const required = value => value ? undefined : 'Required';
 
-const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts, signupStudent }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts, signupStudent, moreStudentInfo }, dispatch);
 
 const mapStateToProps = state => ({
   cohorts: state.allCohorts,
+  loginInfo: state.loginInfo,
 });
 
 const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
@@ -50,6 +51,7 @@ class SignupInfo extends Component {
 
   submit(values) {
     this.props.signupStudent(values);
+    // .then(() => this.props.moreStudentInfo(this.props.loginInfo.id));
   }
 
   render() {
