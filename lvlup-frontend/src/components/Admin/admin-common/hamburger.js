@@ -3,28 +3,26 @@ import { Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { loggingInAction, pendingSubmissions, pendingRequests } from '../../../actions/admin-dash-actions';
 import './admin-nav.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loggingInAction, adminInfo, pendingSubmissions, pendingRequests,
+  loggingInAction, pendingSubmissions, pendingRequests,
 }, dispatch);
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
-  adminInfo: state.adminInfo,
 });
 
 class HamburgerAdmin extends Component {
   componentWillMount() {
-    this.props.loggingInAction()
-    .then(() =>
-    this.props.adminInfo(this.props.loginInfo.id));
+    this.props.loggingInAction();
   }
   render() {
     if (!this.props.loginInfo.username) {
-      return {
+      return (
         <div>LOADING</div>
-      }
+      );
     }
     return (
       <Menu inverted vertical className="adminHamburger">

@@ -33,6 +33,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 );
 
 class LoginForm extends Component {
+
   render() {
     const { handleSubmit } = this.props;
     return (
