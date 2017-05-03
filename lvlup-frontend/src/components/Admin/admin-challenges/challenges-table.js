@@ -3,6 +3,27 @@ import { Icon, Menu, Table, Container } from 'semantic-ui-react';
 import './admin-challenges-style.css';
 
 class ChallengesTable extends Component {
+  // renderTable(list) {
+  //   return list.map(item => (
+  //     <Table.Row>
+  //       <Table.Cell>Tutor Session</Table.Cell>
+  //       <Table.Cell>lvl ^ Education</Table.Cell>
+  //       <Table.Cell>Description</Table.Cell>
+  //       <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
+  //       <Table.Cell><Icon name="trash" /></Table.Cell>
+  //       <Table.Cell>30</Table.Cell>
+  //     </Table.Row>
+  //     <Table.Row>
+  //       <Table.Cell>Job Fair</Table.Cell>
+  //       <Table.Cell>lvl ^ Career</Table.Cell>
+  //       <Table.Cell>Description</Table.Cell>
+  //       <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
+  //       <Table.Cell><Icon name="trash" /></Table.Cell>
+  //       <Table.Cell>30</Table.Cell>
+  //     </Table.Row>
+  //   ))
+  //
+  // }
   render() {
     return (
       <Container>
@@ -18,24 +39,7 @@ class ChallengesTable extends Component {
             </Table.Row>
           </Table.Header>
 
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>Tutor Session</Table.Cell>
-              <Table.Cell>lvl ^ Education</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
-              <Table.Cell><Icon name="trash" /></Table.Cell>
-              <Table.Cell>30</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Job Fair</Table.Cell>
-              <Table.Cell>lvl ^ Career</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
-              <Table.Cell><Icon name="trash" /></Table.Cell>
-              <Table.Cell>30</Table.Cell>
-            </Table.Row>
-          </Table.Body>
+          <Table.Body />
 
           <Table.Footer>
             <Table.Row>
