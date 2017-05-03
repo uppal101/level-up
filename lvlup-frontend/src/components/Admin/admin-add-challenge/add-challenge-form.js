@@ -12,7 +12,7 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
-    numberOfRequestInputs: state.numberOfRequestInputs,
+    // numberOfRequestInputs: state.numberOfRequestInputs,
     addChallenge: false,
     campuses: state.allCampuses,
   };
