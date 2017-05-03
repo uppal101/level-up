@@ -1,9 +1,51 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
 import './admin-rewards-style.css';
 
+const mapStateToProps = state => ({
+  lvlUpInfo: state.studentPointsAndCampus,
+  rewards: state.rewards.rewards,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  campusRewards, selectReward,
+}, dispatch);
+
 class RewardsTable extends Component {
+  constructor(props) {
+    super(props);
+    this.renderRewards = this.renderRewards.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.campusRewards(this.props.lvlUpInfo.campusId);
+  }
+
+  renderRewards(list) {
+    return list.map(item => (
+      <Table.Row key={item.id}>
+        <Table.Cell>{item.name}</Table.Cell>
+        <Table.Cell>{item.category.category}</Table.Cell>
+        <Table.Cell>{item.description}</Table.Cell>
+        <Table.Cell>
+          <Link to={`/admin/reward-edit/${item.id}`}>
+            <Icon onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
+        </Table.Cell>
+        <Table.Cell><Icon name="trash" /></Table.Cell>
+        <Table.Cell>{item.point_cost}</Table.Cell>
+      </Table.Row>
+    ));
+  }
+
   render() {
+    if (this.props.rewards.length === 0) {
+      return (<div>LOADING</div>);
+    }
     return (
       <Container>
         <Table celled>
@@ -19,46 +61,13 @@ class RewardsTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>Tutor Session</Table.Cell>
-              <Table.Cell>lvl ^ Education</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell><a href="/admin/reward-edit"><Icon name="pencil" /></a></Table.Cell>
-              <Table.Cell><Icon name="trash" /></Table.Cell>
-              <Table.Cell>30</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Job Fair</Table.Cell>
-              <Table.Cell>lvl ^ Career</Table.Cell>
-              <Table.Cell>Description</Table.Cell>
-              <Table.Cell><a href="/admin/reward-edit"><Icon name="pencil" /></a></Table.Cell>
-              <Table.Cell><Icon name="trash" /></Table.Cell>
-              <Table.Cell>30</Table.Cell>
-            </Table.Row>
+            {this.renderRewards(this.props.rewards)}
           </Table.Body>
 
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="6">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="left chevron" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="right chevron" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
         </Table>
       </Container>
     );
   }
 }
 
-export default RewardsTable;
+export default connect(mapStateToProps, mapDispatchToProps)(RewardsTable);

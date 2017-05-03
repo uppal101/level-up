@@ -18,7 +18,11 @@ class ChallengesTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell onClick{() => this.props.editChallenge(item)}><Link to =`/admin/challenge-edit/${item.id}`><Icon name="pencil" /></Link></Table.Cell>
+        <Table.Cell onClick={() => this.props.editChallenge(item)}>
+          <Link to={`/admin/challenge-edit/${item.id}`}>
+            <Icon name="pencil" />
+          </Link>
+        </Table.Cell>
         <Table.Cell><Icon name="trash" /></Table.Cell>
         <Table.Cell>{item.point_value}</Table.Cell>
       </Table.Row>
