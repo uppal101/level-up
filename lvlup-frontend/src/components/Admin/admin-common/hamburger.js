@@ -3,11 +3,11 @@ import { Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { loggingInAction, pendingSubmissions, pendingRequests } from '../../../actions/admin-dash-actions';
+import { pendingSubmissions, pendingRequests } from '../../../actions/admin-dash-actions';
 import './admin-nav.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loggingInAction, pendingSubmissions, pendingRequests,
+  pendingSubmissions, pendingRequests,
 }, dispatch);
 
 const mapStateToProps = state => ({
@@ -15,9 +15,21 @@ const mapStateToProps = state => ({
 });
 
 class HamburgerAdmin extends Component {
-  componentWillMount() {
-    this.props.loggingInAction();
-  }
+  // componentWillMount() {
+  //   this.props.loggingInAction()
+  //   .then(() => {
+  //     const submissionArr = this.props.loginInfo.cohorts.map((item) => {
+  //       this.props.pendingSubmissions(item.id);
+  //     });
+  //     Promise.all(submissionArr);
+  //   })
+  //   .then(() => {
+  //     const requestArr = this.props.loginInfo.cohorts.map((item) => {
+  //       this.props.pendingRequests(item.id);
+  //     });
+  //     Promise.all(requestArr);
+  //   });
+  // }
   render() {
     if (!this.props.loginInfo.username) {
       return (

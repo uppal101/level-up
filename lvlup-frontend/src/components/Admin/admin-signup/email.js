@@ -3,7 +3,7 @@ import { Form, Dropdown, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/adminsignup';
+import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/admin-signup';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {
