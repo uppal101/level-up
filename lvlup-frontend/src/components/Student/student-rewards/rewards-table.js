@@ -3,26 +3,36 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Icon, Table, Container } from 'semantic-ui-react';
-import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
+import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
 import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
   lvlUpInfo: state.studentPointsAndCampus,
+  // ptsAndCampus: state.studentPointsAndCampus,
   rewards: state.rewards.rewards,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, selectReward }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, resetRequest, selectReward }, dispatch);
 
 
 class RewardsTable extends Component {
   constructor(props) {
     super(props);
     this.renderRewards = this.renderRewards.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
     this.props.campusRewards(this.props.lvlUpInfo.campusId);
+    this.props.resetRequest();
   }
+
+  // handleClick(item) {
+  //   return () => {
+  //     item.point_cost > ptsAndCampus.currentTotal ?
+  //     this.props.selectReward(item)
+  //   }
+  // }
 
   renderRewards(list) {
     return list.map(item => (
@@ -46,7 +56,7 @@ class RewardsTable extends Component {
     }
     return (
       <Container>
-        <Table celled>
+        <Table celled color="orange">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
