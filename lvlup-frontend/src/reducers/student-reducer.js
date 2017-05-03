@@ -4,6 +4,9 @@ export const loginInfo = (state = {}, action) => {
   switch (action.type) {
     case CONST.STUDENT_LOGIN_FULFILLED:
       return action.payload;
+    case CONST.STUDENT_SIGNUP_FULFILLED:
+      console.log('here -->', action.payload);
+      return action.payload;
     default:
       return state;
   }

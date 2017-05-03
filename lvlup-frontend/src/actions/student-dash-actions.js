@@ -9,10 +9,7 @@ const fetchRequests = studentId => axios(`http://localhost:3000/api/requests/stu
 
 const fetchStudent = () => axios('http://localhost:3000/api/student/login', { withCredentials: false }).then(response => response.data);
 
-const pointsAndCohort = studentId => axios(`http://localhost:3000/api/students/${studentId}/info`, { withCredentials: false }).then((response) => {
-  console.log(response.data);
-  return response.data;
-});
+const pointsAndCohort = studentId => axios(`http://localhost:3000/api/students/${studentId}/info`, { withCredentials: false }).then(response => response.data);
 
 export const loggingInAction = () => ({
   type: CONST.STUDENT_LOGIN,
