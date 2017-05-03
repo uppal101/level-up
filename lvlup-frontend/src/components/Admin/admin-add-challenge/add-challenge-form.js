@@ -3,8 +3,8 @@ import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../actions/adminsignup';
-import { addChallenge } from '../../../actions/addChallenge';
+import { allCampuses, setCampuses } from '../../../actions/admin-signup';
+import { addChallenge } from '../../../actions/add-challenge';
 import './admin-add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {

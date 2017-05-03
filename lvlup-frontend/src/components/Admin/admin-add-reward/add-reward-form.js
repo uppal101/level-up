@@ -3,8 +3,8 @@ import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../actions/adminsignup';
-import { addReward } from '../../../actions/addReward';
+import { allCampuses, setCampuses } from '../../../actions/admin-signup';
+import { addReward } from '../../../actions/add-reward';
 import './admin-add-reward-styles.css';
 
 function mapDispatchToProps(dispatch) {
