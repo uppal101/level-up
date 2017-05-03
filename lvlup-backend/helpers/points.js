@@ -49,7 +49,6 @@ const getPtsUsed = studentId => new Promise((resolve) => {
   .innerJoin('rewards', 'rewards.id', 'reward_requests.reward_id')
   .then((requests) => {
     ptsUsed = requests;
-    // console.log(ptsUsed);
     resolve(requests);
   })
   .catch(err => console.error(err));
@@ -95,6 +94,11 @@ const distributePts = () => {
   q2Earned = [0];
   q3Earned = [0];
   q4Earned = [0];
+  totalUsed = [0];
+  q1Used = [0];
+  q2Used = [0];
+  q3Used = [0];
+  q4Used = [0];
   ptsEarned.forEach((submission) => {
     totalEarned.push(submission.point_value);
     switch (determineQuarter(submission.updated_at)) {
@@ -115,11 +119,6 @@ const distributePts = () => {
     }
   });
   ptsUsed.forEach((request) => {
-    totalUsed = [0];
-    q1Used = [0];
-    q2Used = [0];
-    q3Used = [0];
-    q4Used = [0];
     totalUsed.push(request.point_cost);
     switch (determineQuarter(request.updated_at)) {
       case 'q1':
@@ -139,7 +138,6 @@ const distributePts = () => {
     }
   });
 };
-
 
 const calculatePts = () => {
   const points = {};
