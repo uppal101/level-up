@@ -3,44 +3,46 @@ import { Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { pendingSubmissions, pendingRequests } from '../../../actions/admin-dash-actions';
+import { submissionsAction, requestsAction } from '../../../actions/admin-dash-actions';
 import './admin-nav.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  pendingSubmissions, pendingRequests,
+  submissionsAction, requestsAction,
 }, dispatch);
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  loggedIn: state.loggedIn,
+  pendingSubmissions: state.adminPendingSubmissions,
+  pendingRequests: state.adminPendingRequests,
 });
 
 class HamburgerAdmin extends Component {
-  // componentWillMount() {
-  //   this.props.loggingInAction()
-  //   .then(() => {
-  //     const submissionArr = this.props.loginInfo.cohorts.map((item) => {
-  //       this.props.pendingSubmissions(item.id);
-  //     });
-  //     Promise.all(submissionArr);
-  //   })
-  //   .then(() => {
-  //     const requestArr = this.props.loginInfo.cohorts.map((item) => {
-  //       this.props.pendingRequests(item.id);
-  //     });
-  //     Promise.all(requestArr);
-  //   });
-  // }
+  componentWillMount() {
+    console.log(this.props.loggedIn.cohorts);
+    const submissionArr = this.props.loggedIn.cohorts.map((item) => {
+      this.props.submissionsAction(item.id);
+    });
+    Promise.all(submissionArr)
+    .then(() => {
+      const requestArr = this.props.loggedIn.cohorts.map((item) => {
+        this.props.requestsAction(item.id);
+      });
+      Promise.all(requestArr);
+    });
+
+    console.log(this.props.pendingSubmissions, this.props.pendingRequests);
+  }
   render() {
-    if (!this.props.loginInfo.username) {
+    if (!this.props.loggedIn.username) {
       return (
         <div>LOADING</div>
       );
     }
     return (
       <Menu inverted vertical className="adminHamburger">
-        <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo : undefined} shape="circular" size="tiny" alt={this.props.loginInfo.name} centered />
+        <Menu.Item><Image src={this.props.loggedIn.gravatar_url ? this.props.loggedIn.gravatar_url : 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png'} shape="circular" size="tiny" alt={this.props.loggedIn.name} centered />
           <div className="userdiv">
-            <h4>{this.props.loginInfo.username}</h4>
+            <h4>{this.props.loggedIn.username}</h4>
           </div>
         </Menu.Item>
         <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
