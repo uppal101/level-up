@@ -18,7 +18,6 @@ const mapStateToProps = state => ({
 
 class HamburgerAdmin extends Component {
   componentWillMount() {
-    console.log(this.props.loggedIn.cohorts);
     const submissionArr = this.props.loggedIn.cohorts.map((item) => {
       this.props.submissionsAction(item.id);
     });
@@ -29,8 +28,6 @@ class HamburgerAdmin extends Component {
       });
       Promise.all(requestArr);
     });
-
-    console.log(this.props.pendingSubmissions, this.props.pendingRequests);
   }
   render() {
     if (!this.props.loggedIn.username) {
