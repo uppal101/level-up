@@ -1,26 +1,20 @@
 import axios from 'axios';
+import * as CONST from '../constants/constants';
 
 
-// const fetchSubmissions = studentId => axios(`http://localhost:3000/api/submissions/students/${studentId}`)
-// .then(response => response.data);
-//
-// const fetchRequests = studentId => axios(`http://localhost:3000/api/requests/students/${studentId}`)
-// .then(response => response.data);
+const pendingSubmissions = cohortId => axios(`/submissions/cohorts/${cohortId}`)
+.then(response => response.data);
 
-const fetchAdmin = () => axios.post('http://localhost:3000/api/admin/login', { withCredentials: false });
+const pendingRequests = cohortId => axios(`http://localhost:3000/api/requests/students/${cohortId}`)
+.then(response => response.data);
 
 
-export const loggingInAction = () => ({
-  type: 'ADMIN_LOGIN',
-  payload: fetchAdmin(),
+export const submissionsAction = cohortId => ({
+  type: CONST.ADMIN_SUBMISSIONS,
+  payload: pendingSubmissions(cohortId),
 });
 
-// export const submissionsAction = studentId => ({
-//   type: CONST.SUBMISSIONS,
-//   payload: fetchSubmissions(studentId),
-// });
-//
-// export const requestsAction = studentId => ({
-//   type: CONST.REQUESTS,
-//   payload: fetchRequests(studentId),
-// });
+export const requestsAction = cohortId => ({
+  type: CONST.ADMIN_REQUESTS,
+  payload: pendingRequests(cohortId),
+});
