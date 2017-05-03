@@ -21,15 +21,19 @@ const affordable = (reward, pts) => (reward.point_cost <= pts.currentTotal);
 
 class StudentRewardRequest extends Component {
   render() {
+    const isAffordable = () => this.props.reward.point_cost <= this.props.pts.currentTotal;
+    const ifRequested = renderIf(this.props.requestStatus === true && isAffordable);
+    const ifNotRequested = renderIf(this.props.requestStatus === false && isAffordable);
+
     return (
       <div className="reward-request">
-        {renderIf(!affordable(this.props.reward, this.props.pts))(
+        {renderIf(!isAffordable())(
           <BrokeModal />,
         )}
-        {renderIf(this.props.requestStatus === false && affordable(this.props.reward, this.props.pts))(
+        {ifNotRequested(
           <RewardRequestForm />,
         )}
-        {renderIf(this.props.requestStatus === true && affordable(this.props.reward, this.props.pts))(
+        {ifRequested(
           <RequestCompleted />,
         )}
       </div>

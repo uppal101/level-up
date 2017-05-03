@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Icon, Table, Container } from 'semantic-ui-react';
-import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
+import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
 import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
   rewards: state.rewards.rewards,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, selectReward }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, resetRequest, selectReward }, dispatch);
 
 
 class RewardsTable extends Component {
@@ -24,6 +24,7 @@ class RewardsTable extends Component {
 
   componentWillMount() {
     this.props.campusRewards(this.props.lvlUpInfo.campusId);
+    this.props.resetRequest();
   }
 
   // handleClick(item) {
