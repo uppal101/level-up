@@ -3,12 +3,12 @@ import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { allCampuses } from '../../../actions/adminsignup';
-import { addChallenge } from '../../../actions/addChallenge';
+import { allCampuses, setCampuses } from '../../../actions/admin-signup';
+import { addChallenge } from '../../../actions/add-challenge';
 import './admin-add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addChallenge, allCampuses }, dispatch);
+  return bindActionCreators({ addChallenge, allCampuses, setCampuses }, dispatch);
 }
 function mapStateToProps(state, ownProps) {
   return {
@@ -16,24 +16,36 @@ function mapStateToProps(state, ownProps) {
     campuses: state.allCampuses,
   };
 }
+
 const categories = [
-  { key: 'e', text: 'Education', value: 'education' },
-  { key: 'co', text: 'Community', value: 'community' },
-  { key: 'c', text: 'Career', value: 'career' },
-  { key: 'l', text: 'Life', value: 'life' },
+  { key: 1, text: 'Education', value: 'education' },
+  { key: 2, text: 'Community', value: 'community' },
+  { key: 3, text: 'Career', value: 'career' },
+  { key: 4, text: 'Life', value: 'life' },
 ];
-//
-// const campuses = [
-//   { key: 'sf', text: 'San Francisco', value: 'San Francisco' },
-//   { key: 'a', text: 'Austin', value: 'Austin' },
-//   { key: 'b', text: 'Boulder', value: 'Boulder' },
-//   { key: 'dp', text: 'Denver-Platte', value: 'Denver-Platte' },
-//   { key: 'dgt', text: 'Denver-Golden Triangle', value: 'Denver-Golden Triangle' },
-//   { key: 'ny', text: 'New York', value: 'New York' },
-//   { key: 'p', text: 'Phoenix', value: 'Seattle' },
-//   { key: 'all', text: 'All campuses', value: 'All Campuses' },
-// ];
+
 const required = value => value ? undefined : 'Required';
+const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
+
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>{error}</span>))}
+    </div>
+  </div>
+);
+
+const renderTextAreaField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <textarea {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>{error}</span>))}
+    </div>
+  </div>
+);
 
 const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
   <div>
@@ -52,7 +64,6 @@ class AddChallengeForm extends Component {
     this.props.allCampuses();
   }
   render() {
-    console.log(this.props.campuses);
     if (this.props.campuses.length === 0) {
       return <div>LOADING</div>;
     }
@@ -62,43 +73,34 @@ class AddChallengeForm extends Component {
         <Form onSubmit={handleSubmit(this.props.addChallenge)}>
           <Form.Group widths="equal">
             <Field
-              name="title"
-              component="input"
+              name="name"
+              component={renderField}
               type="text"
-              label="Title"
-              placeholder="Title"
+              label="Name"
+              placeholder="Name"
+              validate={[required]}
             />
-            <Form.Input label="Title" placeholder="Title" />
-            <Form.Input label="Points" placeholder="Points" />
             <Field
-              name="points"
-              component="input"
+              name="point_value"
+              component={renderField}
               type="number"
-              label="Points"
-              placeholder="Points"
+              label="Point Value"
+              placeholder="Point Value"
+              validate={[required, number]}
             />
-            <Form.Select label="Select Category" options={categories} placeholder="Select Category" />
             <Field
-              name="category"
-              component="dropdown"
+              name="requirements_1"
+              component={renderField}
               type="text"
-              label="Select Category"
-              placeholder="Select Category"
+              label="Requirement"
+              placeholder="Requirement"
+              validate={[required]}
             />
-            {/* <Form.Select label="Select Campus" options={campuses} placeholder="Select Campus" /> */}
-            <Field
-              name="campuses"
-              component="dropdown"
-              type="text"
-              label="Select Campus"
-              placeholder="Select Campus"
-            />
+            <Form.Button>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
-            <label>Requirement</label>
-            <input placeholder="Requirement" />
             <Field
-              name="campuses"
+              name="campus_id"
               component={renderSelectField}
               type="text"
               label="Campuses"
@@ -109,15 +111,26 @@ class AddChallengeForm extends Component {
               <option default>Select Campus</option>
               { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
             </Field>
+
+            <Field
+              name="category_id"
+              component={renderSelectField}
+              type="text"
+              label="Select Category"
+              placeholder="Select Category"
+              validate={required}
+            >
+              <option default>Select Category</option>
+              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+            </Field>
           </Form.Field>
-          <Form.Button>Add Requirement</Form.Button>
-          <Form.TextArea label="Description" placeholder="Describe challenge" />
           <Field
             name="description"
-            component="input"
+            component={renderTextAreaField}
             type="text"
             label="Description"
             placeholder="Describe challenge..."
+            validate={[required]}
           />
           <Form.Button>Submit</Form.Button>
         </Form>

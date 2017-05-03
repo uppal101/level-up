@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ChallengesHeader from './pending-challenges/header';
-import SubmissionsHeader from './pending-submissions/header';
+import RequestsHeader from './pending-rewards/header';
 import ChallengesTable from './pending-challenges/challenges-table';
-import SubmissionsTable from './pending-submissions/submissions-table';
+import RequestsTable from './pending-rewards/requests-table';
 
 class AdminHome extends Component {
   render() {
@@ -10,8 +10,8 @@ class AdminHome extends Component {
       <div className="dashboard">
         <ChallengesHeader />
         <ChallengesTable />
-        <SubmissionsHeader />
-        <SubmissionsTable />
+        <RequestsHeader />
+        <RequestsTable />
       </div>
 
     );

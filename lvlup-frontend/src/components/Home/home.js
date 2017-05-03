@@ -20,7 +20,7 @@ class Home extends Component {
             the bottom right corner.
           </p>
           <Link to={'/student/dashboard'}><Button>CLICK HERE FOR DASHBOARD</Button></Link>
-          <Link to={'/admin/challenge-add'}><Button>CLICK HERE TO ADD CHALLENGE</Button></Link>
+          <Link to={'/admin/challenges'}><Button>CLICK HERE FOR ADMIN CHALLENGES</Button></Link>
         </div>
         <Footer />
       </div>

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const loginRequest = (props) => {
   const url = 'http://localhost:3000/api/admin/login';
-  return axios.post(url, props);
+  return axios.post(url, props).then(response => response.data);
 };
 
 export const login = props => ({
