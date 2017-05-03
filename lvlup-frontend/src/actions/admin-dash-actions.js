@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as CONST from '../constants/constants';
 
 
-const pendingSubmissions = cohortId => axios(`/submissions/cohorts/${cohortId}`)
+const pendingSubmissions = cohortId => axios(`http://localhost:3000/api/submissions/cohorts/${cohortId}`)
 .then(response => response.data);
 
 const pendingRequests = cohortId => axios(`http://localhost:3000/api/requests/students/${cohortId}`)
