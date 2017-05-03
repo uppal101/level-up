@@ -11,7 +11,7 @@ export const loginInfo = (state = {}, action) => {
 export const studentPointsAndCampus = (state = {}, action) => {
   switch (action.type) {
     case CONST.POINTS_COHORT_FULFILLED:
-      return Object.assign({}, action.payload);
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
@@ -20,7 +20,7 @@ export const studentPointsAndCampus = (state = {}, action) => {
 export const selectedReward = (state = {}, action) => {
   switch (action.type) {
     case CONST.SELECTED_REWARD:
-      return Object.assign({}, action.reward);
+      return Object.assign({}, state, action.reward);
     default:
       return state;
   }
@@ -85,7 +85,18 @@ export const submissionChallenge = (state = { fulfilled: false }, action) => {
 export const selectedChallenge = (state = {}, action) => {
   switch (action.type) {
     case CONST.SELECTED_CHALLENGE:
-      return Object.assign({}, action.challenge);
+      return Object.assign({}, state, action.challenge);
+    default:
+      return state;
+  }
+};
+
+export const requestedReward = (state = { fulfilled: false }, action) => {
+  switch (action.type) {
+    case CONST.REWARD_REQUEST_FULFILLED:
+      return Object.assign({}, { fulfilled: true }, action.payload);
+    case CONST.RESET_REQUEST:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }
