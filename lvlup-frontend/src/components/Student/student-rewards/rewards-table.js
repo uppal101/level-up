@@ -56,7 +56,7 @@ class RewardsTable extends Component {
     }
     return (
       <Container>
-        <Table celled>
+        <Table celled color="orange">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
