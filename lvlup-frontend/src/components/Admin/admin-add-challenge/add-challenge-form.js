@@ -12,7 +12,7 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
-    numberOfRequestInputs: state.numberOfRequestInputs, // TODO - set this in intial state
+    numberOfRequestInputs: state.numberOfRequestInputs,
     addChallenge: false,
     campuses: state.allCampuses,
   };
@@ -102,7 +102,7 @@ class AddChallengeForm extends Component {
             /> */}
 
             {/* make action creator for doing this vvvv */}
-            <Form.Button onClick={() => this.state.numberOfInputs++}>Add Requirement</Form.Button>
+            <Form.Button onClick={() => this.props.numberOfRequestInputs}>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
             <Field
