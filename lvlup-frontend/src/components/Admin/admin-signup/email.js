@@ -25,6 +25,8 @@ const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
   'Invalid email address' : undefined;
 
+const match = (str1, str2) => str1 === str2 ? undefined : 'Passwords do not match';
+
 const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
@@ -101,7 +103,7 @@ class SignupForm extends Component {
             type="password"
             label="Confirm Password"
             placeholder="Confirm Password"
-            validate={[required, minValue7]}
+            validate={[required, minValue7, match]}
           />
         </Form.Field>
 

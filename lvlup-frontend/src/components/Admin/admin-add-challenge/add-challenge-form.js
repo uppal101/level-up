@@ -12,6 +12,8 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
+    loginInfo: state.loginInfo,
+    lvlUpInfo: state.studentPointsAndCampus,
     addChallenge: false,
     campuses: state.allCampuses,
   };
