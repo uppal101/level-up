@@ -93,6 +93,8 @@ export const requestedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.REWARD_REQUEST_FULFILLED:
       return Object.assign({}, { fulfilled: true }, action.payload);
+    case CONST.RESET_REQUEST:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }

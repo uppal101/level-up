@@ -10,10 +10,7 @@ import { rewardRequest } from '../../../actions/student-rewards-actions';
 import './reward-request-style.css';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
-  reward: state.selectedReward,
   requestStatus: state.requestedReward.fulfilled,
-  requestedReward: state.requestedReward.data,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ rewardRequest }, dispatch);

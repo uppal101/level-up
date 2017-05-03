@@ -33,7 +33,6 @@ class RewardRequestForm extends Component {
     values.cohort_id = this.props.loginInfo.cohort_id;
     values.category_id = this.props.reward.category_id;
     values.reward_id = this.props.reward.id;
-    console.log(values);
     this.props.rewardRequest(values);
   }
 

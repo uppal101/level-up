@@ -18,6 +18,10 @@ export const selectReward = reward => ({
   reward,
 });
 
+export const resetRequest = () => ({
+  type: CONST.RESET_REQUEST,
+});
+
 export const rewardRequest = props => ({
   type: CONST.REWARD_REQUEST,
   payload: rewardRequestCall(props),

@@ -41,7 +41,6 @@ class RewardsTable extends Component {
   }
 
   render() {
-    console.log(this.props.rewards);
     if (this.props.rewards.length === 0) {
       return (<div>LOADING</div>);
     }
