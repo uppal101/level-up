@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postNewChallenge = (props) => {
-  const url = 'http://localhost:3000/api/challenges';
+  const url = '/api/challenges';
   return axios.post(url, props);
 };
 

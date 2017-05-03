@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
 import renderIf from 'render-if';
+import SignupInfo from '../student-main-view/student-signup';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -61,7 +62,11 @@ const renderRewardsEarned = list => (
 class StudentDashboard extends Component {
   render() {
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
-      return (<div>LOADING</div>);
+      return (
+        <div className="studentDashboard">
+          <SignupInfo />
+        </div>
+      );
     }
     return (
       <div className="studentDashboard">

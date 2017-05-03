@@ -4,6 +4,9 @@ export const loginInfo = (state = {}, action) => {
   switch (action.type) {
     case CONST.STUDENT_LOGIN_FULFILLED:
       return action.payload;
+    case CONST.STUDENT_SIGNUP_FULFILLED:
+      console.log('here -->', action.payload);
+      return action.payload;
     default:
       return state;
   }
@@ -97,6 +100,15 @@ export const requestedReward = (state = { fulfilled: false }, action) => {
       return Object.assign({}, { fulfilled: true }, action.payload);
     case CONST.RESET_REQUEST:
       return Object.assign({}, { fulfilled: false });
+    default:
+      return state;
+  }
+};
+
+export const hamburgerUpdate = (state = true, action) => {
+  switch (action.type) {
+    case CONST.HAMBURGER_UPDATE_OFF:
+      return action.payload;
     default:
       return state;
   }
