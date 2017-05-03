@@ -8,9 +8,10 @@ export const campusChallenges = campusId => ({
   payload: fetchChallenges(campusId),
 });
 
+
 const challengeSubmissionCall = (props) => {
   const url = 'http://localhost:3000/api/submissions';
-  return axios.post(url, props);
+  return axios.post(url, props).then(response => response.data);
 };
 
 export const challengeSubmission = props => ({
@@ -21,4 +22,8 @@ export const challengeSubmission = props => ({
 export const selectChallenge = challenge => ({
   type: CONST.SELECTED_CHALLENGE,
   challenge,
+});
+
+export const resetChallenge = () => ({
+  type: CONST.RESET_CHALLENGE,
 });

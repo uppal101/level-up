@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
 import './challenge-submission-style.css';
 import uploadcare from 'uploadcare-widget';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -13,6 +14,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ challengeSubmission }, dispatch);
+
+const required = value => value ? undefined : 'Required';
+const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
+const minValue7 = minValue(7);
+
 
 class StudentChallengeSubmission extends Component {
   constructor(props) {
@@ -30,7 +36,9 @@ class StudentChallengeSubmission extends Component {
   submit(values) {
     values.student_id = this.props.loginInfo.id;
     values.challenge_id = this.props.selectedChallenge.id;
-    console.log(values);
+    values.cohort_id = this.props.loginInfo.cohort_id;
+    values.category_id = this.props.selectedChallenge.category_id;
+    this.props.challengeSubmission(values);
   }
 
   render() {
@@ -42,14 +50,16 @@ class StudentChallengeSubmission extends Component {
       <div className="challenge-submission">
         <h2 className="header">{`Challenge Submission: ${this.props.selectedChallenge.name}`}</h2>
         <Form className="challenge-submission-form" onSubmit={handleSubmit(this.submit)}>
-          <Form.TextArea inline>
+          <Form.Field inline>
             <Field
               name="submission_message"
-              component="input"
+              component="textarea"
+              type="text"
               label="Submission Message"
               placeholder="Enter Submission Message"
+              validate={[required, minValue7]}
             />
-          </Form.TextArea>
+          </Form.Field>
           <Form.Field inline>
             <Field
               name="submission_attachment_1"
@@ -113,7 +123,9 @@ class StudentChallengeSubmission extends Component {
               placeholder="Please copy link above here"
             />
           </Form.Field>
+          {/* <Link to={`/student/challenge-submission/${this.props.selectedChallenge.id}/modal`}> */}
           <Form.Button>lvl^</Form.Button>
+          {/* </Link> */}
         </Form>
       </div>
     );
@@ -121,4 +133,4 @@ class StudentChallengeSubmission extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'submission' })(StudentChallengeSubmission));
+  form: 'submissionPost' })(StudentChallengeSubmission));
