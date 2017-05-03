@@ -9,10 +9,7 @@ const fetchRequests = studentId => axios(`/api/requests/students/${studentId}`)
 
 const fetchStudent = () => axios('/api/student/login', { withCredentials: false }).then(response => response.data);
 
-const pointsAndCohort = studentId => axios(`/api/students/${studentId}/info`, { withCredentials: false }).then((response) => {
-  console.log(response.data);
-  return response.data;
-});
+const pointsAndCohort = studentId => axios(`/api/students/${studentId}/info`, { withCredentials: false }).then(response => response.data);
 
 export const loggingInAction = () => ({
   type: CONST.STUDENT_LOGIN,
@@ -33,3 +30,8 @@ export const requestsAction = studentId => ({
   type: CONST.REQUESTS,
   payload: fetchRequests(studentId),
 });
+
+// export const hamburgerUpdateOff = () => ({
+//   type: CONST.HAMBURGER_UPDATE_OFF,
+//   payload: false,
+// });

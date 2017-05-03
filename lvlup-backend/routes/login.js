@@ -47,6 +47,22 @@ router.route('/student/login')
         res.json(student);
       }
     });
+  })
+  .put((req, res) => {
+    console.log(req.body.cohort_id);
+    Student.forge({ email: req.session.passport.user._json.email })
+    .fetch()
+    .then(student => student.save({
+      student_id: student.get('student_id'),
+      name: student.get('name'),
+      email: student.get('email'),
+      github_user_name: student.get('github_user_name'),
+      photo_url: student.get('photo_url'),
+      username: req.body.username,
+      cohort_id: req.body.cohort_id,
+    }))
+    .then(updatedStudent => res.json(updatedStudent))
+    .catch(err => res.status(500).json(err.message));
   });
 
 router.route('/admin/login')

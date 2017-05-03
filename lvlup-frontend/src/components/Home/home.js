@@ -19,8 +19,6 @@ class Home extends Component {
             Students can sign in with GitHub OAuth in the upper right hand corner. Admins can sign up or sign in in
             the bottom right corner.
           </p>
-          <Link to={'/student/dashboard'}><Button>CLICK HERE FOR DASHBOARD</Button></Link>
-          <Link to={'/admin/challenges'}><Button>CLICK HERE FOR ADMIN CHALLENGES</Button></Link>
         </div>
         <Footer />
       </div>

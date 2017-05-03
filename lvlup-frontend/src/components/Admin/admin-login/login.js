@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './email.js';
 import AdminDashButton from './admin-button';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
 import './loginview.css';
@@ -21,7 +21,7 @@ class AdminLogin extends Component {
               Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
           </div>)}
         {renderIf(this.props.loggedIn.username)(
-          <AdminDashButton />,
+          <Redirect to="/admin/dashboard" />,
         )}
       </div>
     );
