@@ -19,7 +19,6 @@ class RewardsTable extends Component {
   constructor(props) {
     super(props);
     this.renderRewards = this.renderRewards.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {

@@ -1,17 +1,17 @@
 import axios from 'axios';
 
 const signupRequest = (props) => {
-  const url = 'http://localhost:3000/api/admin/signup';
+  const url = '/api/admin/signup';
   return axios.post(url, props);
 };
 
 const getCampuses = () => {
-  const url = 'http://localhost:3000/api/campuses/';
+  const url = '/api/campuses/';
   return axios.get(url).then(response => response.data);
 };
 
 const getCohorts = () => {
-  const url = 'http://localhost:3000/api/cohorts/';
+  const url = '/api/cohorts/';
   return axios.get(url).then(response => response.data);
 };
 
