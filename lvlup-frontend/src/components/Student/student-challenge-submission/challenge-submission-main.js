@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
 import './challenge-submission-style.css';
 import uploadcare from 'uploadcare-widget';
-import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,

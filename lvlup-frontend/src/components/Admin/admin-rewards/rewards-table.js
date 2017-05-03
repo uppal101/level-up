@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
 import './admin-rewards-style.css';

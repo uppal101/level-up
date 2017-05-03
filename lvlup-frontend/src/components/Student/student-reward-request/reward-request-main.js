@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import RewardRequestForm from './reward-request-form';
 import RequestCompleted from './reward-request-completed';
@@ -16,8 +15,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ rewardRequest }, dispatch);
-
-const affordable = (reward, pts) => (reward.point_cost <= pts.currentTotal);
 
 class StudentRewardRequest extends Component {
   render() {
