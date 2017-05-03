@@ -1,16 +1,34 @@
 import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { loggingInAction, pendingSubmissions, pendingRequests } from '../../../actions/admin-dash-actions';
 import './admin-nav.css';
 
-class HamburgerStudent extends Component {
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loggingInAction, pendingSubmissions, pendingRequests,
+}, dispatch);
 
+const mapStateToProps = state => ({
+  loginInfo: state.loginInfo,
+});
+
+class HamburgerAdmin extends Component {
+  componentWillMount() {
+    this.props.loggingInAction();
+  }
   render() {
+    if (!this.props.loginInfo.username) {
+      return (
+        <div>LOADING</div>
+      );
+    }
     return (
       <Menu inverted vertical className="adminHamburger">
-        <Menu.Item><Image src="" shape="circular" size="tiny" alt="Mary Ann" centered />
+        <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo : undefined} shape="circular" size="tiny" alt={this.props.loginInfo.name} centered />
           <div className="userdiv">
-            <h4>tweetordie</h4>
+            <h4>{this.props.loginInfo.username}</h4>
           </div>
         </Menu.Item>
         <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
@@ -22,4 +40,4 @@ class HamburgerStudent extends Component {
   }
 }
 
-export default HamburgerStudent;
+export default connect(mapStateToProps, mapDispatchToProps)(HamburgerAdmin);

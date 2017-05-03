@@ -71,10 +71,12 @@ export const requests = (state = { requests: [] }, action) => {
   }
 };
 
-export const submissionChallenge = (state = { status: false }, action) => {
+export const submissionChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.CHALLENGE_SUBMISSION_FULFILLED:
-      return action.payload;
+      return Object.assign({}, { fulfilled: true }, action.payload);
+    case CONST.RESET_CHALLENGE:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }
