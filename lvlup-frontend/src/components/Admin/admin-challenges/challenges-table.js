@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import './admin-challenges-style.css';
 
 class ChallengesTable extends Component {
+  constructor(props) {
+    super(props);
+    this.renderTable = this.renderTable.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.campusChallenges();
+  }
   renderTable(list) {
     return list.map(item => (
       <Table.Row key={item.id}>
-        <Table.Cell>Tutor Session</Table.Cell>
-        <Table.Cell>lvl ^ Education</Table.Cell>
-        <Table.Cell>Description</Table.Cell>
-        <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
+        <Table.Cell>{item.name}</Table.Cell>
+        <Table.Cell>{item.category.category}</Table.Cell>
+        <Table.Cell>{item.description}</Table.Cell>
+        <Table.Cell onClick{() => this.props.editChallenge(item)}><Link to =`/admin/challenge-edit/${item.id}`><Icon name="pencil" /></Link></Table.Cell>
         <Table.Cell><Icon name="trash" /></Table.Cell>
-        <Table.Cell>30</Table.Cell>
+        <Table.Cell>{item.point_value}</Table.Cell>
       </Table.Row>
-      <Table.Row>
-        <Table.Cell>Job Fair</Table.Cell>
-        <Table.Cell>lvl ^ Career</Table.Cell>
-        <Table.Cell>Description</Table.Cell>
-        <Table.Cell><a href="/admin/challenge-edit"><Icon name="pencil" /></a></Table.Cell>
-        <Table.Cell><Icon name="trash" /></Table.Cell>
-        <Table.Cell>30</Table.Cell>
-      </Table.Row>
-    ))
-
+    ));
   }
   render() {
     return (
@@ -39,26 +39,10 @@ class ChallengesTable extends Component {
             </Table.Row>
           </Table.Header>
 
-          <Table.Body />
+          <Table.Body>
+            {this.renderTable(this.props.challenges.challenges)}
+          </Table.Body>
 
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="6">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="left chevron" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="right chevron" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
         </Table>
       </Container>
     );

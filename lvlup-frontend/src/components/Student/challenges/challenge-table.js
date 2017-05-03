@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Table, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 import { Link } from 'react-router-dom';
+import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 
 
 const mapStateToProps = state => ({
