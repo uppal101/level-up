@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-const loggedIn = (state = initialState.loggedIn, action) => {
+export const loggedIn = (state = initialState.loggedIn, action) => {
   switch (action.type) {
     case 'LOGIN_PENDING':
       return state;
@@ -12,5 +12,3 @@ const loggedIn = (state = initialState.loggedIn, action) => {
       return state;
   }
 };
-
-export default loggedIn;

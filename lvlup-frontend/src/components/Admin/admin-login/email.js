@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { login } from '../../../actions/adminlogin';
+import { login } from '../../../actions/admin-login';
 import './loginview.css';
 
 function mapDispatchToProps(dispatch) {
@@ -33,6 +33,7 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 );
 
 class LoginForm extends Component {
+
   render() {
     const { handleSubmit } = this.props;
     return (

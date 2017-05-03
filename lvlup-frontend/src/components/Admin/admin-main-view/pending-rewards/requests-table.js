@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Icon, Menu, Table, Popup, Container } from 'semantic-ui-react';
 import '../admin-styles.css';
 
-class SubmissionsTable extends Component {
+class RequestsTable extends Component {
   render() {
     return (
       <Container>
@@ -57,4 +57,4 @@ class SubmissionsTable extends Component {
   }
 }
 
-export default SubmissionsTable;
+export default RequestsTable;
