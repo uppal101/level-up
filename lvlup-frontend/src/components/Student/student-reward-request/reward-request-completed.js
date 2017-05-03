@@ -16,7 +16,7 @@ class RequestCompleted extends Component {
     return (
       <div>
         <Table celled color="orange">
-          <Table.Header color="orange">
+          <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Reward Request Successful!</Table.HeaderCell>
             </Table.Row>

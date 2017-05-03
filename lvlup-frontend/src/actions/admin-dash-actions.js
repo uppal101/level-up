@@ -1,12 +1,13 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
-
-const pendingSubmissions = cohortId => axios(`http://localhost:3000/api/submissions/cohorts/${cohortId}`)
+const fetchSubmissions = studentId => axios(`/api/submissions/students/${studentId}`)
 .then(response => response.data);
 
-const pendingRequests = cohortId => axios(`http://localhost:3000/api/requests/students/${cohortId}`)
+const fetchRequests = studentId => axios(`/api/requests/students/${studentId}`)
 .then(response => response.data);
+
+const fetchAdmin = () => axios.post('/api/admin/login', { withCredentials: false });
 
 
 export const submissionsAction = cohortId => ({

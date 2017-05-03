@@ -1,10 +1,10 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
-const fetchRewards = campusId => axios(`http://localhost:3000/api/rewards/campuses/${campusId}`).then(response => response.data);
+const fetchRewards = campusId => axios(`/api/rewards/campuses/${campusId}`).then(response => response.data);
 
 const rewardRequestCall = (props) => {
-  const url = 'http://localhost:3000/api/requests';
+  const url = '/api/requests';
   return axios.post(url, props);
 };
 
