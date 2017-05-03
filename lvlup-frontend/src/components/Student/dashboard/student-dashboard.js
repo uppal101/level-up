@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Table } from 'semantic-ui-react';
 import '../student-main-view/student-styles.css';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
-import renderIf from 'render-if';
 import SignupInfo from '../student-main-view/student-signup';
 
 const mapStateToProps = state => ({

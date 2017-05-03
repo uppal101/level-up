@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './footer.js';
 import './homeview.css';
-import { Link } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
 
 class Home extends Component {
   render() {

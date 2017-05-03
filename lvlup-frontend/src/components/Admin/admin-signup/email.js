@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Dropdown, Button } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
