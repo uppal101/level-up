@@ -70,9 +70,28 @@ class AddChallengeForm extends Component {
   }
 
   addRequirement() {
-    this.setState((prevState, props) => ({
-      numberOfRequestInputs: prevState.numberOfRequestInputs + 1,
-    }));
+    this.setState((prevState, props) => {
+      if (prevState.numberOfRequestInputs <= 4) {
+        return { numberOfRequestInputs: prevState.numberOfRequestInputs + 1 };
+      }
+
+      return { maxRequestInputs: true }; // renderIf disable button
+    });
+  } // set max to be 5
+
+  renderRequirementInputs(numOfInputs) {
+    const requirementInputComponents = [];
+    for (let i = 1; i <= numOfInputs; i++) {
+      requirementInputComponents.push((<Field
+        name="`requirements_${i}`"
+        component={renderField}
+        type="text"
+        label="Requirement"
+        placeholder="Requirement"
+        validate={[required]}
+      />));
+    }
+    return requirementInputComponents;
   }
 
   render() {
@@ -102,18 +121,9 @@ class AddChallengeForm extends Component {
               validate={[required, number]}
             />
 
-            {/* this.renderRequirementInputs(this.props.numberOfRequestInputs) */}
+            {this.renderRequirementInputs(this.state.numberOfRequestInputs)}
 
-            {/* <Field
-              name="requirements_1"
-              component={renderField}
-              type="text"
-              label="Requirement"
-              placeholder="Requirement"
-              validate={[required]}
-            /> */}
-
-            <Form.Button onClick={() => this.props.addRequirement()}>Add Requirement</Form.Button>
+            <Form.Button onClick={() => this.addRequirement()}>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
             <Field
