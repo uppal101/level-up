@@ -19,8 +19,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({ rewardRequest }, dis
 class StudentRewardRequest extends Component {
   render() {
     const isAffordable = () => this.props.reward.point_cost <= this.props.pts.currentTotal;
-    const ifRequested = renderIf(this.props.requestStatus === true && isAffordable());
-    const ifNotRequested = renderIf(this.props.requestStatus === false && isAffordable());
+    const ifRequested = renderIf(this.props.requestStatus && isAffordable());
+    const ifNotRequested = renderIf(!this.props.requestStatus && isAffordable());
 
     return (
       <div className="reward-request">

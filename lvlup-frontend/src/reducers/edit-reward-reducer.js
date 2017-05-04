@@ -1,6 +1,6 @@
 import * as CONST from '../constants/constants';
 
-export const rewardEdited = (state = { fulfilled: false }, action) => {
+export const editedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.EDIT_REWARD_FULFILLED:
       return Object.assign({}, { fulfilled: true }, action.payload);

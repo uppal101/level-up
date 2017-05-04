@@ -10,7 +10,7 @@ import './admin-edit-reward-styles.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ editReward, allCampuses, setCampuses }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     campuses: state.allCampuses,
     reward: state.selectedReward,
