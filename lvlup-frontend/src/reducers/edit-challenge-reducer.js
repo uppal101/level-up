@@ -2,11 +2,11 @@ import initialState from './initialState';
 
 export const challengeEdited = (state = initialState.challengeEdited, action) => {
   switch (action.type) {
-    case 'EDIT_REWARD_PENDING':
+    case 'EDIT_CHALLENGE_PENDING':
       return state;
-    case 'EDIT_REWARD_FULFILLED':
+    case 'EDIT_CHALLENGE_FULFILLED':
       return action.payload;
-    case 'EDIT_REWARD_REJECTED':
+    case 'EDIT_CHALLENGE_REJECTED':
       return action.payload;
     default:
       return state;

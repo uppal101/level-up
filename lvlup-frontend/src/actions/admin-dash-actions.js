@@ -7,7 +7,6 @@ const pendingSubmissions = cohortId => axios(`/api/submissions/cohorts/${cohortI
 const pendingRequests = cohortId => axios(`/api/requests/students/${cohortId}`)
 .then(response => response.data);
 
-
 export const submissionsAction = cohortId => ({
   type: CONST.ADMIN_SUBMISSIONS,
   payload: pendingSubmissions(cohortId),
