@@ -59,32 +59,36 @@ class SignupInfo extends Component {
       return (<div>LOADING</div>);
     }
     return (
-      <Form onSubmit={handleSubmit(this.submit)}>
-        <Form.Field inline>
-          <Field
-            name="username"
-            component={renderField}
-            type="text"
-            label="username"
-            placeholder="Enter your username"
-            validate={[required]}
-          />
-        </Form.Field>
-        <Form.Field inline>
-          <Field
-            name="cohort_id"
-            component={renderSelectField}
-            type="text"
-            label="Select Your Cohort"
-            placeholder="Select Cohort"
-            validate={[required]}
-          >
-            <option default>Select Cohort</option>
-            { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
-          </Field>
-        </Form.Field>
-        <Form.Button>Sign Up</Form.Button>
-      </Form>
+      <div>
+        <h2>{`Welcome, ${this.props.loginInfo.name}`}</h2>
+        <p>Please complete the form below to get started!</p>
+        <Form onSubmit={handleSubmit(this.submit)}>
+          <Form.Field inline>
+            <Field
+              name="username"
+              component={renderField}
+              type="text"
+              label="username"
+              placeholder="Enter your username"
+              validate={[required]}
+            />
+          </Form.Field>
+          <Form.Field inline>
+            <Field
+              name="cohort_id"
+              component={renderSelectField}
+              type="text"
+              label="Select Your Cohort"
+              placeholder="Select Cohort"
+              validate={[required]}
+            >
+              <option default>Select Cohort</option>
+              { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
+            </Field>
+          </Form.Field>
+          <Form.Button>Sign Up</Form.Button>
+        </Form>
+      </div>
     );
   }
 }

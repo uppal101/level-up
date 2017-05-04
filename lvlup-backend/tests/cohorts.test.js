@@ -181,6 +181,7 @@ describe('DELETE /cohorts/:id', () => {
     supertest(app)
           .delete('/api/cohorts/g42')
           .set('Accept', 'Application/json')
+          .set('Cookie', 'authToken=adminToken')
           .expect(500, done);
   });
 });

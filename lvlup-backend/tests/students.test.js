@@ -122,25 +122,28 @@ describe('GET students/:id', () => {
   });
 });
 
-xdescribe('DELETE students/:id', () => {
+describe('DELETE students/:id', () => {
   it('should respond with success message if student is deleted', (done) => {
     supertest(app)
     .delete('/api/students/1')
     .set('Accept', 'application/json')
+    .set('Cookie', 'authToken=adminToken')
     .expect(200, { message: 'Student successfully deleted' }, done);
   });
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
     .delete('/api/students/6')
+    .set('Cookie', 'authToken=adminToken')
     .set('Accept', 'Application/json')
     .expect(500, done);
   });
 });
 
-xdescribe('PUT students/:id', () => {
+describe('PUT students/:id', () => {
   it('responds with JSON', (done) => {
     supertest(app)
     .put('/api/students/1')
+    .set('Cookie', 'authToken=adminToken')
     .expect('Content-Type', /json/)
     .expect(200, done);
   });
@@ -148,6 +151,7 @@ xdescribe('PUT students/:id', () => {
     supertest(app)
     .put('/api/students/1')
     .set('Accept', 'application/json')
+    .set('Cookie', 'authToken=adminToken')
     .send({ username: 'tommyboy' })
     .expect((student) => {
       delete student.body.created_at;
@@ -167,10 +171,11 @@ xdescribe('PUT students/:id', () => {
   });
 });
 
-xdescribe('GET students/campuses/:campus_id', () => {
+describe('GET students/campuses/:campus_id', () => {
   it('responds with JSON', (done) => {
     supertest(app)
     .get('/api/students/campuses/1')
+    .set('Cookie', 'authToken=adminToken')
     .expect('Content-Type', /json/)
     .expect(200, done);
   });
@@ -178,6 +183,7 @@ xdescribe('GET students/campuses/:campus_id', () => {
     supertest(app)
     .get('/api/students/campuses/1')
     .set('Accept', 'application/json')
+    .set('Cookie', 'authToken=adminToken')
     .expect(students => students.body.forEach((student) => {
       delete student.created_at;
       delete student.updated_at;
@@ -217,10 +223,11 @@ xdescribe('GET students/campuses/:campus_id', () => {
   });
 });
 
-xdescribe('GET students/cohorts/:cohort_id', () => {
+describe('GET students/cohorts/:cohort_id', () => {
   it('responds with JSON', (done) => {
     supertest(app)
     .get('/api/students/cohorts/1')
+    .set('Cookie', 'authToken=adminToken')
     .expect('Content-Type', /json/)
     .expect(200, done);
   });
@@ -228,6 +235,7 @@ xdescribe('GET students/cohorts/:cohort_id', () => {
     supertest(app)
     .get('/api/students/cohorts/1')
     .set('Accept', 'application/json')
+    .set('Cookie', 'authToken=adminToken')
     .expect(students => students.body.forEach((student) => {
       delete student.created_at;
       delete student.updated_at;

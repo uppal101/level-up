@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
 import SignupInfo from '../student-main-view/student-signup';
 import { submissionsAction } from '../../../actions/student-dash-actions';
+import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
