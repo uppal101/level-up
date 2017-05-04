@@ -1,12 +1,12 @@
 import axios from 'axios';
 import * as CONST from '../constants/constants';
 
+<<<<<<< HEAD
 
 const pendingSubmissions = cohortId => axios(`/api/submissions/cohorts/${cohortId}`)
 .then(response => response.data);
 
-const pendingRequests = cohortId => axios(`/api/requests/students/${cohortId}`)
-.then(response => response.data);
+const pendingRequests = cohortId => axios(`/api/requests/students/${cohortId}`);
 
 
 export const submissionsAction = cohortId => ({

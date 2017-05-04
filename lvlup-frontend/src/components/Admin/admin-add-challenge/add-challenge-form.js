@@ -12,6 +12,7 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
+    numberOfRequestInputs: state.numberOfRequestInputs,
     addChallenge: false,
     campuses: state.allCampuses,
   };
@@ -88,15 +89,20 @@ class AddChallengeForm extends Component {
               placeholder="Point Value"
               validate={[required, number]}
             />
-            <Field
+
+            {/* this.renderRequirementInputs(this.props.numberOfRequestInputs) */}
+
+            {/* <Field
               name="requirements_1"
               component={renderField}
               type="text"
               label="Requirement"
               placeholder="Requirement"
               validate={[required]}
-            />
-            <Form.Button>Add Requirement</Form.Button>
+            /> */}
+
+            {/* make action creator for doing this vvvv */}
+            <Form.Button onClick={() => this.props.numberOfRequestInputs}>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
             <Field
