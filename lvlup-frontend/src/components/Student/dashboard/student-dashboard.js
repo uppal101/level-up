@@ -71,6 +71,9 @@ class StudentDashboard extends Component {
     }
   }
   render() {
+    if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
+      return (<div>LOADING</div>);
+    }
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
       return (
         <div className="studentDashboard">
