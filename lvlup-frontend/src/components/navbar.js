@@ -16,7 +16,7 @@ class NavBar extends Component {
         <Menu.Item className="left" header><div className="name">lvl^</div></Menu.Item>
         <Menu.Item className="right">
           {/* <Link to={'dashboard/student'}> */}
-          <a href={'http://localhost:3000/api/auth/github/'}>
+          <a href={'/api/auth/github/'}>
             <Button color="orange">
               {/* <Button color="grey" onClick={() => this.props.logIn()}> */}
               <Icon name="github" /> Log In or Sign Up with Github

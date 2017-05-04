@@ -6,13 +6,18 @@ import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
 import renderIf from 'render-if';
 import SignupInfo from '../student-main-view/student-signup';
+import { submissionsAction } from '../../../actions/student-dash-actions';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
   submissions: state.submissions.submissions,
   requests: state.requests.requests,
+  submission: state.submissionChallenge,
 });
+
+const mapDispatchToProps = dispatch => bindActionCreators({ submissionsAction }, dispatch);
+
 
 const renderSubmissions = list => (
   list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
@@ -60,6 +65,11 @@ const renderRewardsEarned = list => (
 );
 
 class StudentDashboard extends Component {
+  componentWillMount() {
+    if (this.props.loginInfo.id) {
+      this.props.submissionsAction(this.props.loginInfo.id);
+    }
+  }
   render() {
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
       return (
@@ -150,4 +160,4 @@ class StudentDashboard extends Component {
   }
 }
 
-export default connect(mapStateToProps)(StudentDashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentDashboard);

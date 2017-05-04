@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postNewReward = (props) => {
-  const url = 'http://localhost:3000/api/rewards';
+  const url = '/api/rewards';
   return axios.post(url, props);
 };
 

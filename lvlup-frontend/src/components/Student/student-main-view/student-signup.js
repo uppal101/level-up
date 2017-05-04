@@ -51,7 +51,6 @@ class SignupInfo extends Component {
 
   submit(values) {
     this.props.signupStudent(values);
-    // .then(() => this.props.moreStudentInfo(this.props.loginInfo.id));
   }
 
   render() {
