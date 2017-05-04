@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import renderIf from 'render-if';
 import AddRewardForm from './add-reward-form';
+import AddRewardCompleted from './add-reward-completed';
 
+const mapStateToProps = state => ({
+  addStatus: state.addedReward.fulfilled,
+});
 
-class AddReward extends Component {
-  render() {
-    return (
-      <div className="add-reward">
-        <AddRewardForm />
-      </div>
-    );
-  }
-}
+const AddReward = (props) => {
+  const ifAdded = renderIf(props.addStatus);
+  const ifNotAdded = renderIf(!props.addStatus);
+  return (
+    <div className="add-reward">
+      {ifNotAdded(<AddRewardForm />)}
+      {ifAdded(<AddRewardCompleted />)}
+    </div>
+  );
+};
 
-export default AddReward;
+export default connect(mapStateToProps)(AddReward);

@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
+import ChallengeSubmissionForm from './challenge-submission-form';
+import SubmissionCompleted from './challenge-submission-completed';
 import { connect } from 'react-redux';
-import StudentChallengeSubmission from './challenge-submission-main';
-import SubmissionCompleted from './challenge-submission-complete';
 import renderIf from 'render-if';
 
 const mapStateToProps = state => ({
-  submission: state.submissionChallenge,
-  loginInfo: state.loginInfo,
-  selectedChallenge: state.selectedChallenge,
+  submissionStatus: state.submittedChallenge.fulfilled,
 });
 
 class SubmissionMain extends Component {
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.prevProps.submissions !== false) {
-  //     <SubmissionCompleted />;
-  //   }
-  // }
-
   render() {
     return (
       <div>
-        {renderIf(this.props.submission.fulfilled === false)(
-          <StudentChallengeSubmission />,
+        {renderIf(this.props.submissionStatus === false)(
+          <ChallengeSubmissionForm />,
       )}
 
-        {renderIf(this.props.submission.fulfilled === true)(
+        {renderIf(this.props.submissionStatus === true)(
           <SubmissionCompleted />)}
       </div>
     );

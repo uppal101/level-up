@@ -5,6 +5,7 @@ import { Icon, Table, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
 import { resetEditReward } from '../../../actions/edit-reward';
+import { resetAddReward } from '../../../actions/add-reward';
 import './admin-rewards-style.css';
 
 const mapStateToProps = state => ({
@@ -13,8 +14,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  campusRewards, selectReward, resetEditReward,
-}, dispatch);
+  campusRewards, selectReward, resetEditReward, resetAddReward }, dispatch);
 
 class RewardsTable extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class RewardsTable extends Component {
   componentWillMount() {
     this.props.campusRewards(this.props.adminInfo.campus_id);
     this.props.resetEditReward();
+    this.props.resetAddReward();
   }
 
   renderRewards(list) {

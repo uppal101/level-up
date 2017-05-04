@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import renderIf from 'render-if';
 import AddChallengeForm from './add-challenge-form';
+import AddChallengeCompleted from './add-challenge-completed';
 
+const mapStateToProps = state => ({
+  addStatus: state.addedChallenge.fulfilled,
+});
 
-class AddChallenge extends Component {
-  render() {
-    return (
-      <div className="add-challenge">
-        <AddChallengeForm />
-      </div>
-    );
-  }
-}
+const AddChallenge = (props) => {
+  const ifAdded = renderIf(props.addStatus);
+  const ifNotAdded = renderIf(!props.addStatus);
+  return (
+    <div className="add-challenge">
+      {ifNotAdded(<AddChallengeForm />)}
+      {ifAdded(<AddChallengeCompleted />)}
+    </div>
+  );
+};
 
-export default AddChallenge;
+export default connect(mapStateToProps)(AddChallenge);

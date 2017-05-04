@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { resetEditChallenge } from '../../../actions/edit-challenge';
+import { resetAddChallenge } from '../../../actions/add-challenge';
 import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 import './admin-challenges-style.css';
 
@@ -12,7 +13,7 @@ const mapStateToProps = state => ({
   challenges: state.challenges,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, resetAddChallenge }, dispatch);
 
 class ChallengesTable extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class ChallengesTable extends Component {
   componentWillMount() {
     this.props.campusChallenges(this.props.adminInfo.campus_id);
     this.props.resetEditChallenge();
+    this.props.resetAddChallenge();
   }
 
   renderTable(list) {
