@@ -6,6 +6,10 @@ const postEditedChallenge = (props) => {
 };
 
 export const editChallenge = props => ({
-  type: 'EDIT_CHALLENGE',
+  type: CONST_EDIT_CHALLENGE,
   payload: postEditedChallenge(props),
+});
+
+export const resetEditChallenge = () => ({
+  type: CONST.RESET_EDIT_CHALLENGE,
 });
