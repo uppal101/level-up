@@ -13,16 +13,24 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state, ownProps) {
   return {
     // numberOfRequestInputs: state.numberOfRequestInputs,
-    editChallenge: false,
     campuses: state.allCampuses,
+    challenge: state.selectedChallenge,
+    initialValues: {
+      id: state.selectedChallenge.id,
+      name: state.selectedChallenge.name,
+      point_value: state.selectedChallenge.point_value,
+      campus_id: state.selectedChallenge.campus_id,
+      category_id: state.selectedChallenge.category_id,
+      description: state.selectedChallenge.description,
+    },
   };
 }
 
 const categories = [
-  { key: '1', text: 'Education', value: '1' },
-  { key: '2', text: 'Community', value: '2' },
-  { key: '3', text: 'Career', value: '3' },
-  { key: '4', text: 'Life', value: '4' },
+  { key: 'Education', text: 'Education', value: '1' },
+  { key: 'Community', text: 'Community', value: '2' },
+  { key: 'Career', text: 'Career', value: '3' },
+  { key: 'Life', text: 'Life', value: '4' },
 ];
 const required = value => value ? undefined : 'Required';
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
@@ -61,6 +69,14 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 
 
 class EditChallengeForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+  submit(values) {
+    values.challenge_id = this.props.challenge.id;
+    this.props.editChallenge(values);
+  }
   componentWillMount() {
     this.props.allCampuses();
   }
@@ -71,8 +87,8 @@ class EditChallengeForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form onSubmit={handleSubmit(this.props.editChallenge)}>
-          <Form.Group widths="equal">
+        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
+          <Form.Group widths="equal" >
             <Field
               name="name"
               component={renderField}
@@ -115,7 +131,7 @@ class EditChallengeForm extends Component {
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
@@ -127,7 +143,7 @@ class EditChallengeForm extends Component {
               validate={required}
             >
               <option default>Select Category</option>
-              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+              { categories.map(option => <option key={option.key} value={option.value}>{option.text}</option>)}
             </Field>
           </Form.Field>
           <Field
