@@ -3,6 +3,7 @@ import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import renderIf from 'render-if';
 import { allCampuses, setCampuses } from '../../../actions/admin-signup';
 import { addChallenge } from '../../../actions/add-challenge';
 import './admin-add-challenge-styles.css';
@@ -62,7 +63,9 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 class AddChallengeForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { numberOfRequestInputs: 1 };
+    this.state = { numberOfRequestInputs: 1,
+      maxRequestInputs: false,
+    };
   }
 
   componentWillMount() {
@@ -74,10 +77,9 @@ class AddChallengeForm extends Component {
       if (prevState.numberOfRequestInputs <= 4) {
         return { numberOfRequestInputs: prevState.numberOfRequestInputs + 1 };
       }
-
-      return { maxRequestInputs: true }; // renderIf disable button
+      return { maxRequestInputs: true };
     });
-  } // set max to be 5
+  }
 
   renderRequirementInputs(numOfInputs) {
     const requirementInputComponents = [];
@@ -123,7 +125,10 @@ class AddChallengeForm extends Component {
 
             {this.renderRequirementInputs(this.state.numberOfRequestInputs)}
 
-            <Form.Button onClick={() => this.addRequirement()}>Add Requirement</Form.Button>
+            {renderIf(this.state.numberOfRequestInputs <= 5 && this.state.maxRequestInputs === false)(
+              <Form.Button onClick={() => this.addRequirement()}>Add Requirement</Form.Button>,
+            )}
+
           </Form.Group>
           <Form.Field>
             <Field

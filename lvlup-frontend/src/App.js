@@ -20,7 +20,7 @@ import HamburgerStudent from './components/Student/student-main-view/hamburger';
 import HamburgerAdmin from './components/Admin/admin-common/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
 import AdminConfiguration from './components/Admin/admin-config/config-main';
-import { history } from 'react-router/lib/browserHistory';
+
 
 import './App.css';
 import {
