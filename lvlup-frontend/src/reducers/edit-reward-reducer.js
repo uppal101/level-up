@@ -1,13 +1,13 @@
-import initialState from './initialState';
+import * as CONST from '../constants/constants';
 
-export const rewardEdited = (state = initialState.rewardEdited, action) => {
+export const editedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
-    case 'EDIT_REWARD_PENDING':
-      return state;
-    case 'EDIT_REWARD_FULFILLED':
-      return action.payload;
-    case 'EDIT_REWARD_REJECTED':
-      return action.payload;
+    case CONST.EDIT_REWARD_FULFILLED:
+      return Object.assign({}, { fulfilled: true }, action.payload);
+    case CONST.EDIT_REWARD_REJECTED:
+      return Object.assign({}, { fulfilled: false }, action.payload);
+    case CONST.RESET_EDIT_REWARD:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }

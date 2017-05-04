@@ -4,7 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 import { loggedIn } from './admin-login-reducer';
 import { signedUp, allCampuses, allCohorts, setCampus, setCohort } from './admin-signup-reducer';
 import { challengeAdded } from './add-challenge-reducer';
-import { rewardEdited } from './edit-reward-reducer';
+import { editedReward } from './edit-reward-reducer';
 import { challengeEdited } from './edit-challenge-reducer';
 import { rewardAdded } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
@@ -26,7 +26,7 @@ const lvlupApp = combineReducers({
   selectedReward,
   requestedReward,
   challengeAdded,
-  rewardEdited,
+  editedReward,
   challengeEdited,
   rewardAdded,
   selectedChallenge,

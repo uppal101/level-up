@@ -10,9 +10,8 @@ import './admin-edit-reward-styles.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ editReward, allCampuses, setCampuses }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    editReward: false,
     campuses: state.allCampuses,
     reward: state.selectedReward,
     initialValues: {
@@ -26,10 +25,10 @@ function mapStateToProps(state, ownProps) {
 }
 
 const categories = [
-  { key: '1', text: 'Education', value: '1' },
-  { key: '2', text: 'Community', value: '2' },
-  { key: '3', text: 'Career', value: '3' },
-  { key: '4', text: 'Life', value: '4' },
+  { key: 'Education', text: 'Education', value: '1' },
+  { key: 'Community', text: 'Community', value: '2' },
+  { key: 'Career', text: 'Career', value: '3' },
+  { key: 'Life', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';
@@ -68,6 +67,16 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 );
 
 class EditRewardForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(values) {
+    values.reward_id = this.props.reward.id;
+    this.props.editReward(values);
+  }
+
   componentWillMount() {
     this.props.allCampuses();
   }
@@ -78,7 +87,7 @@ class EditRewardForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.props.editReward)}>
+        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
           <Form.Group widths="equal">
             <Field
               name="name"
@@ -106,7 +115,7 @@ class EditRewardForm extends Component {
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
@@ -118,7 +127,7 @@ class EditRewardForm extends Component {
               validate={required}
             >
               <option default>Select Category</option>
-              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+              { categories.map(option => <option key={option.key} value={option.value}>{option.text}</option>)}
             </Field>
           </Form.Group>
           <Field
