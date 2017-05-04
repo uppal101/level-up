@@ -10,3 +10,7 @@ export const editReward = props => ({
   type: CONST.EDIT_REWARD,
   payload: postEditedReward(props),
 });
+
+export const resetEditReward = () => ({
+  type: CONST.RESET_EDIT_REWARD,
+});

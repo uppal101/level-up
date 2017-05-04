@@ -6,6 +6,8 @@ export const editedReward = (state = { fulfilled: false }, action) => {
       return Object.assign({}, { fulfilled: true }, action.payload);
     case CONST.EDIT_REWARD_REJECTED:
       return Object.assign({}, { fulfilled: false }, action.payload);
+    case CONST.RESET_EDIT_REWARD:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }
