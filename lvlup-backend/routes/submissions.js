@@ -12,8 +12,8 @@ router.route('/submissions/cohorts/:cohort_id')
       { challenge: (q) => { q.column('id', 'name', 'point_value', 'description'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }],
     })
-    .then(submissions => res.status(200).json(submissions))
-    .catch(err => res.status(500).json(err.message));
+    .then(submissions => res.sendStatus(200).json(submissions))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/submissions')
@@ -33,8 +33,8 @@ router.route('/submissions')
       submission_image_link_3: req.body.submission_image_link_3,
     })
     .save()
-    .then(submission => res.status(200).json(submission))
-    .catch(err => res.status(500).json(err.message));
+    .then(submission => res.sendStatus(200).json(submission))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/submissions/students/:student_id')
@@ -45,8 +45,8 @@ router.route('/submissions/students/:student_id')
       { challenge: (q) => { q.column('id', 'name', 'point_value', 'description'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }],
     })
-    .then(submissions => res.status(200).json(submissions))
-    .catch(err => res.status(500).json(err.message));
+    .then(submissions => res.sendStatus(200).json(submissions))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/submissions/:submission_id')
@@ -56,16 +56,16 @@ router.route('/submissions/:submission_id')
       { category: (q) => { q.column('id', 'category'); } },
       { challenge: (q) => { q.column('id', 'name', 'point_value', 'description', 'requirements_1', 'requirements_2', 'requirements_3', 'requirements_4', 'requirements_5'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }] })
-    .then(submission => res.status(200).json(submission))
-    .catch(err => res.status(500).json(err.message));
+    .then(submission => res.sendStatus(200).json(submission))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .delete((req, res) => {
     ChallengeSubmission.where({ id: req.params.submission_id })
     .fetch()
     .then(submission => submission.destroy())
-    .then(() => res.status(200).json({ message: 'Submission successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .then(() => res.sendStatus(200).json({ message: 'Submission successfully deleted' }))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .put((req, res) => {
@@ -86,8 +86,8 @@ router.route('/submissions/:submission_id')
       submission_image_link_2: req.body.submission_image_link_2 || submission.get('submission_image_link_2'),
       submission_image_link_3: req.body.submission_image_link_3 || submission.get('submission_image_link_3'),
     }))
-    .then(submission => res.status(200).json(submission))
-    .catch(err => res.status(500).json(err.message));
+    .then(submission => res.sendStatus(200).json(submission))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/submissions/:submission_id/admin')
@@ -109,8 +109,8 @@ router.route('/submissions/:submission_id/admin')
       submission_image_link_2: submission.get('submission_image_link_2'),
       submission_image_link_3: submission.get('submission_image_link_3'),
     }))
-    .then(submission => res.status(200).json(submission))
-    .catch(err => res.status(500).json(err.message));
+    .then(submission => res.sendStatus(200).json(submission))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 module.exports = router;

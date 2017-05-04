@@ -9,8 +9,8 @@ router.route('/campuses/')
   .get((req, res) => {
     Campuses.forge()
     .fetch()
-    .then(campuses => res.status(200).json(campuses))
-    .catch(err => res.status(500).json(err.message));
+    .then(campuses => res.sendStatus(200).json(campuses))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .post((req, res) => {
@@ -18,8 +18,8 @@ router.route('/campuses/')
       location: req.body.location,
     })
     .save()
-    .then(campuses => res.status(200).json(campuses))
-    .catch(err => res.status(500).json(err.message));
+    .then(campuses => res.sendStatus(200).json(campuses))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/campuses/:id')
@@ -28,7 +28,7 @@ router.route('/campuses/:id')
     .fetch({ require: true })
     .then(campus => campus.destroy())
     .then(() => res.json({ message: 'Campus successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 module.exports = router;

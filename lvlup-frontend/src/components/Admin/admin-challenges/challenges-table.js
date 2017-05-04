@@ -20,7 +20,7 @@ class ChallengesTable extends Component {
   }
 
   componentWillMount() {
-    this.props.campusChallenges(this.props.adminInfo.campus_idd);
+    this.props.campusChallenges(this.props.adminInfo.campus_id);
   }
   renderTable(list) {
     return list.map(item => (

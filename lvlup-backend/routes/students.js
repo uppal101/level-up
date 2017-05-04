@@ -14,24 +14,24 @@ router.route('/students')
   .get(authorize.isAdmin, (req, res) => {
     Students.forge()
     .fetch()
-    .then(students => res.status(200).json(students))
-    .catch(err => res.status(500).json(err.message));
+    .then(students => res.sendStatus(200).json(students))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/students/:id')
   .get(authorize.isAuthorized, (req, res) => {
     Student.forge({ id: req.params.id })
     .fetch()
-    .then(student => res.status(200).json(student))
-    .catch(err => res.status(500).json(err.message));
+    .then(student => res.sendStatus(200).json(student))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .delete((req, res) => {
     Student.forge({ id: req.params.id })
     .fetch()
     .then(student => student.destroy())
-    .then(() => res.status(200).json({ message: 'Student successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .then(() => res.sendStatus(200).json({ message: 'Student successfully deleted' }))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .put((req, res) => {
@@ -46,24 +46,24 @@ router.route('/students/:id')
       gravatar_url: student.get('gravatar_url'),
       cohort_id: student.get('cohort_id'),
     }))
-    .then(student => res.status(200).json(student))
-    .catch(err => res.status(500).json(err.message));
+    .then(student => res.sendStatus(200).json(student))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/students/campuses/:campus_id')
   .get((req, res) => {
     Students.forge({ campus_id: req.params.campus_id })
     .fetch()
-    .then(students => res.status(200).json(students))
-    .catch(err => res.status(500).json(err.message));
+    .then(students => res.sendStatus(200).json(students))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/students/cohorts/:cohort_id')
   .get((req, res) => {
     Students.forge({ cohort_id: req.params.cohort_id })
     .fetch()
-    .then(students => res.status(200).json(students))
-    .catch(err => res.status(500).json(err.message));
+    .then(students => res.sendStatus(200).json(students))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.get('/students/:student_id/info', (req, res) => {
@@ -72,9 +72,9 @@ router.get('/students/:student_id/info', (req, res) => {
     .then(() => points.getStudentInfo(Number(req.params.student_id)))
     .then(() => {
       points.distributePts();
-      res.status(200).json(points.calculatePts());
+      res.sendStatus(200).json(points.calculatePts());
     })
-    .catch(err => res.status(500).json(err.message));
+    .catch(err => res.sendStatus(500).json(err.message));
 });
 
 module.exports = router;
