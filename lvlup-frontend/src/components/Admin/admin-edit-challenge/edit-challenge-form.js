@@ -69,8 +69,13 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 
 
 class EditChallengeForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
   submit(values) {
-    values.challenge.id = this.props.challenge_id;
+    values.challenge_id = this.props.challenge.id;
+    this.props.editChallenge(values);
   }
   componentWillMount() {
     this.props.allCampuses();
@@ -82,7 +87,7 @@ class EditChallengeForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.props.editChallenge)}>
+        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
           <Form.Group widths="equal" >
             <Field
               name="name"
@@ -126,7 +131,7 @@ class EditChallengeForm extends Component {
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option key={option.id} value={option.name}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
