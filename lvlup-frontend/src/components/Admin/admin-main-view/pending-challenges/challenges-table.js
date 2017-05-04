@@ -1,9 +1,41 @@
 import React, { Component } from 'react';
-import { Icon, Menu, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import { selectChallenge } from '../../../../actions/student-challenges-actions';
+import { formatDate } from '../../../../helpers/dashboard';
 import '../admin-styles.css';
-// arbitrary
+
+const mapStateToProps = state => ({
+  adminInfo: state.loggedIn,
+  pendingSubmissions: state.adminPendingSubmissions.submissionsAdmin,
+  // pendingRequests: state.adminPendingRequests,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge }, dispatch);
+
+
 class ChallengesTable extends Component {
+  constructor(props) {
+    super(props);
+    this.renderTable = this.renderTable.bind(this);
+  }
+  renderTable(list) {
+    return list.filter(challenge => challenge.submission_status === 'Pending approval').map(item => (
+      <Table.Row key={item.id}>
+        <Table.Cell>{item.student.name}</Table.Cell>
+        <Table.Cell>{item.challenge.name}</Table.Cell>
+        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
+        <Table.Cell onClick={() => this.props.selectChallenge(item)}><Link to={`/admin/individual-pending-challenge/${item.id}`}><Icon name="eye" /></Link></Table.Cell>
+      </Table.Row>
+      ),
+    );
+  }
   render() {
+    if (this.props.pendingSubmissions.length === 0) {
+      return <div>LOADING</div>;
+    }
     return (
       <Container>
         <Table celled>
@@ -17,21 +49,10 @@ class ChallengesTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>Thomas</Table.Cell>
-              <Table.Cell>Article</Table.Cell>
-              <Table.Cell>4/17/17</Table.Cell>
-              <Table.Cell><a href="/admin/individual-pending-challenge"><Icon name="eye" /></a></Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Daniel</Table.Cell>
-              <Table.Cell>Breakout Session</Table.Cell>
-              <Table.Cell>5/07/17</Table.Cell>
-              <Table.Cell><a href="/admin/individual-pending-challenge"><Icon name="eye" /></a></Table.Cell>
-            </Table.Row>
+            {this.renderTable(this.props.pendingSubmissions)}
           </Table.Body>
 
-          <Table.Footer>
+          {/* <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan="4">
                 <Menu floated="right" pagination>
@@ -48,11 +69,11 @@ class ChallengesTable extends Component {
                 </Menu>
               </Table.HeaderCell>
             </Table.Row>
-          </Table.Footer>
+          </Table.Footer> */}
         </Table>
       </Container>
     );
   }
 }
 
-export default ChallengesTable;
+export default connect(mapStateToProps, mapDispatchToProps)(ChallengesTable);
