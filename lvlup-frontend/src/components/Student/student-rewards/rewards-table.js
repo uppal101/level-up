@@ -8,7 +8,6 @@ import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
   lvlUpInfo: state.studentPointsAndCampus,
-  // ptsAndCampus: state.studentPointsAndCampus,
   rewards: state.rewards.rewards,
 });
 
@@ -19,20 +18,12 @@ class RewardsTable extends Component {
   constructor(props) {
     super(props);
     this.renderRewards = this.renderRewards.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
     this.props.campusRewards(this.props.lvlUpInfo.campusId);
     this.props.resetRequest();
   }
-
-  // handleClick(item) {
-  //   return () => {
-  //     item.point_cost > ptsAndCampus.currentTotal ?
-  //     this.props.selectReward(item)
-  //   }
-  // }
 
   renderRewards(list) {
     return list.map(item => (
