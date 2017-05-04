@@ -10,7 +10,7 @@ import '../admin-styles.css';
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
   pendingSubmissions: state.adminPendingSubmissions.submissionsAdmin,
-  // pendingRequests: state.adminPendingRequests,
+
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge }, dispatch);
