@@ -1,13 +1,12 @@
-import initialState from './initialState';
+// import initialState from './initialState';
+import * as CONST from '../constants/constants';
 
-export const loggedIn = (state = initialState.loggedIn, action) => {
+export const loggedIn = (state = { status: false }, action) => {
   switch (action.type) {
-    case 'LOGIN_PENDING':
-      return state;
     case 'LOGIN_FULFILLED':
-      return action.payload;
-    case 'LOGIN_REJECTED':
-      return action.payload;
+      return Object.assign({}, { status: true }, action.payload);
+    case CONST.ADMIN_LOGOUT_FULFILLED:
+      return Object.assign({}, { status: false });
     default:
       return state;
   }

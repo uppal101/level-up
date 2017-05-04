@@ -5,7 +5,7 @@ import { loggedIn } from './admin-login-reducer';
 import { signedUp, allCampuses, allCohorts, setCampus, setCohort } from './admin-signup-reducer';
 import { challengeAdded } from './add-challenge-reducer';
 import { editedReward } from './edit-reward-reducer';
-import { challengeEdited } from './edit-challenge-reducer';
+import { editedChallenge } from './edit-challenge-reducer';
 import { rewardAdded } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
 
@@ -27,7 +27,7 @@ const lvlupApp = combineReducers({
   requestedReward,
   challengeAdded,
   editedReward,
-  challengeEdited,
+  editedChallenge,
   rewardAdded,
   selectedChallenge,
   submissionChallenge,
