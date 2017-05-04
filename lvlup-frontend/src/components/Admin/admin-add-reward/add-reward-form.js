@@ -91,8 +91,8 @@ class AddRewardForm extends Component {
               name="campus_id"
               component={renderSelectField}
               type="text"
-              label="Campuses"
-              placeholder="Select Campus(es)"
+              label="Campus"
+              placeholder="Select Campus"
               validate={[required]}
               multiple
             >
