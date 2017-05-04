@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Form from './email.js';
-import AdminDashButton from './admin-button';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';

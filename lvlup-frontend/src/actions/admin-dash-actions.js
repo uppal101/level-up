@@ -4,7 +4,8 @@ import * as CONST from '../constants/constants';
 const pendingSubmissions = cohortId => axios(`/api/submissions/cohorts/${cohortId}`)
 .then(response => response.data);
 
-const pendingRequests = cohortId => axios(`/api/requests/students/${cohortId}`);
+const pendingRequests = cohortId => axios(`/api/requests/students/${cohortId}`)
+.then(response => response.data);
 
 
 export const submissionsAction = cohortId => ({
