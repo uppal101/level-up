@@ -29,7 +29,7 @@ const allowCrossDomain = function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   if (req.method == 'OPTIONS') {
-    res.send(200);
+    res.sendStatus(200);
   } else {
     next();
   }
@@ -96,7 +96,7 @@ app.use('/api', challengesRoute);
 app.use('/api', submissionsRoute);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+  res.sendStatusFile(path.resolve(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {

@@ -62,7 +62,7 @@ router.route('/student/login')
       cohort_id: req.body.cohort_id,
     }))
     .then(updatedStudent => res.json(updatedStudent))
-    .catch(err => res.sendStatus(500).json(err.message));
+    .catch(err => res.status(500).json(err.message));
   });
 
 router.route('/admin/login')
@@ -71,7 +71,7 @@ router.route('/admin/login')
       .fetch()
       .then((passToCompare) => {
         if (passToCompare === null) {
-          res.sendStatus(400).json('Invalid password or username');
+          res.status(400).json('Invalid password or username');
         } else {
           bcrypt.compare(req.body.password, passToCompare.attributes.hashed_password)
           .then(() => Admin.query({ where: { email: req.body.email } })
@@ -85,7 +85,7 @@ router.route('/admin/login')
               res.json(admin);
             }))
           .catch((err) => {
-            res.sendStatus(400).json('Invalid password or username');
+            res.status(400).json('Invalid password or username');
           });
         }
       });
@@ -133,7 +133,7 @@ router.route('/admin/signup')
           });
         });
       } else {
-        res.sendStatus(400).json('User already exists!');
+        res.status(400).json('User already exists!');
       }
     });
   });

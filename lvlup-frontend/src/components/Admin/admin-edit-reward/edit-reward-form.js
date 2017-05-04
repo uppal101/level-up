@@ -26,10 +26,10 @@ function mapStateToProps(state, ownProps) {
 }
 
 const categories = [
-  { key: '1', text: 'Education', value: '1' },
-  { key: '2', text: 'Community', value: '2' },
-  { key: '3', text: 'Career', value: '3' },
-  { key: '4', text: 'Life', value: '4' },
+  { key: 'Education', text: 'Education', value: '1' },
+  { key: 'Community', text: 'Community', value: '2' },
+  { key: 'Career', text: 'Career', value: '3' },
+  { key: 'Life', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';

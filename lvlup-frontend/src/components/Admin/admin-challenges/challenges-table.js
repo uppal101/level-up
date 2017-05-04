@@ -28,7 +28,7 @@ class ChallengesTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell onClick={() => this.props.editChallenge(item)}>
+        <Table.Cell onClick={() => this.props.selectChallenge(item)}>
           <Link to={`/admin/challenge-edit/${item.id}`}>
             <Icon name="pencil" />
           </Link>
