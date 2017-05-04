@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as CONST from '../constants/constants';
 
 const postNewChallenge = (props) => {
   const url = '/api/challenges';

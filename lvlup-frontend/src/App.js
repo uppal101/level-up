@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
-import StudentSignUp from './components/Student/student-signup/signup';
+// import StudentSignUp from './components/Student/student-signup/signup';
 import AdminSignUp from './components/Admin/admin-signup/signup';
 import AdminLogin from './components/Admin/admin-login/login';
 import IndividualPendingChallenge from './components/Admin/admin-individual-pending-challenge/individual-pending-main';
@@ -20,7 +20,6 @@ import HamburgerStudent from './components/Student/student-main-view/hamburger';
 import HamburgerAdmin from './components/Admin/admin-common/hamburger';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
 import AdminConfiguration from './components/Admin/admin-config/config-main';
-import { history } from 'react-router/lib/browserHistory';
 
 import './App.css';
 import {
@@ -38,7 +37,7 @@ export default class App extends Component {
             <Route exact path="/" component={Home} />
             <Route path="/student" component={HamburgerStudent} />
             <Route path="/admin" component={HamburgerAdmin} />
-            <Route exact path="/signup-student" component={StudentSignUp} />
+            {/* <Route exact path="/signup-student" component={StudentSignUp} /> */}
             <Route exact path="/student/dashboard" component={StudentDashboard} />
             <Route exact path="/student/challenges" component={StudentChallenges} />
             <Route path="/student/challenge-submission/:id" component={SubmissionMain} />
