@@ -14,14 +14,22 @@ function mapStateToProps(state, ownProps) {
   return {
     editReward: false,
     campuses: state.allCampuses,
+    reward: state.selectedReward,
+    initialValues: {
+      name: state.selectedReward.name,
+      point_cost: state.selectedReward.point_cost,
+      campus_id: state.selectedReward.campus_id,
+      category_id: state.selectedReward.category_id,
+      description: state.selectedReward.description,
+    },
   };
 }
 
 const categories = [
-  { key: 'e', text: 'Education', value: 'education' },
-  { key: 'co', text: 'Community', value: 'community' },
-  { key: 'c', text: 'Career', value: 'career' },
-  { key: 'l', text: 'Life', value: 'life' },
+  { key: '1', text: 'Education', value: '1' },
+  { key: '2', text: 'Community', value: '2' },
+  { key: '3', text: 'Career', value: '3' },
+  { key: '4', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';
@@ -70,7 +78,7 @@ class EditRewardForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form onSubmit={handleSubmit(this.props.editReward)}>
+        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.props.editReward)}>
           <Form.Group widths="equal">
             <Field
               name="name"
@@ -84,16 +92,16 @@ class EditRewardForm extends Component {
               name="point_cost"
               component={renderField}
               type="number"
-              label="Point Value"
-              placeholder="Point Value"
+              label="Point Cost"
+              placeholder="Point Cost"
               validate={[required, number]}
             />
             <Field
               name="campus_id"
               component={renderSelectField}
               type="text"
-              label="Campuses"
-              placeholder="Select Campuses"
+              label="Campus"
+              placeholder="Select Campus"
               validate={[required]}
               multiple
             >

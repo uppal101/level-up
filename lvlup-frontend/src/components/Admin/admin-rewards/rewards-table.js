@@ -7,7 +7,7 @@ import { campusRewards, selectReward } from '../../../actions/student-rewards-ac
 import './admin-rewards-style.css';
 
 const mapStateToProps = state => ({
-  lvlUpInfo: state.studentPointsAndCampus,
+  adminInfo: state.loggedIn,
   rewards: state.rewards.rewards,
 });
 
@@ -22,7 +22,7 @@ class RewardsTable extends Component {
   }
 
   componentWillMount() {
-    this.props.campusRewards(this.props.lvlUpInfo.campusId);
+    this.props.campusRewards(this.props.adminInfo.campus_id);
   }
 
   renderRewards(list) {
@@ -35,7 +35,7 @@ class RewardsTable extends Component {
           <Link to={`/admin/reward-edit/${item.id}`}>
             <Icon onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
         </Table.Cell>
-        <Table.Cell><Icon name="trash" /></Table.Cell>
+        <Table.Cell><Icon onClick={() => this.props.selectReward(item)} name="trash" /></Table.Cell>
         <Table.Cell>{item.point_cost}</Table.Cell>
       </Table.Row>
     ));
