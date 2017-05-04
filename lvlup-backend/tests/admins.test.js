@@ -66,7 +66,6 @@ describe('PUT /admins/:id', () => {
     .send({
       username: 'operajenny',
       name: 'Jenny Engard',
-
       email: 'jenny.engard@galvanize.com',
       gravatar_url: null,
       campus_id: 1,
@@ -109,6 +108,7 @@ describe('DELETE /admins/:id', () => {
   it('should respond with 500 if invalid parameter is given', (done) => {
     supertest(app)
       .delete('/api/cohorts/jenny')
+      .set('Cookie', 'authToken=adminToken')
       .set('Accept', 'Application/json')
       .expect(500, done);
   });
@@ -116,7 +116,9 @@ describe('DELETE /admins/:id', () => {
 
 describe('POST /admins/:id/cohorts', () => {
   it('should allow an admin to update their cohorts and return a new list of updated cohorts', (done) => {
-    const newCohorts = [3, 4];
+    const newCohorts = {
+      cohorts: [3, 4],
+    };
     supertest(app)
       .post('/api/admins/1/cohorts')
       .set('Cookie', 'authToken=adminToken')

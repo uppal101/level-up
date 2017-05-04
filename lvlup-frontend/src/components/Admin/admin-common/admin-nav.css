@@ -1,4 +1,6 @@
 .adminHamburger {
   height: 750px;
   float: left;
+  border-radius: 0% !important;
+  margin-top: 0px !important;
 }

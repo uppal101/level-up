@@ -56,20 +56,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -87,20 +87,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -118,20 +118,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -149,20 +149,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 3,
+            name: 'Back-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 3,
-            name: 'Back-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -180,20 +180,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 3,
+            name: 'Back-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 3,
-            name: 'Back-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -211,20 +211,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 3,
+            name: 'Back-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 3,
-            name: 'Back-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -242,20 +242,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -273,20 +273,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -304,20 +304,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -335,20 +335,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -366,20 +366,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -397,20 +397,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -428,20 +428,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -459,20 +459,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -490,20 +490,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -521,20 +521,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -552,20 +552,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -583,20 +583,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -614,20 +614,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -645,20 +645,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -676,20 +676,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -707,20 +707,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -738,20 +738,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -769,20 +769,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 2,
             username: 'leveluppal',
             name: 'Sanjeet Uppal',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -800,20 +800,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -831,20 +831,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 1,
             username: 'algorythmist',
             name: 'Thomas Stang',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -862,20 +862,20 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
       ], done);
@@ -954,20 +954,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -985,20 +985,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 3,
+            name: 'Back-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 3,
-            name: 'Back-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -1016,20 +1016,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -1047,20 +1047,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -1078,20 +1078,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
         {
@@ -1109,20 +1109,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 2,
+            name: 'Front-end Side Project',
+            point_value: 75,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 2,
-            name: 'Front-end Side Project',
-            point_value: 75,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -1140,20 +1140,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 3,
-            category: 'Career',
+          challenge: {
+            id: 5,
+            name: 'Publish Article',
+            point_value: 75,
+            description: 'Publish an original article with a minimum 750 word length.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 5,
-            name: 'Publish Article',
-            point_value: 75,
-            description: 'Publish an original article on Medium with a minimum 750 word length.',
+          category: {
+            id: 3,
+            category: 'Career',
           },
         },
         {
@@ -1171,20 +1171,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 1,
-            category: 'Education',
+          challenge: {
+            id: 4,
+            name: 'Full-stack Side Project',
+            point_value: 200,
+            description: 'Develop a side project using curriculum technology.',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 4,
-            name: 'Full-stack Side Project',
-            point_value: 200,
-            description: 'Develop a side project using curriculum technology.',
+          category: {
+            id: 1,
+            category: 'Education',
           },
         },
         {
@@ -1202,20 +1202,20 @@ describe('GET /submissions/students/:student_id', () => {
           submission_image_link_1: null,
           submission_image_link_2: null,
           submission_image_link_3: null,
-          category: {
-            id: 2,
-            category: 'Community',
+          challenge: {
+            id: 1,
+            name: 'Hold TA Hours',
+            point_value: 25,
+            description: 'Hold TA hours for a junior cohort (1 hour increments).',
           },
           student: {
             id: 3,
             username: 'dan_m_g',
             name: 'Daniel Gardner',
           },
-          challenge: {
-            id: 1,
-            name: 'Hold TA Hours',
-            point_value: 25,
-            description: 'Hold TA hours for a junior cohort (1 hour increments) during lab time or directly following conclusion of class hours (5-6pm).',
+          category: {
+            id: 2,
+            category: 'Community',
           },
         },
       ], done);
@@ -1258,10 +1258,10 @@ describe('GET /submissions/:submission_id', () => {
           name: 'Full-stack Side Project',
           point_value: 200,
           description: 'Develop a side project using curriculum technology.',
-          requirements_1: null,
-          requirements_2: null,
-          requirements_3: null,
-          requirements_4: null,
+          requirements_1: 'Use HTML, CSS, JS, React, or Angular',
+          requirements_2: 'Build a backend server using Node, Express, Postgres, and Knex',
+          requirements_3: 'Use an outside API',
+          requirements_4: 'Must be approved by an instructor',
           requirements_5: null,
         },
         category: {

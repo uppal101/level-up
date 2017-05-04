@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import renderIf from 'render-if';
 import EditChallengeForm from './edit-challenge-form';
+import EditChallengeCompleted from './edit-challenge-completed';
 
+const mapStateToProps = state => ({
+  editStatus: state.editedChallenge.fulfilled,
+});
 
-class EditChallenge extends Component {
-  render() {
-    return (
-      <div className="edit-challenge">
-        <EditChallengeForm />
-      </div>
-    );
-  }
-}
+const EditChallenge = (props) => {
+  const ifEdited = renderIf(props.editStatus);
+  const ifNotEdited = renderIf(!props.editStatus);
+  return (
+    <div className="edit-challenge">
+      {ifNotEdited(<EditChallengeForm />)}
+      {ifEdited(<EditChallengeCompleted />)}
+    </div>
+  );
+};
 
-export default EditChallenge;
+export default connect(mapStateToProps)(EditChallenge);
