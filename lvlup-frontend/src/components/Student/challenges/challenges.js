@@ -7,6 +7,7 @@ class StudentChallenges extends Component {
     return (
       <div>
         <div className="studentDashboard">
+          <h1>Student Challenges Available</h1>
           <StudentChallengesTable />
         </div>
       </div>

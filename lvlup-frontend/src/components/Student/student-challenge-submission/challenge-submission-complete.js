@@ -82,7 +82,9 @@ class SubmissionCompleted extends Component {
           </Table.Body>
         </Table>
         <Link to={'/student/challenges'}>
-          <Button onClick={() => this.props.resetChallenge()}>
+          <Button
+            onClick={() => this.props.resetChallenge()}
+          >
             Click here to confirm your submission!
           </Button>
         </Link>
