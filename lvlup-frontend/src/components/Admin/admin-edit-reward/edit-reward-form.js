@@ -10,18 +10,25 @@ import './admin-edit-reward-styles.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ editReward, allCampuses, setCampuses }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    editReward: false,
     campuses: state.allCampuses,
+    reward: state.selectedReward,
+    initialValues: {
+      name: state.selectedReward.name,
+      point_cost: state.selectedReward.point_cost,
+      campus_id: state.selectedReward.campus_id,
+      category_id: state.selectedReward.category_id,
+      description: state.selectedReward.description,
+    },
   };
 }
 
 const categories = [
-  { key: 'e', text: 'Education', value: 'education' },
-  { key: 'co', text: 'Community', value: 'community' },
-  { key: 'c', text: 'Career', value: 'career' },
-  { key: 'l', text: 'Life', value: 'life' },
+  { key: 'Education', text: 'Education', value: '1' },
+  { key: 'Community', text: 'Community', value: '2' },
+  { key: 'Career', text: 'Career', value: '3' },
+  { key: 'Life', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';
@@ -60,6 +67,16 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 );
 
 class EditRewardForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(values) {
+    values.reward_id = this.props.reward.id;
+    this.props.editReward(values);
+  }
+
   componentWillMount() {
     this.props.allCampuses();
   }
@@ -70,7 +87,7 @@ class EditRewardForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form onSubmit={handleSubmit(this.props.editReward)}>
+        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
           <Form.Group widths="equal">
             <Field
               name="name"
@@ -84,21 +101,21 @@ class EditRewardForm extends Component {
               name="point_cost"
               component={renderField}
               type="number"
-              label="Point Value"
-              placeholder="Point Value"
+              label="Point Cost"
+              placeholder="Point Cost"
               validate={[required, number]}
             />
             <Field
               name="campus_id"
               component={renderSelectField}
               type="text"
-              label="Campuses"
-              placeholder="Select Campuses"
+              label="Campus"
+              placeholder="Select Campus"
               validate={[required]}
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
@@ -110,7 +127,7 @@ class EditRewardForm extends Component {
               validate={required}
             >
               <option default>Select Category</option>
-              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+              { categories.map(option => <option key={option.key} value={option.value}>{option.text}</option>)}
             </Field>
           </Form.Group>
           <Field

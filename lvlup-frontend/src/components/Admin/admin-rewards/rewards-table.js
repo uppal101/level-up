@@ -4,15 +4,16 @@ import { bindActionCreators } from 'redux';
 import { Icon, Table, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
+import { resetEditReward } from '../../../actions/edit-reward';
 import './admin-rewards-style.css';
 
 const mapStateToProps = state => ({
-  lvlUpInfo: state.studentPointsAndCampus,
+  adminInfo: state.loggedIn,
   rewards: state.rewards.rewards,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  campusRewards, selectReward,
+  campusRewards, selectReward, resetEditReward,
 }, dispatch);
 
 class RewardsTable extends Component {
@@ -22,7 +23,8 @@ class RewardsTable extends Component {
   }
 
   componentWillMount() {
-    this.props.campusRewards(this.props.lvlUpInfo.campusId);
+    this.props.campusRewards(this.props.adminInfo.campus_id);
+    this.props.resetEditReward();
   }
 
   renderRewards(list) {
@@ -35,7 +37,7 @@ class RewardsTable extends Component {
           <Link to={`/admin/reward-edit/${item.id}`}>
             <Icon onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
         </Table.Cell>
-        <Table.Cell><Icon name="trash" /></Table.Cell>
+        <Table.Cell><Icon onClick={() => this.props.selectReward(item)} name="trash" /></Table.Cell>
         <Table.Cell>{item.point_cost}</Table.Cell>
       </Table.Row>
     ));

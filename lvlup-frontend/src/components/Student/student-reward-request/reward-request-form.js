@@ -38,7 +38,6 @@ class RewardRequestForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    console.log(this.props.reward);
     if (!this.props.reward.name) {
       return (<div>LOADING</div>);
     }

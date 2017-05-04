@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Icon, Menu, Table, Container } from 'semantic-ui-react';
 import '../admin-styles.css';
-
+// arbitrary
 class ChallengesTable extends Component {
   render() {
     return (

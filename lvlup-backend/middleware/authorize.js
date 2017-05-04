@@ -5,7 +5,7 @@ const isAdmin = (req, res, next) => {
     next();
   } else {
     res.set('Content-Type', 'text/plain');
-    res.status(401).send('You must be an Administrator');
+    res.sendStatus(401).send('You must be an Administrator');
   }
 };
 
@@ -14,7 +14,7 @@ const isUser = (req, res, next) => {
     next();
   } else {
     res.set('Content-Type', 'text/plain');
-    res.status(401).send('You must be logged in');
+    res.sendStatus(401).send('You must be logged in');
   }
 };
 
@@ -30,7 +30,7 @@ const isAuthorized = (req, res, next) => {
         next();
       } else {
         res.set('Content-Type', 'text/plain');
-        res.status(401).send('Unauthorized');
+        res.sendStatus(401).send('Unauthorized');
       }
     });
   }

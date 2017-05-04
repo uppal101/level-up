@@ -12,17 +12,16 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
-    numberOfRequestInputs: state.numberOfRequestInputs,
     addChallenge: false,
     campuses: state.allCampuses,
   };
 }
 
 const categories = [
-  { key: 'education', text: 'Education', value: 1 },
-  { key: 'community', text: 'Community', value: 2 },
-  { key: 'career', text: 'Career', value: 3 },
-  { key: 'life', text: 'Life', value: 4 },
+  { key: 'Education', text: 'Education', value: '1' },
+  { key: 'Community', text: 'Community', value: '2' },
+  { key: 'Career', text: 'Career', value: '3' },
+  { key: 'Life', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';
@@ -61,13 +60,26 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
 );
 
 class AddChallengeForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { numberOfRequestInputs: 1 };
+  }
+
   componentWillMount() {
     this.props.allCampuses();
   }
+
+  addRequirement() {
+    this.setState((prevState, props) => ({
+      numberOfRequestInputs: prevState.numberOfRequestInputs + 1,
+    }));
+  }
+
   render() {
     if (this.props.campuses.length === 0) {
       return <div>LOADING</div>;
     }
+
     const { handleSubmit } = this.props;
     return (
       <Container>
@@ -101,8 +113,7 @@ class AddChallengeForm extends Component {
               validate={[required]}
             /> */}
 
-            {/* make action creator for doing this vvvv */}
-            <Form.Button onClick={() => this.props.numberOfRequestInputs}>Add Requirement</Form.Button>
+            <Form.Button onClick={() => this.props.addRequirement()}>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
             <Field

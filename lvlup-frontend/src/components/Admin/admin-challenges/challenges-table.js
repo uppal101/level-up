@@ -7,8 +7,7 @@ import { campusChallenges, selectChallenge } from '../../../actions/student-chal
 import './admin-challenges-style.css';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
-  lvlUpInfo: state.studentPointsAndCampus,
+  adminInfo: state.loggedIn,
   challenges: state.challenges,
 });
 
@@ -21,7 +20,7 @@ class ChallengesTable extends Component {
   }
 
   componentWillMount() {
-    this.props.campusChallenges(this.props.lvlUpInfo.campusId);
+    this.props.campusChallenges(this.props.adminInfo.campus_id);
   }
   renderTable(list) {
     return list.map(item => (
@@ -29,7 +28,7 @@ class ChallengesTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell onClick={() => this.props.editChallenge(item)}>
+        <Table.Cell onClick={() => this.props.selectChallenge(item)}>
           <Link to={`/admin/challenge-edit/${item.id}`}>
             <Icon name="pencil" />
           </Link>
