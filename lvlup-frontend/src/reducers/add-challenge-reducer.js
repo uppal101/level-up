@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-export const challengeAdded = (state = initialState.challengeAdded, action) => {
+export const addedChallenge = (state = initialState.challengeAdded, action) => {
   switch (action.type) {
     case 'ADD_CHALLENGE_PENDING':
       return state;

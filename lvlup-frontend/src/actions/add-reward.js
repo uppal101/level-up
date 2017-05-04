@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const postNewReward = (props) => {
+  console.log(props);
   const url = '/api/rewards';
   return axios.post(url, props);
 };

@@ -126,7 +126,7 @@ class AddChallengeForm extends Component {
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
@@ -138,7 +138,7 @@ class AddChallengeForm extends Component {
               validate={required}
             >
               <option default>Select Category</option>
-              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+              { categories.map(option => <option key={option.key} value={option.value}>{option.text}</option>)}
             </Field>
           </Form.Field>
           <Field
