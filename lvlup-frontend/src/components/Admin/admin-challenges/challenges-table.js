@@ -3,6 +3,7 @@ import { Icon, Table, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import { resetEditChallenge } from '../../../actions/edit-challenge';
 import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 import './admin-challenges-style.css';
 
@@ -11,7 +12,7 @@ const mapStateToProps = state => ({
   challenges: state.challenges,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge }, dispatch);
 
 class ChallengesTable extends Component {
   constructor(props) {
@@ -21,7 +22,9 @@ class ChallengesTable extends Component {
 
   componentWillMount() {
     this.props.campusChallenges(this.props.adminInfo.campus_id);
+    this.props.resetEditChallenge();
   }
+
   renderTable(list) {
     return list.map(item => (
       <Table.Row key={item.id}>

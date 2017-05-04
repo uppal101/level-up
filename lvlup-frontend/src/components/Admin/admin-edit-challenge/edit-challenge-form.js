@@ -10,7 +10,7 @@ import './admin-edit-challenge-styles.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ editChallenge, allCampuses, setCampuses }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     // numberOfRequestInputs: state.numberOfRequestInputs,
     campuses: state.allCampuses,
