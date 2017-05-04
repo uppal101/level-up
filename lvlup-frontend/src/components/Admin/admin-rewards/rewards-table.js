@@ -7,7 +7,7 @@ import { campusRewards, selectReward } from '../../../actions/student-rewards-ac
 import './admin-rewards-style.css';
 
 const mapStateToProps = state => ({
-  lvlUpInfo: state.studentPointsAndCampus,
+  adminInfo: state.loggedIn,
   rewards: state.rewards.rewards,
 });
 
@@ -22,7 +22,7 @@ class RewardsTable extends Component {
   }
 
   componentWillMount() {
-    this.props.campusRewards(this.props.lvlUpInfo.campusId);
+    this.props.campusRewards(this.props.adminInfo.campus_id);
   }
 
   renderRewards(list) {
