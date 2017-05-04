@@ -6,15 +6,15 @@ const router = express.Router();
 
 router.route('/student/logout')
   .get((req, res) => {
-    console.log('here');
     req.logout();
-    res.redirect('/');
+    console.log(req.session);
+    res.sendStatus(200);
   });
 
 router.route('/admin/logout')
   .get((req, res) => {
-    res.cookie('authToken', null);
-    res.redirect('/');
+    res.clearCookie('authToken');
+    res.sendStatus(200);
   });
 
 module.exports = router;

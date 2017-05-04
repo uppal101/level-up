@@ -10,9 +10,11 @@ const mapDispatchToProps = dispatch => bindActionCreators({ loggingOutAdmin }, d
 class LogOutAdmin extends Component {
   render() {
     return (
-      <Button color="orange" onClick={() => this.props.loggingOutAdmin()}>
-        <Icon name="remove circle" /> LOG OUT!
-      </Button>
+      <Link to={'/'}>
+        <Button color="orange" onClick={() => this.props.loggingOutAdmin()}>
+          <Icon name="remove circle" /> LOG OUT!
+        </Button>
+      </Link>
     );
   }
 }

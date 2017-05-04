@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Button, Icon } from 'semantic-ui-react';
 import '../Home/homeview.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginGithub from './login-github';
 import LogOutGithub from './logout-student';
@@ -28,6 +28,12 @@ class NavBar extends Component {
           {renderIf(this.props.loggedIn.status === true)(
             <LogOutAdmin />,
           )}
+          {/* {renderIf(this.props.loginInfo.status === false)(
+            <Redirect to="/" />,
+          )}
+          {renderIf(this.props.loggedIn.status === false)(
+            <Redirect to="/" />,
+          )} */}
         </Menu.Item>
       </Menu>
     );
