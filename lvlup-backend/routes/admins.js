@@ -10,8 +10,8 @@ router.route('/admins/')
   .get((req, res) => {
     Admins.forge()
     .fetch()
-    .then(admins => res.status(200).json(admins))
-    .catch(err => res.status(500).json(err.message));
+    .then(admins => res.sendStatus(200).json(admins))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/admins/:id')
@@ -25,16 +25,16 @@ router.route('/admins/:id')
       gravatar_url: req.body.gravatar_url || admin.get('gravatar_url'),
       campus_id: req.body.campus_id || admin.get('campus_id'),
     }))
-    .then(updatedAdmin => res.status(200).json(updatedAdmin))
-    .catch(err => res.status(500).json(err.message));
+    .then(updatedAdmin => res.sendStatus(200).json(updatedAdmin))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .delete((req, res) => {
     Admin.forge({ id: req.params.id })
     .fetch({ require: true })
     .then(admin => admin.destroy())
-    .then(() => res.status(200).json({ message: 'Admin successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .then(() => res.sendStatus(200).json({ message: 'Admin successfully deleted' }))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/admins/:id/cohorts')
@@ -52,7 +52,7 @@ router.route('/admins/:id/cohorts')
       .fetchAll({ withRelated: { cohort: q => q.column('id', 'name') } }))
     .then((adminsCohorts) => {
       const cohortsList = adminsCohorts.models.map(ele => ele.relations.cohort.attributes.name);
-      res.status(200).json(cohortsList);
+      res.sendStatus(200).json(cohortsList);
     });
     // .catch((err) => {
     //   console.log(err);

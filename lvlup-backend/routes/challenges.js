@@ -11,9 +11,9 @@ router.route('/challenges/campuses/:campus_id')
     Challenge.forge({ campus_id: req.params.campus_id })
     .fetchAll({ withRelated: ['category'] })
     .then((challenges) => {
-      res.status(200).json(challenges);
+      res.sendStatus(200).json(challenges);
     })
-    .catch(err => res.status(500).json(err.message));
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 
@@ -32,24 +32,24 @@ router.route('/challenges/')
       requirements_5: req.body.requirements_5,
     })
     .save()
-    .then(challenge => res.status(200).json(challenge))
-    .catch(err => res.status(500).json(err.message));
+    .then(challenge => res.sendStatus(200).json(challenge))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/challenges/:challenge_id')
   .get((req, res) => {
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
-    .then(challenge => res.status(200).json(challenge))
-    .catch(err => res.status(500).json(err.message));
+    .then(challenge => res.sendStatus(200).json(challenge))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .delete(authorize.isAdmin, (req, res) => {
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
     .then(challenge => challenge.destroy())
-    .then(() => res.status(200).json({ message: 'Challenge successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .then(() => res.sendStatus(200).json({ message: 'Challenge successfully deleted' }))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .put(authorize.isAdmin, (req, res) => {
@@ -67,8 +67,8 @@ router.route('/challenges/:challenge_id')
       requirements_4: req.body.requirements_4 || challenge.get('requirements_4'),
       requirements_5: req.body.requirements_5 || challenge.get('requirements_5'),
     }))
-    .then(challenge => res.status(200).json(challenge))
-    .catch(err => res.status(500).json(err.message));
+    .then(challenge => res.sendStatus(200).json(challenge))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 

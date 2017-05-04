@@ -11,8 +11,8 @@ router.route('/requests/cohorts/:cohort_id')
       { category: (q) => { q.column('id', 'category'); } },
       { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }] })
-    .then(requests => res.status(200).json(requests))
-    .catch(err => res.status(500).json(err.message));
+    .then(requests => res.sendStatus(200).json(requests))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/requests/students/:student_id')
@@ -22,8 +22,8 @@ router.route('/requests/students/:student_id')
       { category: (q) => { q.column('id', 'category'); } },
       { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }] })
-    .then(requests => res.status(200).json(requests))
-    .catch(err => res.status(500).json(err.message));
+    .then(requests => res.sendStatus(200).json(requests))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/requests')
@@ -37,8 +37,8 @@ router.route('/requests')
       status: 'Pending approval',
     })
     .save()
-    .then(request => res.status(200).json(request))
-    .catch(err => res.status(500).json(err.message));
+    .then(request => res.sendStatus(200).json(request))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/requests/:request_id')
@@ -48,16 +48,16 @@ router.route('/requests/:request_id')
       { category: (q) => { q.column('id', 'category'); } },
       { reward: (q) => { q.column('id', 'name', 'point_cost', 'description'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }] })
-    .then(request => res.status(200).json(request))
-    .catch(err => res.status(500).json(err.message));
+    .then(request => res.sendStatus(200).json(request))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .delete((req, res) => {
     RewardRequest.where({ id: req.params.request_id })
     .fetch()
     .then(request => request.destroy())
-    .then(() => res.status(200).json({ message: 'Request successfully deleted' }))
-    .catch(err => res.status(500).json(err.message));
+    .then(() => res.sendStatus(200).json({ message: 'Request successfully deleted' }))
+    .catch(err => res.sendStatus(500).json(err.message));
   })
 
   .put((req, res) => {
@@ -70,8 +70,8 @@ router.route('/requests/:request_id')
       status: request.get('status'),
       notes: req.body.notes || request.get('notes'),
     }))
-    .then(request => res.status(200).json(request))
-    .catch(err => res.status(500).json(err.message));
+    .then(request => res.sendStatus(200).json(request))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 router.route('/requests/:request_id/admin')
@@ -85,8 +85,8 @@ router.route('/requests/:request_id/admin')
       status: req.body.status || request.get('status'),
       notes: request.get('notes'),
     }))
-    .then(request => res.status(200).json(request))
-    .catch(err => res.status(500).json(err.message));
+    .then(request => res.sendStatus(200).json(request))
+    .catch(err => res.sendStatus(500).json(err.message));
   });
 
 module.exports = router;
