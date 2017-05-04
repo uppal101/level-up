@@ -19,10 +19,10 @@ function mapStateToProps(state, ownProps) {
 }
 
 const categories = [
-  { key: 'e', text: 'Education', value: 'education' },
-  { key: 'co', text: 'Community', value: 'community' },
-  { key: 'c', text: 'Career', value: 'career' },
-  { key: 'l', text: 'Life', value: 'life' },
+  { key: '1', text: 'Education', value: '1' },
+  { key: '2', text: 'Community', value: '2' },
+  { key: '3', text: 'Career', value: '3' },
+  { key: '4', text: 'Life', value: '4' },
 ];
 const required = value => value ? undefined : 'Required';
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;

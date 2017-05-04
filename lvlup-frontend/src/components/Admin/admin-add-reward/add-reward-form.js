@@ -17,10 +17,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 const categories = [
-  { key: 'education', text: 'Education', value: 1 },
-  { key: 'community', text: 'Community', value: 2 },
-  { key: 'career', text: 'Career', value: 3 },
-  { key: 'life', text: 'Life', value: 4 },
+  { key: '1', text: 'Education', value: '1' },
+  { key: '2', text: 'Community', value: '2' },
+  { key: '3', text: 'Career', value: '3' },
+  { key: '4', text: 'Life', value: '4' },
 ];
 
 const required = value => value ? undefined : 'Required';
