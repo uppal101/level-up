@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as CONST from '../constants/constants';
 
 const postEditedReward = (props) => {
   const url = '/api/rewards/:id';
@@ -6,6 +7,6 @@ const postEditedReward = (props) => {
 };
 
 export const editReward = props => ({
-  type: 'EDIT_REWARD',
+  type: CONST.EDIT_REWARD,
   payload: postEditedReward(props),
 });

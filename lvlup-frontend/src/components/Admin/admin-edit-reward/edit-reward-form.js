@@ -12,7 +12,6 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
-    editReward: false,
     campuses: state.allCampuses,
     reward: state.selectedReward,
     initialValues: {
