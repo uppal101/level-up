@@ -15,6 +15,7 @@ const cohortsRoute = require('./routes/cohorts');
 const adminsRoute = require('./routes/admins');
 const rewardsRoute = require('./routes/rewards');
 const requestsRoute = require('./routes/requests');
+const logout = require('./routes/logout');
 const cors = require('cors');
 const authorize = require('./middleware/authorize');
 const path = require('path');
@@ -94,6 +95,7 @@ app.use('/api', requestsRoute);
 app.use('/api', studentsRoute);
 app.use('/api', challengesRoute);
 app.use('/api', submissionsRoute);
+app.use('/api', logout);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'build', 'index.html'));

@@ -1,0 +1,20 @@
+import React, { Component } from 'react';
+import { Button, Icon } from 'semantic-ui-react';
+import { bindActionCreators } from 'redux';
+import { loggingOutAdmin } from '../../actions/navbar';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+const mapDispatchToProps = dispatch => bindActionCreators({ loggingOutAdmin }, dispatch);
+
+class LogOutAdmin extends Component {
+  render() {
+    return (
+      <Button color="orange" onClick={() => this.props.loggingOutAdmin()}>
+        <Icon name="remove circle" /> LOG OUT!
+      </Button>
+    );
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LogOutAdmin);

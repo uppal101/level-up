@@ -1,12 +1,13 @@
 import * as CONST from '../constants/constants';
 
-export const loginInfo = (state = {}, action) => {
+export const loginInfo = (state = { status: false }, action) => {
   switch (action.type) {
     case CONST.STUDENT_LOGIN_FULFILLED:
-      return action.payload;
+      return Object.assign({}, { status: true }, action.payload);
     case CONST.STUDENT_SIGNUP_FULFILLED:
-      console.log('here -->', action.payload);
-      return action.payload;
+      return Object.assign({}, { status: true }, action.payload);
+    case CONST.STUDENT_LOGOUT_FULFILLED:
+      return Object.assign({}, { status: false });
     default:
       return state;
   }
