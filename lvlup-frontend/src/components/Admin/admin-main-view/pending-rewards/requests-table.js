@@ -20,6 +20,9 @@ class RequestsTable extends Component {
   constructor(props) {
     super(props);
     this.renderTable = this.renderTable.bind(this);
+    this.state = {
+      clicked: false,
+    };
   }
 
   componentWillMount() {
@@ -40,8 +43,24 @@ class RequestsTable extends Component {
           > {item.notes}
           </Popup>
         </Table.Cell>
-        <Table.Cell textAlign="center"><div onClick={() => this.props.denySelectedReward(item, { status: 'Denied' })}><Icon name="close" /></div> <div onClick={() => this.props.approveSelectedReward(item, { status: 'Approved' })}><Icon color="orange" name="checkmark" /></div></Table.Cell>
-
+        <Table.Cell textAlign="center">
+          <div
+            onClick={() => this.props.denySelectedReward(item, { status: 'Denied' }).then(() => {
+              this.props.resetPendingRequests();
+              this.props.adminInfo.cohorts.map(item => this.props.requestsAction(item.id));
+            })}
+          >
+            <Icon name="close" />
+          </div>
+          <div
+            onClick={() => this.props.approveSelectedReward(item, { status: 'Approved' }).then(() => {
+              this.props.resetPendingRequests();
+              this.props.adminInfo.cohorts.map(item => this.props.requestsAction(item.id));
+            })}
+          >
+            <Icon color="orange" name="checkmark" />
+          </div>
+        </Table.Cell>
       </Table.Row>
       ),
     );
