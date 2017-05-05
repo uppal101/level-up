@@ -38,7 +38,7 @@ class RequestsTable extends Component {
   }
   componentDidUpdate(prevProps) {
     if (prevProps.pendingRequests.status !== this.props.pendingRequests.status) {
-      this.props.renderTable();
+      this.props.renderTable();// make backend call to update props
     }
   }
   render() {
