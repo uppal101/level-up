@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for lvlup-backend/helpers/points.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">lvlup-backend/helpers</a> points.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">8.74% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/103</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/90</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const knex = require('../knex.js');
+const moment = require('moment');
+&nbsp;
+let location;
+let cohortName;
+let cohortType;
+let ptsEarned;
+let ptsUsed;
+let q1;
+let q2;
+let q3;
+let q4;
+let grad;
+let campusId;
+let q1Earned;
+let q2Earned;
+let q3Earned;
+let q4Earned;
+let totalEarned;
+let q1Used;
+let q2Used;
+let q3Used;
+let q4Used;
+let totalUsed;
+&nbsp;
+&nbsp;
+const getPtsEarned = <span class="fstat-no" title="function not covered" >st</span>udentId =&gt; <span class="cstat-no" title="statement not covered" >new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  knex('challenge_submissions')</span>
+  .where({
+    student_id: studentId,
+    submission_status: 'Approved',
+  })
+  .select(['challenge_submissions.updated_at', 'challenges.point_value'])
+  .innerJoin('challenges', 'challenges.id', 'challenge_submissions.challenge_id')
+  .then(<span class="fstat-no" title="function not covered" >(s</span>ubmissions) =&gt; {
+<span class="cstat-no" title="statement not covered" >    ptsEarned = submissions;</span>
+<span class="cstat-no" title="statement not covered" >    resolve(submissions);</span>
+  })
+  .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.error(err))</span>;
+});
+&nbsp;
+const getPtsUsed = <span class="fstat-no" title="function not covered" >st</span>udentId =&gt; <span class="cstat-no" title="statement not covered" >new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  knex('reward_requests')</span>
+  .where({
+    student_id: studentId,
+    status: 'Approved',
+  })
+  .select(['reward_requests.updated_at', 'rewards.point_cost'])
+  .innerJoin('rewards', 'rewards.id', 'reward_requests.reward_id')
+  .then(<span class="fstat-no" title="function not covered" >(r</span>equests) =&gt; {
+<span class="cstat-no" title="statement not covered" >    ptsUsed = requests;</span>
+<span class="cstat-no" title="statement not covered" >    resolve(requests);</span>
+  })
+  .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.error(err))</span>;
+});
+&nbsp;
+const getStudentInfo = <span class="fstat-no" title="function not covered" >st</span>udentId =&gt; <span class="cstat-no" title="statement not covered" >new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  knex('students')</span>
+  .where('students.id', studentId)
+  .select(['q1_start_date', 'q2_start_date', 'q3_start_date', 'q4_start_date', 'graduation_date', 'cohorts.name', 'cohorts.type', 'campuses.location', 'campuses.id as campus_id'])
+  .innerJoin('cohorts', 'cohorts.id', 'students.cohort_id')
+  .join('campuses', 'campuses.id', 'cohorts.campus_id')
+  .then(<span class="fstat-no" title="function not covered" >(d</span>ates) =&gt; {
+<span class="cstat-no" title="statement not covered" >    cohortName = dates[0].name;</span>
+<span class="cstat-no" title="statement not covered" >    cohortType = dates[0].type;</span>
+<span class="cstat-no" title="statement not covered" >    location = dates[0].location;</span>
+<span class="cstat-no" title="statement not covered" >    q1 = dates[0].q1_start_date;</span>
+<span class="cstat-no" title="statement not covered" >    q2 = dates[0].q2_start_date;</span>
+<span class="cstat-no" title="statement not covered" >    q3 = dates[0].q3_start_date;</span>
+<span class="cstat-no" title="statement not covered" >    q4 = dates[0].q4_start_date;</span>
+<span class="cstat-no" title="statement not covered" >    grad = dates[0].graduation_date;</span>
+<span class="cstat-no" title="statement not covered" >    campusId = dates[0].campus_id;</span>
+<span class="cstat-no" title="statement not covered" >    resolve(dates);</span>
+  })
+  .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >console.error(err))</span>;
+});
+&nbsp;
+const determineQuarter = <span class="fstat-no" title="function not covered" >(t</span>ime) =&gt; {
+<span class="cstat-no" title="statement not covered" >  if ((moment(time).isAfter(q1)) &amp;&amp; (moment(time).isBefore(q2))) {</span>
+<span class="cstat-no" title="statement not covered" >    return 'q1';</span>
+  } else <span class="cstat-no" title="statement not covered" >if ((moment(time).isAfter(q2)) &amp;&amp; (moment(time).isBefore(q3))) {</span>
+<span class="cstat-no" title="statement not covered" >    return 'q2';</span>
+  } else <span class="cstat-no" title="statement not covered" >if ((moment(time).isAfter(q3)) &amp;&amp; (moment(time).isBefore(q4))) {</span>
+<span class="cstat-no" title="statement not covered" >    return 'q3';</span>
+  } else <span class="cstat-no" title="statement not covered" >if ((moment(time).isAfter(q4)) &amp;&amp; (moment(time).isBefore(grad))) {</span>
+<span class="cstat-no" title="statement not covered" >    return 'q4';</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return 'This time is not within the program start and end dates';</span>
+};
+&nbsp;
+const distributePts = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >  totalEarned = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q1Earned = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q2Earned = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q3Earned = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q4Earned = [0];</span>
+<span class="cstat-no" title="statement not covered" >  totalUsed = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q1Used = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q2Used = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q3Used = [0];</span>
+<span class="cstat-no" title="statement not covered" >  q4Used = [0];</span>
+<span class="cstat-no" title="statement not covered" >  ptsEarned.forEach(<span class="fstat-no" title="function not covered" >(s</span>ubmission) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    totalEarned.push(submission.point_value);</span>
+<span class="cstat-no" title="statement not covered" >    switch (determineQuarter(submission.updated_at)) {</span>
+      case 'q1':
+<span class="cstat-no" title="statement not covered" >        q1Earned.push(submission.point_value);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q2':
+<span class="cstat-no" title="statement not covered" >        q2Earned.push(submission.point_value);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q3':
+<span class="cstat-no" title="statement not covered" >        q3Earned.push(submission.point_value);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q4':
+<span class="cstat-no" title="statement not covered" >        q4Earned.push(submission.point_value);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      default:
+<span class="cstat-no" title="statement not covered" >        console.log('The update date is outside of the program start and end dates');</span>
+    }
+  });
+<span class="cstat-no" title="statement not covered" >  ptsUsed.forEach(<span class="fstat-no" title="function not covered" >(r</span>equest) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    totalUsed.push(request.point_cost);</span>
+<span class="cstat-no" title="statement not covered" >    switch (determineQuarter(request.updated_at)) {</span>
+      case 'q1':
+<span class="cstat-no" title="statement not covered" >        q1Used.push(request.point_cost);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q2':
+<span class="cstat-no" title="statement not covered" >        q2Used.push(request.point_cost);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q3':
+<span class="cstat-no" title="statement not covered" >        q3Used.push(request.point_cost);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      case 'q4':
+<span class="cstat-no" title="statement not covered" >        q4Used.push(request.point_cost);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      default:
+<span class="cstat-no" title="statement not covered" >        console.log('The update date is outside of the program start and end dates');</span>
+    }
+  });
+};
+&nbsp;
+const calculatePts = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  const points = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >  points.cohort = cohortName;</span>
+<span class="cstat-no" title="statement not covered" >  points.cohortType = cohortType;</span>
+<span class="cstat-no" title="statement not covered" >  points.location = location;</span>
+<span class="cstat-no" title="statement not covered" >  points.campusId = campusId;</span>
+<span class="cstat-no" title="statement not covered" >  points.currentQuarter = determineQuarter(moment());</span>
+<span class="cstat-no" title="statement not covered" >  points.totalEarned = totalEarned.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.totalUsed = totalUsed.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q1Earned = q1Earned.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q1Used = q1Used.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q2Earned = q2Earned.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q2Used = q2Used.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q3Earned = q3Earned.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q3Used = q3Used.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q4Earned = q4Earned.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.q4Used = q4Used.reduce(<span class="fstat-no" title="function not covered" >(a</span>cc, pts) =&gt; <span class="cstat-no" title="statement not covered" >acc + pts)</span>;</span>
+<span class="cstat-no" title="statement not covered" >  points.currentTotal = points.totalEarned - points.totalUsed;</span>
+<span class="cstat-no" title="statement not covered" >  return points;</span>
+};
+&nbsp;
+module.exports = {
+  getPtsEarned,
+  getPtsUsed,
+  getStudentInfo,
+  determineQuarter,
+  distributePts,
+  calculatePts,
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 04 2017 23:54:38 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
