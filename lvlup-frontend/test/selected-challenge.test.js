@@ -2,11 +2,18 @@ import SelectedChallenge from '../src/components/Admin/admin-challenges/individu
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('SelectedChallenge should render', () => {
-  const select = shallow(
-    <SelectedChallenge />,
+  const store = mockStore({ lvlupApp });
+  const challenge = shallow(
+    <SelectedChallenge store={store} />,
   );
-  expect(toJson(select)).toMatchSnapshot();
+  expect(shallowToJson(challenge)).toMatchSnapshot();
 });

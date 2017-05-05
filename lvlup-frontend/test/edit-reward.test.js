@@ -2,11 +2,18 @@ import EditReward from '../src/components/Admin/admin-edit-reward/edit-reward-ma
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('EditReward should render', () => {
+  const store = mockStore({ lvlupApp });
   const edit = shallow(
-    <EditReward />,
+    <EditReward store={store} />,
   );
-  expect(toJson(edit)).toMatchSnapshot();
+  expect(shallowToJson(edit)).toMatchSnapshot();
 });

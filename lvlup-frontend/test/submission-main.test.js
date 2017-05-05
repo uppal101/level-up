@@ -2,11 +2,18 @@ import SubmissionMain from '../src/components/Student/student-challenge-submissi
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('SubmissionMain should render', () => {
-  const submission = shallow(
-    <SubmissionMain />,
+  const store = mockStore({ lvlupApp });
+  const sub = shallow(
+    <SubmissionMain store={store} />,
   );
-  expect(toJson(submission)).toMatchSnapshot();
+  expect(shallowToJson(sub)).toMatchSnapshot();
 });

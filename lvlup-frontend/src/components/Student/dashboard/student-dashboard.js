@@ -10,8 +10,8 @@ import { submissionsAction } from '../../../actions/student-dash-actions';
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
-  submissions: state.submissions.submissions,
-  requests: state.requests.requests,
+  submissions: state.submissions,
+  requests: state.requests,
   submission: state.submissionChallenge,
 });
 
@@ -63,7 +63,7 @@ const renderRewardsEarned = list => (
   ))
 );
 
-class StudentDashboard extends Component {
+export class StudentDashboard extends Component {
   componentWillMount() {
     if (this.props.loginInfo.id) {
       this.props.submissionsAction(this.props.loginInfo.id);
@@ -73,7 +73,7 @@ class StudentDashboard extends Component {
     if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
       return (<div>LOADING</div>);
     }
-    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
+    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
       return (
         <div className="studentDashboard">
           <SignupInfo />
@@ -122,7 +122,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderSubmissions(this.props.submissions)}
+            {renderSubmissions(this.props.submissions.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -138,7 +138,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderAchievements(this.props.submissions)}
+            {renderAchievements(this.props.submissions.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -154,7 +154,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderRewardsEarned(this.props.requests)}
+            {renderRewardsEarned(this.props.requests.requests)}
           </Table.Body>
         </Table>
       </div>

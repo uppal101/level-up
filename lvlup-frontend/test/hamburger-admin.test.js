@@ -1,4 +1,4 @@
-import NavBar from '../src/components/Navbar/navbar';
+import HamburgerAdmin from '../src/components/Admin/admin-common/hamburger';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('NavBar should render', () => {
+test('HamburgerAdmin should render', () => {
   const store = mockStore({ lvlupApp });
-  const nav = shallow(
-    <NavBar store={store} />,
+  const admin = shallow(
+    <HamburgerAdmin store={store} />,
   );
-  expect(shallowToJson(nav)).toMatchSnapshot();
+  expect(shallowToJson(admin)).toMatchSnapshot();
 });

@@ -1,4 +1,4 @@
-import NavBar from '../src/components/Navbar/navbar';
+import StudentDashboard from '../src/components/Student/dashboard/student-dashboard';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('NavBar should render', () => {
+test('StudentDashboard should render', () => {
   const store = mockStore({ lvlupApp });
-  const nav = shallow(
-    <NavBar store={store} />,
+  const dash = shallow(
+    <StudentDashboard store={store} />,
   );
-  expect(shallowToJson(nav)).toMatchSnapshot();
+  expect(shallowToJson(dash)).toMatchSnapshot();
 });

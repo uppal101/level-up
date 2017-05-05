@@ -9,18 +9,18 @@ import { rewardRequest } from '../../../actions/student-rewards-actions';
 import './reward-request-style.css';
 
 const mapStateToProps = state => ({
-  requestStatus: state.requestedReward.fulfilled,
+  requestStatus: state.requestedReward,
   pts: state.studentPointsAndCampus,
   reward: state.selectedReward,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ rewardRequest }, dispatch);
 
-class StudentRewardRequest extends Component {
+export class StudentRewardRequest extends Component {
   render() {
     const isAffordable = () => this.props.reward.point_cost <= this.props.pts.currentTotal;
-    const ifRequested = renderIf(this.props.requestStatus && isAffordable());
-    const ifNotRequested = renderIf(!this.props.requestStatus && isAffordable());
+    const ifRequested = renderIf(this.props.requestStatus.fulfilled && isAffordable());
+    const ifNotRequested = renderIf(!this.props.requestStatus.fulfilled && isAffordable());
 
     return (
       <div className="reward-request">
