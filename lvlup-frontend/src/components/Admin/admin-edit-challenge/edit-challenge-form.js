@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Container, Segment, Grid } from 'semantic-ui-react';
+import { Form, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { allCampuses, setCampuses } from '../../../actions/admin-signup';
