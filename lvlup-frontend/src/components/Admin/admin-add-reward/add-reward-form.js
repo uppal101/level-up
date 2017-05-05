@@ -10,7 +10,7 @@ import './admin-add-reward-styles.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addReward, allCampuses, setCampuses }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     addReward: false,
     campuses: state.allCampuses,
@@ -91,13 +91,13 @@ class AddRewardForm extends Component {
               name="campus_id"
               component={renderSelectField}
               type="text"
-              label="Campuses"
-              placeholder="Select Campus(es)"
+              label="Campus"
+              placeholder="Select Campus"
               validate={[required]}
               multiple
             >
               <option default>Select Campus</option>
-              { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
+              { this.props.campuses.map(option => <option key={option.id} value={option.id}>{option.location}</option>)}
             </Field>
 
             <Field
@@ -109,7 +109,7 @@ class AddRewardForm extends Component {
               validate={required}
             >
               <option default>Select Category</option>
-              { categories.map(option => <option value={option.key}>{option.text}</option>)}
+              { categories.map(option => <option key={option.key} value={option.value}>{option.text}</option>)}
             </Field>
           </Form.Group>
           <Field

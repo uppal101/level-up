@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
 import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { allCampuses, setCampuses } from '../../../actions/admin-signup';
 import { editReward } from '../../../actions/edit-reward';
 import './admin-edit-reward-styles.css';
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ editReward, allCampuses, setCampuses }, dispatch);
-}
-function mapStateToProps(state) {
-  return {
-    campuses: state.allCampuses,
-    reward: state.selectedReward,
-    initialValues: {
-      name: state.selectedReward.name,
-      point_cost: state.selectedReward.point_cost,
-      campus_id: state.selectedReward.campus_id,
-      category_id: state.selectedReward.category_id,
-      description: state.selectedReward.description,
-    },
-  };
-}
 
 const categories = [
   { key: 'Education', text: 'Education', value: '1' },
@@ -87,7 +69,7 @@ class EditRewardForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
+        <Form onSubmit={handleSubmit(this.submit)}>
           <Form.Group widths="equal">
             <Field
               name="name"
@@ -145,4 +127,22 @@ class EditRewardForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'editReward' })(EditRewardForm));
+EditRewardForm = reduxForm({
+  form: 'editReward',
+})(EditRewardForm);
+
+EditRewardForm = connect(
+  state => ({
+    campuses: state.allCampuses,
+    reward: state.selectedReward,
+    initialValues: {
+      name: state.selectedReward.name,
+      point_cost: state.selectedReward.point_cost,
+      campus_id: state.selectedReward.campus_id,
+      category_id: state.selectedReward.category_id,
+      description: state.selectedReward.description,
+    },
+  }), { editReward, allCampuses, setCampuses },
+)(EditRewardForm);
+
+export default EditRewardForm;
