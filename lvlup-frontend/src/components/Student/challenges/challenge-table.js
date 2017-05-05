@@ -3,8 +3,7 @@ import { Table, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
-
+import { campusChallenges, selectChallenge, resetChallenge } from '../../../actions/student-challenges-actions';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -12,7 +11,7 @@ const mapStateToProps = state => ({
   challenges: state.challenges,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetChallenge }, dispatch);
 
 
 class StudentChallengesTable extends Component {
@@ -23,6 +22,7 @@ class StudentChallengesTable extends Component {
 
   componentWillMount() {
     this.props.campusChallenges(this.props.lvlUpInfo.campusId);
+    this.props.resetChallenge();
   }
 
   renderTable(list) {

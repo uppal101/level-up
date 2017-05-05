@@ -7,7 +7,6 @@ import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpe
 import SignupInfo from '../student-main-view/student-signup';
 import { submissionsAction } from '../../../actions/student-dash-actions';
 
-
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,

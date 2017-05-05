@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
 import './challenge-submission-style.css';
 import uploadcare from 'uploadcare-widget';
@@ -18,8 +18,7 @@ const required = value => value ? undefined : 'Required';
 const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
 const minValue7 = minValue(7);
 
-
-class StudentChallengeSubmission extends Component {
+class ChallengeSubmissionForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
@@ -122,14 +121,11 @@ class StudentChallengeSubmission extends Component {
               placeholder="Please copy link above here"
             />
           </Form.Field>
-          {/* <Link to={`/student/challenge-submission/${this.props.selectedChallenge.id}/modal`}> */}
           <Form.Button>lvl^</Form.Button>
-          {/* </Link> */}
         </Form>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'submissionPost' })(StudentChallengeSubmission));
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'submission' })(ChallengeSubmissionForm));

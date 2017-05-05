@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-export const rewardAdded = (state = initialState.rewardAdded, action) => {
+export const addedReward = (state = initialState.rewardAdded, action) => {
   switch (action.type) {
     case 'ADD_REWARD_PENDING':
       return state;

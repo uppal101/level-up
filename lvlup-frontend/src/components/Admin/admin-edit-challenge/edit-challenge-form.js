@@ -1,30 +1,10 @@
 import React, { Component } from 'react';
 import { Form, Container } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { allCampuses, setCampuses } from '../../../actions/admin-signup';
 import { editChallenge } from '../../../actions/edit-challenge';
 import './admin-edit-challenge-styles.css';
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ editChallenge, allCampuses, setCampuses }, dispatch);
-}
-function mapStateToProps(state) {
-  return {
-    // numberOfRequestInputs: state.numberOfRequestInputs,
-    campuses: state.allCampuses,
-    challenge: state.selectedChallenge,
-    initialValues: {
-      id: state.selectedChallenge.id,
-      name: state.selectedChallenge.name,
-      point_value: state.selectedChallenge.point_value,
-      campus_id: state.selectedChallenge.campus_id,
-      category_id: state.selectedChallenge.category_id,
-      description: state.selectedChallenge.description,
-    },
-  };
-}
 
 const categories = [
   { key: 'Education', text: 'Education', value: '1' },
@@ -87,7 +67,7 @@ class EditChallengeForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Container>
-        <Form {...this.props.initialValues} onSubmit={handleSubmit(this.submit)}>
+        <Form onSubmit={handleSubmit(this.submit)}>
           <Form.Group widths="equal" >
             <Field
               name="name"
@@ -105,28 +85,50 @@ class EditChallengeForm extends Component {
               placeholder="Point Value"
               validate={[required, number]}
             />
+            <Field
+              name="requirements_1"
+              component={renderField}
+              type="text"
+              label="Requirement 1"
+              placeholder="Requirement"
+            />
+            <Field
+              name="requirements_2"
+              component={renderField}
+              type="text"
+              label="Requirement 2"
+              placeholder="Requirement"
+            />
+            <Field
+              name="requirements_3"
+              component={renderField}
+              type="text"
+              label="Requirement 3"
+              placeholder="Requirement"
+            />
+            <Field
+              name="requirements_4"
+              component={renderField}
+              type="text"
+              label="Requirement 4"
+              placeholder="Requirement"
+            />
+            <Field
+              name="requirements_5"
+              component={renderField}
+              type="text"
+              label="Requirement 5"
+              placeholder="Requirement"
+            />
 
-            {/* this.renderRequirementInputs(this.props.numberOfRequestInputs) */}
-
-            {/* <Field
-                name="requirements_1"
-                component={renderField}
-                type="text"
-                label="Requirement"
-                placeholder="Requirement"
-                validate={[required]}
-              /> */}
-
-            {/* make action creator for doing this vvvv */}
-            <Form.Button onClick={() => this.props.numberOfRequestInputs}>Add Requirement</Form.Button>
           </Form.Group>
           <Form.Field>
             <Field
               name="campus_id"
               component={renderSelectField}
               type="text"
-              label="Campuses"
-              placeholder="Select Campuses"
+              label="Campus"
+              placeholder="Select Campus"
               validate={[required]}
               multiple
             >
@@ -161,4 +163,28 @@ class EditChallengeForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'editChallenge' })(EditChallengeForm));
+EditChallengeForm = reduxForm({
+  form: 'editChallenge',
+})(EditChallengeForm);
+
+EditChallengeForm = connect(
+  state => ({
+    campuses: state.allCampuses,
+    challenge: state.selectedChallenge,
+    initialValues: {
+      id: state.selectedChallenge.id,
+      name: state.selectedChallenge.name,
+      point_value: state.selectedChallenge.point_value,
+      campus_id: state.selectedChallenge.campus_id,
+      category_id: state.selectedChallenge.category_id,
+      description: state.selectedChallenge.description,
+      requirement_1: state.selectedChallenge.requirement_1 ? state.selectedChallenge.requirement_1 : '',
+      requirement_2: state.selectedChallenge.requirement_2 ? state.selectedChallenge.requirement_2 : '',
+      requirement_3: state.selectedChallenge.requirement_3 ? state.selectedChallenge.requirement_3 : '',
+      requirement_4: state.selectedChallenge.requirement_4 ? state.selectedChallenge.requirement_4 : '',
+      requirement_5: state.selectedChallenge.requirement_5 ? state.selectedChallenge.requirement_5 : '',
+    },
+  }), { editChallenge, allCampuses, setCampuses },
+)(EditChallengeForm);
+
+export default EditChallengeForm;

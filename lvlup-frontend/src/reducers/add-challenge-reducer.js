@@ -1,13 +1,13 @@
-import initialState from './initialState';
+import * as CONST from '../constants/constants';
 
-export const challengeAdded = (state = initialState.challengeAdded, action) => {
+export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
-    case 'ADD_CHALLENGE_PENDING':
-      return state;
-    case 'ADD_CHALLENGE_FULFILLED':
-      return action.payload;
-    case 'ADD_CHALLENGE_REJECTED':
-      return action.payload;
+    case CONST.ADD_CHALLENGE_FULFILLED:
+      return Object.assign({}, { fulfilled: true }, action.payload);
+    case CONST.ADD_CHALLENGE_REJECTED:
+      return Object.assign({}, { fulfilled: false }, action.payload);
+    case CONST.RESET_ADD_CHALLENGE:
+      return Object.assign({}, { fulfilled: false });
     default:
       return state;
   }
