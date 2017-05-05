@@ -4,34 +4,34 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  editedChallenge: state.editedChallenge.data,
+  addedChallenge: state.addedChallenge.data,
 });
 
-const EditChallengeCompleted = props => (
+const AddChallengeCompleted = props => (
   <div>
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Challenge Edit Successful!</Table.HeaderCell>
+          <Table.HeaderCell>Challenge Successfully Added!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Challenge</Label>
-            {props.editedChallenge.name}
+            {props.addedChallenge.name}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Point Value</Label>
-            {props.editedChallenge.point_value}
+            {props.addedChallenge.point_value}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Description</Label>
-            {props.editedChallenge.description}
+            {props.addedChallenge.description}
           </Table.Cell>
         </Table.Row>
       </Table.Body>
@@ -42,4 +42,4 @@ const EditChallengeCompleted = props => (
   </div>
 );
 
-export default connect(mapStateToProps)(EditChallengeCompleted);
+export default connect(mapStateToProps)(AddChallengeCompleted);

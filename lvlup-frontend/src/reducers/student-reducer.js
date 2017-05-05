@@ -75,7 +75,7 @@ export const requests = (state = { requests: [] }, action) => {
   }
 };
 
-export const submissionChallenge = (state = { fulfilled: false }, action) => {
+export const submittedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.CHALLENGE_SUBMISSION_FULFILLED:
       return Object.assign({}, { fulfilled: true }, action.payload);

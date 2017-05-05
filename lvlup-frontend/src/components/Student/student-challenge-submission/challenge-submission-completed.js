@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import { Table, Button, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { resetChallenge } from '../../../actions/student-challenges-actions';
 
 const mapStateToProps = state => ({
-  submission: state.submissionChallenge,
+  submission: state.submittedChallenge,
   loginInfo: state.loginInfo,
   selectedChallenge: state.selectedChallenge,
 });
-
-const mapDispatchToProps = dispatch => bindActionCreators({ resetChallenge }, dispatch);
 
 class SubmissionCompleted extends Component {
   render() {
@@ -21,7 +17,7 @@ class SubmissionCompleted extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Submission Information</Table.HeaderCell>
+              <Table.HeaderCell>Challenge Submission Successful!</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -82,15 +78,11 @@ class SubmissionCompleted extends Component {
           </Table.Body>
         </Table>
         <Link to={'/student/challenges'}>
-          <Button
-            onClick={() => this.props.resetChallenge()}
-          >
-            Click here to confirm your submission!
-          </Button>
+          <Button>Back to Challenges</Button>
         </Link>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubmissionCompleted);
+export default connect(mapStateToProps)(SubmissionCompleted);
