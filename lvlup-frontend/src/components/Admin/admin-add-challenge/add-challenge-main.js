@@ -5,12 +5,12 @@ import AddChallengeForm from './add-challenge-form';
 import AddChallengeCompleted from './add-challenge-completed';
 
 const mapStateToProps = state => ({
-  addStatus: state.addedChallenge.fulfilled,
+  addStatus: state.addedChallenge,
 });
 
 const AddChallenge = (props) => {
-  const ifAdded = renderIf(props.addStatus);
-  const ifNotAdded = renderIf(!props.addStatus);
+  const ifAdded = renderIf(props.addStatus.fulfilled);
+  const ifNotAdded = renderIf(!props.addStatus.fulfilled);
   return (
     <div className="add-challenge">
       {ifNotAdded(<AddChallengeForm />)}
