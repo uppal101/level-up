@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { formatDate } from '../../../../helpers/dashboard';
 import { bindActionCreators } from 'redux';
 import { approveSelectedReward, denySelectedReward } from '../../../../actions/pending-rewards-actions';
+import { requestsAction } from '../../../../actions/admin-dash-actions';
+import { resetPendingRequests } from '../../../../actions/reset-actions';
+
 import '../admin-styles.css';
 
 const mapStateToProps = state => ({
@@ -11,13 +14,19 @@ const mapStateToProps = state => ({
   pendingRequests: state.adminPendingRequests.requestsAdmin,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ approveSelectedReward, denySelectedReward }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ approveSelectedReward, denySelectedReward, requestsAction, resetPendingRequests }, dispatch);
 
 class RequestsTable extends Component {
   constructor(props) {
     super(props);
     this.renderTable = this.renderTable.bind(this);
   }
+
+  componentWillMount() {
+    this.props.resetPendingRequests();
+    this.props.adminInfo.cohorts.map(item => this.props.requestsAction(item.id));
+  }
+
   renderTable(list) {
     return list.filter(reward => reward.status === 'Pending approval').map(item => (
       <Table.Row key={`${item.id}requests-table-admin`}>
@@ -37,11 +46,7 @@ class RequestsTable extends Component {
       ),
     );
   }
-  componentDidUpdate(prevProps) {
-    if (prevProps.pendingRequests.status !== this.props.pendingRequests.status) {
-      this.props.renderTable();// make backend call to update props
-    }
-  }
+
   render() {
     if (this.props.pendingRequests.length === 0) {
       return <div>LOADING</div>;

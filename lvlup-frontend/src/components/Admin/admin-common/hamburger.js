@@ -18,23 +18,6 @@ export const mapStateToProps = state => ({
 });
 
 export class HamburgerAdmin extends Component {
-  componentWillMount() {
-    const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
-    Promise.all(submissionArr)
-    .then(() => {
-      const requestArr = this.props.loggedIn.cohorts.map(item => this.props.requestsAction(item.id));
-      Promise.all(requestArr);
-    });
-  }
-
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.selectedChallenge.submission_status === 'Approved') {
-  //     console.log('here');
-  //     const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
-  //     Promise.all(submissionArr);
-  //   }
-  // }
-
   render() {
     if (!this.props.loggedIn.username) {
       return (

@@ -6,6 +6,8 @@ export const adminPendingSubmissions = (state = { submissionsAdmin: [] }, action
       return Object.assign({}, state, {
         submissionsAdmin: state.submissionsAdmin.concat(action.payload),
       });
+    case CONST.RESET_PENDING_SUBMISSIONS:
+      return Object.assign({}, { submissionsAdmin: [] });
     default:
       return state;
   }
@@ -17,6 +19,8 @@ export const adminPendingRequests = (state = { requestsAdmin: [] }, action) => {
       return Object.assign({}, state, {
         requestsAdmin: state.requestsAdmin.concat(action.payload),
       });
+    case CONST.RESET_PENDING_REWARDS:
+      return Object.assign({}, { requestsAdmin: [] });
     default:
       return state;
   }
