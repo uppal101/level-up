@@ -1,6 +1,9 @@
 .adminHamburger {
-  height: 750px;
+  height: 1080px;
   float: left;
   border-radius: 0% !important;
   margin-top: 0px !important;
+  border-right: 1px solid !important;
+  border-color: #f98613 !important;
+  background-color: #333333 !important;
 }

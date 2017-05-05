@@ -15,8 +15,8 @@ class LogOutGithub extends Component {
   render() {
     return (
       <Link to={'/'}>
-        <Button color="orange" onClick={() => this.props.loggingOutStudent()}>
-          <Icon name="github" /> LOG OUT!
+        <Button inverted color="orange" size="small" onClick={() => this.props.loggingOutStudent()}>
+          <Icon name="github" /> Log Out
         </Button>
       </Link>
     );
