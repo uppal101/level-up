@@ -5,12 +5,12 @@ import AddRewardForm from './add-reward-form';
 import AddRewardCompleted from './add-reward-completed';
 
 const mapStateToProps = state => ({
-  addStatus: state.addedReward.fulfilled,
+  addStatus: state.addedReward,
 });
 
 const AddReward = (props) => {
-  const ifAdded = renderIf(props.addStatus);
-  const ifNotAdded = renderIf(!props.addStatus);
+  const ifAdded = renderIf(props.addStatus.fulfilled);
+  const ifNotAdded = renderIf(!props.addStatus.fulfilled);
   return (
     <div className="add-reward">
       {ifNotAdded(<AddRewardForm />)}

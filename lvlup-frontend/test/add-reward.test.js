@@ -2,11 +2,18 @@ import AddReward from '../src/components/Admin/admin-add-reward/add-reward-main'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('AddReward should render', () => {
+  const store = mockStore({ lvlupApp });
   const add = shallow(
-    <AddReward />,
+    <AddReward store={store} />,
   );
-  expect(toJson(add)).toMatchSnapshot();
+  expect(shallowToJson(add)).toMatchSnapshot();
 });

@@ -10,7 +10,7 @@ import { submissionsAction } from '../../../../actions/admin-dash-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
-  pendingSubmissions: state.adminPendingSubmissions.submissionsAdmin,
+  pendingSubmissions: state.adminPendingSubmissions,
   selectedChallenge: state.selectedChallenge,
 });
 
@@ -39,7 +39,7 @@ class ChallengesTable extends Component {
     );
   }
   render() {
-    if (this.props.pendingSubmissions.length === 0) {
+    if (this.props.pendingSubmissions.submissionsAdmin.length === 0) {
       return <div>LOADING</div>;
     }
     return (
@@ -55,7 +55,7 @@ class ChallengesTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {this.renderTable(this.props.pendingSubmissions)}
+            {this.renderTable(this.props.pendingSubmissions.submissionsAdmin)}
           </Table.Body>
         </Table>
       </Container>

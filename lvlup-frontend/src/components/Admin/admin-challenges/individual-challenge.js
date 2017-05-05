@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // import { submissionForApproval } from '../../../actions/challenge-review'
-import { Table, List, Button, Header, Image, Modal, Icon } from 'semantic-ui-react';
+import { Table, List, Image, Modal, Icon } from 'semantic-ui-react';
 import SubmissionApprovalForm from './approval-form';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
