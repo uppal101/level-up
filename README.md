@@ -6,9 +6,11 @@ lvl^ is a gamified education enrichment platform for students currently enrolled
 ### Technology
 
 ####Front End:
+
 On the Front End lvl^ is built with React and Redux. Additional technologies used include Redux-Forms, Axios, Moment.js, Semantic UI, Redux-Thunk/Redux-Promise-Middleware, and Jest for testing.
 
 ####Back End:
+
 The server for lvl^ is built with Node.js and Express with a PostgreSQL database. To connect the server and database Knex and Bookshelf are used. For authentication lvl^ uses GitHub OAuth with Passport Sessions to authenticate and authorize students and JWT Tokens transported in cookies for admins. Additional technologies used include bcrypt, Moment.js, body-parser, and mocha/supertest for testing.
 
 ### To Get Started
