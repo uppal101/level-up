@@ -8,7 +8,7 @@ import { editedReward } from './edit-reward-reducer';
 import { editedChallenge } from './edit-challenge-reducer';
 import { rewardAdded } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
-
+import { approveSelectedReward, denySelectedReward } from './request-reducer';
 const lvlupApp = combineReducers({
   loginInfo,
   studentPointsAndCampus,

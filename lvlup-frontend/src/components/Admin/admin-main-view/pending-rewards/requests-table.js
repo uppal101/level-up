@@ -3,12 +3,15 @@ import { Icon, Table, Popup, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { formatDate } from '../../../../helpers/dashboard';
 import { bindActionCreators } from 'redux';
+import { approveSelectedReward, denySelectedReward } from '../../../../actions/pending-rewards-actions';
 import '../admin-styles.css';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
   pendingRequests: state.adminPendingRequests.requestsAdmin,
 });
+
+const mapDispatchToProps = dispatch => bindActionCreators({ approveSelectedReward, denySelectedReward }, dispatch);
 
 class RequestsTable extends Component {
   constructor(props) {
@@ -28,7 +31,7 @@ class RequestsTable extends Component {
           > {item.notes}
           </Popup>
         </Table.Cell>
-        <Table.Cell><Icon name="close" /> <Icon name="checkmark" /></Table.Cell>
+        <Table.Cell><div onClick={() => this.props.denySelectedReward(item)}><Icon name="close" /></div> <div onClick={() => this.props.approveSelectedReward(item)}><Icon name="checkmark" /></div></Table.Cell>
       </Table.Row>
       ),
     );
@@ -78,4 +81,4 @@ class RequestsTable extends Component {
   }
 }
 
-export default connect(mapStateToProps)(RequestsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestsTable);
