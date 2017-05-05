@@ -479,7 +479,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -647,7 +647,7 @@ describe('GET requests/students/:student_id', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -685,7 +685,7 @@ describe('POST /requests', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -729,7 +729,7 @@ describe('GET requests/:request_id', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -745,7 +745,7 @@ describe('DELETE requests/:request_id', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -777,7 +777,7 @@ describe('PUT /requests/:request_id', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -809,6 +809,6 @@ describe('PUT /requests/:request_id/admin', () => {
     supertest(app)
       .get('/api/requests/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });

@@ -5,12 +5,12 @@ import EditChallengeForm from './edit-challenge-form';
 import EditChallengeCompleted from './edit-challenge-completed';
 
 const mapStateToProps = state => ({
-  editStatus: state.editedChallenge.fulfilled,
+  editStatus: state.editedChallenge,
 });
 
-const EditChallenge = (props) => {
-  const ifEdited = renderIf(props.editStatus);
-  const ifNotEdited = renderIf(!props.editStatus);
+export const EditChallenge = (props) => {
+  const ifEdited = renderIf(props.editStatus.fulfilled);
+  const ifNotEdited = renderIf(!props.editStatus.fulfilled);
   return (
     <div className="edit-challenge">
       {ifNotEdited(<EditChallengeForm />)}

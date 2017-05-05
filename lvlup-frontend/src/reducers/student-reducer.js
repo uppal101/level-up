@@ -90,6 +90,8 @@ export const selectedChallenge = (state = {}, action) => {
   switch (action.type) {
     case CONST.SELECTED_CHALLENGE:
       return Object.assign({}, state, action.challenge);
+    case CONST.ADMIN_SUBMISSION_FORM_FULFILLED:
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
@@ -101,15 +103,6 @@ export const requestedReward = (state = { fulfilled: false }, action) => {
       return Object.assign({}, { fulfilled: true }, action.payload);
     case CONST.RESET_REQUEST:
       return Object.assign({}, { fulfilled: false });
-    default:
-      return state;
-  }
-};
-
-export const hamburgerUpdate = (state = true, action) => {
-  switch (action.type) {
-    case CONST.HAMBURGER_UPDATE_OFF:
-      return action.payload;
     default:
       return state;
   }

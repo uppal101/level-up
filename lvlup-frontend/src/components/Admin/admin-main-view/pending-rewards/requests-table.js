@@ -16,7 +16,7 @@ class RequestsTable extends Component {
   }
   renderTable(list) {
     return list.filter(reward => reward.status === 'Pending approval').map(item => (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}requests-table-admin`}>
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.reward.name}</Table.Cell>
         <Table.Cell>{formatDate(item.created_at)}</Table.Cell>

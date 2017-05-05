@@ -6,17 +6,18 @@ import { connect } from 'react-redux';
 import { submissionsAction, requestsAction } from '../../../actions/admin-dash-actions';
 import './admin-nav.css';
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+export const mapDispatchToProps = dispatch => bindActionCreators({
   submissionsAction, requestsAction,
 }, dispatch);
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   pendingSubmissions: state.adminPendingSubmissions,
   pendingRequests: state.adminPendingRequests,
+  selectedChallenge: state.selectedChallenge,
 });
 
-class HamburgerAdmin extends Component {
+export class HamburgerAdmin extends Component {
   componentWillMount() {
     const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
     Promise.all(submissionArr)
@@ -25,6 +26,15 @@ class HamburgerAdmin extends Component {
       Promise.all(requestArr);
     });
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.selectedChallenge.submission_status === 'Approved') {
+  //     console.log('here');
+  //     const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
+  //     Promise.all(submissionArr);
+  //   }
+  // }
+
   render() {
     if (!this.props.loggedIn.username) {
       return (

@@ -1,0 +1,6 @@
+exports[`test AddReward should render 1`] = `
+<div
+  className="add-reward">
+  <Connect(ReduxForm) />
+</div>
+`;

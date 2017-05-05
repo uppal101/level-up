@@ -1,0 +1,7 @@
+exports[`test StudentRewards should render 1`] = `
+<div
+  className="studentDashboard">
+  <RewardsHeader />
+  <Connect(RewardsTable) />
+</div>
+`;

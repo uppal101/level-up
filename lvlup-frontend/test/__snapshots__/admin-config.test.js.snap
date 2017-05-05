@@ -1,0 +1,6 @@
+exports[`test AdminConfiguration should render 1`] = `
+<div
+  className="admin-config">
+  <AccordionExampleStyled />
+</div>
+`;
