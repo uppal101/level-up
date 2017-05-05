@@ -1,0 +1,9 @@
+exports[`test AdminHome should render 1`] = `
+<div
+  className="dashboard">
+  <ChallengesHeader />
+  <Connect(ChallengesTable) />
+  <RequestsHeader />
+  <Connect(RequestsTable) />
+</div>
+`;
