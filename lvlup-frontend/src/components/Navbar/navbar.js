@@ -28,12 +28,6 @@ class NavBar extends Component {
           {renderIf(this.props.loggedIn.status === true)(
             <LogOutAdmin />,
           )}
-          {/* {renderIf(this.props.loginInfo.status === false)(
-            <Redirect to="/" />,
-          )}
-          {renderIf(this.props.loggedIn.status === false)(
-            <Redirect to="/" />,
-          )} */}
         </Menu.Item>
       </Menu>
     );

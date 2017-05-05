@@ -9,6 +9,7 @@ import { editedChallenge } from './edit-challenge-reducer';
 import { rewardAdded } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
 
+
 const lvlupApp = combineReducers({
   loginInfo,
   studentPointsAndCampus,
@@ -33,6 +34,7 @@ const lvlupApp = combineReducers({
   submissionChallenge,
   adminPendingRequests,
   adminPendingSubmissions,
+
 });
 
 export default lvlupApp;

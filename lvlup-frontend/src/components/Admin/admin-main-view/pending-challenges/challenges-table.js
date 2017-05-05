@@ -23,7 +23,7 @@ class ChallengesTable extends Component {
   }
   renderTable(list) {
     return list.filter(challenge => challenge.submission_status === 'Pending approval').map(item => (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}challenges-table-admin`}>
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.challenge.name}</Table.Cell>
         <Table.Cell>{formatDate(item.created_at)}</Table.Cell>

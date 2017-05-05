@@ -29,23 +29,26 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
   </div>
 );
 
+const mapStateToProps = state => ({
+  selectedChallenge: state.selectedChallenge,
+});
+
 const required = value => value ? undefined : 'Required';
 
 class SubmissionApprovalForm extends Component {
-  constuctor(props) {
+  constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
   }
 
   submit(values) {
-    console.log(values);
-    // this.props.submissionFormAdmin(id, values)
+    this.props.submissionFormAdmin(this.props.selectedChallenge.id, values);
   }
 
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Form className="email" onSubmit={handleSubmit(this.submit)}>
+      <Form onSubmit={handleSubmit(this.submit)}>
         <Form.Field inline>
           <Field
             name="evaluation_message"
@@ -66,9 +69,9 @@ class SubmissionApprovalForm extends Component {
             validate={[required]}
           >
             <option default>Select Status</option>
-            <option value={'Approved'}>{Approved}</option>
-            <option value={'Pending approval'}>{Approved}</option>
-            <option value={'Denied'}>{Approved}</option>
+            <option value={'Approved'}>Approved</option>
+            <option value={'Pending approval'}>Pending Approval</option>
+            <option value={'Denied'}>Denied</option>
 
           </Field>
         </Form.Field>
@@ -78,6 +81,6 @@ class SubmissionApprovalForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(reduxForm({
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'submissionApproval',
 })(SubmissionApprovalForm));

@@ -22,7 +22,7 @@ const renderSubmissions = list => (
   list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
     if (item.submission_status === 'Denied') {
       return (
-        <Table.Row negative key={item.id}>
+        <Table.Row negative key={`${item.id}student-dashboard1`}>
           <Table.Cell>{item.challenge.name}</Table.Cell>
           <Table.Cell>{item.category.category}</Table.Cell>
           <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -31,7 +31,7 @@ const renderSubmissions = list => (
       );
     }
     return (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}student-dashboard2`}>
         <Table.Cell>{item.challenge.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -43,7 +43,7 @@ const renderSubmissions = list => (
 
 const renderAchievements = list => (
   list.filter(submission => submission.submission_status === 'Approved').map(item => (
-    <Table.Row key={item.id}>
+    <Table.Row key={`${item.id}student-dashboard3`}>
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -54,7 +54,7 @@ const renderAchievements = list => (
 
 const renderRewardsEarned = list => (
   list.filter(request => request.status === 'Approved').map(item => (
-    <Table.Row key={item.id}>
+    <Table.Row key={`${item.id}student-dashboard4`}>
       <Table.Cell>{item.reward.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.reward.point_cost}</Table.Cell>

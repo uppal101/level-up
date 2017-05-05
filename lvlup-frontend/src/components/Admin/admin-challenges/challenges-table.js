@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom';
 import { resetEditChallenge } from '../../../actions/edit-challenge';
 import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 import './admin-challenges-style.css';
+import { submissionsAction } from '../../../actions/admin-dash-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
   challenges: state.challenges,
+  selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction }, dispatch);
 
 class ChallengesTable extends Component {
   constructor(props) {
@@ -24,6 +26,17 @@ class ChallengesTable extends Component {
     this.props.campusChallenges(this.props.adminInfo.campus_id);
     this.props.resetEditChallenge();
   }
+
+  // componentDidUpdate(prevProps) {
+  //   console.log('inside Component');
+  //   console.log(prevProps.selectedChallenge.submission_status);
+  //   console.log(this.props.selectedChallenge.submission_status);
+  //   if (prevProps.selectedChallenge.submission_status !== this.props.selectedChallenge.submission_status) {
+  //     console.log('here');
+  //     const submissionArr = this.props.adminInfo.cohorts.map(item => this.props.submissionsAction(item.id));
+  //     Promise.all(submissionArr);
+  //   }
+  // }
 
   renderTable(list) {
     return list.map(item => (
