@@ -19,15 +19,15 @@ class RequestsTable extends Component {
       <Table.Row key={item.id}>
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.reward.name}</Table.Cell>
-        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
-        <Table.Cell>
+        <Table.Cell textAlign="center">{formatDate(item.created_at)}</Table.Cell>
+        <Table.Cell textAlign="center">
           <Popup
-            trigger={<Icon circular name="comments" />}
+            trigger={<Icon circular color="orange" name="comments" />}
             wide
           > {item.notes}
           </Popup>
         </Table.Cell>
-        <Table.Cell><Icon name="close" /> <Icon name="checkmark" /></Table.Cell>
+        <Table.Cell textAlign="center"><Icon name="close" /> <Icon color="orange" name="checkmark" /></Table.Cell>
       </Table.Row>
       ),
     );
@@ -43,34 +43,15 @@ class RequestsTable extends Component {
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Reward</Table.HeaderCell>
-              <Table.HeaderCell>Date Submitted</Table.HeaderCell>
-              <Table.HeaderCell>Notes</Table.HeaderCell>
-              <Table.HeaderCell>Approve</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Date Submitted</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Notes</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Approve</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
             {this.renderTable(this.props.pendingRequests)}
           </Table.Body>
-
-          {/* <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="5">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="left chevron" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="right chevron" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer> */}
         </Table>
       </Container>
     );

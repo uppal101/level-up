@@ -66,7 +66,7 @@ class ChallengesTable extends Component {
           </Table.Body>
 
         </Table>
-        <Link to="/admin/challenge-add"><Button content="Add Challenge" /></Link>
+        <Link to="/admin/challenge-add"><Button basic color="orange" content="Add Challenge" /></Link>
       </Container>
     );
   }
