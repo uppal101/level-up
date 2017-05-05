@@ -11,8 +11,8 @@ class LogOutAdmin extends Component {
   render() {
     return (
       <Link to={'/'}>
-        <Button color="orange" onClick={() => this.props.loggingOutAdmin()}>
-          <Icon name="remove circle" /> LOG OUT!
+        <Button inverted color="orange" size="small" onClick={() => this.props.loggingOutAdmin()}>
+          <Icon name="remove circle" /> Log Out
         </Button>
       </Link>
     );

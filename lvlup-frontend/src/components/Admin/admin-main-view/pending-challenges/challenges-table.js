@@ -32,8 +32,8 @@ class ChallengesTable extends Component {
       <Table.Row key={`${item.id}challenges-table-admin`}>
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.challenge.name}</Table.Cell>
-        <Table.Cell>{formatDate(item.created_at)}</Table.Cell>
-        <Table.Cell onClick={() => this.props.selectChallenge(item)}><Link to={`/admin/individual-pending-challenge/${item.id}`}><Icon name="eye" /></Link></Table.Cell>
+        <Table.Cell textAlign="center">{formatDate(item.created_at)}</Table.Cell>
+        <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}><Link to={`/admin/individual-pending-challenge/${item.id}`}><Icon color="orange" name="eye" /></Link></Table.Cell>
       </Table.Row>
       ),
     );
@@ -44,38 +44,19 @@ class ChallengesTable extends Component {
     }
     return (
       <Container>
-        <Table celled>
+        <Table celled color="orange">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Date Submitted</Table.HeaderCell>
-              <Table.HeaderCell>View</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Date Submitted</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">View</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
             {this.renderTable(this.props.pendingSubmissions)}
           </Table.Body>
-
-          {/* <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="left chevron" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="right chevron" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer> */}
         </Table>
       </Container>
     );

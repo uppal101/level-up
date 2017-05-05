@@ -7,9 +7,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <Button.Group floated="right">
-          <Link to={'/login-admin'}><Button color="orange">Admin</Button></Link>
-        </Button.Group>
+        <Link to={'/login-admin'}><Button inverted color="orange" size="small" floated="right">Admin</Button></Link>
       </div>
     );
   }

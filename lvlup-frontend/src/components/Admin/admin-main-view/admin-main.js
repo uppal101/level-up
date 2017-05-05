@@ -7,7 +7,7 @@ import RequestsTable from './pending-rewards/requests-table';
 class AdminHome extends Component {
   render() {
     return (
-      <div className="dashboard">
+      <div className="lvl-table">
         <ChallengesHeader />
         <ChallengesTable />
         <RequestsHeader />

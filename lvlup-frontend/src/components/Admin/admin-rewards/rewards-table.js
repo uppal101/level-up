@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Icon, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../actions/student-rewards-actions';
 import { resetEditReward } from '../../../actions/edit-reward';
@@ -34,12 +34,12 @@ class RewardsTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell>
+        <Table.Cell textAlign="center">
           <Link to={`/admin/reward-edit/${item.id}`}>
-            <Icon onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
+            <Icon color="orange" onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
         </Table.Cell>
-        <Table.Cell><Icon onClick={() => this.props.selectReward(item)} name="trash" /></Table.Cell>
-        <Table.Cell>{item.point_cost}</Table.Cell>
+        <Table.Cell textAlign="center"><Icon onClick={() => this.props.selectReward(item)} name="trash" /></Table.Cell>
+        <Table.Cell textAlign="center">{item.point_cost}</Table.Cell>
       </Table.Row>
     ));
   }
@@ -56,9 +56,9 @@ class RewardsTable extends Component {
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Edit</Table.HeaderCell>
-              <Table.HeaderCell>Remove</Table.HeaderCell>
-              <Table.HeaderCell>Points</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -67,6 +67,7 @@ class RewardsTable extends Component {
           </Table.Body>
 
         </Table>
+        <Link to="/admin/reward-add"><Button basic color="orange" content="Add Reward" /></Link>
       </Container>
     );
   }

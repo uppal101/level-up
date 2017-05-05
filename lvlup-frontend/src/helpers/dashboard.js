@@ -30,4 +30,4 @@ export const quarterPointFinder = (pointsObj) => {
   }
 };
 
-export const formatDate = time => moment(time).format('MMMM Do, YYYY');
+export const formatDate = time => moment(time).format('MM/DD/YYYY');
