@@ -1,0 +1,11 @@
+exports[`test StudentChallenges should render 1`] = `
+<div>
+  <div
+    className="studentDashboard">
+    <h1>
+      Student Challenges Available
+    </h1>
+    <Connect(StudentChallengesTable) />
+  </div>
+</div>
+`;
