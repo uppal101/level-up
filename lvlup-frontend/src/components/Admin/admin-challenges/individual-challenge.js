@@ -22,7 +22,7 @@ const imageModal = image => (
   </Modal>
 );
 
-class SelectedChallenge extends Component {
+export class SelectedChallenge extends Component {
   constructor(props) {
     super(props);
     this.renderStudentSubmission = this.renderStudentSubmission.bind(this);

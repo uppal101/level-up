@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
-// import StudentSignUp from './components/Student/student-signup/signup';
 import AdminSignUp from './components/Admin/admin-signup/signup';
 import AdminLogin from './components/Admin/admin-login/login';
 import SelectedChallenge from './components/Admin/admin-challenges/individual-challenge';
