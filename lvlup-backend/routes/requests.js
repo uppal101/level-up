@@ -76,7 +76,6 @@ router.route('/requests/:request_id')
 
 router.route('/requests/:request_id/admin')
   .put(authorize.isAdmin, (req, res) => {
-    console.log(req.body);
     RewardRequest.forge({ id: req.params.request_id })
     .fetch()
     .then(request => request.save({
