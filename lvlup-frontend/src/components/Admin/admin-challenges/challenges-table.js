@@ -27,17 +27,6 @@ class ChallengesTable extends Component {
     this.props.resetEditChallenge();
   }
 
-  // componentDidUpdate(prevProps) {
-  //   console.log('inside Component');
-  //   console.log(prevProps.selectedChallenge.submission_status);
-  //   console.log(this.props.selectedChallenge.submission_status);
-  //   if (prevProps.selectedChallenge.submission_status !== this.props.selectedChallenge.submission_status) {
-  //     console.log('here');
-  //     const submissionArr = this.props.adminInfo.cohorts.map(item => this.props.submissionsAction(item.id));
-  //     Promise.all(submissionArr);
-  //   }
-  // }
-
   renderTable(list) {
     return list.map(item => (
       <Table.Row key={item.id}>
