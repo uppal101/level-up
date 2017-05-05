@@ -7,7 +7,7 @@ lvl^ is a gamified education enrichment platform for students currently enrolled
 
 Front End:
 
-On the Front End lvl^ is built with React and Redux. Additional technologies used include Redux-Forms, Axios, Moment.js, Semantic UI, Redux-Thunk/Redux-Promise-Middleware, and Jest for testing.
+On the Front End lvl^ is built with React and Redux. Additional technologies used include Redux-Forms, Axios, React-Router-DOM, Moment.js, Semantic UI, Redux-Thunk/Redux-Promise-Middleware, and Jest for testing.
 
 Back End:
 
