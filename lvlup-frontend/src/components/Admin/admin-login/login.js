@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
 });
 
-class AdminLogin extends Component {
+export class AdminLogin extends Component {
   render() {
     return (
       <div>

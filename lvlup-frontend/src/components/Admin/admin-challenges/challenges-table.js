@@ -7,13 +7,17 @@ import { resetEditChallenge } from '../../../actions/edit-challenge';
 import { resetAddChallenge } from '../../../actions/add-challenge';
 import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
 import './admin-challenges-style.css';
+import { submissionsAction } from '../../../actions/admin-dash-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
   challenges: state.challenges,
+  selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, resetAddChallenge }, dispatch);
+
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge }, dispatch);
+
 
 class ChallengesTable extends Component {
   constructor(props) {

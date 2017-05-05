@@ -1,0 +1,6 @@
+exports[`test adminsignup should render 1`] = `
+<div
+  className="signup">
+  <Connect(ReduxForm) />
+</div>
+`;

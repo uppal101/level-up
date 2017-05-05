@@ -32,7 +32,7 @@ describe('GET students', () => {
     supertest(app)
     .get('/api/students')
     .expect('Content-Type', /plain/)
-    .expect(401, 'You must be logged in', done);
+    .expect(401, 'Unauthorize', done);
   });
   it('responds with JSON if authorized', (done) => {
     supertest(app)
@@ -90,7 +90,7 @@ describe('GET students/:id', () => {
     supertest(app)
     .get('/api/students')
     .expect('Content-Type', /plain/)
-    .expect(401, 'You must be logged in', done);
+    .expect(401, 'Unauthorize', done);
   });
   it('responds with JSON', (done) => {
     supertest(app)

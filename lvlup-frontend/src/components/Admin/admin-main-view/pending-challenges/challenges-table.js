@@ -6,14 +6,15 @@ import { Link } from 'react-router-dom';
 import { selectChallenge } from '../../../../actions/student-challenges-actions';
 import { formatDate } from '../../../../helpers/dashboard';
 import '../admin-styles.css';
+import { submissionsAction } from '../../../../actions/admin-dash-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
   pendingSubmissions: state.adminPendingSubmissions.submissionsAdmin,
-
+  selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge, submissionsAction }, dispatch);
 
 
 class ChallengesTable extends Component {
@@ -21,9 +22,14 @@ class ChallengesTable extends Component {
     super(props);
     this.renderTable = this.renderTable.bind(this);
   }
+
+  componentWillMount() {
+    this.props.adminInfo.cohorts.map(item => this.props.submissionsAction(item.id));
+  }
+
   renderTable(list) {
     return list.filter(challenge => challenge.submission_status === 'Pending approval').map(item => (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}challenges-table-admin`}>
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.challenge.name}</Table.Cell>
         <Table.Cell textAlign="center">{formatDate(item.created_at)}</Table.Cell>
