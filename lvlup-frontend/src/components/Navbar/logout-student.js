@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { loggingOutStudent } from '../../actions/navbar';
 import { Link } from 'react-router-dom';
-import renderIf from 'render-if';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ loggingOutStudent }, dispatch);
 
