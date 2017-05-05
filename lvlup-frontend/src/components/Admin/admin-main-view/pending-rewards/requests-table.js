@@ -31,10 +31,15 @@ class RequestsTable extends Component {
           > {item.notes}
           </Popup>
         </Table.Cell>
-        <Table.Cell><div onClick={() => this.props.denySelectedReward(item)}><Icon name="close" /></div> <div onClick={() => this.props.approveSelectedReward(item)}><Icon name="checkmark" /></div></Table.Cell>
+        <Table.Cell><div onClick={() => this.props.denySelectedReward(item, { status: 'Denied' })}><Icon name="close" /></div> <div onClick={() => this.props.approveSelectedReward(item, { status: 'Approved' })}><Icon name="checkmark" /></div></Table.Cell>
       </Table.Row>
       ),
     );
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.pendingRequests.status !== this.props.pendingRequests.status) {
+      this.props.renderTable();
+    }
   }
   render() {
     if (this.props.pendingRequests.length === 0) {

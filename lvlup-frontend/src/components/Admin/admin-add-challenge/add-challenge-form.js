@@ -90,7 +90,6 @@ class AddChallengeForm extends Component {
         type="text"
         label="Requirement"
         placeholder="Requirement"
-        validate={[required]}
       />));
     }
     return requirementInputComponents;
