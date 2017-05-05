@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 // import { submissionForApproval } from '../../../actions/challenge-review'
 import { Table, List, Button, Header, Image, Modal, Icon } from 'semantic-ui-react';
 import SubmissionApprovalForm from './approval-form';
-import { Lightbox } from 'react-lightbox-component';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
 
