@@ -10,6 +10,7 @@ import { addedReward } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
 import { approveSelectedReward, denySelectedReward } from './request-reducer';
 
+
 const lvlupApp = combineReducers({
   loginInfo,
   studentPointsAndCampus,
@@ -36,7 +37,6 @@ const lvlupApp = combineReducers({
   adminPendingSubmissions,
   approveSelectedReward,
   denySelectedReward,
-
 });
 
 export default lvlupApp;

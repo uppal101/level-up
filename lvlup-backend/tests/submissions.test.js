@@ -545,7 +545,7 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           category_id: 1,
           submission_message: 'Built a front-end app for CheesWhiz api',
           evaluation_message: null,
-          submission_status: 'Pending',
+          submission_status: 'Pending approval',
           submission_attachment_1: null,
           submission_attachment_2: null,
           submission_attachment_3: null,
@@ -576,7 +576,7 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           category_id: 1,
           submission_message: 'Built a front-end app for supSeasonal api',
           evaluation_message: null,
-          submission_status: 'Pending',
+          submission_status: 'Pending approval',
           submission_attachment_1: null,
           submission_attachment_2: null,
           submission_attachment_3: null,
@@ -607,7 +607,7 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
           category_id: 1,
           submission_message: 'Built a front-end app for g42beats api',
           evaluation_message: null,
-          submission_status: 'Pending',
+          submission_status: 'Pending approval',
           submission_attachment_1: null,
           submission_attachment_2: null,
           submission_attachment_3: null,
@@ -884,7 +884,7 @@ describe('GET /submissions/cohorts/:cohort_id', () => {
     supertest(app)
       .get('/api/submissions/cohorts/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -922,7 +922,7 @@ describe('POST /submissions', () => {
     supertest(app)
       .post('/api/submissions')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -1102,7 +1102,7 @@ describe('GET /submissions/students/:student_id', () => {
           category_id: 1,
           submission_message: 'Built a front-end app for CheesWhiz api',
           evaluation_message: null,
-          submission_status: 'Pending',
+          submission_status: 'Pending approval',
           submission_attachment_1: null,
           submission_attachment_2: null,
           submission_attachment_3: null,
@@ -1224,7 +1224,7 @@ describe('GET /submissions/students/:student_id', () => {
     supertest(app)
       .get('/api/submissions/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -1279,7 +1279,7 @@ describe('GET /submissions/:submission_id', () => {
     supertest(app)
       .get('/api/submissions/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -1295,7 +1295,7 @@ describe('DELETE /submissions/:submission_id', () => {
     supertest(app)
       .delete('/api/submissions/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -1337,7 +1337,7 @@ describe('PUT /submissions/:submission_id', () => {
     supertest(app)
       .put('/api/submissions/1')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });
 
@@ -1378,6 +1378,6 @@ describe('PUT /submissions/:submission_id/admin', () => {
     supertest(app)
       .put('/api/submissions/1/admin')
       .set('Accept', 'application/json')
-      .expect(401, 'You must be logged in', done);
+      .expect(401, 'Unauthorize', done);
   });
 });

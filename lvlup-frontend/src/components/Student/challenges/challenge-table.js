@@ -27,7 +27,7 @@ class StudentChallengesTable extends Component {
 
   renderTable(list) {
     return list.map(item => (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}challenges-table-student`}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>

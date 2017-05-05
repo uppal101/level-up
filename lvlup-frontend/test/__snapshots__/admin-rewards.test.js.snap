@@ -1,0 +1,8 @@
+exports[`test AdminRewards should render 1`] = `
+<div
+  className="rewards">
+  <RewardsHeader />
+  <Connect(RewardsTable) />
+  <AddButton />
+</div>
+`;
