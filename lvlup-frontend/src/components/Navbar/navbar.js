@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Button, Icon } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import '../Home/homeview.css';
-import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginGithub from './login-github';
 import LogOutGithub from './logout-student';
