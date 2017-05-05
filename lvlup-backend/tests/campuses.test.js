@@ -124,6 +124,6 @@ describe('DELETE /campuses/:id', () => {
         .delete('/api/campuses/Denver-GoldenTriangle')
 
         .set('Accept', 'Application/json')
-        .expect(401, 'You must be an Administrator', done);
+        .expect(401, 'Unauthorized', done);
   });
 });

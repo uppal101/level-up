@@ -10,8 +10,8 @@ import { submissionsAction } from '../../../actions/student-dash-actions';
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
-  submissions: state.submissions.submissions,
-  requests: state.requests.requests,
+  submissions: state.submissions,
+  requests: state.requests,
   submission: state.submissionChallenge,
 });
 
@@ -22,7 +22,7 @@ const renderSubmissions = list => (
   list.filter(submission => submission.submission_status !== 'Approved').map((item) => {
     if (item.submission_status === 'Denied') {
       return (
-        <Table.Row negative key={item.id}>
+        <Table.Row negative key={`${item.id}student-dashboard1`}>
           <Table.Cell>{item.challenge.name}</Table.Cell>
           <Table.Cell>{item.category.category}</Table.Cell>
           <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -31,7 +31,7 @@ const renderSubmissions = list => (
       );
     }
     return (
-      <Table.Row key={item.id}>
+      <Table.Row key={`${item.id}student-dashboard2`}>
         <Table.Cell>{item.challenge.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -43,7 +43,7 @@ const renderSubmissions = list => (
 
 const renderAchievements = list => (
   list.filter(submission => submission.submission_status === 'Approved').map(item => (
-    <Table.Row key={item.id}>
+    <Table.Row key={`${item.id}student-dashboard3`}>
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.challenge.point_value}</Table.Cell>
@@ -54,7 +54,7 @@ const renderAchievements = list => (
 
 const renderRewardsEarned = list => (
   list.filter(request => request.status === 'Approved').map(item => (
-    <Table.Row key={item.id}>
+    <Table.Row key={`${item.id}student-dashboard4`}>
       <Table.Cell>{item.reward.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
       <Table.Cell>{item.reward.point_cost}</Table.Cell>
@@ -63,7 +63,7 @@ const renderRewardsEarned = list => (
   ))
 );
 
-class StudentDashboard extends Component {
+export class StudentDashboard extends Component {
   componentWillMount() {
     if (this.props.loginInfo.id) {
       this.props.submissionsAction(this.props.loginInfo.id);
@@ -73,7 +73,7 @@ class StudentDashboard extends Component {
     if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
       return (<div>LOADING</div>);
     }
-    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.length === 0) {
+    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
       return (
         <div className="studentDashboard">
           <SignupInfo />
@@ -122,7 +122,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderSubmissions(this.props.submissions)}
+            {renderSubmissions(this.props.submissions.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -138,7 +138,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderAchievements(this.props.submissions)}
+            {renderAchievements(this.props.submissions.submissions)}
           </Table.Body>
         </Table>
         <Table celled>
@@ -154,7 +154,7 @@ class StudentDashboard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {renderRewardsEarned(this.props.requests)}
+            {renderRewardsEarned(this.props.requests.requests)}
           </Table.Body>
         </Table>
       </div>

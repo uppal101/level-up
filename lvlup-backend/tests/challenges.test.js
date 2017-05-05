@@ -32,7 +32,7 @@ describe('GET challenges/campuses/:campus_id', () => {
     supertest(app)
     .get('/api/challenges/campuses/1')
     .expect('Content-Type', /plain/)
-    .expect(401, 'You must be logged in', done);
+    .expect(401, 'Unauthorize', done);
   });
   it('responds with JSON', (done) => {
     supertest(app)
@@ -288,7 +288,7 @@ describe('GET challenges/:id', () => {
     supertest(app)
     .get('/api/students')
     .expect('Content-Type', /plain/)
-    .expect(401, 'You must be logged in', done);
+    .expect(401, 'Unauthorize', done);
   });
   it('responds with JSON if user is logged in', (done) => {
     supertest(app)
