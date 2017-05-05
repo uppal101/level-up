@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className="header">lvl^</h1>
+        <h1 className="home-header">lvl^</h1>
         <div className="description">
           <p>
             Welcome to lvl^ the gamification of tasks that help you in your quest to become a better developer and

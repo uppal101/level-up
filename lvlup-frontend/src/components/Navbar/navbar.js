@@ -15,16 +15,16 @@ const mapStateToProps = state => ({
 class NavBar extends Component {
   render() {
     return (
-      <Menu size="massive" className="nav">
-        <Menu.Item className="left" header><div className="name">lvl^</div></Menu.Item>
+      <Menu secondary size="small" className="nav">
+        <Menu.Item className="left" header><div className="hamburger">lvl^</div></Menu.Item>
         <Menu.Item className="right">
-          {renderIf(this.props.loginInfo.status === false && this.props.loggedIn.status === false)(
+          {renderIf(!this.props.loginInfo.status && !this.props.loggedIn.status)(
             <LoginGithub />,
           )}
-          {renderIf(this.props.loginInfo.status === true)(
+          {renderIf(this.props.loginInfo.status)(
             <LogOutGithub />,
           )}
-          {renderIf(this.props.loggedIn.status === true)(
+          {renderIf(this.props.loggedIn.status)(
             <LogOutAdmin />,
           )}
         </Menu.Item>

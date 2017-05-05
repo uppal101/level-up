@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -37,13 +37,13 @@ class ChallengesTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell onClick={() => this.props.selectChallenge(item)}>
+        <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}>
           <Link to={`/admin/challenge-edit/${item.id}`}>
-            <Icon name="pencil" />
+            <Icon color="orange" name="pencil" />
           </Link>
         </Table.Cell>
-        <Table.Cell><Icon name="trash" /></Table.Cell>
-        <Table.Cell>{item.point_value}</Table.Cell>
+        <Table.Cell textAlign="center"><Icon name="trash" /></Table.Cell>
+        <Table.Cell textAlign="center">{item.point_value}</Table.Cell>
       </Table.Row>
     ));
   }
@@ -59,9 +59,9 @@ class ChallengesTable extends Component {
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Edit</Table.HeaderCell>
-              <Table.HeaderCell>Remove</Table.HeaderCell>
-              <Table.HeaderCell>Points</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -70,6 +70,7 @@ class ChallengesTable extends Component {
           </Table.Body>
 
         </Table>
+        <Link to="/admin/challenge-add"><Button basic color="orange" content="Add Challenge" /></Link>
       </Container>
     );
   }

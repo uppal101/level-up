@@ -5,8 +5,8 @@ class LoginGithub extends Component {
   render() {
     return (
       <a href={'/api/auth/github/'}>
-        <Button color="orange">
-          <Icon name="github" /> Log In or Sign Up with Github
+        <Button inverted color="orange" size="small">
+          Log In&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<Icon name="github" />&nbsp;&nbsp;Sign Up
         </Button>
       </a>
     );
