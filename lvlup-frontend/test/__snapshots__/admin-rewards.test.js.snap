@@ -1,8 +1,7 @@
 exports[`test AdminRewards should render 1`] = `
 <div
-  className="rewards">
+  className="lvl-table">
   <RewardsHeader />
   <Connect(RewardsTable) />
-  <AddButton />
 </div>
 `;

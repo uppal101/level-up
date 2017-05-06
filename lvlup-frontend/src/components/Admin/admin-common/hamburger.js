@@ -18,15 +18,6 @@ export const mapStateToProps = state => ({
 });
 
 export class HamburgerAdmin extends Component {
-  componentWillMount() {
-    const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
-    Promise.all(submissionArr)
-    .then(() => {
-      const requestArr = this.props.loggedIn.cohorts.map(item => this.props.requestsAction(item.id));
-      Promise.all(requestArr);
-    });
-  }
-
   render() {
     if (!this.props.loggedIn.username) {
       return (
