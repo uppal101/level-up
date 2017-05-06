@@ -32,7 +32,7 @@ export default class App extends Component {
     return (
       <div>
         <Router>
-          <div>
+          <div id="app-div">
             <NavBar />
             <Route exact path="/" component={Home} />
             <Route path="/student" component={HamburgerStudent} />
