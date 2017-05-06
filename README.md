@@ -45,3 +45,13 @@ passport.use(new GitHubStrategy({
 ```
 10. `npm start` To run locally
 11. lvl^ !
+
+### Testing
+
+Front End:
+1. `cd lvlup-frontend`
+2. `npm run-script coverage`
+
+Back End:
+1. `cd lvlup-backend`
+2. `npm test`
