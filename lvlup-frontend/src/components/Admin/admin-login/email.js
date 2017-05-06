@@ -58,7 +58,9 @@ class LoginForm extends Component {
             validate={[required, minValue7]}
           />
         </Form.Field>
-        <Form.Button>Login</Form.Button>
+        <div id="admin-login-button">
+          <Form.Button basic color="orange">Login</Form.Button>
+        </div>
       </Form>
     );
   }

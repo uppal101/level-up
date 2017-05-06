@@ -27,14 +27,6 @@ export class HamburgerAdmin extends Component {
     });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.selectedChallenge.submission_status === 'Approved') {
-  //     console.log('here');
-  //     const submissionArr = this.props.loggedIn.cohorts.map(item => this.props.submissionsAction(item.id));
-  //     Promise.all(submissionArr);
-  //   }
-  // }
-
   render() {
     if (!this.props.loggedIn.username) {
       return (
@@ -42,17 +34,19 @@ export class HamburgerAdmin extends Component {
       );
     }
     return (
-      <Menu inverted vertical className="adminHamburger">
-        <Menu.Item><Image src={this.props.loggedIn.gravatar_url ? this.props.loggedIn.gravatar_url : 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png'} shape="circular" size="tiny" alt={this.props.loggedIn.name} centered />
-          <div className="userdiv">
-            <h4>{this.props.loggedIn.username}</h4>
-          </div>
-        </Menu.Item>
-        <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
-        <Link to={'/admin/challenges'}><Menu.Item><Icon name="chevron up" />Challenges</Menu.Item></Link>
-        <Link to={'/admin/rewards'}><Menu.Item><Icon name="gift" />Rewards</Menu.Item></Link>
-        <Link to={'/admin/configuration'}><Menu.Item><Icon name="setting" />Configuration</Menu.Item></Link>
-      </Menu>
+      <div className="sidenav-container">
+        <Menu inverted vertical className="adminHamburger">
+          <Menu.Item><Image src={this.props.loggedIn.gravatar_url ? this.props.loggedIn.gravatar_url : 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png'} shape="circular" size="tiny" alt={this.props.loggedIn.name} centered />
+            <div className="userdiv">
+              <h4>{this.props.loggedIn.username}</h4>
+            </div>
+          </Menu.Item>
+          <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
+          <Link to={'/admin/challenges'}><Menu.Item><Icon name="chevron up" />Challenges</Menu.Item></Link>
+          <Link to={'/admin/rewards'}><Menu.Item><Icon name="gift" />Rewards</Menu.Item></Link>
+          <Link to={'/admin/configuration'}><Menu.Item><Icon name="setting" />Configuration</Menu.Item></Link>
+        </Menu>
+      </div>
     );
   }
 }
