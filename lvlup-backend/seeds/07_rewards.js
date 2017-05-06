@@ -65,6 +65,38 @@ exports.seed = function (knex, Promise) {
       campus_id: 9,
       category_id: 3,
     },
+    {
+      id: 9,
+      name: 'Mock Interivew with a Member Company with Feedback',
+      point_cost: 750,
+      description: 'Have a mock interview with feedback from a member company.',
+      campus_id: 1,
+      category_id: 3,
+    },
+    {
+      id: 10,
+      name: 'Coaching Lunch with Career Services',
+      point_cost: 500,
+      description: 'Have lunch and receive tips on your career search with a member of the Career Services Team.',
+      campus_id: 1,
+      category_id: 3,
+    },
+    {
+      id: 11,
+      name: '30 Minutes of Instructor Pair Progreamming',
+      point_cost: 250,
+      description: 'Pair program with the instructor of your choice.',
+      campus_id: 1,
+      category_id: 3,
+    },
+    {
+      id: 12,
+      name: '30 minute 1:1 Lesson Led by Instructor on Technology Outside of Curriculum',
+      point_cost: 250,
+      description: 'Pick an instructor with a specialty or skill that is not taught by Galvanize (like Swift).',
+      campus_id: 1,
+      category_id: 1,
+    },
   ]))
   .then(() => knex.raw('SELECT setval(\'rewards_id_seq\', (SELECT MAX(id) FROM rewards))'));
 };

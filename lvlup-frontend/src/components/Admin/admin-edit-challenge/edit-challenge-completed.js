@@ -1,14 +1,15 @@
 import React from 'react';
-import { Label, Table, Button } from 'semantic-ui-react';
+import { Label, Table, Button, Grid, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './admin-edit-challenge-styles.css';
 
 const mapStateToProps = state => ({
   editedChallenge: state.editedChallenge,
 });
 
 const EditChallengeCompleted = props => (
-  <div>
+  <Container>
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
@@ -36,10 +37,12 @@ const EditChallengeCompleted = props => (
         </Table.Row>
       </Table.Body>
     </Table>
-    <Link to={'/admin/challenges'}>
-      <Button>Back to Challenges</Button>
-    </Link>
-  </div>
+    <Grid centered>
+      <Link to={'/admin/challenges'}>
+        <Button basic color="orange" id="completed-btn">Back to Challenges</Button>
+      </Link>
+    </Grid>
+  </Container>
 );
 
 export default connect(mapStateToProps)(EditChallengeCompleted);

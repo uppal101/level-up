@@ -7,6 +7,7 @@ import { selectChallenge } from '../../../../actions/student-challenges-actions'
 import { formatDate } from '../../../../helpers/dashboard';
 import '../admin-styles.css';
 import { submissionsAction } from '../../../../actions/admin-dash-actions';
+import { resetPendingSubmissions } from '../../../../actions/reset-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
   selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge, submissionsAction }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge, submissionsAction, resetPendingSubmissions }, dispatch);
 
 
 class ChallengesTable extends Component {
@@ -24,6 +25,7 @@ class ChallengesTable extends Component {
   }
 
   componentWillMount() {
+    this.props.resetPendingSubmissions();
     this.props.adminInfo.cohorts.map(item => this.props.submissionsAction(item.id));
   }
 

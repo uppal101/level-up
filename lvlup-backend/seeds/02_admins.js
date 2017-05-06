@@ -11,7 +11,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 2,
-      username: 'tweetordie',
+      username: 'CSM-Mary-Ann',
       name: 'Mary Ann Barge',
       email: 'maryann.barge@galvanize.com',
       hashed_password: '$2a$04$kQf8f8uARgwB1zjHkoDwjOsxyglqS38c4yi.ViFcHR59g.CLvk8Ma',

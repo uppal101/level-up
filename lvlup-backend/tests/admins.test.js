@@ -46,7 +46,7 @@ describe('GET /admins/', () => {
         {
 
           id: 2,
-          username: 'tweetordie',
+          username: 'CSM-Mary-Ann',
           name: 'Mary Ann Barge',
 
           email: 'maryann.barge@galvanize.com',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Label, Table, Button } from 'semantic-ui-react';
+import { Label, Table, Button, Container, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const AddRewardCompleted = props => (
-  <div>
+  <Container>
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
@@ -36,10 +36,12 @@ const AddRewardCompleted = props => (
         </Table.Row>
       </Table.Body>
     </Table>
-    <Link to={'/admin/rewards'}>
-      <Button>Back to Rewards</Button>
-    </Link>
-  </div>
+    <Grid centered>
+      <Link to={'/admin/rewards'}>
+        <Button basic color="orange" id="completed-btn">Back to Rewards</Button>
+      </Link>
+    </Grid>
+  </Container>
 );
 
 

@@ -17,3 +17,7 @@
   color: #DDDDDD !important;
   border: 1px solid #F2711C !important;
 }
+
+#completed-btn {
+  margin-top: 20px;
+}
