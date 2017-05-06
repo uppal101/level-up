@@ -16,7 +16,7 @@ export class AdminLogin extends Component {
         {renderIf(!this.props.loggedIn.username)(
           <div className="login">
             <Form />
-            <p>
+            <p id="need-account">
               Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
           </div>)}
         {renderIf(this.props.loggedIn.username)(

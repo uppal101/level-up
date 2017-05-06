@@ -12,12 +12,16 @@
   text-align: center;
 }
 
-.button {
-  margin-top: 20px;
-}
-
 .login {
   text-align: center;
   width: 50%;
   margin-left: 25%
+}
+
+#admin-login-button {
+  margin-top: 20px;
+}
+
+#need-account {
+  margin-top: 15px;
 }

@@ -1,6 +1,6 @@
 exports[`test AdminHome should render 1`] = `
 <div
-  className="dashboard">
+  className="lvl-table">
   <ChallengesHeader />
   <Connect(ChallengesTable) />
   <RequestsHeader />

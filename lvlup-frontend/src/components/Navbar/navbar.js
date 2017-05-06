@@ -16,7 +16,7 @@ class NavBar extends Component {
   render() {
     return (
       <Menu secondary size="small" className="nav">
-        <Menu.Item className="left" header><div className="hamburger">lvl^</div></Menu.Item>
+        <Menu.Item className="center" header><div className="hamburger" textAlign="center">lvl^</div></Menu.Item>
         <Menu.Item className="right">
           {renderIf(!this.props.loginInfo.status && !this.props.loggedIn.status)(
             <LoginGithub />,
