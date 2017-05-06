@@ -8,7 +8,7 @@ import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
   lvlUpInfo: state.studentPointsAndCampus,
-  rewards: state.rewards.rewards,
+  rewards: state.rewards,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, resetRequest, selectReward }, dispatch);
@@ -42,7 +42,7 @@ class RewardsTable extends Component {
   }
 
   render() {
-    if (this.props.rewards.length === 0) {
+    if (this.props.rewards.rewards.length === 0) {
       return (<div>LOADING</div>);
     }
     return (
@@ -59,7 +59,7 @@ class RewardsTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {this.renderRewards(this.props.rewards)}
+            {this.renderRewards(this.props.rewards.rewards)}
           </Table.Body>
 
         </Table>

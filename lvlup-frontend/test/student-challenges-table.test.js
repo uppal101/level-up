@@ -1,4 +1,4 @@
-import AddReward from '../src/components/Admin/admin-add-reward/add-reward-main';
+import ChallengesTable from '../src/components/Student/challenges/challenge-table';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('AddReward should render', () => {
+test('ChallengesTable should render', () => {
   const store = mockStore({ lvlupApp });
-  const add = shallow(
-    <AddReward store={store} />,
+  const challenge = shallow(
+    <ChallengesTable store={store} />,
   );
-  expect(shallowToJson(add)).toMatchSnapshot();
+  expect(shallowToJson(challenge)).toMatchSnapshot();
 });

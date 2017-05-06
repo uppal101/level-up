@@ -1,4 +1,4 @@
-import AddReward from '../src/components/Admin/admin-add-reward/add-reward-main';
+import StudentSignup from '../src/components/Student/student-main-view/student-signup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('AddReward should render', () => {
+test('StudentSignup should render', () => {
   const store = mockStore({ lvlupApp });
-  const add = shallow(
-    <AddReward store={store} />,
+  const signup = shallow(
+    <StudentSignup store={store} />,
   );
-  expect(shallowToJson(add)).toMatchSnapshot();
+  expect(shallowToJson(signup)).toMatchSnapshot();
 });

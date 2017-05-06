@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import './admin-edit-challenge-styles.css';
 
 const mapStateToProps = state => ({
-  editedChallenge: state.editedChallenge.data,
+  editedChallenge: state.editedChallenge,
 });
 
 const EditChallengeCompleted = props => (
@@ -20,19 +20,19 @@ const EditChallengeCompleted = props => (
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Challenge</Label>
-            {props.editedChallenge.name}
+            {props.editedChallenge.data.name}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Point Value</Label>
-            {props.editedChallenge.point_value}
+            {props.editedChallenge.data.point_value}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Description</Label>
-            {props.editedChallenge.description}
+            {props.editedChallenge.data.description}
           </Table.Cell>
         </Table.Row>
       </Table.Body>

@@ -11,7 +11,7 @@ import '../admin-styles.css';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
-  pendingRequests: state.adminPendingRequests.requestsAdmin,
+  pendingRequests: state.adminPendingRequests,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ approveSelectedReward, denySelectedReward, requestsAction, resetPendingRequests }, dispatch);
@@ -65,9 +65,13 @@ class RequestsTable extends Component {
       ),
     );
   }
-
+  componentDidUpdate(prevProps) {
+    if (prevProps.pendingRequests.requestsAdmin.status !== this.props.pendingRequests.requestsAdmin.status) {
+      this.props.renderTable();// make backend call to update props
+    }
+  }
   render() {
-    if (this.props.pendingRequests.length === 0) {
+    if (this.props.pendingRequests.requestsAdmin.length === 0) {
       return <div>LOADING</div>;
     }
     return (
@@ -84,7 +88,7 @@ class RequestsTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {this.renderTable(this.props.pendingRequests)}
+            {this.renderTable(this.props.pendingRequests.requestsAdmin)}
           </Table.Body>
         </Table>
       </Container>

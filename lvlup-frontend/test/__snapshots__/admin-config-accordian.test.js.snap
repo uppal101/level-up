@@ -1,0 +1,18 @@
+exports[`test ConfigurationAccordian should render 1`] = `
+<Accordion
+  exclusive={false}
+  fluid={true}
+  panels={
+    Array [
+      Object {
+        "title": 0,
+      },
+      Object {
+        "title": 1,
+      },
+      Object {
+        "title": 2,
+      },
+    ]
+  } />
+`;

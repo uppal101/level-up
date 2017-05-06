@@ -6,7 +6,7 @@ import './reward-request-style.css';
 
 const mapStateToProps = state => ({
   reward: state.selectedReward,
-  requestedReward: state.requestedReward.data,
+  requestedReward: state.requestedReward,
 });
 
 class RequestCompleted extends Component {
@@ -27,11 +27,11 @@ class RequestCompleted extends Component {
                 {this.props.reward.name}
               </Table.Cell>
             </Table.Row>
-            {this.props.requestedReward.notes ?
+            {this.props.requestedReward.data.notes ?
               <Table.Row>
                 <Table.Cell>
                   <Label ribbon>Request Notes</Label>
-                  {this.props.requestedReward.notes}
+                  {this.props.requestedReward.data.notes}
                 </Table.Cell>
               </Table.Row> : null}
           </Table.Body>
