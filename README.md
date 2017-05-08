@@ -1,5 +1,7 @@
 # lvl^
 
+Deployed site: http://lvlup-galvanize.herokuapp.com/
+
 ### About lvl^
 lvl^ is a gamified education enrichment platform for students currently enrolled in a Galvanize immersive learning programs.  lvl^ is a full-stack web application that gives students and administrators an interface to participate in a reward based platform designed to help students reach their career goals.  Students are provided with challenges and rewards which fall into four categories: education, community, career and life.  These challenges give students an opportunity to complete tasks that will contribute to their growth in the respective categories. Examples of challenges include: mentoring a student in a junior cohort, conducting informational interviews, building a side project, or writing a LinkedIn/Medium article. Students earn points for completing challenges which can be cashed in for rewards. Rewards can include 30 minutes of paired programming with an instructor, a ticket to a Galvanize community lunch, business cards, or a $5 gift card to the cafe.
 
@@ -43,8 +45,20 @@ passport.use(new GitHubStrategy({
     done(null, profile);
   }));
 ```
-10. `npm start` To run locally
-11. lvl^ !
+10. Create the database locally. From the command line run the following commands:
+`
+createdb lvlup_dev  //For running development enviornment locally
+createdb lvlup_test  //To run all of the tests
+`
+
+11. Seed the database. From the command line run the following commands:
+`
+knex migrate:rollback //Only if dropping the database and reseeding
+knex migrate:latest
+knex seed:run
+`
+12. `npm start` To run locally
+13. lvl^ !
 
 ### Testing
 
