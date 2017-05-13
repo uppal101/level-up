@@ -1,3 +1,12 @@
+html,
+body,
+.grid,
+.row,
+.column {
+  min-height: 100%;
+  padding-bottom: 0px;
+}
+
 .App {
   text-align: center;
 }
@@ -25,5 +34,8 @@
 
 #app-div {
   width: 100%;
-  overflow-y: scroll;
+  height: 100vh;
+  /*height: auto;*/
+  min-height: 100%;
+  /*overflow-y: scroll;*/
 }
