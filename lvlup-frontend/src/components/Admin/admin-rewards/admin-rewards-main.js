@@ -3,7 +3,6 @@ import RewardsTable from './rewards-table';
 import RewardsHeader from './header';
 import '../admin-main-view/admin-styles.css';
 
-
 class AdminRewards extends Component {
   render() {
     return (

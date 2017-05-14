@@ -34,37 +34,39 @@ export default class App extends Component {
       <div>
         <Router>
           <div id="app-div">
-            <Grid>
-              <Grid.Row>
-                <Grid.Column width={16}>
+            <Grid id="app-grid">
+              <Grid.Row id="nav-row">
+                <Grid.Column id="nav-col" width={16}>
                   <NavBar />
-                  <Grid.Row stretched>
-                    <Grid.Column width={2}>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row id="main-row">
+                <Grid.Column id="content-col" width={16}>
 
-                      <Route exact path="/" component={Home} />
-                      <Route path="/student" component={HamburgerStudent} />
-                      <Route path="/admin" component={HamburgerAdmin} />
-                    </Grid.Column>
-                    <Grid.Column width={14}>
-                      <Route exact path="/student/dashboard" component={StudentDashboard} />
-                      <Route exact path="/student/challenges" component={StudentChallenges} />
-                      <Route path="/student/challenge-submission/:id" component={SubmissionMain} />
-                      <Route exact path="/student/rewards" component={StudentRewards} />
-                      <Route exact path="/student/reward-request/:id" component={StudentRewardRequest} />
-                      <Route exact path="/login-admin" component={AdminLogin} />
-                      <Route exact path="/signup-admin" component={AdminSignUp} />
-                      <Route exact path="/admin/dashboard" component={AdminHome} />
-                      <Route exact path="/admin/individual-pending-challenge/:id" component={SelectedChallenge} />
-                      <Route exact path="/admin/challenges" component={AdminChallenges} />
-                      <Route exact path="/admin/rewards" component={AdminRewards} />
-                      <Route exact path="/admin/challenge-add" component={AddChallenge} />
-                      <Route exact path="/admin/challenge-edit/:id" component={EditChallenge} />
-                      <Route exact path="/admin/reward-add" component={AddReward} />
-                      <Route exact path="/admin/reward-edit/:id" component={EditReward} />
-                      <Route exact path="/admin/configuration" component={AdminConfiguration} />
-                    </Grid.Column>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/student" component={HamburgerStudent} />
+                  <Route path="/admin" component={HamburgerAdmin} />
+                  {/* </Grid.Column>
+                    <Grid.Column width={14}> */}
+                  <Route exact path="/student/dashboard" component={StudentDashboard} />
+                  <Route exact path="/student/challenges" component={StudentChallenges} />
+                  <Route path="/student/challenge-submission/:id" component={SubmissionMain} />
+                  <Route exact path="/student/rewards" component={StudentRewards} />
+                  <Route exact path="/student/reward-request/:id" component={StudentRewardRequest} />
+                  <Route exact path="/login-admin" component={AdminLogin} />
+                  <Route exact path="/signup-admin" component={AdminSignUp} />
+                  <Route exact path="/admin/dashboard" component={AdminHome} />
+                  <Route exact path="/admin/individual-pending-challenge/:id" component={SelectedChallenge} />
+                  <Route exact path="/admin/challenges" component={AdminChallenges} />
+                  <Route exact path="/admin/rewards" component={AdminRewards} />
+                  <Route exact path="/admin/challenge-add" component={AddChallenge} />
+                  <Route exact path="/admin/challenge-edit/:id" component={EditChallenge} />
+                  <Route exact path="/admin/reward-add" component={AddReward} />
+                  <Route exact path="/admin/reward-edit/:id" component={EditReward} />
+                  <Route exact path="/admin/configuration" component={AdminConfiguration} />
+                  {/* </Grid.Column>
 
-                  </Grid.Row>
+                  </Grid.Row> */}
                 </Grid.Column>
               </Grid.Row>
             </Grid>
