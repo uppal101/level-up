@@ -3,11 +3,11 @@ import { Icon, Table, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { selectChallenge } from '../../../../actions/student-challenges-actions';
-import { formatDate } from '../../../../helpers/dashboard';
-import '../admin-styles.css';
-import { submissionsAction } from '../../../../actions/admin-dash-actions';
-import { resetPendingSubmissions } from '../../../../actions/reset-actions';
+import { selectChallenge } from '../../../actions/student-challenges-actions';
+import { formatDate } from '../../../helpers/dashboard';
+import './dashboard-styles.css';
+import { submissionsAction } from '../../../actions/admin-dash-actions';
+import { resetPendingSubmissions } from '../../../actions/reset-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
@@ -18,7 +18,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({ selectChallenge, submissionsAction, resetPendingSubmissions }, dispatch);
 
 
-class ChallengesTable extends Component {
+class PendingSubmissionsTable extends Component {
   constructor(props) {
     super(props);
     this.renderTable = this.renderTable.bind(this);
@@ -65,4 +65,4 @@ class ChallengesTable extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChallengesTable);
+export default connect(mapStateToProps, mapDispatchToProps)(PendingSubmissionsTable);

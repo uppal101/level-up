@@ -5,7 +5,7 @@ import NavBar from './components/Navbar/navbar';
 import AdminSignUp from './components/Admin/admin-signup/signup';
 import AdminLogin from './components/Admin/admin-login/login';
 import SelectedChallenge from './components/Admin/challenges/admin-challenges/individual-challenge';
-import AdminHome from './components/Admin/admin-main-view/admin-main';
+import AdminHome from './components/Admin/dashboard/dashboard-main';
 import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-main';
 import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-main';
 import AddChallenge from './components/Admin/challenges/add-challenge/add-challenge-main';
