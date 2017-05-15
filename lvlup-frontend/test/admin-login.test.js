@@ -1,4 +1,4 @@
-import AdminLogin from '../src/components/Admin/admin-login/login';
+import AdminLogin from '../src/components/Admin/login/login';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
