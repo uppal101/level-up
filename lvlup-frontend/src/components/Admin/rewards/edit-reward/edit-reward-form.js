@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../actions/admin-signup';
-import { addReward } from '../../../actions/add-reward';
-import './admin-add-reward-styles.css';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { editReward } from '../../../../actions/edit-reward';
+import './edit-reward-styles.css';
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addReward, allCampuses, setCampuses }, dispatch);
-}
-function mapStateToProps(state) {
-  return {
-    addReward: false,
-    campuses: state.allCampuses,
-  };
-}
 const categories = [
   { key: 'Education', text: 'Education', value: '1' },
   { key: 'Community', text: 'Community', value: '2' },
@@ -58,7 +48,17 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
   </div>
 );
 
-class AddRewardForm extends Component {
+class EditRewardForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+
+  submit(values) {
+    values.reward_id = this.props.reward.id;
+    this.props.editReward(values);
+  }
+
   componentWillMount() {
     this.props.allCampuses();
   }
@@ -70,7 +70,7 @@ class AddRewardForm extends Component {
     return (
       <Container>
         <Segment inverted>
-          <Form onSubmit={handleSubmit(this.props.addReward)}>
+          <Form onSubmit={handleSubmit(this.submit)}>
             <Form.Group>
               <Form.Field width={12}>
                 <Field
@@ -144,4 +144,22 @@ class AddRewardForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'addReward' })(AddRewardForm));
+EditRewardForm = reduxForm({
+  form: 'editReward',
+})(EditRewardForm);
+
+EditRewardForm = connect(
+  state => ({
+    campuses: state.allCampuses,
+    reward: state.selectedReward,
+    initialValues: {
+      name: state.selectedReward.name,
+      point_cost: state.selectedReward.point_cost,
+      campus_id: state.selectedReward.campus_id,
+      category_id: state.selectedReward.category_id,
+      description: state.selectedReward.description,
+    },
+  }), { editReward, allCampuses, setCampuses },
+)(EditRewardForm);
+
+export default EditRewardForm;
