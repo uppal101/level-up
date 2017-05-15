@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { submissionFormAdmin } from '../../../actions/challenge-review';
+import { submissionFormAdmin } from '../../../../actions/challenge-review';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ submissionFormAdmin }, dispatch);
 

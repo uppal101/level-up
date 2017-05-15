@@ -3,11 +3,11 @@ import { Icon, Table, Container, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { resetEditChallenge } from '../../../actions/edit-challenge';
-import { resetAddChallenge } from '../../../actions/add-challenge';
-import { campusChallenges, selectChallenge } from '../../../actions/student-challenges-actions';
-import './admin-challenges-style.css';
-import { submissionsAction } from '../../../actions/admin-dash-actions';
+import { resetEditChallenge } from '../../../../actions/edit-challenge';
+import { resetAddChallenge } from '../../../../actions/add-challenge';
+import { campusChallenges, selectChallenge } from '../../../../actions/student-challenges-actions';
+import './challenges-style.css';
+import { submissionsAction } from '../../../../actions/admin-dash-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,

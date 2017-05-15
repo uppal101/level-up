@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChallengesTable from './challenges-table';
-import '../admin-main-view/admin-styles.css';
+import '../../admin-main-view/admin-styles.css';
 
 class AdminChallenges extends Component {
   render() {
