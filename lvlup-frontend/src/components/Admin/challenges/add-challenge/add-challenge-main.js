@@ -12,7 +12,7 @@ const AddChallenge = (props) => {
   const ifAdded = renderIf(props.addStatus.fulfilled);
   const ifNotAdded = renderIf(!props.addStatus.fulfilled);
   return (
-    <div className="add-challenge">
+    <div className="form-view">
       {ifNotAdded(<AddChallengeForm />)}
       {ifAdded(<AddChallengeCompleted />)}
     </div>

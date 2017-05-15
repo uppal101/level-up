@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
-import AdminSignUp from './components/Admin/admin-signup/signup';
-import AdminLogin from './components/Admin/admin-login/login';
+import AdminSignUp from './components/Admin/signup/signup';
+import AdminLogin from './components/Admin/login/login';
 import SelectedChallenge from './components/Admin/challenges/admin-challenges/individual-challenge';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
 import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-main';
@@ -17,9 +17,9 @@ import SubmissionMain from './components/Student/student-challenge-submission/ch
 import StudentRewards from './components/Student/student-rewards/student-rewards-main';
 import StudentRewardRequest from './components/Student/student-reward-request/reward-request-main';
 import HamburgerStudent from './components/Student/student-main-view/hamburger';
-import HamburgerAdmin from './components/Admin/admin-common/hamburger';
+import AdminSidenav from './components/Admin/nav/sidenav';
 import StudentDashboard from './components/Student/dashboard/student-dashboard';
-import AdminConfiguration from './components/Admin/admin-config/config-main';
+import AdminConfiguration from './components/Admin/config/config-main';
 
 
 import './App.css';
@@ -45,7 +45,7 @@ export default class App extends Component {
 
                   <Route exact path="/" component={Home} />
                   <Route path="/student" component={HamburgerStudent} />
-                  <Route path="/admin" component={HamburgerAdmin} />
+                  <Route path="/admin" component={AdminSidenav} />
                   {/* </Grid.Column>
                     <Grid.Column width={14}> */}
                   <Route exact path="/student/dashboard" component={StudentDashboard} />

@@ -12,7 +12,7 @@ export const EditChallenge = (props) => {
   const ifEdited = renderIf(props.editStatus.fulfilled);
   const ifNotEdited = renderIf(!props.editStatus.fulfilled);
   return (
-    <div className="edit-challenge">
+    <div className="form-view">
       {ifNotEdited(<EditChallengeForm />)}
       {ifEdited(<EditChallengeCompleted />)}
     </div>

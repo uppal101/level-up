@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
 import { editChallenge } from '../../../../actions/edit-challenge';
-import './edit-challenge-styles.css';
 
 const categories = [
   { key: 'Education', text: 'Education', value: '1' },

@@ -1,4 +1,4 @@
-import { Form } from 'semantic-ui-react';
+import { Form, Grid } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
@@ -48,35 +48,50 @@ class SubmissionApprovalForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Form onSubmit={handleSubmit(this.submit)}>
-        <Form.Field inline>
-          <Field
-            name="evaluation_message"
-            component={renderField}
-            type="text"
-            label="Evaluation Message"
-            placeholder="Evaluation Message"
-            validate={[required]}
-          />
-        </Form.Field>
-        <Form.Field inline>
-          <Field
-            name="submission_status"
-            component={renderSelectField}
-            type="text"
-            label="Select Approval Status"
-            placeholder="Select Approval Status"
-            validate={[required]}
-          >
-            <option default>Select Status</option>
-            <option value={'Approved'}>Approved</option>
-            <option value={'Pending approval'}>Pending Approval</option>
-            <option value={'Denied'}>Denied</option>
+      <div id="approval-form">
+        <Form onSubmit={handleSubmit(this.submit)}>
+          <Grid centered>
+            <Grid.Row>
+              <Form.Field centered width={12}>
+                <Field
+                  name="evaluation_message"
+                  component={renderField}
+                  type="text"
+                  label="Evaluation Message"
+                  placeholder="Evaluation Message"
+                  validate={[required]}
+                />
+              </Form.Field>
+            </Grid.Row>
+          </Grid>
+          <Grid centered>
+            <Grid.Row>
+              <Form.Field centered inline width={4}>
+                <Field
+                  name="submission_status"
+                  component={renderSelectField}
+                  type="text"
+                  label="Select Approval Status"
+                  placeholder="Select Approval Status"
+                  validate={[required]}
+                >
+                  <option default>Select Status</option>
+                  <option value={'Approved'}>Approved</option>
+                  <option value={'Pending approval'}>Pending Approval</option>
+                  <option value={'Denied'}>Denied</option>
 
-          </Field>
-        </Form.Field>
-        <Form.Button>Login</Form.Button>
-      </Form>
+                </Field>
+              </Form.Field>
+            </Grid.Row>
+          </Grid>
+          <Grid centered>
+            <Grid.Row>
+
+              <Form.Button>Submit Review</Form.Button>
+            </Grid.Row>
+          </Grid>
+        </Form>
+      </div>
     );
   }
 }
