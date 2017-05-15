@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Icon, Table, Popup, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { formatDate } from '../../../../helpers/dashboard';
+import { formatDate } from '../../../helpers/dashboard';
 import { bindActionCreators } from 'redux';
-import { approveSelectedReward, denySelectedReward } from '../../../../actions/pending-rewards-actions';
-import { requestsAction } from '../../../../actions/admin-dash-actions';
-import { resetPendingRequests } from '../../../../actions/reset-actions';
+import { approveSelectedReward, denySelectedReward } from '../../../actions/pending-rewards-actions';
+import { requestsAction } from '../../../actions/admin-dash-actions';
+import { resetPendingRequests } from '../../../actions/reset-actions';
 
-import '../admin-styles.css';
+import './dashboard-styles.css';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ approveSelectedReward, denySelectedReward, requestsAction, resetPendingRequests }, dispatch);
 
-class RequestsTable extends Component {
+class PendingRequestsTable extends Component {
   constructor(props) {
     super(props);
     this.renderTable = this.renderTable.bind(this);
@@ -92,4 +92,4 @@ class RequestsTable extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequestsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(PendingRequestsTable);

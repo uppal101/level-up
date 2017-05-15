@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import RewardsTable from './rewards-table';
-import RewardsHeader from './header';
-import '../admin-main-view/admin-styles.css';
-
+import '../../dashboard/dashboard-styles.css';
 
 class AdminRewards extends Component {
   render() {
     return (
       <div className="lvl-table">
-        <RewardsHeader />
+        <h2 className="header">Rewards</h2>
         <RewardsTable />
       </div>
     );

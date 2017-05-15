@@ -2,7 +2,7 @@ import React from 'react';
 import { Label, Table, Button, Grid, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './admin-edit-challenge-styles.css';
+import './edit-challenge-styles.css';
 
 const mapStateToProps = state => ({
   editedChallenge: state.editedChallenge.data,
