@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt-as-promised');
 const Admin = require('../models/admin');
 const AdminCohort = require('../models/admin_cohort');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -105,6 +106,7 @@ router.route('/admin/signup')
             email: req.body.email,
             campus_id: Number(req.body.campus_id),
             hashed_password: hashed,
+            confirmed: false,
           })
           .save()
           .then((newAdmin) => {
@@ -122,10 +124,34 @@ router.route('/admin/signup')
             console.error(err);
           })
           .then(() => {
+            console.log(req.body.email);
             Admin.query({ where: { email: req.body.email } })
-            .fetch({ withRelated: ['cohorts.campus'] })
-            .then((adminToSend) => {
-              res.json(adminToSend);
+            .fetch()
+            .then((admin) => {
+              const user = { userId: admin.id };
+              const token = jwt.sign(user, process.env.JWT_KEY, {
+                expiresIn: '7 days',
+              });
+              return token;
+            })
+            .then((tokenToSend) => {
+              console.log(tokenToSend);
+              const transporter = nodemailer.createTransport({
+                host: 'mail.privateemail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                  user: 'lvlupteam@lvlup.tech',
+                  pass: process.env.EMAIL_PASSWORD,
+                },
+              });
+              const mailOptions = {
+                from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
+                to: req.body.email, // list of receivers
+                subject: 'Confirm your Admin Account with lvl^', // Subject line
+                text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
+                html: '<a href=`http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`>Click here to confirm</a>', // html body
+              };
             })
             .catch((err) => {
               console.error(err);
@@ -137,4 +163,15 @@ router.route('/admin/signup')
       }
     });
   });
+
+// router.route('/admin/confirm/:token')
+//   .patch((req, res) => {
+//     jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
+//       if (err) {
+//         res.status(401).json('Unauthorized')
+//       }
+//       else {
+//         let userId = Number(payload.userId)
+//   })
+
 module.exports = router;
