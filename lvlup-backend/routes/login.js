@@ -124,7 +124,6 @@ router.route('/admin/signup')
             console.error(err);
           })
           .then(() => {
-            console.log(req.body.email);
             Admin.query({ where: { email: req.body.email } })
             .fetch()
             .then((admin) => {
@@ -135,7 +134,6 @@ router.route('/admin/signup')
               return token;
             })
             .then((tokenToSend) => {
-              console.log(tokenToSend);
               const transporter = nodemailer.createTransport({
                 host: 'mail.privateemail.com',
                 port: 587,
@@ -145,18 +143,25 @@ router.route('/admin/signup')
                   pass: process.env.EMAIL_PASSWORD,
                 },
               });
+              const url = `http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`;
               const mailOptions = {
                 from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
                 to: req.body.email, // list of receivers
                 subject: 'Confirm your Admin Account with lvl^', // Subject line
                 text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
-                html: '<a href=`http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`>Click here to confirm</a>', // html body
+                html: '<a href="http://lvlup-galvanize.herokuapp.com/api/admin/confirm/ + <script>tokenToSend</script>">Click here to confirm</a>', // html body
+                dsn: {
+                  id: 'signup',
+                  return: 'headers',
+                  notify: ['success', 'failure', 'delay'],
+                  recipient: 'lvlupteam@lvlup.tech',
+                },
               };
               transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                   return console.log(error);
                 }
-                console.log('Message %s sent: %s', info.messageId, info.response);
+                console.log('I SWEAR I SENT IT!', 'Message %s sent: %s', info.messageId, info.response);
               });
               res.status(200).json('Please wait for email to confirm');
             })
@@ -171,14 +176,23 @@ router.route('/admin/signup')
     });
   });
 
-// router.route('/admin/confirm/:token')
-//   .patch((req, res) => {
-//     jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
-//       if (err) {
-//         res.status(401).json('Unauthorized')
-//       }
-//       else {
-//         let userId = Number(payload.userId)
-//   })
+router.route('/admin/confirm/:token')
+  .get((req, res) => {
+    jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
+      if (err) {
+        res.status(401).json('Unauthorized');
+      } else {
+        const userId = Number(payload.userId);
+        Admin.query({ where: { id: payload.userId } })
+        .fetch()
+        .then(admin => admin.save({
+          confirmed: true,
+        }))
+        .then((redirect) => {
+          res.redirect('/admin/dashboard');
+        });
+      }
+    });
+  });
 
 module.exports = router;
