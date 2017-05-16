@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import RewardRequestForm from './reward-request-form';
-import RequestCompleted from './reward-request-completed';
-import InsufficientPoints from './reward-request-insufficient';
+import RewardRequestForm from './request-form';
+import RequestCompleted from './request-completed';
+import InsufficientPoints from './request-insufficient-points';
 import renderIf from 'render-if';
 import { rewardRequest } from '../../../actions/student-rewards-actions';
-import './reward-request-style.css';
+import './request-styles.css';
 
 const mapStateToProps = state => ({
   requestStatus: state.requestedReward,

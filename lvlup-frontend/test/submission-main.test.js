@@ -1,4 +1,4 @@
-import SubmissionMain from '../src/components/Student/student-challenge-submission/challenge-submission-view';
+import SubmissionMain from '../src/components/Student/submissions/submission-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

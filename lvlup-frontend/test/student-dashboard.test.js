@@ -1,4 +1,4 @@
-import StudentDashboard from '../src/components/Student/dashboard/student-dashboard';
+import StudentDashboard from '../src/components/Student/dashboard/dashboard-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

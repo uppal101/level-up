@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Label, Table, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './reward-request-style.css';
+import './request-styles.css';
 
 const mapStateToProps = state => ({
   reward: state.selectedReward,

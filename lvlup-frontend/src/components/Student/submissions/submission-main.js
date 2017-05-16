@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ChallengeSubmissionForm from './challenge-submission-form';
-import SubmissionCompleted from './challenge-submission-completed';
+import ChallengeSubmissionForm from './submission-form';
+import SubmissionCompleted from './submission-completed';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
 

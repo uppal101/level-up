@@ -6,7 +6,7 @@ import { signupStudent, moreStudentInfo } from '../../../actions/student-signup'
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import './student-styles.css';
+import './sidenav-styles.css';
 
 const required = value => value ? undefined : 'Required';
 
