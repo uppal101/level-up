@@ -1,7 +1,7 @@
 exports[`test Home should render 1`] = `
 <div>
   <h1
-    className="header">
+    className="home-header">
     lvl^
   </h1>
   <div

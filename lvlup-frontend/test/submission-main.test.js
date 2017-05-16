@@ -12,8 +12,8 @@ const mockStore = configureMockStore(middlewares);
 
 test('SubmissionMain should render', () => {
   const store = mockStore({ lvlupApp });
-  const sub = shallow(
+  const submission = shallow(
     <SubmissionMain store={store} />,
   );
-  expect(shallowToJson(sub)).toMatchSnapshot();
+  expect(shallowToJson(submission)).toMatchSnapshot();
 });

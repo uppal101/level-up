@@ -1,4 +1,4 @@
-import AdminConfiguration from '../src/components/Admin/admin-config/config-main';
+import AdminConfiguration from '../src/components/Admin/config/config-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

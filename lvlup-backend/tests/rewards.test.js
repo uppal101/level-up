@@ -46,7 +46,7 @@ describe('POST /rewards/', () => {
       delete reward.body.updated_at;
     })
     .expect(200, {
-      id: 9,
+      id: 13,
       name: 'Who said there is not such a thing as free lunch',
       point_cost: 75,
       description: 'Free individual lunch $15 limit',

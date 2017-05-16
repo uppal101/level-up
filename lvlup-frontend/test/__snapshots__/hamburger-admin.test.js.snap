@@ -1,5 +1,5 @@
-exports[`test HamburgerAdmin should render 1`] = `
-<HamburgerAdmin
+exports[`test AdminSidenav should render 1`] = `
+<AdminSidenav
   requestsAction={[Function]}
   store={
     Object {

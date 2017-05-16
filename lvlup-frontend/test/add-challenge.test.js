@@ -1,12 +1,19 @@
-import AddChallenge from '../src/components/Admin/admin-add-challenge/add-challenge-main';
+import AddChallenge from '../src/components/Admin/challenges/add-challenge/add-challenge-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('AddChallenge should render', () => {
-  const addchallenge = shallow(
-    <AddChallenge />,
+  const store = mockStore({ lvlupApp });
+  const challenge = shallow(
+    <AddChallenge store={store} />,
   );
-  expect(toJson(addchallenge)).toMatchSnapshot();
+  expect(shallowToJson(challenge)).toMatchSnapshot();
 });
