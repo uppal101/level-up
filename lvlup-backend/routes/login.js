@@ -50,7 +50,6 @@ router.route('/student/login')
     });
   })
   .put((req, res) => {
-    console.log(req.body.cohort_id);
     Student.forge({ email: req.session.passport.user._json.email })
     .fetch()
     .then(student => student.save({
@@ -110,7 +109,6 @@ router.route('/admin/signup')
           })
           .save()
           .then((newAdmin) => {
-            console.log('here');
             const cohortsArr = req.body.cohorts;
             const promiseArr = [];
             for (let i = 0; i < cohortsArr.length; i++) {
@@ -162,7 +160,6 @@ router.route('/admin/signup')
                 if (error) {
                   return console.log(error);
                 }
-                console.log('I SWEAR I SENT IT!', 'Message %s sent: %s', info.messageId, info.response);
               });
               res.status(200).json({ needConfirm: 'Please wait for email to confirm' });
             })
@@ -179,7 +176,6 @@ router.route('/admin/signup')
 
 router.route('/admin/confirm/:token')
   .get((req, res) => {
-    console.log('here');
     jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
       if (err) {
         res.status(401).json('Unauthorized');
