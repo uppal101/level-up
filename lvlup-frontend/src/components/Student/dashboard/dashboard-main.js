@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { quarterConverter, quarterPointFinder, formatDate } from '../../../helpers/dashboard';
+import { quarterConverter, quarterPointFinder, formatDate, getFirstName } from '../../../helpers/dashboard';
 import SignupInfo from '../nav/student-signup';
 import { submissionsAction } from '../../../actions/student-dash-actions';
 
@@ -81,8 +81,8 @@ export class StudentDashboard extends Component {
       );
     }
     return (
-      <div className="studentDashboard">
-        <h1 className="headerStudent">{`Welcome ${this.props.loginInfo.name}`}</h1>
+      <div className="lvl-table">
+        <h1 className="headerStudent">{`Welcome, ${getFirstName(this.props.loginInfo.name)}!`}</h1>
         <Table celled>
           <Table.Header>
             <Table.Row>

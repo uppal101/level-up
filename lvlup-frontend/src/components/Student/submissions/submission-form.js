@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
-import './challenge-submission-style.css';
+import './submission-styles.css';
 import uploadcare from 'uploadcare-widget';
 
 const mapStateToProps = state => ({
