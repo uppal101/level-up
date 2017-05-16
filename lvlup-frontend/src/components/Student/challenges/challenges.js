@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StudentChallengesTable from './challenge-table';
-import '../student-main-view/student-styles.css';
+import '../nav/sidenav-styles.css';
 
 class StudentChallenges extends Component {
   render() {

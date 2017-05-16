@@ -1,0 +1,10 @@
+.studentDashboard {
+  width: 50%;
+  float: right;
+  margin-right: 25%;
+  overflow: scroll;
+}
+
+.headerStudent{
+  text-align: center;
+}

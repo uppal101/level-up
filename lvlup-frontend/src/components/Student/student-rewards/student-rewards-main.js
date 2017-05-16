@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import RewardsTable from './rewards-table';
 import RewardsHeader from './header';
-import '../student-main-view/student-styles.css';
+import '../nav/sidenav-styles.css';
 
 class StudentRewards extends Component {
   render() {

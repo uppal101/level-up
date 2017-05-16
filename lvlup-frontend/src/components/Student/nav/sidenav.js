@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon, Image } from 'semantic-ui-react';
-import './student-styles.css';
+import './sidenav-styles.css';
 import { Link } from 'react-router-dom';
 import { loggingInAction, moreStudentInfo, submissionsAction, requestsAction } from '../../../actions/student-dash-actions';
 import { bindActionCreators } from 'redux';
@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
   studentPointsAndCampus: state.studentPointsAndCampus,
 });
 
-class HamburgerStudent extends Component {
+class StudentSidenav extends Component {
   componentWillMount() {
     this.props.loggingInAction()
     .then(() => {
@@ -37,7 +37,7 @@ class HamburgerStudent extends Component {
     }
 
     return (
-      <Menu inverted vertical className="studentHamburger">
+      <Menu inverted vertical className="studentSidenav">
         <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
           <div className="userdiv">
             <h4>{this.props.loginInfo.username}</h4>
@@ -54,4 +54,4 @@ class HamburgerStudent extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HamburgerStudent);
+export default connect(mapStateToProps, mapDispatchToProps)(StudentSidenav);
