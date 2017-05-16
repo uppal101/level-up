@@ -152,6 +152,13 @@ router.route('/admin/signup')
                 text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
                 html: '<a href=`http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`>Click here to confirm</a>', // html body
               };
+              transporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                  return console.log(error);
+                }
+                console.log('Message %s sent: %s', info.messageId, info.response);
+              });
+              res.status(200).json('Please wait for email to confirm');
             })
             .catch((err) => {
               console.error(err);
