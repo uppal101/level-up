@@ -110,6 +110,7 @@ router.route('/admin/signup')
           })
           .save()
           .then((newAdmin) => {
+            console.log('here');
             const cohortsArr = req.body.cohorts;
             const promiseArr = [];
             for (let i = 0; i < cohortsArr.length; i++) {
@@ -149,7 +150,7 @@ router.route('/admin/signup')
                 to: req.body.email, // list of receivers
                 subject: 'Confirm your Admin Account with lvl^', // Subject line
                 text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
-                html: '<a href="http://lvlup-galvanize.herokuapp.com/api/admin/confirm/ + <script>tokenToSend</script>">Click here to confirm</a>', // html body
+                html: `<a href=http://localhost:3000/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
                 dsn: {
                   id: 'signup',
                   return: 'headers',
@@ -163,7 +164,7 @@ router.route('/admin/signup')
                 }
                 console.log('I SWEAR I SENT IT!', 'Message %s sent: %s', info.messageId, info.response);
               });
-              res.status(200).json('Please wait for email to confirm');
+              res.status(200).json({ needConfirm: 'Please wait for email to confirm' });
             })
             .catch((err) => {
               console.error(err);
@@ -178,6 +179,7 @@ router.route('/admin/signup')
 
 router.route('/admin/confirm/:token')
   .get((req, res) => {
+    console.log('here');
     jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
       if (err) {
         res.status(401).json('Unauthorized');
@@ -189,7 +191,7 @@ router.route('/admin/confirm/:token')
           confirmed: true,
         }))
         .then((redirect) => {
-          res.redirect('/admin/dashboard');
+          res.redirect('/login-admin');
         });
       }
     });
