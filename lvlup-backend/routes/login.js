@@ -92,23 +92,22 @@ router.route('/admin/login')
   });
 
 router.route('/admin/signup')
-  .post((req, res) => {
-    console.log('here');
-    Admin.query({ where: { email: req.body.email } })
-    .fetch()
-    .then((checkToSeeIfAlreadyRegistered) => {
-      if (checkToSeeIfAlreadyRegistered === null) {
-        bcrypt.hash(req.body.password, 1)
-        .then((hashed) => {
-          Admin.forge({
+    .post((req, res) => {
+      console.log(req.body);
+      Admin.query({ where: { email: req.body.email } })
+      .fetch()
+      .then((checkToSeeIfAlreadyRegistered) => {
+        if (checkToSeeIfAlreadyRegistered === null) {
+          bcrypt.hash(req.body.password, 1)
+          .then(hashed => Admin.forge({
             username: req.body.username,
             name: req.body.name,
             email: req.body.email,
-            campus_id: Number(req.body.campus_id),
+            campus_id: Number(req.body.campuses),
             hashed_password: hashed,
             confirmed: false,
           })
-          .save()
+            .save())
           .then((newAdmin) => {
             const cohortsArr = req.body.cohorts;
             const promiseArr = [];
@@ -123,57 +122,57 @@ router.route('/admin/signup')
           .catch((err) => {
             console.error(err);
           })
-          .then(() => {
-            Admin.query({ where: { email: req.body.email } })
-            .fetch()
-            .then((admin) => {
-              const user = { userId: admin.id };
-              const token = jwt.sign(user, process.env.JWT_KEY, {
-                expiresIn: '7 days',
-              });
-              return token;
-            })
-            .then((tokenToSend) => {
-              const transporter = nodemailer.createTransport({
-                host: 'mail.privateemail.com',
-                port: 587,
-                secure: false,
-                auth: {
-                  user: 'lvlupteam@lvlup.tech',
-                  pass: process.env.EMAIL_PASSWORD,
-                },
-              });
-              const url = `http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`;
-              const mailOptions = {
-                from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
-                to: req.body.email, // list of receivers
-                subject: 'Confirm your Admin Account with lvl^', // Subject line
-                text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
-                html: `<a href=http://localhost:3000/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
-                dsn: {
-                  id: 'signup',
-                  return: 'headers',
-                  notify: ['success', 'failure', 'delay'],
-                  recipient: 'lvlupteam@lvlup.tech',
-                },
-              };
-              transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                  return console.log(error);
-                }
-              });
-              res.status(200).json({ needConfirm: 'Please wait for email to confirm' });
-            })
-            .catch((err) => {
-              console.error(err);
+          .then(() => Admin.query({ where: { email: req.body.email } })
+            .fetch())
+          .then((admin) => {
+            const user = { userId: admin.id };
+            const token = jwt.sign(user, process.env.JWT_KEY, {
+              expiresIn: '7 days',
             });
+            return token;
+          })
+          .then((tokenToSend) => {
+            const transporter = nodemailer.createTransport({
+              host: 'mail.privateemail.com',
+              port: 587,
+              secure: false,
+              auth: {
+                user: 'lvlupteam@lvlup.tech',
+                pass: process.env.EMAIL_PASSWORD,
+              },
+            });
+            const url = `http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`;
+            const mailOptions = {
+              from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
+              to: req.body.email, // list of receivers
+              subject: 'Confirm your Admin Account with lvl^', // Subject line
+              text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
+              html: `<a href=http://localhost:3000/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
+              dsn: {
+                id: 'signup',
+                return: 'headers',
+                notify: ['success', 'failure', 'delay'],
+                recipient: 'lvlupteam@lvlup.tech',
+              },
+            };
+            transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                return console.log(error);
+              }
+            });
+            res.status(200).json({
+              needConfirm: 'Please wait for email to confirm',
+              status: true,
+            });
+          })
+          .catch((err) => {
+            console.error(err);
           });
-        });
-      } else {
-        res.status(400).json('User already exists!');
-      }
+        } else {
+          res.status(400).json('User already exists!');
+        }
+      });
     });
-  });
 
 router.route('/admin/confirm/:token')
   .get((req, res) => {

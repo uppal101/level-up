@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const signupRequest = (props) => {
   const url = '/api/admin/signup';
-  return axios.post(url, props);
+  return axios.post(url, props).then(response => response.data);
 };
 
 const getCampuses = () => {

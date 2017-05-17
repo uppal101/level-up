@@ -15,7 +15,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   .references('id')
   .inTable('campuses')
   .onDelete('CASCADE');
-  table.string('confirmed', 'boolean');
+  table.boolean('confirmed');
   table.timestamps(true, true);
 });
 
