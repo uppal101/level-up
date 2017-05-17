@@ -94,6 +94,7 @@ router.route('/admin/login')
 
 router.route('/admin/signup')
   .post((req, res) => {
+    console.log('here');
     Admin.query({ where: { email: req.body.email } })
     .fetch()
     .then((checkToSeeIfAlreadyRegistered) => {
@@ -110,7 +111,6 @@ router.route('/admin/signup')
           })
           .save()
           .then((newAdmin) => {
-            console.log('here');
             const cohortsArr = req.body.cohorts;
             const promiseArr = [];
             for (let i = 0; i < cohortsArr.length; i++) {
