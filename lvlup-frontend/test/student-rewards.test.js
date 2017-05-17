@@ -1,4 +1,4 @@
-import StudentRewards from '../src/components/Student/student-rewards/student-rewards-main';
+import StudentRewards from '../src/components/Student/rewards/rewards-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { Icon, Table, Container } from 'semantic-ui-react';
 import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
-import './student-rewards-style.css';
 
 const mapStateToProps = state => ({
   lvlUpInfo: state.studentPointsAndCampus,

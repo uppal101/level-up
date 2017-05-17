@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { rewardRequest } from '../../../actions/student-rewards-actions';
-import './reward-request-style.css';
+import './request-styles.css';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -44,7 +44,7 @@ class RewardRequestForm extends Component {
     return (
       <div className="reward-request">
         <h2 className="header">{`Reward Request: ${this.props.reward.name}  (${this.props.reward.point_cost} pts)`}</h2>
-        <Form className="reward-request-form" onSubmit={handleSubmit(this.submit)}>
+        <Form className="request-form" onSubmit={handleSubmit(this.submit)}>
           <Form.Field inline>
             <Field
               name="notes"

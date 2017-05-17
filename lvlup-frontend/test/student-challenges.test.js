@@ -1,4 +1,4 @@
-import StudentChallenges from '../src/components/Student/challenges/challenges';
+import StudentChallenges from '../src/components/Student/challenges/challenges-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

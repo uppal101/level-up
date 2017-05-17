@@ -1,5 +1,5 @@
-exports[`test HamburgerStudent should render 1`] = `
-<HamburgerStudent
+exports[`test StudentSidenav should render 1`] = `
+<StudentSidenav
   loggingInAction={[Function]}
   moreStudentInfo={[Function]}
   requestsAction={[Function]}
