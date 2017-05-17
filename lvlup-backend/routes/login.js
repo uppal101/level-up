@@ -77,12 +77,16 @@ router.route('/admin/login')
           .then(() => Admin.query({ where: { email: req.body.email } })
             .fetch({ withRelated: ['cohorts.campus'] })
             .then((admin) => {
-              const user = { userId: admin.id };
-              const token = jwt.sign(user, process.env.JWT_KEY, {
-                expiresIn: '7 days',
-              });
-              res.cookie('authToken', token);
-              res.json(admin);
+              if (admin.attributes.confirmed) {
+                const user = { userId: admin.id };
+                const token = jwt.sign(user, process.env.JWT_KEY, {
+                  expiresIn: '7 days',
+                });
+                res.cookie('authToken', token);
+                res.json(admin);
+              } else {
+                res.json({ confirmed: false });
+              }
             }))
           .catch((err) => {
             res.status(400).json('Invalid password or username');
@@ -93,7 +97,6 @@ router.route('/admin/login')
 
 router.route('/admin/signup')
     .post((req, res) => {
-      console.log(req.body);
       Admin.query({ where: { email: req.body.email } })
       .fetch()
       .then((checkToSeeIfAlreadyRegistered) => {
@@ -141,13 +144,12 @@ router.route('/admin/signup')
                 pass: process.env.EMAIL_PASSWORD,
               },
             });
-            const url = `http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`;
             const mailOptions = {
               from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
               to: req.body.email, // list of receivers
               subject: 'Confirm your Admin Account with lvl^', // Subject line
               text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
-              html: `<a href=http://localhost:3000/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
+              html: `<a href=${process.env.HOST}/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
               dsn: {
                 id: 'signup',
                 return: 'headers',

@@ -18,6 +18,13 @@
   margin-left: 25%
 }
 
+.alert-message-confirm {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 20%;
+}
+
 #admin-login-button {
   margin-top: 20px;
 }
