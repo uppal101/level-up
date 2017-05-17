@@ -11,7 +11,7 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state, ownProps) {
   return {
-    signedUp: false,
+    signedUp: state.signedUp,
     cohorts: state.allCohorts,
     campuses: state.allCampuses,
   };
@@ -25,7 +25,7 @@ const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
   'Invalid email address' : undefined;
 
-const match = (str1, str2) => str1 === str2 ? undefined : 'Passwords do not match';
+// const match = (str1, str2) => str1 === str2 ? undefined : 'Passwords do not match';
 
 const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
   <div>
@@ -62,6 +62,17 @@ class SignupForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <Form className="forms" onSubmit={handleSubmit(this.props.signup)}>
+
+        <Form.Field inline>
+          <Field
+            name="name"
+            component={renderField}
+            type="text"
+            label=" Enter Your Name"
+            placeholder="Name"
+            validate={[required]}
+          />
+        </Form.Field>
 
         <Form.Field inline>
           <Field
@@ -103,7 +114,7 @@ class SignupForm extends Component {
             type="password"
             label="Confirm Password"
             placeholder="Confirm Password"
-            validate={[required, minValue7, match]}
+            validate={[required, minValue7]}
           />
         </Form.Field>
 
@@ -115,7 +126,6 @@ class SignupForm extends Component {
             label="Campuses"
             placeholder="Select Campuses"
             validate={[required]}
-            multiple
           >
             <option default>Select Campus(es)</option>
             { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}

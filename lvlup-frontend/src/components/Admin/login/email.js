@@ -9,7 +9,7 @@ import './loginview.css';
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch);
 }
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     loggedIn: false,
   };
