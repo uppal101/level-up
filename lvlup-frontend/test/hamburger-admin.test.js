@@ -1,4 +1,4 @@
-import HamburgerAdmin from '../src/components/Admin/admin-common/hamburger';
+import AdminSidenav from '../src/components/Admin/nav/sidenav';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('HamburgerAdmin should render', () => {
+test('AdminSidenav should render', () => {
   const store = mockStore({ lvlupApp });
   const admin = shallow(
-    <HamburgerAdmin store={store} />,
+    <AdminSidenav store={store} />,
   );
   expect(shallowToJson(admin)).toMatchSnapshot();
 });

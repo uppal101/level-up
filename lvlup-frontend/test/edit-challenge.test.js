@@ -1,4 +1,4 @@
-import EditChallenge from '../src/components/Admin/admin-edit-challenge/edit-challenge-main';
+import EditChallenge from '../src/components/Admin/edit-challenge/edit-challenge-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
