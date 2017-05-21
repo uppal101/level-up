@@ -24,5 +24,17 @@ passport.use(new GitHubStrategy({
     done(null, profile);
   }));
 ```
-5. `npm start` To run locally
-6. lvl^ !
+5. Create the database locally. From the command line run the following commands:
+`
+createdb lvlup_dev  //For running development enviornment locally
+createdb lvlup_test  //To run all of the tests
+`
+
+6. Seed the database. From the command line run the following commands:
+`
+knex migrate:rollback //Only if dropping the database and reseeding
+knex migrate:latest
+knex seed:run
+`
+7. `npm start` To run locally
+8. lvl^ !

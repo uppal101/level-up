@@ -48,6 +48,17 @@ const renderSelectField = ({ input, label, type, meta: { touched, error }, child
     </div>
   </div>
 );
+const renderMultiSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <select {...input} multiple>
+        {children}
+      </select>
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+);
 
 
 class SignupForm extends Component {
@@ -124,10 +135,10 @@ class SignupForm extends Component {
             component={renderSelectField}
             type="text"
             label="Campuses"
-            placeholder="Select Campuses"
+            placeholder="Select Campus"
             validate={[required]}
           >
-            <option default>Select Campus(es)</option>
+            <option default>Select Campus</option>
             { this.props.campuses.map(option => <option value={option.id}>{option.location}</option>)}
           </Field>
         </Form.Field>
@@ -135,12 +146,11 @@ class SignupForm extends Component {
         <Form.Field inline>
           <Field
             name="cohorts"
-            component={renderSelectField}
+            component={renderMultiSelectField}
             type="text"
             label="Cohorts"
             placeholder="Select Cohorts"
             validate={[required]}
-            multiple
           >
             <option default>Select Cohort(s)</option>
             { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
