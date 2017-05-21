@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Form, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../actions/admin-signup';
-import { editReward } from '../../../actions/edit-reward';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../admin-common/render-fields';
-import { required, number } from '../admin-common/validations';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { editReward } from '../../../../actions/edit-reward';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
+import { required, number } from '../../admin-common/validations';
 import './edit-reward-styles.css';
 
 class EditRewardForm extends Component {
