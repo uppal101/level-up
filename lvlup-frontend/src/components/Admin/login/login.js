@@ -19,6 +19,7 @@ export class AdminLogin extends Component {
             <Form />
             <p id="need-account">
               Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
+            {this.props.loggedIn.error ? <p className="errorMessage">{this.props.loggedIn.error}</p> : null}
           </div>)}
         {renderIf(this.props.loggedIn.status && this.props.loggedIn.confirmed)(
           <Redirect to="/admin/dashboard" />,

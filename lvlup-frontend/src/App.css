@@ -103,3 +103,7 @@ body,
   border-bottom: 1px solid #F2711C !important;
   border-top: 2px solid #F2711C !important;
 }
+
+.errorMessage {
+  color: red;
+}
