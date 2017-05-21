@@ -6,9 +6,10 @@ import { signupStudent, moreStudentInfo } from '../../../actions/student-signup'
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { renderField, renderSelectField } from '../admin-common/render-fields';
+import { required } from '../admin-common/validations';
 import './student-styles.css';
 
-const required = value => value ? undefined : 'Required';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts, signupStudent, moreStudentInfo }, dispatch);
 
@@ -17,27 +18,6 @@ const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
 });
 
-const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <select {...input}>
-        {children}
-      </select>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-);
-
-const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
-    </div>
-  </div>
-);
 
 class SignupInfo extends Component {
   constructor(props) {
