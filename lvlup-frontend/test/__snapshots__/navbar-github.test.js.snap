@@ -1,0 +1,16 @@
+exports[`test GitHubLogin should render 1`] = `
+<a
+  href="/api/auth/github/">
+  <Button
+    as="button"
+    color="orange"
+    inverted={true}
+    size="small">
+    Log In     
+    <Icon
+      as="i"
+      name="github" />
+      Sign Up
+  </Button>
+</a>
+`;

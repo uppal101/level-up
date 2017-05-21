@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as CONST from '../constants/constants';
 
 const loginRequest = (props) => {
   const url = '/api/admin/login';
@@ -6,6 +7,6 @@ const loginRequest = (props) => {
 };
 
 export const login = props => ({
-  type: 'LOGIN',
+  type: CONST.ADMIN_LOGIN,
   payload: loginRequest(props),
 });

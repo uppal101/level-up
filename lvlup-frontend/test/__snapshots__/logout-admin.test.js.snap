@@ -1,0 +1,14 @@
+exports[`test LogoutAdmin should render 1`] = `
+<LogOutAdmin
+  loggingOutAdmin={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  } />
+`;

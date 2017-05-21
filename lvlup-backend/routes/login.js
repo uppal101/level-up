@@ -13,6 +13,7 @@ const Admin = require('../models/admin');
 const AdminCohort = require('../models/admin_cohort');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const mailControls = require('../helpers/nodemailer-setup');
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -77,12 +78,16 @@ router.route('/admin/login')
           .then(() => Admin.query({ where: { email: req.body.email } })
             .fetch({ withRelated: ['cohorts.campus'] })
             .then((admin) => {
-              const user = { userId: admin.id };
-              const token = jwt.sign(user, process.env.JWT_KEY, {
-                expiresIn: '7 days',
-              });
-              res.cookie('authToken', token);
-              res.json(admin);
+              if (admin.attributes.confirmed) {
+                const user = { userId: admin.id };
+                const token = jwt.sign(user, process.env.JWT_KEY, {
+                  expiresIn: '7 days',
+                });
+                res.cookie('authToken', token);
+                res.json(admin);
+              } else {
+                res.json({ confirmed: false });
+              }
             }))
           .catch((err) => {
             res.status(400).json('Invalid password or username');
@@ -92,95 +97,77 @@ router.route('/admin/login')
   });
 
 router.route('/admin/signup')
-    .post((req, res) => {
-      console.log(req.body);
-      Admin.query({ where: { email: req.body.email } })
-      .fetch()
-      .then((checkToSeeIfAlreadyRegistered) => {
-        if (checkToSeeIfAlreadyRegistered === null) {
-          bcrypt.hash(req.body.password, 1)
-          .then(hashed => Admin.forge({
-            username: req.body.username,
-            name: req.body.name,
-            email: req.body.email,
-            campus_id: Number(req.body.campuses),
-            hashed_password: hashed,
-            confirmed: false,
-          })
-            .save())
-          .then((newAdmin) => {
-            const cohortsArr = req.body.cohorts;
-            const promiseArr = [];
-            for (let i = 0; i < cohortsArr.length; i++) {
-              promiseArr.push(AdminCohort.forge({
-                cohort_id: cohortsArr[i],
-                admin_id: newAdmin.id,
-              }).save());
-            }
-            Promise.all(promiseArr);
-          })
-          .catch((err) => {
-            console.error(err);
-          })
-          .then(() => Admin.query({ where: { email: req.body.email } })
-            .fetch())
-          .then((admin) => {
-            const user = { userId: admin.id };
-            const token = jwt.sign(user, process.env.JWT_KEY, {
-              expiresIn: '7 days',
-            });
-            return token;
-          })
-          .then((tokenToSend) => {
-            const transporter = nodemailer.createTransport({
-              host: 'mail.privateemail.com',
-              port: 587,
-              secure: false,
-              auth: {
-                user: 'lvlupteam@lvlup.tech',
-                pass: process.env.EMAIL_PASSWORD,
-              },
-            });
-            const url = `http://lvlup-galvanize.herokuapp.com/api/admin/confirm/${tokenToSend}`;
-            const mailOptions = {
-              from: '"lvl^ Team" <lvlupteam@lvlup.tech>', // sender address
-              to: req.body.email, // list of receivers
-              subject: 'Confirm your Admin Account with lvl^', // Subject line
-              text: 'Welcome to lvl^ please click the link below to confirm your Admin Account', // plain text body
-              html: `<a href=http://localhost:3000/api/admin/confirm/${tokenToSend}>Click here to confirm</a>`, // html body
-              dsn: {
-                id: 'signup',
-                return: 'headers',
-                notify: ['success', 'failure', 'delay'],
-                recipient: 'lvlupteam@lvlup.tech',
-              },
-            };
-            transporter.sendMail(mailOptions, (error, info) => {
-              if (error) {
-                return console.log(error);
-              }
-            });
-            res.status(200).json({
-              needConfirm: 'Please wait for email to confirm',
-              status: true,
-            });
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-        } else {
-          res.status(400).json('User already exists!');
-        }
+  .post((req, res) => {
+    // save admin to admin table
+    bcrypt.hash(req.body.password, 1)
+    .then(hashed => Admin.forge({
+      username: req.body.username,
+      name: req.body.name,
+      email: req.body.email,
+      campus_id: Number(req.body.campuses),
+      hashed_password: hashed,
+      confirmed: false,
+    })
+    .save())
+    .catch((err) => {
+      console.error(err);
+      res.json({ error: 'User already exists' });
+    })
+    .then((newAdmin) => {
+      // save the admin and their cohorts they are apart of to the admin_cohort table
+      const cohortsArr = req.body.cohorts;
+      const promiseArr = [];
+      for (let i = 0; i < cohortsArr.length; i++) {
+        promiseArr.push(AdminCohort.forge({
+          cohort_id: cohortsArr[i],
+          admin_id: newAdmin.id,
+        }).save());
+      }
+      Promise.all(promiseArr);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.json({ error: 'Server Error - Please Try Again' });
+    })
+    .then(() => Admin.query({ where: { email: req.body.email } })
+      .fetch())
+    .then((admin) => {
+      // create token to send with confirm email to confirm an admin and they have access to a galvanize account.
+      const user = { userId: admin.id };
+      const token = jwt.sign(user, process.env.JWT_KEY, {
+        expiresIn: '7 days',
       });
+      return token;
+    })
+    .then((tokenToSend) => {
+      // send the email confirmation
+      const signUpEmail = mailControls.signupEmailOptions(req.body.email, process.env.HOST, tokenToSend);
+      mailControls.transporter.sendMail(signUpEmail, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+      });
+      // sends the information to the front end for the front end to display for the admin to confirm via email
+      res.status(200).json({
+        needConfirm: 'Please wait for email to confirm',
+        status: true,
+      });
+    })
+    .catch((err) => {
+      console.error(err);
     });
+  });
 
 router.route('/admin/confirm/:token')
   .get((req, res) => {
+    // verifies token that was sent to the user.
     jwt.verify(req.params.token, process.env.JWT_KEY, (err, payload) => {
       if (err) {
         res.status(401).json('Unauthorized');
       } else {
         const userId = Number(payload.userId);
+        // change user to confired and can access their admin page on sign in
         Admin.query({ where: { id: payload.userId } })
         .fetch()
         .then(admin => admin.save({

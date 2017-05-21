@@ -1,13 +1,14 @@
 import initialState from './initialState';
+import * as CONST from '../constants/constants';
 
 export const signedUp = (state = initialState.signedUp, action) => {
   switch (action.type) {
-    case 'SIGNUP_PENDING':
+    case CONST.ADMIN_SIGNUP_PENDING:
       return state;
-    case 'SIGNUP_FULFILLED':
+    case CONST.ADMIN_SIGNUP_FULFILLED:
       return action.payload;
-    case 'SIGNUP_REJECTED':
-      return action.payload;
+    case CONST.ADMIN_SIGNUP_REJECTED:
+      return Object.assign({}, { status: false, error: 'Please check that you have filled out all the required fields' }, action.payload);
     default:
       return state;
   }
@@ -15,12 +16,12 @@ export const signedUp = (state = initialState.signedUp, action) => {
 
 export const allCampuses = (state = [], action) => {
   switch (action.type) {
-    case 'ALL_CAMPUSES_PENDING':
+    case CONST.ALL_CAMPUSES_PENDING :
       return state;
-    case 'ALL_CAMPUSES_FULFILLED':
+    case CONST.ALL_CAMPUSES_FULFILLED:
       return action.payload;
-    case 'ALL_CAMPUSES_REJECTED':
-      return action.payload;
+    case CONST.ALL_CAMPUSES_REJECTED:
+      return Object.assign({}, { error: 'Server Error - Please Try Again' }, action.payload);
     default:
       return state;
   }
@@ -28,12 +29,12 @@ export const allCampuses = (state = [], action) => {
 
 export const allCohorts = (state = [], action) => {
   switch (action.type) {
-    case 'ALL_COHORTS_PENDING':
+    case CONST.ALL_COHORTS_PENDING:
       return state;
-    case 'ALL_COHORTS_FULFILLED':
+    case CONST.ALL_COHORTS_FULFILLED:
       return action.payload;
-    case 'ALL_COHORTS_REJECTED':
-      return action.payload;
+    case CONST.ALL_COHORTS_REJECTED:
+      return Object.assign({}, { error: 'Server Error - Please Try Again' }, action.payload);
     default:
       return state;
   }
@@ -41,7 +42,7 @@ export const allCohorts = (state = [], action) => {
 
 export const setCampus = (state = '', action) => {
   switch (action.type) {
-    case 'SET_CAMPUSES':
+    case CONST.SET_CAMPUSES:
       return action.campus;
     default:
       return state;
@@ -50,7 +51,7 @@ export const setCampus = (state = '', action) => {
 
 export const setCohort = (state = '', action) => {
   switch (action.type) {
-    case 'SET_COHORT':
+    case CONST.SET_COHORT:
       return action.cohort;
     default:
       return state;

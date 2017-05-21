@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  editedReward: state.editedReward.data,
+  editedReward: state.editedReward,
 });
 
 const EditRewardCompleted = props => (
@@ -19,19 +19,19 @@ const EditRewardCompleted = props => (
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Reward</Label>
-            {props.editedReward.name}
+            {props.editedReward.data.name}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Point Cost</Label>
-            {props.editedReward.point_cost}
+            {props.editedReward.data.point_cost}
           </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>
             <Label ribbon>Description</Label>
-            {props.editedReward.description}
+            {props.editedReward.data.description}
           </Table.Cell>
         </Table.Row>
       </Table.Body>

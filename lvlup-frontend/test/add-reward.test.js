@@ -12,8 +12,8 @@ const mockStore = configureMockStore(middlewares);
 
 test('AddReward should render', () => {
   const store = mockStore({ lvlupApp });
-  const reward = shallow(
+  const add = shallow(
     <AddReward store={store} />,
   );
-  expect(shallowToJson(reward)).toMatchSnapshot();
+  expect(shallowToJson(add)).toMatchSnapshot();
 });
