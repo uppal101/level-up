@@ -1,4 +1,4 @@
-import HamburgerStudent from '../src/components/Student/student-main-view/hamburger';
+import StudentSidenav from '../src/components/Student/nav/sidenav';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
@@ -10,10 +10,10 @@ import lvlupApp from '../src/reducers/index';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-test('HamburgerStudent should render', () => {
+test('StudentSidenav should render', () => {
   const store = mockStore({ lvlupApp });
   const student = shallow(
-    <HamburgerStudent store={store} />,
+    <StudentSidenav store={store} />,
   );
   expect(shallowToJson(student)).toMatchSnapshot();
 });

@@ -8,6 +8,7 @@ exports.seed = function (knex, Promise) {
       email: 'jenny.engard@galvanize.com',
       hashed_password: '$2a$04$kQf8f8uARgwB1zjHkoDwjOsxyglqS38c4yi.ViFcHR59g.CLvk8Ma',
       campus_id: 1,
+      confirmed: true,
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ exports.seed = function (knex, Promise) {
       email: 'maryann.barge@galvanize.com',
       hashed_password: '$2a$04$kQf8f8uARgwB1zjHkoDwjOsxyglqS38c4yi.ViFcHR59g.CLvk8Ma',
       campus_id: 1,
+      confirmed: true,
     },
   ]))
   .then(() => knex.raw('SELECT setval(\'admins_id_seq\', (SELECT MAX(id) FROM admins))'));

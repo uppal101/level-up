@@ -1,4 +1,4 @@
-import StudentRewardRequest from '../src/components/Student/student-reward-request/reward-request-main';
+import StudentRewardRequest from '../src/components/Student/requests/request-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
