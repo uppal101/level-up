@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+
 export const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>

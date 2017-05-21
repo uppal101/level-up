@@ -6,8 +6,8 @@ import { signupStudent, moreStudentInfo } from '../../../actions/student-signup'
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { renderField, renderSelectField } from '../admin-common/render-fields';
-import { required } from '../admin-common/validations';
+import { renderField, renderSelectField } from '../../Admin/admin-common/render-fields';
+import { required } from '../../Admin/admin-common/validations';
 import './student-styles.css';
 
 

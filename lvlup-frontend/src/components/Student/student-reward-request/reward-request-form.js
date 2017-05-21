@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { rewardRequest } from '../../../actions/student-rewards-actions';
-import { renderTextAreaField } from '../admin-common/render-fields';
+import { renderTextAreaField } from '../../Admin/admin-common/render-fields';
 import './reward-request-style.css';
 
 const mapStateToProps = state => ({
