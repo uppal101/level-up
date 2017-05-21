@@ -18,6 +18,7 @@ class AdminSignup extends Component {
         {renderIf(!this.props.signedUp.status)(
           <div className="signup">
             <Email />
+            {this.props.signedUp.error ? <p className="errorMessage">{this.props.signedUp.error}</p> : null}
           </div>,
         )}
         {renderIf(this.props.signedUp.status)(
