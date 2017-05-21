@@ -4,10 +4,10 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import { allCampuses, setCampuses } from '../../../actions/admin-signup';
-import { addChallenge } from '../../../actions/add-challenge';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../admin-common/render-fields';
-import { required, number } from '../admin-common/validations';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { addChallenge } from '../../../../actions/add-challenge';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
+import { required, number } from '../../admin-common/validations';
 import './add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
