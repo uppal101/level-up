@@ -12,13 +12,13 @@ import AddChallenge from './components/Admin/challenges/add-challenge/add-challe
 import EditChallenge from './components/Admin/challenges/edit-challenge/edit-challenge-main';
 import AddReward from './components/Admin/rewards/add-reward//add-reward-main';
 import EditReward from './components/Admin/rewards/edit-reward/edit-reward-main';
-import StudentChallenges from './components/Student/challenges/challenges';
-import SubmissionMain from './components/Student/student-challenge-submission/challenge-submission-view';
-import StudentRewards from './components/Student/student-rewards/student-rewards-main';
-import StudentRewardRequest from './components/Student/student-reward-request/reward-request-main';
-import HamburgerStudent from './components/Student/student-main-view/hamburger';
+import StudentChallenges from './components/Student/challenges/challenges-main';
+import SubmissionMain from './components/Student/submissions/submission-main';
+import StudentRewards from './components/Student/rewards/rewards-main';
+import StudentRewardRequest from './components/Student/requests/request-main';
+import StudentSidenav from './components/Student/nav/sidenav';
 import AdminSidenav from './components/Admin/nav/sidenav';
-import StudentDashboard from './components/Student/dashboard/student-dashboard';
+import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
 
 
@@ -44,7 +44,7 @@ export default class App extends Component {
                 <Grid.Column id="content-col" width={16}>
 
                   <Route exact path="/" component={Home} />
-                  <Route path="/student" component={HamburgerStudent} />
+                  <Route path="/student" component={StudentSidenav} />
                   <Route path="/admin" component={AdminSidenav} />
                   {/* </Grid.Column>
                     <Grid.Column width={14}> */}
