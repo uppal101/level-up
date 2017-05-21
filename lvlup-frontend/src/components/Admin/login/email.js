@@ -4,6 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/admin-login';
+import { renderField } from '../admin-common/render-fields';
+import { required, email, minValue7 } from '../admin-common/validations';
 import './loginview.css';
 
 function mapDispatchToProps(dispatch) {
@@ -14,23 +16,6 @@ function mapStateToProps(state) {
     loggedIn: false,
   };
 }
-
-const required = value => value ? undefined : 'Required';
-const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
-const minValue7 = minValue(7);
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Invalid email address' : undefined;
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
-    </div>
-  </div>
-);
 
 class LoginForm extends Component {
 

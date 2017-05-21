@@ -2,51 +2,11 @@ import React, { Component } from 'react';
 import { Form, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
-import { editReward } from '../../../../actions/edit-reward';
+import { allCampuses, setCampuses } from '../../../actions/admin-signup';
+import { editReward } from '../../../actions/edit-reward';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../admin-common/render-fields';
+import { required, number } from '../admin-common/validations';
 import './edit-reward-styles.css';
-
-const categories = [
-  { key: 'Education', text: 'Education', value: '1' },
-  { key: 'Community', text: 'Community', value: '2' },
-  { key: 'Career', text: 'Career', value: '3' },
-  { key: 'Life', text: 'Life', value: '4' },
-];
-
-const required = value => value ? undefined : 'Required';
-const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
-    </div>
-  </div>
-);
-
-const renderTextAreaField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <textarea {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
-    </div>
-  </div>
-);
-
-const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <select {...input}>
-        {children}
-      </select>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-);
 
 class EditRewardForm extends Component {
   constructor(props) {
@@ -148,6 +108,7 @@ EditRewardForm = reduxForm({
   form: 'editReward',
 })(EditRewardForm);
 
+// Prepopulate form with data from state
 EditRewardForm = connect(
   state => ({
     campuses: state.allCampuses,

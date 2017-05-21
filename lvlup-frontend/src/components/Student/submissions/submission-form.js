@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
-import { challengeSubmission } from '../../../actions/student-challenges-actions';
-import './submission-styles.css';
 import uploadcare from 'uploadcare-widget';
+import { challengeSubmission } from '../../../actions/student-challenges-actions';
+import { required, minValue7 } from '../../Admin/admin-common/validations';
+import './submission-styles.css';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -14,9 +15,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ challengeSubmission }, dispatch);
 
-const required = value => value ? undefined : 'Required';
-const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
-const minValue7 = minValue(7);
 
 class ChallengeSubmissionForm extends Component {
   constructor(props) {
