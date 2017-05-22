@@ -8,6 +8,7 @@ import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
 import { addChallenge } from '../../../../actions/add-challenge';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
 import { required, number } from '../../admin-common/validations';
+import { addRequirement, renderRequirementInputs } from './add-challenge-form-helpers';
 import './add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
@@ -31,35 +32,6 @@ class AddChallengeForm extends Component {
 
   componentWillMount() {
     this.props.allCampuses();
-  }
-
-  addRequirement() {
-    this.setState((prevState, props) => {
-      if (prevState.numberOfRequestInputs <= 4) {
-        return { numberOfRequestInputs: prevState.numberOfRequestInputs + 1 };
-      }
-      return { maxRequestInputs: true };
-    });
-  }
-
-  renderRequirementInputs(numOfInputs) {
-    const requirementInputComponents = [];
-    for (let i = 1; i <= numOfInputs; i++) {
-      requirementInputComponents.push((
-        <Form.Group>
-          <Form.Field width={16}>
-            <Field
-              name="`requirements_${i}`"
-              component={renderField}
-              type="text"
-              label="Requirement"
-              placeholder="Requirement"
-            />
-          </Form.Field>
-        </Form.Group>
-    ));
-    }
-    return requirementInputComponents;
   }
 
   render() {
@@ -95,11 +67,11 @@ class AddChallengeForm extends Component {
               </Form.Field>
             </Form.Group>
 
-            {this.renderRequirementInputs(this.state.numberOfRequestInputs)}
+            {renderRequirementInputs(this.state.numberOfRequestInputs)}
             <Form.Group>
               <Form.Field width={4}>
                 {renderIf(this.state.numberOfRequestInputs < 5 && this.state.maxRequestInputs === false)(
-                  <Button basic color="orange" onClick={() => this.addRequirement()}>Add Requirement</Button>,
+                  <Button basic color="orange" onClick={() => addRequirement()}>Add Requirement</Button>,
                 )}
               </Form.Field>
             </Form.Group>

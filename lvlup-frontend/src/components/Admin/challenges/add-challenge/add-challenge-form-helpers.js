@@ -1,3 +1,8 @@
+import React from 'react';
+import { Form } from 'semantic-ui-react';
+import { Field } from 'redux-form';
+import { renderField } from '../../admin-common/render-fields';
+
 export const addRequirement = function addRequirement() {
   this.setState((prevState, props) => {
     if (prevState.numberOfRequestInputs <= 4) {
