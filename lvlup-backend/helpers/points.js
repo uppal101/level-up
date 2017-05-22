@@ -23,7 +23,6 @@ let q3Used;
 let q4Used;
 let totalUsed;
 
-
 const getPtsEarned = studentId => new Promise((resolve) => {
   knex('challenge_submissions')
   .where({
@@ -84,6 +83,8 @@ const determineQuarter = (time) => {
     return 'q3';
   } else if ((moment(time).isAfter(q4)) && (moment(time).isBefore(grad))) {
     return 'q4';
+  } else if ((moment(time).isAfter(grad))) {
+    return 'grad';
   }
   return 'This time is not within the program start and end dates';
 };

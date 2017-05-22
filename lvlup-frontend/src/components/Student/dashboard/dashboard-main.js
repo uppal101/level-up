@@ -112,7 +112,7 @@ export class StudentDashboard extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell colSpan="4">Current Submissions</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" colSpan="4">Current Submissions</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
@@ -128,7 +128,7 @@ export class StudentDashboard extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell colSpan="4">Achievements</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" colSpan="4">Achievements</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
@@ -144,7 +144,7 @@ export class StudentDashboard extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell colSpan="4">Rewards Earned</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" colSpan="4">Rewards Earned</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
