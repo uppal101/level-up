@@ -5,10 +5,10 @@ import { loggedIn } from './admin-login-reducer';
 import { signedUp, allCampuses, allCohorts, setCampus, setCohort } from './admin-signup-reducer';
 import { addedChallenge } from './add-challenge-reducer';
 import { editedReward } from './edit-reward-reducer';
-import { editedChallenge } from './edit-challenge-reducer';
+import { editedChallenge, inactiveChallenge } from './edit-challenge-reducer';
 import { addedReward } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
-import { approveSelectedReward, denySelectedReward } from './request-reducer';
+import { approveSelectedReward, denySelectedReward, inactiveReward } from './request-reducer';
 
 
 const lvlupApp = combineReducers({
@@ -37,6 +37,8 @@ const lvlupApp = combineReducers({
   adminPendingSubmissions,
   approveSelectedReward,
   denySelectedReward,
+  inactiveReward,
+  inactiveChallenge,
 });
 
 export default lvlupApp;

@@ -40,7 +40,7 @@ describe('POST /rewards/', () => {
       description: 'Free individual lunch $15 limit',
       campus_id: 1,
       category_id: 4,
-      active: true,
+      active: 'Active',
     })
     .expect((reward) => {
       delete reward.body.created_at;
@@ -53,7 +53,7 @@ describe('POST /rewards/', () => {
       description: 'Free individual lunch $15 limit',
       campus_id: 1,
       category_id: 4,
-      active: true,
+      active: 'Active',
     }, done);
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
@@ -65,7 +65,7 @@ describe('POST /rewards/', () => {
         point_cost: 75,
         description: 'Free individual lunch $15 limit',
         campus_id: 1,
-        active: true,
+        active: 'Active',
       })
       .expect(400, JSON.stringify({
         code: 400,
@@ -92,7 +92,7 @@ describe('GET /rewards/:id', () => {
         description: '$5 gift card to the Gather cafe.',
         campus_id: 1,
         category_id: 4,
-        active: true,
+        active: 'Active',
       }, done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
@@ -115,7 +115,7 @@ describe('PUT /rewards/:id', () => {
       description: '$5 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
-      active: true,
+      active: 'Active',
     })
     .expect((reward) => {
       delete reward.body.created_at;
@@ -129,7 +129,7 @@ describe('PUT /rewards/:id', () => {
         description: '$5 gift card to the Gather cafe.',
         campus_id: 1,
         category_id: 4,
-        active: true,
+        active: 'Active',
       }, done);
   });
 

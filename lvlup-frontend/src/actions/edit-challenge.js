@@ -14,3 +14,13 @@ export const editChallenge = props => ({
 export const resetEditChallenge = () => ({
   type: CONST.RESET_EDIT_CHALLENGE,
 });
+
+const inactiveChallenge = (reward) => {
+  const url = `/api/challenges/${reward.id}`;
+  return axios.put(url, { active: 'Inactive' }).then(res => res.data);
+};
+
+export const makeChallengeInactive = reward => ({
+  type: CONST.INACTIVE_CHALLENGE,
+  payload: inactiveChallenge(reward),
+});

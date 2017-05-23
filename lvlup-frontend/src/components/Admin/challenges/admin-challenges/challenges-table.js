@@ -3,7 +3,7 @@ import { Icon, Table, Container, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { resetEditChallenge } from '../../../../actions/edit-challenge';
+import { resetEditChallenge, makeChallengeInactive } from '../../../../actions/edit-challenge';
 import { resetAddChallenge } from '../../../../actions/add-challenge';
 import { campusChallenges, selectChallenge } from '../../../../actions/student-challenges-actions';
 import './challenges-style.css';
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 });
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge, makeChallengeInactive }, dispatch);
 
 
 class ChallengesTable extends Component {
@@ -42,7 +42,10 @@ class ChallengesTable extends Component {
             <Icon color="orange" name="pencil" />
           </Link>
         </Table.Cell>
-        <Table.Cell textAlign="center"><Icon name="trash" /></Table.Cell>
+        <Table.Cell textAlign="center"><Icon
+          name="trash"
+          onClick={() => this.props.makeChallengeInactive(item)}
+        /></Table.Cell>
         <Table.Cell textAlign="center">{item.point_value}</Table.Cell>
       </Table.Row>
     ));

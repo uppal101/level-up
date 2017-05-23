@@ -63,7 +63,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 2,
           category: 'Community',
@@ -81,7 +81,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: 'Must be approved by an instructor',
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 1,
           category: 'Education',
@@ -99,7 +99,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: 'Must be approved by an instructor',
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 1,
           category: 'Education',
@@ -117,7 +117,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: 'Use an outside API',
         requirements_4: 'Must be approved by an instructor',
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 1,
           category: 'Education',
@@ -135,7 +135,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 3,
           category: 'Career',
@@ -153,7 +153,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: {
           id: 4,
           category: 'Life',
@@ -170,7 +170,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 1, category: 'Education' } },
       { id: 8,
         name: 'Lead a White Boarding Session at Lunch for a Junior Cohort',
@@ -183,7 +183,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 2, category: 'Community' } },
       { id: 9,
         name: 'Attend a Conference',
@@ -196,7 +196,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 3, category: 'Career' } },
       { id: 10,
         name: 'Learn a New Technology Not Taught by Galvanize',
@@ -209,7 +209,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: 'Must be approved by an instructor',
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 1, category: 'Education' } },
       { id: 11,
         name: 'Provide a Warm Intro to Another Student',
@@ -222,7 +222,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 3, category: 'Career' } },
       { id: 12,
         name: 'Host a meet-up',
@@ -235,7 +235,7 @@ describe('GET challenges/campuses/:campus_id', () => {
         requirements_3: null,
         requirements_4: null,
         requirements_5: null,
-        active: true,
+        active: 'Active',
         category: { id: 2, category: 'Community' },
       },
     ], done);
@@ -263,7 +263,7 @@ describe('POST challenges', () => {
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
-      active: true,
+      active: 'Active',
     })
     .expect('Content-Type', /json/)
     .expect(200, done);
@@ -284,7 +284,7 @@ describe('POST challenges', () => {
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
-      active: true,
+      active: 'Active',
     })
     .expect((challenge) => {
       delete challenge.body.created_at;
@@ -302,7 +302,7 @@ describe('POST challenges', () => {
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
-      active: true,
+      active: 'Active',
     }, done);
   });
 });
@@ -329,7 +329,7 @@ describe('PUT challenges/:challenge_id', () => {
       requirements_3: 'Use an outside API',
       requirements_4: 'Must be approved by an instructor',
       requirements_5: null,
-      active: true,
+      active: 'Active',
     })
     .expect('Content-Type', /json/)
     .expect(200, done);
@@ -351,7 +351,7 @@ describe('PUT challenges/:challenge_id', () => {
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
-      active: true,
+      active: 'Active',
     })
     .expect((challenge) => {
       delete challenge.body.created_at;
@@ -369,7 +369,7 @@ describe('PUT challenges/:challenge_id', () => {
       requirements_3: 'Use an outside API',
       requirements_4: 'Must be approved by an instructor',
       requirements_5: null,
-      active: true,
+      active: 'Active',
     }, done);
   });
 });
@@ -409,7 +409,7 @@ describe('GET challenges/:id', () => {
       requirements_3: null,
       requirements_4: null,
       requirements_5: null,
-      active: true,
+      active: 'Active',
     }, done);
   });
 });
