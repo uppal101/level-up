@@ -46,7 +46,6 @@ router.route('/challenges/:challenge_id')
   })
 
   .put(authorize.isAdmin, (req, res) => {
-    console.log(req.body.active);
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
     .then(challenge => challenge.save({
@@ -62,10 +61,7 @@ router.route('/challenges/:challenge_id')
       requirements_5: req.body.requirements_5 || challenge.get('requirements_5'),
       active: req.body.active || challenge.get('active'),
     }))
-    .then((challenge) => {
-      console.log(challenge);
-      res.status(200).json(challenge);
-    })
+    .then(challenge => res.status(200).json(challenge))
     .catch(err => res.status(500).json(err.message));
   });
 

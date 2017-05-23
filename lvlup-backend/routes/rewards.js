@@ -37,24 +37,17 @@ router.route('/rewards/:id')
   })
 
   .put(authorize.isAdmin, (req, res) => {
-    console.log(req.body);
     Reward.forge({ id: req.params.id })
     .fetch()
-    .then((reward) => {
-      console.log('inside reward', req.body.active);
-      return reward.save({
-        name: req.body.name || reward.get('name'),
-        point_cost: req.body.point_cost || reward.get('point_cost'),
-        description: req.body.description || reward.get('description'),
-        campus_id: req.body.campus_id || reward.get('campus_id'),
-        category_id: req.body.category_id || reward.get('category_id'),
-        active: req.body.active || reward.get('active'),
-      });
-    })
-    .then((updatedReward) => {
-      console.log(updatedReward);
-      res.status(200).json(updatedReward);
-    })
+    .then(reward => reward.save({
+      name: req.body.name || reward.get('name'),
+      point_cost: req.body.point_cost || reward.get('point_cost'),
+      description: req.body.description || reward.get('description'),
+      campus_id: req.body.campus_id || reward.get('campus_id'),
+      category_id: req.body.category_id || reward.get('category_id'),
+      active: req.body.active || reward.get('active'),
+    }))
+    .then(updatedReward => res.status(200).json(updatedReward))
     .catch(err => res.status(500).json({ message: err.message }));
   });
 
