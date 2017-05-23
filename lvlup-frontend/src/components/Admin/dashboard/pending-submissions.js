@@ -49,6 +49,9 @@ class PendingSubmissionsTable extends Component {
         <Table celled color="orange">
           <Table.Header>
             <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="4">Pending Challenge Submissions</Table.HeaderCell>
+            </Table.Row>
+            <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Date Submitted</Table.HeaderCell>
