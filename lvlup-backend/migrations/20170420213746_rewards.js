@@ -17,6 +17,8 @@ exports.up = (knex, Promise) => knex.schema.createTable('rewards', (table) => {
   .references('id')
   .inTable('categories')
   .onDelete('CASCADE');
+  table.boolean('active')
+  .notNullable();
   table.timestamps(true, true);
 });
 

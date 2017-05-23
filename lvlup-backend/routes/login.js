@@ -111,7 +111,7 @@ router.route('/admin/signup')
     .save())
     .catch((err) => {
       console.error(err);
-      res.json({ error: 'User already exists' });
+      res.status(400).json({ error: 'User already exists' });
     })
     .then((newAdmin) => {
       // save the admin and their cohorts they are apart of to the admin_cohort table

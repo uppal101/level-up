@@ -42,13 +42,14 @@ describe('GET /admins/', () => {
           email: 'jenny.engard@galvanize.com',
           gravatar_url: null,
           campus_id: 1,
+          confirmed: true,
         },
         {
 
           id: 2,
           username: 'CSM-Mary-Ann',
           name: 'Mary Ann Barge',
-
+          confirmed: true,
           email: 'maryann.barge@galvanize.com',
           gravatar_url: null,
           campus_id: 1,
@@ -69,6 +70,7 @@ describe('PUT /admins/:id', () => {
       email: 'jenny.engard@galvanize.com',
       gravatar_url: null,
       campus_id: 1,
+      confirmed: true,
     })
     .expect(200,
       { id: 1,
@@ -77,6 +79,7 @@ describe('PUT /admins/:id', () => {
         email: 'jenny.engard@galvanize.com',
         gravatar_url: null,
         campus_id: 1,
+        confirmed: true,
       }, done);
   });
 
