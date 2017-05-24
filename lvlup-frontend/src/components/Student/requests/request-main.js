@@ -23,7 +23,7 @@ export class StudentRewardRequest extends Component {
     const ifNotRequested = renderIf(!this.props.requestStatus.fulfilled && isAffordable());
 
     return (
-      <div className="reward-request">
+      <div>
         {renderIf(!isAffordable())(
           <InsufficientPoints />,
         )}

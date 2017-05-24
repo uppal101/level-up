@@ -13,7 +13,7 @@ const EditChallengeCompleted = props => (
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Challenge Edit Successful!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Challenge Edit Successful!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
