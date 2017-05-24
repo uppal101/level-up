@@ -59,6 +59,9 @@ class RewardsTable extends Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="6">Rewards</Table.HeaderCell>
+            </Table.Row>
+            <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>

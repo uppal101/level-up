@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const EditRewardCompleted = props => (
-  <Container>
+  <Container className="lvl-table">
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>

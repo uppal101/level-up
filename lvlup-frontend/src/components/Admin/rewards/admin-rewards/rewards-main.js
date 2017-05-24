@@ -6,7 +6,6 @@ class AdminRewards extends Component {
   render() {
     return (
       <div className="lvl-table">
-        <h2 className="header">Rewards</h2>
         <RewardsTable />
       </div>
     );

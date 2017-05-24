@@ -75,9 +75,12 @@ class PendingRequestsTable extends Component {
       return <div>LOADING</div>;
     }
     return (
-      <Container>
+      <Container className="subsequent-table">
         <Table celled>
           <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="5">Pending Reward Requests</Table.HeaderCell>
+            </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Reward</Table.HeaderCell>
