@@ -149,7 +149,6 @@ describe('User Log In and Sign Ups', (done) => {
     .set('Accept', 'application/json')
     .send(newUser)
     .expect((res) => {
-      console.log(res.body);
       delete res.body.cohorts[0].created_at;
       delete res.body.cohorts[0].updated_at;
       delete res.body.cohorts[1].created_at;
