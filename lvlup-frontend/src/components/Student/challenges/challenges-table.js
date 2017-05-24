@@ -26,7 +26,7 @@ class StudentChallengesTable extends Component {
   }
 
   renderTable(list) {
-    return list.map(item => (
+    return list.filter(challenges => challenges.active === 'Active').map(item => (
       <Table.Row key={`${item.id}challenges-table-student`}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
