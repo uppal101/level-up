@@ -13,11 +13,11 @@ class RequestCompleted extends Component {
 
   render() {
     return (
-      <div>
+      <div className="lvl-table">
         <Table celled color="orange">
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Reward Request Successful!</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Reward Request Successful!</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -37,7 +37,7 @@ class RequestCompleted extends Component {
           </Table.Body>
         </Table>
         <Link to={'/student/rewards'}>
-          <Button>Back to Rewards</Button>
+          <Button basic color="orange">Back to Rewards</Button>
         </Link>
       </div>
     );

@@ -12,12 +12,11 @@ const mapStateToProps = state => ({
 class SubmissionCompleted extends Component {
   render() {
     return (
-      <div className="challenge-submission">
-        <h2 className="header">{`Challenge Submission: ${this.props.selectedChallenge.name}`}</h2>
+      <div className="lvl-table">
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Challenge Submission Successful!</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Challenge Submission Successful!</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -78,7 +77,7 @@ class SubmissionCompleted extends Component {
           </Table.Body>
         </Table>
         <Link to={'/student/challenges'}>
-          <Button>Back to Challenges</Button>
+          <Button basic color="orange">Back to Challenges</Button>
         </Link>
       </div>
     );

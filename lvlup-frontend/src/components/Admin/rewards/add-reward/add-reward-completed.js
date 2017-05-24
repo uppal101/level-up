@@ -12,7 +12,7 @@ const AddRewardCompleted = props => (
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Reward Successfully Added!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Reward Successfully Added!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
