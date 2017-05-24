@@ -33,7 +33,7 @@ export class SelectedChallenge extends Component {
         <Table.Cell>{item.submission_attachment_2 ? item.submission_attachment_2 : 'No Attachment Available'}</Table.Cell>
         <Table.Cell>{item.submission_attachment_3 ? item.submission_attachment_3 : 'No Attachment Available'}</Table.Cell>
         <Table.Cell>
-          {item.submission_image_link_1 ? imageModal(item.submission_image_link_1) : 'No phots submitted'}
+          {item.submission_image_link_1 ? imageModal(item.submission_image_link_1) : 'No photos submitted'}
           {item.submission_image_link_2 ? imageModal(item.submission_image_link_2) : null}
           {item.submission_image_link_3 ? imageModal(item.submission_image_link_3) : null}
         </Table.Cell>
@@ -51,9 +51,11 @@ export class SelectedChallenge extends Component {
           <h1 className="header">{`Challenge Submission Review: ${this.props.selectedChallenge.challenge.name}`}</h1>
           <div>
             <h3>{`${this.props.selectedChallenge.student.name}, ${this.props.loggedIn.cohorts.filter(cohort => cohort.id === this.props.selectedChallenge.cohort_id).map(cohort => cohort.name)}` }</h3>
-            <h3>Challenge Requested Information</h3>
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Challenge Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Title</Table.HeaderCell>
                   <Table.HeaderCell>Category</Table.HeaderCell>
@@ -80,9 +82,12 @@ export class SelectedChallenge extends Component {
                 </Table.Row>
               </Table.Body>
             </Table>
-            <h3>Student Request Information</h3>
+
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Submission Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Submission Message</Table.HeaderCell>
                   <Table.HeaderCell>Attachment 1</Table.HeaderCell>

@@ -43,7 +43,7 @@ class RewardsTable extends Component {
           onClick={() => this.props.makeRewardInactive(item).then(() => {
             this.props.resetRewardsList();
             this.props.campusRewards(this.props.adminInfo.campus_id);
-          })} name="trash"
+          })} id="hover-icon" name="trash"
         /></Table.Cell>
         <Table.Cell textAlign="center">{item.point_cost}</Table.Cell>
       </Table.Row>

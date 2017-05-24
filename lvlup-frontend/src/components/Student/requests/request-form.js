@@ -34,7 +34,7 @@ class RewardRequestForm extends Component {
       return (<div>LOADING</div>);
     }
     return (
-      <div className="reward-request">
+      <div className="lvl-table">
         <h2 className="header">{`Reward Request: ${this.props.reward.name}  (${this.props.reward.point_cost} pts)`}</h2>
         <Form className="request-form" onSubmit={handleSubmit(this.submit)}>
           <Form.Field inline>
@@ -45,7 +45,7 @@ class RewardRequestForm extends Component {
               placeholder="Enter any preferences for your reward.."
             />
           </Form.Field>
-          <Form.Button>lvl^</Form.Button>
+          <Form.Button basic color="orange">lvl^</Form.Button>
         </Form>
       </div>
     );
