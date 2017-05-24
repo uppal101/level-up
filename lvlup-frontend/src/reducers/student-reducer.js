@@ -58,6 +58,8 @@ export const challenges = (state = { challenges: [] }, action) => {
       });
     case CONST.CHALLENGES_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    case CONST.RESET_CHALLENGE_ADMIN:
+      return Object.assign({}, { challenges: [] });
     default:
       return state;
   }
@@ -71,6 +73,8 @@ export const rewards = (state = { rewards: [] }, action) => {
       });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    case CONST.RESET_REWARDS_ADMIN:
+      return Object.assign({}, { rewards: [] });
     default:
       return state;
   }
