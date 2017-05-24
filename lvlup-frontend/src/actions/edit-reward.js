@@ -14,3 +14,13 @@ export const editReward = props => ({
 export const resetEditReward = () => ({
   type: CONST.RESET_EDIT_REWARD,
 });
+
+const inactiveReward = (reward) => {
+  const url = `/api/rewards/${reward.id}`;
+  return axios.put(url, { active: 'Inactive' }).then(res => res.data);
+};
+
+export const makeRewardInactive = reward => ({
+  type: CONST.INACTIVE_REWARD,
+  payload: inactiveReward(reward),
+});

@@ -784,7 +784,7 @@ describe('PUT /requests/:request_id', () => {
 describe('PUT /requests/:request_id/admin', () => {
   it('Should update a request to the database', (done) => {
     const approved = {
-      status: 'Approved',
+      status: { status: 'Approved' },
     };
     supertest(app)
       .put('/api/requests/2/admin')

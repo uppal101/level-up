@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Icon, Table, Container, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../../actions/student-rewards-actions';
-import { resetEditReward } from '../../../../actions/edit-reward';
+import { resetEditReward, makeRewardInactive } from '../../../../actions/edit-reward';
 import { resetAddReward } from '../../../../actions/add-reward';
 import './rewards-styles.css';
 
@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  campusRewards, selectReward, resetEditReward, resetAddReward }, dispatch);
+  campusRewards, selectReward, resetEditReward, resetAddReward, makeRewardInactive }, dispatch);
 
 class RewardsTable extends Component {
   constructor(props) {
@@ -38,7 +38,9 @@ class RewardsTable extends Component {
           <Link to={`/admin/reward-edit/${item.id}`}>
             <Icon color="orange" onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
         </Table.Cell>
-        <Table.Cell textAlign="center"><Icon onClick={() => this.props.selectReward(item)} name="trash" /></Table.Cell>
+        <Table.Cell textAlign="center"><Icon
+          onClick={() => this.props.makeRewardInactive(item)} name="trash"
+        /></Table.Cell>
         <Table.Cell textAlign="center">{item.point_cost}</Table.Cell>
       </Table.Row>
     ));

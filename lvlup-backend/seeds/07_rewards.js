@@ -8,6 +8,7 @@ exports.seed = function (knex, Promise) {
       description: '$5 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ exports.seed = function (knex, Promise) {
       description: '$10 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 3,
@@ -24,6 +26,7 @@ exports.seed = function (knex, Promise) {
       description: '$20 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ exports.seed = function (knex, Promise) {
       description: '$50 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 5,
@@ -40,6 +44,7 @@ exports.seed = function (knex, Promise) {
       description: '$100 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 6,
@@ -48,6 +53,7 @@ exports.seed = function (knex, Promise) {
       description: 'The "No You Google!" Card allows a student veto an instructor "google it" response to a question, forcing the instructor to either answer the question or if necessary Google it themselves and report back with the answer.',
       campus_id: 9,
       category_id: 1,
+      active: 'Active',
     },
     {
       id: 7,
@@ -56,6 +62,7 @@ exports.seed = function (knex, Promise) {
       description: 'This reward allows a student to secure a guaranteed admission to the next available Community Meet & Eat.',
       campus_id: 9,
       category_id: 2,
+      active: 'Active',
     },
     {
       id: 8,
@@ -64,6 +71,7 @@ exports.seed = function (knex, Promise) {
       description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
       campus_id: 9,
       category_id: 3,
+      active: 'Active',
     },
     {
       id: 9,
@@ -72,6 +80,7 @@ exports.seed = function (knex, Promise) {
       description: 'Have a mock interview with feedback from a member company.',
       campus_id: 1,
       category_id: 3,
+      active: 'Active',
     },
     {
       id: 10,
@@ -80,6 +89,7 @@ exports.seed = function (knex, Promise) {
       description: 'Have lunch and receive tips on your career search with a member of the Career Services Team.',
       campus_id: 1,
       category_id: 3,
+      active: 'Active',
     },
     {
       id: 11,
@@ -88,6 +98,7 @@ exports.seed = function (knex, Promise) {
       description: 'Pair program with the instructor of your choice.',
       campus_id: 1,
       category_id: 3,
+      active: 'Active',
     },
     {
       id: 12,
@@ -96,6 +107,7 @@ exports.seed = function (knex, Promise) {
       description: 'Pick an instructor with a specialty or skill that is not taught by Galvanize (like Swift).',
       campus_id: 1,
       category_id: 1,
+      active: 'Active',
     },
   ]))
   .then(() => knex.raw('SELECT setval(\'rewards_id_seq\', (SELECT MAX(id) FROM rewards))'));

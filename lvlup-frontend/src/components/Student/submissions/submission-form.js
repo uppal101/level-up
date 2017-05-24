@@ -7,6 +7,8 @@ import uploadcare from 'uploadcare-widget';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
 import { required, minValue7 } from '../../Admin/admin-common/validations';
 import './submission-styles.css';
+import { renderField, renderTextAreaField } from '../../Admin/admin-common/render-fields';
+
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -49,7 +51,7 @@ class ChallengeSubmissionForm extends Component {
           <Form.Field inline>
             <Field
               name="submission_message"
-              component="textarea"
+              component={renderTextAreaField}
               type="text"
               label="Submission Message"
               placeholder="Enter Submission Message"
@@ -59,28 +61,28 @@ class ChallengeSubmissionForm extends Component {
           <Form.Field inline>
             <Field
               name="submission_attachment_1"
-              component="input"
+              component={renderField}
               type="text"
               label="Attachment Link 1"
-              placeholder="Attachment 1"
+              placeholder="Please add your attachment here"
             />
           </Form.Field>
           <Form.Field inline>
             <Field
               name="submission_attachment_2"
-              component="input"
+              component={renderField}
               type="text"
               label="Attachment Link 2"
-              placeholder="Attachment 2"
+              placeholder="Please add your attachment here"
             />
           </Form.Field>
           <Form.Field inline>
             <Field
               name="submission_attachment_3"
-              component="input"
+              component={renderField}
               type="text"
               label="Attachment Link 3"
-              placeholder="Attachment 3"
+              placeholder="Please add your attachment here"
             />
           </Form.Field>
           <div>
@@ -89,7 +91,7 @@ class ChallengeSubmissionForm extends Component {
           <Form.Field inline>
             <Field
               name="submission_image_link_1"
-              component="input"
+              component={renderField}
               type="text"
               label="Submission Image 1"
               placeholder="Please copy link above here"
@@ -101,7 +103,7 @@ class ChallengeSubmissionForm extends Component {
           <Form.Field inline>
             <Field
               name="submission_image_link_2"
-              component="input"
+              component={renderField}
               type="text"
               label="Submission Image 2"
               placeholder="Please copy link above here"
@@ -113,7 +115,7 @@ class ChallengeSubmissionForm extends Component {
           <Form.Field inline>
             <Field
               name="submission_image_link_3"
-              component="input"
+              component={renderField}
               type="text"
               label="Submission Image 3"
               placeholder="Please copy link above here"

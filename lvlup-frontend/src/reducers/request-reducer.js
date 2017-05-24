@@ -21,3 +21,14 @@ export const denySelectedReward = (state = {}, action) => {
       return state;
   }
 };
+
+export const inactiveReward = (state = {}, action) => {
+  switch (action.type) {
+    case CONST.INACTIVE_REWARD_FULFILLED:
+      return Object.assign({}, { active: false }, action.payload);
+    case CONST.INACTIVE_REWARD_REJECTED:
+      return Object.assign({}, { active: false, error: 'Server Error - Please Try Again' }, action.payload);
+    default:
+      return state;
+  }
+};
