@@ -18,3 +18,7 @@
 .subsequent-table {
   margin-top: 20px;
 }
+
+#hover-icon:hover {
+  cursor: pointer;
+}

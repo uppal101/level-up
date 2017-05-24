@@ -11,3 +11,7 @@
 #approval-form {
   margin-top: 40px;
 }
+
+#hover-icon:hover {
+  cursor: pointer;
+}

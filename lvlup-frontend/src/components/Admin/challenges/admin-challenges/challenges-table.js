@@ -43,6 +43,7 @@ class ChallengesTable extends Component {
           </Link>
         </Table.Cell>
         <Table.Cell textAlign="center"><Icon
+          id="hover-icon"
           name="trash"
           onClick={() => this.props.makeChallengeInactive(item)}
         /></Table.Cell>

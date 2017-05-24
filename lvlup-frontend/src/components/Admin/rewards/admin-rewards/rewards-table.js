@@ -39,7 +39,7 @@ class RewardsTable extends Component {
             <Icon color="orange" onClick={() => this.props.selectReward(item)} name="pencil" /></Link>
         </Table.Cell>
         <Table.Cell textAlign="center"><Icon
-          onClick={() => this.props.makeRewardInactive(item)} name="trash"
+          onClick={() => this.props.makeRewardInactive(item)} id="hover-icon" name="trash"
         /></Table.Cell>
         <Table.Cell textAlign="center">{item.point_cost}</Table.Cell>
       </Table.Row>
