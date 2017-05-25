@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Loader } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -79,7 +79,7 @@ export class StudentDashboard extends Component {
       );
     }
     if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
       return (

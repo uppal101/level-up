@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { allCohorts } from '../../../actions/admin-signup';
 import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { renderField, renderSelectField } from '../../Admin/admin-common/render-fields';
@@ -35,7 +34,7 @@ class SignupInfo extends Component {
   render() {
     const { handleSubmit } = this.props;
     if (this.props.cohorts.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <div>
