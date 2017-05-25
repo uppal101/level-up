@@ -44,6 +44,16 @@ class SignupInfo extends Component {
         <Form onSubmit={handleSubmit(this.submit)}>
           <Form.Field inline>
             <Field
+              name="email"
+              component={renderField}
+              type="text"
+              label="email"
+              placeholder="Enter your email"
+              validate={[required]}
+            />
+          </Form.Field>
+          <Form.Field inline>
+            <Field
               name="username"
               component={renderField}
               type="text"

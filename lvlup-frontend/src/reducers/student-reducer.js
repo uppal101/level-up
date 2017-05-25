@@ -5,7 +5,7 @@ export const loginInfo = (state = { status: false }, action) => {
     case CONST.STUDENT_LOGIN_FULFILLED:
       return Object.assign({}, { status: true }, action.payload);
     case CONST.STUDENT_LOGIN_REJECTED:
-      return Object.assign({}, { status: false, error: 'An Error Occured During Auth from GitHub. Please Try Again' }, action.payload);
+      return Object.assign({}, { status: false, error: 'An Error Occured During Auth from GitHub. Please Try Again' });
     case CONST.STUDENT_SIGNUP_FULFILLED:
       return Object.assign({}, { status: true }, action.payload);
     case CONST.STUDENT_SIGNUP_REJECTED:

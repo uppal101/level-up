@@ -9,7 +9,7 @@ class Home extends Component {
         <h1 className="home-header">lvl^</h1>
         <div className="description">
           <p>
-            Welcome to lvl^ the gamification of tasks that help you in your quest to become a better developer and
+            Welcome to lvl^ the gamification of tasks that help you in your quest to become a better developer and advance
             your career. Students are given challenges and get a certain amount of points for completing the challenges.
             They are then able to redeem their points for rewards. The categories in both rewards and challenges should
             enrich the student's education, career search, and personal life.
