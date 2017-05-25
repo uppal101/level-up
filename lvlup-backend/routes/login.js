@@ -25,7 +25,6 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    console.log(req.session);
     res.redirect('/student/dashboard');
   });
 
@@ -44,10 +43,16 @@ router.route('/student/login')
         .save()
         .then((signup) => {
           res.json(signup);
+        })
+        .catch((err) => {
+          res.status(400).json({ error: 'You have encountered an error. To sign up with GitHub you must have a public email. To set your email to public please go to Settings > Public profile and public email and select an email' });
         });
       } else {
         res.json(student);
       }
+    })
+    .catch((err) => {
+      res.status(400).json({ error: 'You have encountered an error. To sign up with GitHub you must have a public email. To set your email to public please go to Settings > Public profile and public email and select an email' });
     });
   })
   .put((req, res) => {
