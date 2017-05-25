@@ -32,7 +32,7 @@ class StudentSidenav extends Component {
   render() {
     if (!this.props.loginInfo.id && !this.props.studentPointsAndCampus.currentTotal) {
       return (
-        <div />
+        <div>LOADING</div>
       );
     }
 

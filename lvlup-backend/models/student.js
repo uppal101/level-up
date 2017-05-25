@@ -10,6 +10,7 @@ require('./reward_request');
 const Student = LvlModel.extend({
   tableName: 'students',
   hasTimestamps: true,
+  hidden: ['github_id'],
 
   cohort() {
     return this.belongsTo('Cohort');

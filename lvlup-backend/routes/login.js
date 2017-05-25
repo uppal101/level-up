@@ -30,11 +30,12 @@ router.route('/auth/github/callback')
 
 router.route('/student/login')
   .get((req, res) => {
-    Student.where({ email: req.session.passport.user._json.email })
+    Student.where({ github_id: Number(req.session.passport.user.id) })
     .fetch()
     .then((student) => {
       if (student === null) {
         Student.forge({
+          github_id: Number(req.session.passport.user.id),
           name: req.session.passport.user._json.name,
           email: req.session.passport.user._json.email,
           github_user_name: req.session.passport.user._json.login,

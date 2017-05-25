@@ -3,6 +3,7 @@ exports.seed = function (knex, Promise) {
   .then(() => knex('students').insert([
     {
       id: 1,
+      github_id: 23129892,
       username: 'algorythmist',
       name: 'Thomas Stang',
       email: 'stang.tk@gmail.com',
@@ -12,6 +13,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 2,
+      github_id: 19738720,
       username: 'leveluppal',
       name: 'Sanjeet Uppal',
       email: 'sanjeet.uppal92@gmail.com',
@@ -21,6 +23,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 3,
+      github_id: 22782154,
       username: 'dan_m_g',
       name: 'Daniel Gardner',
       email: 'daniel.marc.gardner@gmail.com',
