@@ -20,3 +20,16 @@
 .headerStudent{
   text-align: center;
 }
+
+.signupPage{
+  margin-left: 210px;
+  margin-top: 40px;
+}
+
+.signupText{
+  text-align: center;
+}
+
+.ui.form select {
+  height: 37px !important;
+}

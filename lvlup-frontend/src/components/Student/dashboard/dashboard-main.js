@@ -82,11 +82,7 @@ export class StudentDashboard extends Component {
       return <Loader active inline="centered"> Loading </Loader>;
     }
     if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
-      return (
-        <div className="studentDashboard">
-          <SignupInfo />
-        </div>
-      );
+      return <SignupInfo />;
     }
     return (
       <div className="lvl-table">
