@@ -20,3 +20,8 @@
 .headerStudent{
   text-align: center;
 }
+
+#student-sidenav-info {
+   margin-top: 30px;
+   margin-bottom: 30px;  
+}
