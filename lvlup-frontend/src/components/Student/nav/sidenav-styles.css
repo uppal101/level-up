@@ -25,3 +25,16 @@
    margin-top: 30px;
    margin-bottom: 30px;  
 }
+  
+.signupPage{
+  margin-left: 210px;
+  margin-top: 40px;
+}
+
+.signupText{
+  text-align: center;
+}
+
+.ui.form select {
+  height: 37px !important;
+}

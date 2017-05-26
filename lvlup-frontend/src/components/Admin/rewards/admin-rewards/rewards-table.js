@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Icon, Table, Container, Button } from 'semantic-ui-react';
+import { Icon, Table, Container, Button, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { campusRewards, selectReward } from '../../../../actions/student-rewards-actions';
 import { resetEditReward, makeRewardInactive } from '../../../../actions/edit-reward';
@@ -52,7 +52,7 @@ class RewardsTable extends Component {
 
   render() {
     if (this.props.rewards.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Container>

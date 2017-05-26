@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Image } from 'semantic-ui-react';
+import { Menu, Icon, Image, Loader } from 'semantic-ui-react';
 import './sidenav-styles.css';
 import { Link } from 'react-router-dom';
 import { loggingInAction, moreStudentInfo, submissionsAction, requestsAction } from '../../../actions/student-dash-actions';
@@ -31,9 +31,7 @@ class StudentSidenav extends Component {
   }
   render() {
     if (!this.props.loginInfo.id && !this.props.studentPointsAndCampus.currentTotal) {
-      return (
-        <div>LOADING</div>
-      );
+      return <Loader active inline="centered"> Loading </Loader>;
     }
 
     return (

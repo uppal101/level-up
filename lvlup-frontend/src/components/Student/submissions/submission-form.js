@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Segment, Container } from 'semantic-ui-react';
+import { Form, Segment, Container, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import uploadcare from 'uploadcare-widget';
@@ -42,7 +42,7 @@ class ChallengeSubmissionForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     if (!this.props.selectedChallenge.name) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <div className="submission-container">

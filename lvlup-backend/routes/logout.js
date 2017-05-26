@@ -7,7 +7,6 @@ const router = express.Router();
 router.route('/student/logout')
   .get((req, res) => {
     req.logout();
-    console.log(req.session);
     res.sendStatus(200);
   });
 
