@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, List } from 'semantic-ui-react';
+import { Table, List, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ class StudentChallengesTable extends Component {
   }
 
   renderTable(list) {
-    return list.map(item => (
+    return list.filter(challenges => challenges.active === 'Active').map(item => (
       <Table.Row key={`${item.id}challenges-table-student`}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
@@ -48,7 +48,7 @@ class StudentChallengesTable extends Component {
 
   render() {
     if (this.props.challenges.challenges.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Table celled>

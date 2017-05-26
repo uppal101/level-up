@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Icon, Table, Container, Button } from 'semantic-ui-react';
+import { Icon, Table, Container, Button, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { resetEditChallenge, makeChallengeInactive } from '../../../../actions/edit-challenge';
 import { resetAddChallenge } from '../../../../actions/add-challenge';
 import { campusChallenges, selectChallenge } from '../../../../actions/student-challenges-actions';
-import './challenges-style.css';
 import { submissionsAction } from '../../../../actions/admin-dash-actions';
+import { resetChallengeList } from '../../../../actions/reset-actions';
+import './challenges-style.css';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
@@ -16,7 +17,7 @@ const mapStateToProps = state => ({
 });
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge, makeChallengeInactive }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge, makeChallengeInactive, resetChallengeList }, dispatch);
 
 
 class ChallengesTable extends Component {
@@ -32,7 +33,7 @@ class ChallengesTable extends Component {
   }
 
   renderTable(list) {
-    return list.map(item => (
+    return list.filter(challenges => challenges.active === 'Active').map(item => (
       <Table.Row key={item.id}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
@@ -45,7 +46,10 @@ class ChallengesTable extends Component {
         <Table.Cell textAlign="center"><Icon
           id="hover-icon"
           name="trash"
-          onClick={() => this.props.makeChallengeInactive(item)}
+          onClick={() => this.props.makeChallengeInactive(item).then(() => {
+            this.props.resetChallengeList();
+            this.props.campusChallenges(this.props.adminInfo.campus_id);
+          })}
         /></Table.Cell>
         <Table.Cell textAlign="center">{item.point_value}</Table.Cell>
       </Table.Row>
@@ -53,7 +57,7 @@ class ChallengesTable extends Component {
   }
   render() {
     if (this.props.challenges.challenges.length === 0) {
-      return (<div>LOADING</div>);
+      return (<Loader active inline="centered"> Loading </Loader>);
     }
     return (
       <Container>

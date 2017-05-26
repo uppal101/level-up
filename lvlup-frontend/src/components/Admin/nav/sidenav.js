@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Image } from 'semantic-ui-react';
+import { Menu, Icon, Image, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -21,7 +21,7 @@ export class AdminSidenav extends Component {
   render() {
     if (!this.props.loggedIn.username) {
       return (
-        <div>LOADING</div>
+        <Loader active inline="centered"> Loading </Loader>
       );
     }
     return (

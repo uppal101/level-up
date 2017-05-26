@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { Icon, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container, Loader } from 'semantic-ui-react';
 import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
 
 const mapStateToProps = state => ({
@@ -25,7 +25,7 @@ class RewardsTable extends Component {
   }
 
   renderRewards(list) {
-    return list.map(item => (
+    return list.filter(reward => reward.active === 'Active').map(item => (
       <Table.Row key={`${item.id}rewards-table-student`}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
@@ -42,7 +42,7 @@ class RewardsTable extends Component {
 
   render() {
     if (this.props.rewards.rewards.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Container>

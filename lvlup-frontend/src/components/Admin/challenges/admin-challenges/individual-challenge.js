@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, List, Image, Modal, Icon, Container } from 'semantic-ui-react';
+import { Table, List, Image, Modal, Icon, Container, Loader } from 'semantic-ui-react';
 import SubmissionApprovalForm from './approval-form';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
@@ -43,7 +43,7 @@ export class SelectedChallenge extends Component {
 
   render() {
     if (!this.props.selectedChallenge.id) {
-      return (<div>LOADING</div>);
+      return (<Loader active inline="centered"> Loading </Loader>);
     }
     return (
       <div className="lvl-table">

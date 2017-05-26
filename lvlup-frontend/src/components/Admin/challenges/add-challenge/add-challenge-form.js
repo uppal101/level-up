@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Segment, Button } from 'semantic-ui-react';
+import { Form, Container, Segment, Button, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -49,7 +49,7 @@ class AddChallengeForm extends Component {
         <Form.Group>
           <Form.Field width={16}>
             <Field
-              name="`requirements_${i}`"
+              name={`requirements_${i}`}
               component={renderField}
               type="text"
               label="Requirement"
@@ -64,7 +64,7 @@ class AddChallengeForm extends Component {
 
   render() {
     if (this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
 
     const { handleSubmit } = this.props;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Segment } from 'semantic-ui-react';
+import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
@@ -22,7 +22,7 @@ class EditChallengeForm extends Component {
   }
   render() {
     if (this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     const { handleSubmit } = this.props;
     return (

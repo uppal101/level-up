@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Loader } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { quarterConverter, quarterPointFinder, formatDate, getFirstName } from '../../../helpers/dashboard';
 import SignupInfo from '../nav/student-signup';
 import { submissionsAction } from '../../../actions/student-dash-actions';
+import SignUpError from '../nav/signup-error';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -70,15 +71,18 @@ export class StudentDashboard extends Component {
     }
   }
   render() {
-    if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
-      return (<div>LOADING</div>);
-    }
-    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
+    if (this.props.loginInfo.error) {
       return (
-        <div className="studentDashboard">
-          <SignupInfo />
+        <div>
+          <SignUpError />
         </div>
       );
+    }
+    if (!this.props.loginInfo.name && !this.props.lvlUpInfo.totalEarned) {
+      return <Loader active inline="centered"> Loading </Loader>;
+    }
+    if (!this.props.lvlUpInfo.currentQuarter && this.props.submissions.submissions.length === 0) {
+      return <SignupInfo />;
     }
     return (
       <div className="lvl-table">
