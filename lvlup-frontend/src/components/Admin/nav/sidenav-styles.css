@@ -11,3 +11,8 @@
   border-color: #F2711C !important;
   background-color: #4A4A4A !important;
 }
+
+#admin-sidenav-info {
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
