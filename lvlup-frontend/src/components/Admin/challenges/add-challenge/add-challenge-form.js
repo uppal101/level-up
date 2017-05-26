@@ -49,7 +49,7 @@ class AddChallengeForm extends Component {
         <Form.Group>
           <Form.Field width={16}>
             <Field
-              name="`requirements_${i}`"
+              name={`requirements_${i}`}
               component={renderField}
               type="text"
               label="Requirement"
