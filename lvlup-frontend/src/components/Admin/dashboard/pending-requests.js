@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Popup, Container } from 'semantic-ui-react';
+import { Icon, Table, Popup, Container, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { formatDate } from '../../../helpers/dashboard';
 import { bindActionCreators } from 'redux';
@@ -74,7 +74,7 @@ class PendingRequestsTable extends Component {
   }
   render() {
     if (this.props.pendingRequests.requestsAdmin.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Container className="subsequent-table">

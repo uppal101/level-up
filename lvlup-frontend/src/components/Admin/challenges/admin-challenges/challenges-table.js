@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Container, Button } from 'semantic-ui-react';
+import { Icon, Table, Container, Button, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -57,7 +57,7 @@ class ChallengesTable extends Component {
   }
   render() {
     if (this.props.challenges.challenges.length === 0) {
-      return (<div>LOADING</div>);
+      return (<Loader active inline="centered"> Loading </Loader>);
     }
     return (
       <Container>
