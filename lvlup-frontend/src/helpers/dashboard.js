@@ -10,6 +10,8 @@ export const quarterConverter = (quarter) => {
       return 'Quarter 3';
     case 'q4':
       return 'Quarter 4';
+    case 'grad':
+      return 'Graduated';
     default:
       return quarter;
   }
@@ -25,9 +27,13 @@ export const quarterPointFinder = (pointsObj) => {
       return pointsObj.q3Earned;
     case 'q4':
       return pointsObj.q4Earned;
+    case 'grad':
+      return pointsObj.totalEarned;
     default:
       return pointsObj.totalEarned;
   }
 };
+
+export const getFirstName = name => name.split(' ')[0];
 
 export const formatDate = time => moment(time).format('MM/DD/YYYY');

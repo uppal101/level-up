@@ -1,4 +1,4 @@
-import AdminChallenges from '../src/components/Admin/admin-challenges/admin-challenges-main';
+import AdminChallenges from '../src/components/Admin/challenges/admin-challenges/challenges-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

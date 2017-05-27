@@ -82,7 +82,7 @@ router.route('/requests/:request_id/admin')
       student_id: request.get('student_id'),
       reward_id: request.get('reward_id'),
       cohort_id: request.get('cohort_id'),
-      status: req.body.status || request.get('status'),
+      status: req.body.status.status || request.get('status'),
       notes: request.get('notes'),
     }))
     .then(request => res.status(200).json(request))

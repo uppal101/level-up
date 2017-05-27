@@ -1,4 +1,4 @@
-import AddReward from '../src/components/Admin/admin-add-reward/add-reward-main';
+import AddReward from '../src/components/Admin/rewards/add-reward//add-reward-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';

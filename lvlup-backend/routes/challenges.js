@@ -30,6 +30,7 @@ router.route('/challenges/')
       requirements_3: req.body.requirements_3,
       requirements_4: req.body.requirements_4,
       requirements_5: req.body.requirements_5,
+      active: 'Active',
     })
     .save()
     .then(challenge => res.status(200).json(challenge))
@@ -41,14 +42,6 @@ router.route('/challenges/:challenge_id')
     Challenge.forge({ id: req.params.challenge_id })
     .fetch()
     .then(challenge => res.status(200).json(challenge))
-    .catch(err => res.status(500).json(err.message));
-  })
-
-  .delete(authorize.isAdmin, (req, res) => {
-    Challenge.forge({ id: req.params.challenge_id })
-    .fetch()
-    .then(challenge => challenge.destroy())
-    .then(() => res.status(200).json({ message: 'Challenge successfully deleted' }))
     .catch(err => res.status(500).json(err.message));
   })
 
@@ -66,6 +59,7 @@ router.route('/challenges/:challenge_id')
       requirements_3: req.body.requirements_3 || challenge.get('requirements_3'),
       requirements_4: req.body.requirements_4 || challenge.get('requirements_4'),
       requirements_5: req.body.requirements_5 || challenge.get('requirements_5'),
+      active: req.body.active || challenge.get('active'),
     }))
     .then(challenge => res.status(200).json(challenge))
     .catch(err => res.status(500).json(err.message));

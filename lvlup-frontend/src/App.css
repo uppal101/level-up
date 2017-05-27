@@ -1,3 +1,12 @@
+html,
+body,
+.grid,
+.row,
+.column {
+  /*min-height: 100%;*/
+  padding: 0px;
+}
+
 .App {
   text-align: center;
 }
@@ -25,5 +34,80 @@
 
 #app-div {
   width: 100%;
+  min-height: 100%;
+}
+
+#nav-col {
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+#content-col {
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+#main-row {
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  min-height: 100% !important;
+}
+
+#nav-row {
+  padding-bottom: 0px !important;
+  /*padding-top: 0px !important;*/
+}
+
+#app-grid {
+  /*width: 100%;*/
+  height: 100vh;
+}
+
+.ui.inverted.segment {
+  background-color: #4A4A4A !important;
+  color: #DDDDDD !important;
+  border: 1px solid #F2711C !important;
+  margin: 0 5.5em !important;
+  padding: 30px !important;
+}
+
+#completed-btn {
+  margin-top: 20px;
+}
+
+.form-view {
+  text-align: left;
+  float: center;
+  margin-left: 210px;
+  margin-top: 80px;
+}
+
+.lvl-table {
+  text-align: center;
+  float: center;
+  margin-left: 210px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px 80px;
   overflow-y: scroll;
+}
+
+.lvl-form {
+  text-align: center;
+  float: center;
+  margin-left: 210px;
+  margin-top: 30px;
+}
+
+.ui.table {
+  border-bottom: 1px solid #F2711C !important;
+  border-top: 2px solid #F2711C !important;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.lvl-link a {
+  color: #F2711C;
 }

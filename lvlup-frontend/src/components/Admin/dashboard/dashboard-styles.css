@@ -1,0 +1,24 @@
+.lvl-table {
+  text-align: center;
+  float: center;
+  margin-left: 210px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.lvl-form {
+  text-align: center;
+  float: center;
+  margin-left: 210px;
+  margin-top: 30px;
+}
+
+.subsequent-table {
+  margin-top: 20px;
+}
+
+#hover-icon:hover {
+  cursor: pointer;
+}

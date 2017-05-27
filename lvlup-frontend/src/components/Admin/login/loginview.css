@@ -1,0 +1,34 @@
+
+.email {
+  margin-top: 200px;
+}
+
+.password {
+  margin-top: 20px;
+}
+
+.signup {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.login {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%
+}
+
+.alert-message-confirm {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 20%;
+}
+
+#admin-login-button {
+  margin-top: 20px;
+}
+
+#need-account {
+  margin-top: 15px;
+}

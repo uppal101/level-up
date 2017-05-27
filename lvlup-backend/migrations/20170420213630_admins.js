@@ -6,7 +6,8 @@ exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   table.string('name', 'varchar(20)')
   .notNullable();
   table.string('email', 'varchar(65)')
-  .notNullable();
+  .notNullable()
+  .unique();
   table.string('hashed_password', 'char(60)')
   .notNullable();
   table.string('gravatar_url', 'varchar(65)');
@@ -15,6 +16,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('admins', (table) => {
   .references('id')
   .inTable('campuses')
   .onDelete('CASCADE');
+  table.boolean('confirmed');
   table.timestamps(true, true);
 });
 

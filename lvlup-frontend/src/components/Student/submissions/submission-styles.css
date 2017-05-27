@@ -1,0 +1,32 @@
+.submission-container {
+  margin-left: 210px;
+}
+
+.challenge-submission {
+  min-width: 600px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.challenge-submission-form {
+  margin-bottom: 20px;
+}
+
+.header {
+  text-align: center;
+}
+
+.uploadcare-widget-button {
+  cursor: pointer !important;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0px 0px / auto padding-box border-box !important;
+  border: 0px none rgb(242, 113, 28) !important;
+  box-shadow: rgb(242, 113, 28) 0px 0px 0px 1px inset !important;
+  color: rgb(242, 113, 28) !important;
+  outline: rgb(242, 113, 28) none 0px !important;
+  margin-top: 7px !important;
+  margin-bottom: 7px !important;
+}
+
+#submit-image {
+  margin-top: 30px;
+}

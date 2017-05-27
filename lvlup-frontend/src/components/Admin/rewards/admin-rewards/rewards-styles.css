@@ -1,0 +1,8 @@
+.rewards {
+  text-align: center;
+  float: center;
+}
+
+#hover-icon:hover {
+  cursor: pointer;
+}

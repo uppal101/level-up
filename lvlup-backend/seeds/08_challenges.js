@@ -9,6 +9,7 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 2,
       requirements_1: 'Hold hours between 5pm and 6pm or during lab time',
+      active: 'Active',
     },
     {
       id: 2,
@@ -20,6 +21,7 @@ exports.seed = function (knex, Promise) {
       requirements_1: 'Use HTML, CSS, JS, React, or Angular',
       requirements_2: 'Use an outside API',
       requirements_3: 'Must be approved by an instructor',
+      active: 'Active',
     },
     {
       id: 3,
@@ -31,6 +33,7 @@ exports.seed = function (knex, Promise) {
       requirements_1: 'Build a backend server using Node, Express, Postgres, and Knex',
       requirements_2: 'Use an outside API',
       requirements_3: 'Must be approved by an instructor',
+      active: 'Active',
     },
     {
       id: 4,
@@ -43,6 +46,7 @@ exports.seed = function (knex, Promise) {
       requirements_2: 'Build a backend server using Node, Express, Postgres, and Knex',
       requirements_3: 'Use an outside API',
       requirements_4: 'Must be approved by an instructor',
+      active: 'Active',
     },
     {
       id: 5,
@@ -52,6 +56,7 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 3,
       requirements_1: 'Article published to Medium or LinkedIn',
+      active: 'Active',
     },
     {
       id: 6,
@@ -60,6 +65,7 @@ exports.seed = function (knex, Promise) {
       description: 'Feed your favorite evil instructor.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     },
     {
       id: 7,
@@ -70,6 +76,7 @@ exports.seed = function (knex, Promise) {
       category_id: 1,
       requirements_1: 'Must be approved by an instructor',
       requirements_2: 'Please link the repo',
+      active: 'Active',
     },
     {
       id: 8,
@@ -79,6 +86,7 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 2,
       requirements_1: 'Please take a picture',
+      active: 'Active',
     },
     {
       id: 9,
@@ -88,6 +96,7 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 3,
       requirements_1: 'Please submit receipt of attendance or a picture',
+      active: 'Active',
     },
     {
       id: 10,
@@ -99,6 +108,7 @@ exports.seed = function (knex, Promise) {
       requirements_1: 'Not taught by Galvanize',
       requirements_2: 'Must provide link to Repo',
       requirements_3: 'Must be approved by an instructor',
+      active: 'Active',
     },
     {
       id: 11,
@@ -107,6 +117,7 @@ exports.seed = function (knex, Promise) {
       description: 'Provide a warm introduction to another student to help aide them in their job search.',
       campus_id: 1,
       category_id: 3,
+      active: 'Active',
     },
     {
       id: 12,
@@ -115,6 +126,7 @@ exports.seed = function (knex, Promise) {
       description: 'Host a one time technology based meetup.',
       campus_id: 1,
       category_id: 2,
+      active: 'Active',
     },
   ]))
   .then(() => knex.raw('SELECT setval(\'challenges_id_seq\', (SELECT MAX(id) FROM challenges))'));
