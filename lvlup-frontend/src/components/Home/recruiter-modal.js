@@ -16,7 +16,7 @@ const RecruiterModal = () => (
             This site will continue to be updated with new features so please continue to checkback.</p>
 
           <p>If you have a GitHub Account you can sign up as a student. If you do not have a GitHub account please fillout the email field below and we will send you an email with the credentials to log into our demo account.
-            For demo purposes all emails are allowed to create admin accounts. Please note that you will need to confirm your admin account via an email that will be sent to your email address.
+            For demo purposes all emails are allowed to create admin accounts. To access all demo data please select cohort g42 for cohorts. Please note that you will need to confirm your admin account via an email that will be sent to your email address.
           </p>
           <p>As a student (with your own or our demo account) you can:</p>
           <ul>
