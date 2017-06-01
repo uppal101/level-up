@@ -9,7 +9,7 @@ import { editedChallenge, inactiveChallenge } from './edit-challenge-reducer';
 import { addedReward } from './add-reward-reducer';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
 import { approveSelectedReward, denySelectedReward, inactiveReward } from './request-reducer';
-
+import { addedCohort } from './admin-config';
 
 const lvlupApp = combineReducers({
   loginInfo,
@@ -40,6 +40,7 @@ const lvlupApp = combineReducers({
   inactiveReward,
   inactiveChallenge,
   recruiter,
+  addedCohort,
 });
 
 export default lvlupApp;

@@ -14,6 +14,7 @@ router.route('/cohorts/')
   })
 
   .post(authorize.isAdmin, (req, res) => {
+    console.log(req.body);
     Cohort.forge({
       name: req.body.name,
       type: req.body.type,
@@ -22,7 +23,7 @@ router.route('/cohorts/')
       q3_start_date: req.body.q3_start_date,
       q4_start_date: req.body.q4_start_date,
       graduation_date: req.body.graduation_date,
-      campus_id: req.body.campus_id,
+      campus_id: Number(req.body.campuses),
     })
     .save()
     .then(cohort => res.status(200).json(cohort))
