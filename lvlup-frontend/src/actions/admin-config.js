@@ -10,3 +10,7 @@ export const addCohort = props => ({
   type: CONST.ADD_COHORT,
   payload: cohortToAdd(props),
 });
+
+export const resetAddCohort = () => ({
+  type: CONST.RESET_ADD_COHORT,
+});

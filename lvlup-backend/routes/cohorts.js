@@ -14,7 +14,6 @@ router.route('/cohorts/')
   })
 
   .post(authorize.isAdmin, (req, res) => {
-    console.log(req.body);
     Cohort.forge({
       name: req.body.name,
       type: req.body.type,

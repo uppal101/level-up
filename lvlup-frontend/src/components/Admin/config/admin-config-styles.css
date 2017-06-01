@@ -1,6 +1,8 @@
 .admin-config {
   text-align: center;
   float: right;
+  margin-left: 210px;
+  margin-top: 40px;
 }
 
 .addACohort {
@@ -10,4 +12,8 @@
 
 .addCohortHeader {
   text-align: center;
+}
+
+.configButton {
+  margin-left: 210px;
 }

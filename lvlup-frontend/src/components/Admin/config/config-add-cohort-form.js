@@ -63,7 +63,7 @@ class AddACohortForm extends Component {
                   name="campuses"
                   component={renderSelectField}
                   type="text"
-                  label="Campuses"
+                  label="Campus"
                   placeholder="Select Campus"
                   validate={[required]}
                 >
