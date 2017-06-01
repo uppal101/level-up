@@ -3,10 +3,10 @@ import { Form, Button, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { renderField, renderSelectField } from '../admin-common/render-fields';
-import { required } from '../admin-common/validations';
-import { allCampuses } from '../../../actions/admin-signup';
-import { addCohort } from '../../../actions/admin-config';
+import { renderField, renderSelectField } from '../../admin-common/render-fields';
+import { required } from '../../admin-common/validations';
+import { allCampuses } from '../../../../actions/admin-signup';
+import { addCohort } from '../../../../actions/admin-config';
 
 function mapStateToProps(state, ownProps) {
   return {
