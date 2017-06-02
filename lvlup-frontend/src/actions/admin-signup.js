@@ -41,3 +41,13 @@ export const setCohorts = cohort => ({
   type: CONST.SET_COHORT,
   cohort,
 });
+
+const recruiterEmail = (props) => {
+  const url = '/api/recruiter';
+  return axios.post(url, props).then(response => response.data);
+};
+
+export const recruiter = email => ({
+  type: CONST.RECRUITER,
+  payload: recruiterEmail(email),
+});

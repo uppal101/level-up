@@ -40,3 +40,11 @@
   border-top: 1px solid;
   border-color: #F2711C;
 }
+
+.modalRecruiter {
+  text-align: left !important;
+}
+
+.ui.form.email {
+  margin-top: 100px !important;
+}
