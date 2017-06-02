@@ -29,8 +29,8 @@ class RecruiterEmail extends Component {
               name="email"
               component={renderField}
               type="email"
-              label=" Your Email"
-              placeholder="Email"
+              label=" Your E-mail:"
+              placeholder="Student login credentials for demo will be sent here"
               validate={[required, email]}
             />
           </Form.Field>
