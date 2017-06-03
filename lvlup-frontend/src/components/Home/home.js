@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Footer from './footer.js';
+import RecruiterModal from './recruiter-modal';
 import './homeview.css';
 
 class Home extends Component {
@@ -17,6 +18,7 @@ class Home extends Component {
             Students can sign in with GitHub OAuth in the upper right hand corner. Admins can sign up or sign in in
             the bottom right corner.
           </p>
+          <RecruiterModal />
         </div>
         <Footer />
       </div>
