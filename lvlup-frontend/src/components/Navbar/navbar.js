@@ -19,13 +19,13 @@ class NavBar extends Component {
       <Menu secondary size="small" className="nav">
         <Menu.Item className="center" header>
           {renderIf(!this.props.loginInfo.status && !this.props.loggedIn.status)(
-            <Link to={'/'}><div className="hamburger">lvl^</div></Link>,
+            <Link to={'/'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
           )}
           {renderIf(this.props.loginInfo.status)(
-            <Link to={'/student/dashboard'}><div className="hamburger">lvl^</div></Link>,
+            <Link to={'/student/dashboard'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
           )}
           {renderIf(this.props.loggedIn.status)(
-            <Link to={'/admin/dashboard'}><div className="hamburger">lvl^</div></Link>,
+            <Link to={'/admin/dashboard'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
           )}
         </Menu.Item>
         <Menu.Item className="right">

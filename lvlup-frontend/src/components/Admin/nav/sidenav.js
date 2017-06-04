@@ -26,7 +26,7 @@ export class AdminSidenav extends Component {
     }
     return (
       <Menu inverted vertical className="adminSidenav">
-        <Menu.Item><Image src={this.props.loggedIn.gravatar_url ? this.props.loggedIn.gravatar_url : 'https://media.glassdoor.com/sqll/825775/galvanize-squarelogo-1429039425588.png'} shape="circular" size="tiny" alt={this.props.loggedIn.name} centered />
+        <Menu.Item id="admin-sidenav-info"><Image src={this.props.loggedIn.gravatar_url ? this.props.loggedIn.gravatar_url : 'https://ucarecdn.com/d50ece0e-f5e1-47fd-a492-d8561fe02ebb/'} shape="circular" size="tiny" alt={this.props.loggedIn.name} centered />
           <div className="userdiv">
             <h4>{this.props.loggedIn.username}</h4>
           </div>
