@@ -148,3 +148,8 @@ div.description {
   width: 80%;
   margin-left: 10%;
 }
+
+.techHeader {
+  font-family: 'Nova Square', sans-serif;
+  text-align: center !important;
+}
