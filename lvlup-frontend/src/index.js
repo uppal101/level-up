@@ -6,6 +6,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
+import './index.css';
 
 const store = createStore(
   lvlupApp,
