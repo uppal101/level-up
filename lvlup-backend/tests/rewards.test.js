@@ -40,6 +40,7 @@ describe('POST /rewards/', () => {
       description: 'Free individual lunch $15 limit',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     })
     .expect((reward) => {
       delete reward.body.created_at;
@@ -52,6 +53,7 @@ describe('POST /rewards/', () => {
       description: 'Free individual lunch $15 limit',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     }, done);
   });
   it('should respond with 400 when authorized user does not send complete information', (done) => {
@@ -63,6 +65,7 @@ describe('POST /rewards/', () => {
         point_cost: 75,
         description: 'Free individual lunch $15 limit',
         campus_id: 1,
+        active: 'Active',
       })
       .expect(400, JSON.stringify({
         code: 400,
@@ -89,6 +92,7 @@ describe('GET /rewards/:id', () => {
         description: '$5 gift card to the Gather cafe.',
         campus_id: 1,
         category_id: 4,
+        active: 'Active',
       }, done);
   });
   it('should respond with 404 if user enters incorrect parameter', (done) => {
@@ -111,6 +115,7 @@ describe('PUT /rewards/:id', () => {
       description: '$5 gift card to the Gather cafe.',
       campus_id: 1,
       category_id: 4,
+      active: 'Active',
     })
     .expect((reward) => {
       delete reward.body.created_at;
@@ -124,6 +129,7 @@ describe('PUT /rewards/:id', () => {
         description: '$5 gift card to the Gather cafe.',
         campus_id: 1,
         category_id: 4,
+        active: 'Active',
       }, done);
   });
 
@@ -138,25 +144,5 @@ describe('PUT /rewards/:id', () => {
         code: 400,
         message: 'Please update a field',
       }, done));
-  });
-});
-
-describe('DELETE /rewards/:id', () => {
-  it('should allow authorized user to delete a specific reward in the database', (done) => {
-    supertest(app)
-        .delete('/api/rewards/1')
-        .set('Cookie', 'authToken=adminToken')
-        .set('Accept', 'application/json')
-        .expect(200,
-      {
-        message: 'Reward successfully deleted',
-      }, done);
-  });
-  it('should respond with 500 if invalid parameter is given', (done) => {
-    supertest(app)
-          .delete('/api/rewards/giftcard')
-          .set('Cookie', 'authToken=adminToken')
-          .set('Accept', 'Application/json')
-          .expect(500, done);
   });
 });

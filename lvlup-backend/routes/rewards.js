@@ -13,6 +13,7 @@ router.route('/rewards/')
       description: req.body.description,
       campus_id: req.body.campus_id,
       category_id: req.body.category_id,
+      active: 'Active',
     })
     .save()
     .then(reward => res.status(200).json(reward))
@@ -44,18 +45,9 @@ router.route('/rewards/:id')
       description: req.body.description || reward.get('description'),
       campus_id: req.body.campus_id || reward.get('campus_id'),
       category_id: req.body.category_id || reward.get('category_id'),
+      active: req.body.active || reward.get('active'),
     }))
     .then(updatedReward => res.status(200).json(updatedReward))
-    .catch(err => res.status(500).json({ message: err.message }));
-  })
-
-  .delete(authorize.isAdmin, (req, res) => {
-    Reward.forge({ id: req.params.id })
-    .fetch({ require: true })
-    .then((reward) => {
-      reward.destroy();
-    })
-    .then(() => res.status(200).json({ message: 'Reward successfully deleted' }))
     .catch(err => res.status(500).json({ message: err.message }));
   });
 

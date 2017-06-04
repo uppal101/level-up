@@ -47,7 +47,7 @@ passport.use(new GitHubStrategy({
 ```
 10. Create the database locally. From the command line run the following commands:
 `
-createdb lvlup_dev  //For running development enviornment locally
+createdb lvlup_dev  //For running development environment locally
 createdb lvlup_test  //To run all of the tests
 `
 

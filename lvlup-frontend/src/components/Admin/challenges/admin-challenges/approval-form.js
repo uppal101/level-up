@@ -66,7 +66,7 @@ class SubmissionApprovalForm extends Component {
           <Grid centered>
             <Grid.Row>
 
-              <Form.Button>Submit Review</Form.Button>
+              <Form.Button basic color="orange">Submit Review</Form.Button>
             </Grid.Row>
           </Grid>
         </Form>

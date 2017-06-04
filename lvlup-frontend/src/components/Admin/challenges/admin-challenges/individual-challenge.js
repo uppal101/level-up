@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, List, Container } from 'semantic-ui-react';
+import { Table, List, Container, Loader } from 'semantic-ui-react';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
 import SubmissionApprovalForm from './approval-form';
@@ -13,9 +13,14 @@ const mapStateToProps = state => ({
 
 
 export class SelectedChallenge extends Component {
+  constructor(props) {
+    super(props);
+    this.renderStudentSubmission = this.renderStudentSubmission.bind(this);
+  }
+
   render() {
     if (!this.props.selectedChallenge.id) {
-      return (<div>LOADING</div>);
+      return (<Loader active inline="centered"> Loading </Loader>);
     }
     return (
       <div className="lvl-table">
@@ -23,9 +28,11 @@ export class SelectedChallenge extends Component {
           <h1 className="header">{`Challenge Submission Review: ${this.props.selectedChallenge.challenge.name}`}</h1>
           <div>
             <h3>{`${this.props.selectedChallenge.student.name}, ${this.props.loggedIn.cohorts.filter(cohort => cohort.id === this.props.selectedChallenge.cohort_id).map(cohort => cohort.name)}` }</h3>
-            <h3>Challenge Requested Information</h3>
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Challenge Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Title</Table.HeaderCell>
                   <Table.HeaderCell>Category</Table.HeaderCell>
@@ -52,9 +59,12 @@ export class SelectedChallenge extends Component {
                 </Table.Row>
               </Table.Body>
             </Table>
-            <h3>Student Request Information</h3>
+
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Submission Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Submission Message</Table.HeaderCell>
                   <Table.HeaderCell>Attachment 1</Table.HeaderCell>

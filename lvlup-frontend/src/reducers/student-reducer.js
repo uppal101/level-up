@@ -5,7 +5,7 @@ export const loginInfo = (state = { status: false }, action) => {
     case CONST.STUDENT_LOGIN_FULFILLED:
       return Object.assign({}, { status: true }, action.payload);
     case CONST.STUDENT_LOGIN_REJECTED:
-      return Object.assign({}, { status: false, error: 'An Error Occured During Auth from GitHub. Please Try Again' }, action.payload);
+      return Object.assign({}, { status: false, error: 'An Error Occured During Auth from GitHub. Please Try Again' });
     case CONST.STUDENT_SIGNUP_FULFILLED:
       return Object.assign({}, { status: true }, action.payload);
     case CONST.STUDENT_SIGNUP_REJECTED:
@@ -58,6 +58,8 @@ export const challenges = (state = { challenges: [] }, action) => {
       });
     case CONST.CHALLENGES_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    case CONST.RESET_CHALLENGE_ADMIN:
+      return Object.assign({}, { challenges: [] });
     default:
       return state;
   }
@@ -71,6 +73,8 @@ export const rewards = (state = { rewards: [] }, action) => {
       });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    case CONST.RESET_REWARDS_ADMIN:
+      return Object.assign({}, { rewards: [] });
     default:
       return state;
   }

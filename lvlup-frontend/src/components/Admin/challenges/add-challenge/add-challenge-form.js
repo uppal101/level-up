@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Container, Segment, Button } from 'semantic-ui-react';
+import { Form, Container, Segment, Button, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -8,7 +8,6 @@ import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
 import { addChallenge } from '../../../../actions/add-challenge';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
 import { required, number } from '../../admin-common/validations';
-import { addRequirement, renderRequirementInputs } from './add-challenge-form-helpers';
 import './add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
@@ -29,6 +28,34 @@ class AddChallengeForm extends Component {
       maxRequestInputs: false,
     };
   }
+  addRequirement() {
+    this.setState((prevState, props) => {
+      if (prevState.numberOfRequestInputs <= 4) {
+        return { numberOfRequestInputs: prevState.numberOfRequestInputs + 1 };
+      }
+      return { maxRequestInputs: true };
+    });
+  }
+
+  renderRequirementInputs(numOfInputs) {
+    const requirementInputComponents = [];
+    for (let i = 1; i <= numOfInputs; i++) {
+      requirementInputComponents.push((
+        <Form.Group>
+          <Form.Field width={16}>
+            <Field
+              name="`requirements_${i}`"
+              component={renderField}
+              type="text"
+              label="Requirement"
+              placeholder="Requirement"
+            />
+          </Form.Field>
+        </Form.Group>
+    ));
+    }
+    return requirementInputComponents;
+  }
 
   componentWillMount() {
     this.props.allCampuses();
@@ -36,7 +63,7 @@ class AddChallengeForm extends Component {
 
   render() {
     if (this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
 
     const { handleSubmit } = this.props;
@@ -67,11 +94,11 @@ class AddChallengeForm extends Component {
               </Form.Field>
             </Form.Group>
 
-            {renderRequirementInputs(this.state.numberOfRequestInputs)}
+            {this.renderRequirementInputs(this.state.numberOfRequestInputs)}
             <Form.Group>
               <Form.Field width={4}>
                 {renderIf(this.state.numberOfRequestInputs < 5 && this.state.maxRequestInputs === false)(
-                  <Button basic color="orange" onClick={() => addRequirement()}>Add Requirement</Button>,
+                  <Button basic color="orange" onClick={() => this.addRequirement()}>Add Requirement</Button>,
                 )}
               </Form.Field>
             </Form.Group>

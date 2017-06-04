@@ -25,17 +25,17 @@ router.route('/auth/github')
 router.route('/auth/github/callback')
   .get(passport.authenticate('github'),
   (req, res) => {
-    console.log(req.session);
     res.redirect('/student/dashboard');
   });
 
 router.route('/student/login')
   .get((req, res) => {
-    Student.where({ email: req.session.passport.user._json.email })
+    Student.where({ github_id: Number(req.session.passport.user.id) })
     .fetch()
     .then((student) => {
       if (student === null) {
         Student.forge({
+          github_id: Number(req.session.passport.user.id),
           name: req.session.passport.user._json.name,
           email: req.session.passport.user._json.email,
           github_user_name: req.session.passport.user._json.login,
@@ -44,10 +44,16 @@ router.route('/student/login')
         .save()
         .then((signup) => {
           res.json(signup);
+        })
+        .catch((err) => {
+          res.status(400).json({ error: 'You have encountered an error. To sign up with GitHub you must have a public email. To set your email to public please go to Settings > Public profile and public email and select an email' });
         });
       } else {
         res.json(student);
       }
+    })
+    .catch((err) => {
+      res.status(400).json({ error: 'You have encountered an error. To sign up with GitHub you must have a public email. To set your email to public please go to Settings > Public profile and public email and select an email' });
     });
   })
   .put((req, res) => {
@@ -111,7 +117,7 @@ router.route('/admin/signup')
     .save())
     .catch((err) => {
       console.error(err);
-      res.json({ error: 'User already exists' });
+      res.status(400).json({ error: 'User already exists' });
     })
     .then((newAdmin) => {
       // save the admin and their cohorts they are apart of to the admin_cohort table

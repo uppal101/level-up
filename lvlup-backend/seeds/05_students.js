@@ -3,6 +3,7 @@ exports.seed = function (knex, Promise) {
   .then(() => knex('students').insert([
     {
       id: 1,
+      github_id: 23129892,
       username: 'algorythmist',
       name: 'Thomas Stang',
       email: 'stang.tk@gmail.com',
@@ -12,6 +13,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 2,
+      github_id: 19738720,
       username: 'leveluppal',
       name: 'Sanjeet Uppal',
       email: 'sanjeet.uppal92@gmail.com',
@@ -21,12 +23,23 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 3,
+      github_id: 22782154,
       username: 'dan_m_g',
       name: 'Daniel Gardner',
       email: 'daniel.marc.gardner@gmail.com',
       github_user_name: 'danielmarcgardner',
       cohort_id: 1,
       photo_url: 'https://avatars2.githubusercontent.com/u/22782154?v=3',
+    },
+    {
+      id: 4,
+      github_id: 29073312,
+      username: 'lvl^-Demo',
+      name: 'lvl^ - Demo',
+      email: 'lvlupteam@lvlup.tech',
+      github_user_name: 'lvlupteam',
+      cohort_id: 1,
+      photo_url: 'https://avatars3.githubusercontent.com/u/29073312?v=3',
     },
   ]))
     .then(() => knex.raw('SELECT setval(\'students_id_seq\', (SELECT MAX(id) FROM students))'));
