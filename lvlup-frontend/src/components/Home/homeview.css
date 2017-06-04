@@ -131,3 +131,8 @@
 #solution-segment {
   padding: 40px;
 }
+
+.technologyCards {
+  font-family: 'Nova Square', sans-serif;
+  text-align: center !important;
+}

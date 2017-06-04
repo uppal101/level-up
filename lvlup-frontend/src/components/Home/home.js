@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Container, Segment } from 'semantic-ui-react';
 import Footer from './footer.js';
 import RecruiterModal from './recruiter-modal';
+import Technologies from './technologies';
 import './homeview.css';
 
 class Home extends Component {
@@ -31,6 +32,9 @@ class Home extends Component {
                 <u>The Goal:</u> The aim of the lvl^ platform is to provide students with a number of challenges which will supplement the student’s growth throughout the program.  The lvl^ team worked closely with Galvanize career services and student success managers to develop a set of challenges that we feel as both students and administrators will contribute to that end and place students in an even better position for success beyond the program.  By providing a gamified platform and a series of rewards for which the students may cash in earned points we hope to make this a more fun and engaging experience.  While some of the rewards offered are for pure enjoyment and others aim specifically to help students succeed...all rewards aim to level you up!
             </Segment>
             </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Technologies />
           </Grid.Row>
           <Grid.Row centered>
 
