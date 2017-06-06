@@ -28,11 +28,6 @@ class AddChallengeForm extends Component {
       maxRequestInputs: false,
     };
   }
-
-  componentWillMount() {
-    this.props.allCampuses();
-  }
-
   addRequirement() {
     this.setState((prevState, props) => {
       if (prevState.numberOfRequestInputs <= 4) {
@@ -49,7 +44,7 @@ class AddChallengeForm extends Component {
         <Form.Group>
           <Form.Field width={16}>
             <Field
-              name={`requirements_${i}`}
+              name="`requirements_${i}`"
               component={renderField}
               type="text"
               label="Requirement"
@@ -60,6 +55,10 @@ class AddChallengeForm extends Component {
     ));
     }
     return requirementInputComponents;
+  }
+
+  componentWillMount() {
+    this.props.allCampuses();
   }
 
   render() {

@@ -1,44 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, List, Image, Modal, Icon, Container, Loader } from 'semantic-ui-react';
-import SubmissionApprovalForm from './approval-form';
+import { Table, List, Container, Loader } from 'semantic-ui-react';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
+import SubmissionApprovalForm from './approval-form';
+import { renderStudentSubmission } from './individual-challenge-helpers';
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   selectedChallenge: state.selectedChallenge,
 });
 
-const imageModal = image => (
-  <Modal trigger={<Icon name="image" />}>
-    <Modal.Header>Challenge Submission Photo(s)</Modal.Header>
-    <Modal.Content image>
-      <Image wrapped size="medium" src={image} />
-    </Modal.Content>
-  </Modal>
-);
 
 export class SelectedChallenge extends Component {
   constructor(props) {
     super(props);
     this.renderStudentSubmission = this.renderStudentSubmission.bind(this);
-  }
-
-  renderStudentSubmission(item) {
-    return (
-      <Table.Row key={`${item.id}individual-challenge1`}>
-        <Table.Cell>{item.submission_message}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_1 ? item.submission_attachment_1 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_2 ? item.submission_attachment_2 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_3 ? item.submission_attachment_3 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>
-          {item.submission_image_link_1 ? imageModal(item.submission_image_link_1) : 'No photos submitted'}
-          {item.submission_image_link_2 ? imageModal(item.submission_image_link_2) : null}
-          {item.submission_image_link_3 ? imageModal(item.submission_image_link_3) : null}
-        </Table.Cell>
-      </Table.Row>
-    );
   }
 
   render() {
@@ -97,7 +74,7 @@ export class SelectedChallenge extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {this.renderStudentSubmission(this.props.selectedChallenge)}
+                {renderStudentSubmission(this.props.selectedChallenge)}
               </Table.Body>
             </Table>
             <SubmissionApprovalForm />

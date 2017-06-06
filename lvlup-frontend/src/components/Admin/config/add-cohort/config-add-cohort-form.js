@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Loader, Container, Segment } from 'semantic-ui-react';
+import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
