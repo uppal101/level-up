@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Image } from 'semantic-ui-react';
+import { Menu, Icon, Image, Loader } from 'semantic-ui-react';
 import './sidenav-styles.css';
 import { Link } from 'react-router-dom';
 import { loggingInAction, moreStudentInfo, submissionsAction, requestsAction } from '../../../actions/student-dash-actions';
@@ -31,19 +31,17 @@ class StudentSidenav extends Component {
   }
   render() {
     if (!this.props.loginInfo.id && !this.props.studentPointsAndCampus.currentTotal) {
-      return (
-        <div>LOADING</div>
-      );
+      return <Loader active inline="centered"> Loading </Loader>;
     }
 
     return (
       <Menu inverted vertical className="studentSidenav">
-        <Menu.Item><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
+        <Menu.Item id="student-sidenav-info"><Image src={this.props.loginInfo.gravatar_url ? this.props.loginInfo.gravatar_url : this.props.loginInfo.photo_url} shape="circular" size="tiny" centered />
           <div className="userdiv">
             <h4>{this.props.loginInfo.username}</h4>
-            <p>{`${this.props.studentPointsAndCampus.totalEarned}  Points Earned`}</p>
-            <p> {`${this.props.studentPointsAndCampus.currentTotal} Points Remaining`}</p>
-            <p>{`${this.props.studentPointsAndCampus.cohort}  ${this.props.studentPointsAndCampus.cohortType},  ${this.props.studentPointsAndCampus.location}`}</p>
+            <p>{this.props.studentPointsAndCampus.totalEarned ? `${this.props.studentPointsAndCampus.totalEarned}  Points Earned` : '0 Points Earned'}</p>
+            <p> {this.props.studentPointsAndCampus.currentTotal ? `${this.props.studentPointsAndCampus.currentTotal} Points Remaining` : '0 Points Remaining'}</p>
+            <p>{this.props.studentPointsAndCampus.cohort ? `${this.props.studentPointsAndCampus.cohort}  ${this.props.studentPointsAndCampus.cohortType} -  ${this.props.studentPointsAndCampus.location}` : null}</p>
           </div>
         </Menu.Item>
         <Link to={'/student/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>

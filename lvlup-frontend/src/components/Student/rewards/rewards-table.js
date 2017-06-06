@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { Icon, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container, Loader } from 'semantic-ui-react';
 import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
 
 const mapStateToProps = state => ({
@@ -25,15 +25,15 @@ class RewardsTable extends Component {
   }
 
   renderRewards(list) {
-    return list.map(item => (
+    return list.filter(reward => reward.active === 'Active').map(item => (
       <Table.Row key={`${item.id}rewards-table-student`}>
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell>{item.point_cost}</Table.Cell>
-        <Table.Cell>
+        <Table.Cell textAlign="center">{item.point_cost}</Table.Cell>
+        <Table.Cell textAlign="center">
           <Link to={`/student/reward-request/${item.id}`}>
-            <Icon onClick={() => this.props.selectReward(item)} name="long arrow right" />
+            <Icon color="orange" onClick={() => this.props.selectReward(item)} name="long arrow right" />
           </Link>
         </Table.Cell>
       </Table.Row>
@@ -42,18 +42,21 @@ class RewardsTable extends Component {
 
   render() {
     if (this.props.rewards.rewards.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Container>
         <Table celled color="orange">
           <Table.Header>
             <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="5">Rewards</Table.HeaderCell>
+            </Table.Row>
+            <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Points</Table.HeaderCell>
-              <Table.HeaderCell>Request Reward</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Request</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 

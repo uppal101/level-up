@@ -20,7 +20,7 @@ import StudentSidenav from './components/Student/nav/sidenav';
 import AdminSidenav from './components/Admin/nav/sidenav';
 import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
-
+import AddCohortPage from './components/Admin/config/add-cohort/add-cohort';
 
 import './App.css';
 import {
@@ -64,9 +64,7 @@ export default class App extends Component {
                   <Route exact path="/admin/reward-add" component={AddReward} />
                   <Route exact path="/admin/reward-edit/:id" component={EditReward} />
                   <Route exact path="/admin/configuration" component={AdminConfiguration} />
-                  {/* </Grid.Column>
-
-                  </Grid.Row> */}
+                  <Route exact path="/admin/configuration/addcohort" component={AddCohortPage} />
                 </Grid.Column>
               </Grid.Row>
             </Grid>

@@ -57,3 +57,12 @@ export const setCohort = (state = '', action) => {
       return state;
   }
 };
+
+export const recruiter = (state = '', action) => {
+  switch (action.type) {
+    case CONST.RECRUITER_FULFILLED:
+      return action.payload;
+    default:
+      return state;
+  }
+};

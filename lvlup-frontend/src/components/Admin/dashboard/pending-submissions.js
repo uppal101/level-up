@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Container } from 'semantic-ui-react';
+import { Icon, Table, Container, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -42,12 +42,15 @@ class PendingSubmissionsTable extends Component {
   }
   render() {
     if (this.props.pendingSubmissions.submissionsAdmin.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
       <Container>
         <Table celled color="orange">
           <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="4">Pending Challenge Submissions</Table.HeaderCell>
+            </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Title</Table.HeaderCell>

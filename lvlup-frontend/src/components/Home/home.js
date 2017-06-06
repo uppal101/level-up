@@ -1,23 +1,48 @@
 import React, { Component } from 'react';
+import { Grid, Container, Segment } from 'semantic-ui-react';
 import Footer from './footer.js';
+import RecruiterModal from './recruiter-modal';
+import Technologies from './technologies';
 import './homeview.css';
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <h1 className="home-header">lvl^</h1>
-        <div className="description">
-          <p>
-            Welcome to lvl^ the gamification of tasks that help you in your quest to become a better developer and
-            your career. Students are given challenges and get a certain amount of points for completing the challenges.
-            They are then able to redeem their points for rewards. The categories in both rewards and challenges should
-            enrich the student's education, career search, and personal life.
+        <Grid>
+          <Grid.Row centered column width={16}>
+            <h1 className="home-header">live.work.grow.lvl^</h1>
+          </Grid.Row>
+        </Grid>
+        <Grid padded>
+          <Grid.Row>
+            <div textAlign="center" id="intro-text">
+              <u>The Mission:</u> lvl^ was built to be an education enrichment platform for students currently enrolled in one of the full time immersive programs offered at any of Galvanize’s seven nationwide campuses.  The platform provides a gamification of tasks aimed to contribute to student’s growth in their journey to become a professional in the tech industry.  Students are provided with challenges which fall into four categories of growth: education, career, community and life/wellness.  Administrators are able to review and approve or deny student challenge submissions which upon approval will award the student with points.  Students may then cash in accumulated points for relevant rewards which fall into one of the four categories of growth.  Step up your game and lvl^!
+            </div>
+          </Grid.Row>
+          <Grid.Row id="challenge-solution">
+            <Grid.Column textAlign="center" width={8} id="challenge-column">
+              <Segment raised id="challenge-segment">
+                <u>The Challenge:</u> Making the decision to enroll in an immersive program is no small thing, it’s a huge commitment.  Many students start with little to no programming experience, or experience that all comes as a result of self learning.  Often times students have decided to take the plunge and make a complete career change.  Making the actual decision to enroll, however, is only the beginning.  The road ahead provides a great number more challenges.  The path is not easy.  Success comes from a great deal of hard work and perseverance.  While completing the requirements of the program is a great start there are many ways a student can not only gain more from the experience, but also put themselves in a better position to be successful when the program concludes.
+              </Segment>
 
-            Students can sign in with GitHub OAuth in the upper right hand corner. Admins can sign up or sign in in
-            the bottom right corner.
-          </p>
-        </div>
+            </Grid.Column>
+            <Grid.Column textAlign="center" width={8} id="solution-column">
+              <Segment raised id="solution-segment">
+                <u>The Goal:</u> The aim of the lvl^ platform is to provide students with a number of challenges which will supplement the student’s growth throughout the program.  The lvl^ team worked closely with Galvanize career services and student success managers to develop a set of challenges that we feel as both students and administrators will contribute to that end and place students in an even better position for success beyond the program.  By providing a gamified platform and a series of rewards for which the students may cash in earned points we hope to make this a more fun and engaging experience.  While some of the rewards offered are for pure enjoyment and others aim specifically to help students succeed...all rewards aim to level you up!
+            </Segment>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Technologies />
+          </Grid.Row>
+          <Grid.Row centered>
+
+            <div className="description">
+              <RecruiterModal />
+            </div>
+          </Grid.Row>
+        </Grid>
         <Footer />
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form } from 'semantic-ui-react';
+import { Form, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { rewardRequest } from '../../../actions/student-rewards-actions';
@@ -31,10 +31,10 @@ class RewardRequestForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     if (!this.props.reward.name) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
-      <div className="reward-request">
+      <div className="lvl-table">
         <h2 className="header">{`Reward Request: ${this.props.reward.name}  (${this.props.reward.point_cost} pts)`}</h2>
         <Form className="request-form" onSubmit={handleSubmit(this.submit)}>
           <Form.Field inline>
@@ -45,7 +45,7 @@ class RewardRequestForm extends Component {
               placeholder="Enter any preferences for your reward.."
             />
           </Form.Field>
-          <Form.Button>lvl^</Form.Button>
+          <Form.Button basic color="orange">lvl^</Form.Button>
         </Form>
       </div>
     );

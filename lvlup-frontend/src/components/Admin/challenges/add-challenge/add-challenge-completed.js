@@ -8,11 +8,11 @@ const mapStateToProps = state => ({
 });
 
 const AddChallengeCompleted = props => (
-  <Container>
+  <Container className="lvl-table">
     <Table celled color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Challenge Successfully Added!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center">Challenge Successfully Added!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

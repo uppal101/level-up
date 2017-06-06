@@ -107,3 +107,11 @@ body,
 .errorMessage {
   color: red;
 }
+
+.lvl-link a {
+  color: #F2711C;
+}
+
+.nova-font {
+ font-family: 'Nova Square', sans-serif;
+}

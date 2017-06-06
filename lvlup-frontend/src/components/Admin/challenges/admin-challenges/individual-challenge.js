@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, List, Image, Modal, Icon, Container } from 'semantic-ui-react';
-import SubmissionApprovalForm from './approval-form';
+import { Table, List, Container, Loader } from 'semantic-ui-react';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
+import SubmissionApprovalForm from './approval-form';
+import { renderStudentSubmission } from './individual-challenge-helpers';
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
   selectedChallenge: state.selectedChallenge,
 });
 
-const imageModal = image => (
-  <Modal trigger={<Icon name="image" />}>
-    <Modal.Header>Challenge Submission Photo(s)</Modal.Header>
-    <Modal.Content image>
-      <Image wrapped size="medium" src={image} />
-    </Modal.Content>
-  </Modal>
-);
 
 export class SelectedChallenge extends Component {
   constructor(props) {
@@ -25,25 +18,9 @@ export class SelectedChallenge extends Component {
     this.renderStudentSubmission = this.renderStudentSubmission.bind(this);
   }
 
-  renderStudentSubmission(item) {
-    return (
-      <Table.Row key={`${item.id}individual-challenge1`}>
-        <Table.Cell>{item.submission_message}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_1 ? item.submission_attachment_1 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_2 ? item.submission_attachment_2 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>{item.submission_attachment_3 ? item.submission_attachment_3 : 'No Attachment Available'}</Table.Cell>
-        <Table.Cell>
-          {item.submission_image_link_1 ? imageModal(item.submission_image_link_1) : 'No phots submitted'}
-          {item.submission_image_link_2 ? imageModal(item.submission_image_link_2) : null}
-          {item.submission_image_link_3 ? imageModal(item.submission_image_link_3) : null}
-        </Table.Cell>
-      </Table.Row>
-    );
-  }
-
   render() {
     if (!this.props.selectedChallenge.id) {
-      return (<div>LOADING</div>);
+      return (<Loader active inline="centered"> Loading </Loader>);
     }
     return (
       <div className="lvl-table">
@@ -51,9 +28,11 @@ export class SelectedChallenge extends Component {
           <h1 className="header">{`Challenge Submission Review: ${this.props.selectedChallenge.challenge.name}`}</h1>
           <div>
             <h3>{`${this.props.selectedChallenge.student.name}, ${this.props.loggedIn.cohorts.filter(cohort => cohort.id === this.props.selectedChallenge.cohort_id).map(cohort => cohort.name)}` }</h3>
-            <h3>Challenge Requested Information</h3>
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Challenge Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Title</Table.HeaderCell>
                   <Table.HeaderCell>Category</Table.HeaderCell>
@@ -80,9 +59,12 @@ export class SelectedChallenge extends Component {
                 </Table.Row>
               </Table.Body>
             </Table>
-            <h3>Student Request Information</h3>
+
             <Table celled>
               <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell textAlign="center" colSpan="5">Submission Information</Table.HeaderCell>
+                </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell>Submission Message</Table.HeaderCell>
                   <Table.HeaderCell>Attachment 1</Table.HeaderCell>
@@ -92,7 +74,7 @@ export class SelectedChallenge extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {this.renderStudentSubmission(this.props.selectedChallenge)}
+                {renderStudentSubmission(this.props.selectedChallenge)}
               </Table.Body>
             </Table>
             <SubmissionApprovalForm />

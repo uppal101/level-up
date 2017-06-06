@@ -12,3 +12,14 @@ export const editedChallenge = (state = { fulfilled: false }, action) => {
       return state;
   }
 };
+
+export const inactiveChallenge = (state = {}, action) => {
+  switch (action.type) {
+    case CONST.INACTIVE_CHALLENGE_FULFILLED:
+      return Object.assign({}, { active: 'Inactive' }, action.payload);
+    case CONST.INACTIVE_CHALLENGE_REJECTED:
+      return Object.assign({}, { active: 'Inactive', error: 'Server Error - Please Try Again' }, action.payload);
+    default:
+      return state;
+  }
+};

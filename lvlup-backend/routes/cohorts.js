@@ -22,7 +22,7 @@ router.route('/cohorts/')
       q3_start_date: req.body.q3_start_date,
       q4_start_date: req.body.q4_start_date,
       graduation_date: req.body.graduation_date,
-      campus_id: req.body.campus_id,
+      campus_id: Number(req.body.campuses),
     })
     .save()
     .then(cohort => res.status(200).json(cohort))

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/admin-signup';
+import { renderField, renderMultiSelectField, renderSelectField } from '../admin-common/render-fields';
+import { required, minValue7, email } from '../admin-common/validations';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {
@@ -17,50 +19,6 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-
-const required = value => value ? undefined : 'Required';
-const minValue = min => value => value && value.length < min ? `Must be at least ${min} characters or more` : undefined;
-const minValue7 = minValue(7);
-const email = value =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Invalid email address' : undefined;
-
-// const match = (str1, str2) => str1 === str2 ? undefined : 'Passwords do not match';
-
-const renderField = ({ input, dropdown, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>))}
-    </div>
-  </div>
-);
-
-const renderSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <select {...input}>
-        {children}
-      </select>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-);
-const renderMultiSelectField = ({ input, label, type, meta: { touched, error }, children }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <select {...input} multiple>
-        {children}
-      </select>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-);
-
-
 class SignupForm extends Component {
   componentWillMount() {
     this.props.allCampuses();
@@ -68,7 +26,7 @@ class SignupForm extends Component {
   }
   render() {
     if (this.props.cohorts.length === 0 && this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     const { handleSubmit } = this.props;
     return (

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Form, Container, Segment, Button } from 'semantic-ui-react';
+import { Form, Container, Segment, Button, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import { allCampuses, setCampuses } from '../../../actions/admin-signup';
-import { addChallenge } from '../../../actions/add-challenge';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../admin-common/render-fields';
-import { required, number } from '../admin-common/validations';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { addChallenge } from '../../../../actions/add-challenge';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
+import { required, number } from '../../admin-common/validations';
 import './add-challenge-styles.css';
 
 function mapDispatchToProps(dispatch) {
@@ -28,11 +28,6 @@ class AddChallengeForm extends Component {
       maxRequestInputs: false,
     };
   }
-
-  componentWillMount() {
-    this.props.allCampuses();
-  }
-
   addRequirement() {
     this.setState((prevState, props) => {
       if (prevState.numberOfRequestInputs <= 4) {
@@ -62,9 +57,13 @@ class AddChallengeForm extends Component {
     return requirementInputComponents;
   }
 
+  componentWillMount() {
+    this.props.allCampuses();
+  }
+
   render() {
     if (this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
 
     const { handleSubmit } = this.props;

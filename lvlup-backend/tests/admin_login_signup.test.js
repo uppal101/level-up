@@ -86,6 +86,7 @@ describe('User Log In and Sign Ups', (done) => {
         email: 'jenny.engard@galvanize.com',
         campus_id: 1,
         gravatar_url: null,
+        confirmed: true,
         cohorts: [{
           id: 1,
           name: 'g42',
@@ -148,8 +149,6 @@ describe('User Log In and Sign Ups', (done) => {
     .set('Accept', 'application/json')
     .send(newUser)
     .expect((res) => {
-      delete res.body.created_at;
-      delete res.body.updated_at;
       delete res.body.cohorts[0].created_at;
       delete res.body.cohorts[0].updated_at;
       delete res.body.cohorts[1].created_at;
@@ -174,6 +173,7 @@ describe('User Log In and Sign Ups', (done) => {
         email: 'hamid.aghdaee@galvanize.com',
         gravatar_url: null,
         campus_id: 1,
+        confirmed: false,
         cohorts: [{
           id: 1,
           name: 'g42',
@@ -219,6 +219,6 @@ describe('User Log In and Sign Ups', (done) => {
     .set('Accept', 'application/json')
     .send(login)
     // .expect('set-cookie', /token=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
-    .expect(400, JSON.stringify('User already exists!'), done);
+    .expect(400, { error: 'User already exists' }, done);
   });
 });

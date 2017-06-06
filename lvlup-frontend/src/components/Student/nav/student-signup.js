@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { allCohorts } from '../../../actions/admin-signup';
 import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
-// import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { renderField, renderSelectField } from '../../Admin/admin-common/render-fields';
@@ -35,38 +34,54 @@ class SignupInfo extends Component {
   render() {
     const { handleSubmit } = this.props;
     if (this.props.cohorts.length === 0) {
-      return (<div>LOADING</div>);
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
-      <div>
-        <h2>{`Welcome, ${this.props.loginInfo.name}`}</h2>
-        <p>Please complete the form below to get started!</p>
-        <Form onSubmit={handleSubmit(this.submit)}>
-          <Form.Field inline>
-            <Field
-              name="username"
-              component={renderField}
-              type="text"
-              label="username"
-              placeholder="Enter your username"
-              validate={[required]}
-            />
-          </Form.Field>
-          <Form.Field inline>
-            <Field
-              name="cohort_id"
-              component={renderSelectField}
-              type="text"
-              label="Select Your Cohort"
-              placeholder="Select Cohort"
-              validate={[required]}
-            >
-              <option default>Select Cohort</option>
-              { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
-            </Field>
-          </Form.Field>
-          <Form.Button>Sign Up</Form.Button>
-        </Form>
+      <div className="signupPage">
+        <Container>
+          <h2 className="signupText">{`Welcome, ${this.props.loginInfo.name}`}</h2>
+          <p className="signupText">Please complete the form below to get started!</p>
+          <Segment inverted>
+            <Form onSubmit={handleSubmit(this.submit)}>
+              <Form.Field width={16}>
+                <Field
+                  name="username"
+                  component={renderField}
+                  type="text"
+                  label="Username"
+                  placeholder="Enter your username"
+                  validate={[required]}
+                />
+              </Form.Field>
+              <Form.Group>
+                <Form.Field width={8}>
+                  <Field
+                    name="email"
+                    component={renderField}
+                    type="text"
+                    label="Email"
+                    placeholder="Enter your email"
+                    validate={[required]}
+                  />
+                </Form.Field>
+                <Form.Field width={8}>
+                  <Field
+                    name="cohort_id"
+                    component={renderSelectField}
+                    type="text"
+                    label="Select Your Cohort"
+                    placeholder="Select Cohort"
+                    validate={[required]}
+                  >
+                    <option default>Select Cohort</option>
+                    { this.props.cohorts.map(option => <option value={option.id}>{option.name}</option>)}
+                  </Field>
+                </Form.Field>
+              </Form.Group>
+              <Form.Button basic color="orange">Sign Up</Form.Button>
+            </Form>
+          </Segment>
+        </Container>
       </div>
     );
   }

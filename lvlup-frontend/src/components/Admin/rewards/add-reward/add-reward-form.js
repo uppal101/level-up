@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Form, Container, Segment } from 'semantic-ui-react';
+import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../actions/admin-signup';
-import { addReward } from '../../../actions/add-reward';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../admin-common/render-fields';
-import { required, number } from '../admin-common/validations';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { addReward } from '../../../../actions/add-reward';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
+import { required, number } from '../../admin-common/validations';
 import './add-reward-styles.css';
 
 function mapDispatchToProps(dispatch) {
@@ -25,7 +25,7 @@ class AddRewardForm extends Component {
   }
   render() {
     if (this.props.campuses.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     const { handleSubmit } = this.props;
     return (

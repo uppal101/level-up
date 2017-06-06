@@ -22,6 +22,7 @@ exports.up = (knex, Promise) => knex.schema.createTable('challenges', (table) =>
   table.string('requirements_3');
   table.string('requirements_4');
   table.string('requirements_5');
+  table.string('active');
   table.timestamps(true, true);
 });
 

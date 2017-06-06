@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Icon, Table, Popup, Container } from 'semantic-ui-react';
+import { Icon, Table, Popup, Container, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { formatDate } from '../../../helpers/dashboard';
 import { bindActionCreators } from 'redux';
 import { approveSelectedReward, denySelectedReward } from '../../../actions/pending-rewards-actions';
 import { requestsAction } from '../../../actions/admin-dash-actions';
 import { resetPendingRequests } from '../../../actions/reset-actions';
-
 import './dashboard-styles.css';
 
 const mapStateToProps = state => ({
@@ -37,11 +36,14 @@ class PendingRequestsTable extends Component {
         <Table.Cell>{item.reward.name}</Table.Cell>
         <Table.Cell textAlign="center">{formatDate(item.created_at)}</Table.Cell>
         <Table.Cell textAlign="center">
-          <Popup
-            trigger={<Icon circular color="orange" name="comments" />}
-            wide
-          > {item.notes}
-          </Popup>
+          {
+            item.notes ?
+              <Popup
+                trigger={<Icon circular id="hover-icon" color="orange" name="comments" />}
+                wide
+              > {item.notes}
+              </Popup> : 'No Notes'
+          }
         </Table.Cell>
         <Table.Cell textAlign="center">
           <div
@@ -50,7 +52,7 @@ class PendingRequestsTable extends Component {
               this.props.adminInfo.cohorts.map(item => this.props.requestsAction(item.id));
             })}
           >
-            <Icon name="close" />
+            <Icon id="hover-icon" name="close" />
           </div>
           <div
             onClick={() => this.props.approveSelectedReward(item, { status: 'Approved' }).then(() => {
@@ -58,7 +60,7 @@ class PendingRequestsTable extends Component {
               this.props.adminInfo.cohorts.map(item => this.props.requestsAction(item.id));
             })}
           >
-            <Icon color="orange" name="checkmark" />
+            <Icon id="hover-icon" color="orange" name="checkmark" />
           </div>
         </Table.Cell>
       </Table.Row>
@@ -72,12 +74,15 @@ class PendingRequestsTable extends Component {
   }
   render() {
     if (this.props.pendingRequests.requestsAdmin.length === 0) {
-      return <div>LOADING</div>;
+      return <Loader active inline="centered"> Loading </Loader>;
     }
     return (
-      <Container>
+      <Container className="subsequent-table">
         <Table celled>
           <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell textAlign="center" colSpan="5">Pending Reward Requests</Table.HeaderCell>
+            </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Reward</Table.HeaderCell>
