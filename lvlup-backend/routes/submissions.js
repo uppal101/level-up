@@ -9,7 +9,7 @@ router.route('/submissions/cohorts/:cohort_id')
     ChallengeSubmission.where({ cohort_id: req.params.cohort_id })
     .fetchAll({ withRelated: [
       { category: (q) => { q.column('id', 'category'); } },
-      { challenge: (q) => { q.column('id', 'name', 'point_value', 'description'); } },
+      { challenge: (q) => { q.column('id', 'name', 'point_value', 'description', 'requirements_1', 'requirements_2', 'requirements_3', 'requirements_4', 'requirements_5'); } },
       { student: (q) => { q.column('id', 'username', 'name'); } }],
     })
     .then(submissions => res.status(200).json(submissions))

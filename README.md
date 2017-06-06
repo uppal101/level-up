@@ -13,7 +13,7 @@ On the Front End lvl^ is built with React and Redux. Additional technologies use
 
 Back End:
 
-The server for lvl^ is built with Node.js and Express with a PostgreSQL database. To connect the server and database Knex and Bookshelf are used. For authentication lvl^ uses GitHub OAuth with Passport Sessions to authenticate and authorize students and JWT Tokens transported in cookies for admins. Additional technologies used include bcrypt, Moment.js, body-parser, and mocha/supertest for testing.
+The server for lvl^ is built with Node.js and Express with a PostgreSQL database. To connect the server and database Knex and Bookshelf are used. For authentication lvl^ uses GitHub OAuth with Passport Sessions to authenticate and authorize students and JWT Tokens are transported in cookies for admins. NodeMailer is used to confirm email addresses for extra security. Additional technologies used include bcrypt, Moment.js, body-parser, and mocha/supertest for testing.
 
 ### To Get Started
 1. Please fork and clone this repo.
