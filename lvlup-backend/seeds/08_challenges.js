@@ -348,7 +348,7 @@ exports.seed = function (knex, Promise) {
     },
     {
       id: 33,
-      name: 'Congrats You are a Key Note',
+      name: 'Congrats You are a Key Note Speaker',
       point_value: 2000,
       description: 'Keynote at a tech conference.',
       campus_id: 1,
