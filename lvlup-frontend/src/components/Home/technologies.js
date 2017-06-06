@@ -144,7 +144,7 @@ const Technologies = () => (
                 Back End
               </Card.Meta>
               <Card.Description>
-                lvl^'s backend uses a node enviornment on the server.
+                lvl^'s backend uses a node environment on the server.
               </Card.Description>
             </Card.Content>
           </Card>
@@ -270,7 +270,7 @@ const Technologies = () => (
                 Back End
               </Card.Meta>
               <Card.Description>
-                Bluebird is used to promisify the points algorithm
+                Bluebird is used to promisify the points algorithm.
               </Card.Description>
             </Card.Content>
           </Card>
@@ -298,7 +298,7 @@ const Technologies = () => (
                 Back End
               </Card.Meta>
               <Card.Description>
-                Mocha is lvl's test runner for the backend. Used in conjunction with Chai.
+                Mocha is lvl^'s test runner for the backend. Used in conjunction with Chai.
               </Card.Description>
             </Card.Content>
           </Card>
