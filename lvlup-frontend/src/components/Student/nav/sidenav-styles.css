@@ -38,14 +38,18 @@
 .ui.form select {
   height: 37px !important;
 }
-  
-.signupPage{
+
+.signupPage {
   margin-left: 210px;
   margin-top: 40px;
 }
 
-.signupText{
+.signupText {
   text-align: center;
+}
+
+.oauth-error {
+  padding: 40px;
 }
 
 /*.ui.form select {
