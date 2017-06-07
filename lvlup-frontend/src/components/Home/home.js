@@ -3,6 +3,7 @@ import { Grid, Container, Segment } from 'semantic-ui-react';
 import Footer from './footer.js';
 import RecruiterModal from './recruiter-modal';
 import Technologies from './technologies';
+import technologiesUsed from '../../helpers/technologies';
 import './homeview.css';
 
 class Home extends Component {
