@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, Container, Segment } from 'semantic-ui-react';
+import { Grid, Segment, Card } from 'semantic-ui-react';
 import Footer from './footer.js';
 import RecruiterModal from './recruiter-modal';
 import Technologies from './technologies';
-import technologiesUsed from '../../helpers/technologies';
+import Team from './team';
 import './homeview.css';
 
 class Home extends Component {
@@ -36,6 +36,9 @@ class Home extends Component {
           </Grid.Row>
           <Grid.Row>
             <Technologies />
+          </Grid.Row>
+          <Grid.Row centered columns={3}>
+            <Team />
           </Grid.Row>
           <Grid.Row centered>
 

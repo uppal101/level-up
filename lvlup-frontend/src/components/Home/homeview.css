@@ -170,4 +170,19 @@ div.description {
 
 .techCards {
   margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.team-cards {
+  background-color: #4A4A4A;
+  padding: 120px 40px;
+}
+
+.team-card {
+  width: 400px !important;
+}
+
+.team-image {
+  height: 400px !important;
+  width: 400px !important;
 }
