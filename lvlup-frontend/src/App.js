@@ -21,6 +21,7 @@ import AdminSidenav from './components/Admin/nav/sidenav';
 import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
 import AddCohortPage from './components/Admin/config/add-cohort/add-cohort';
+import AddAminCohort from './components/Admin/config/add-admin-cohort/add-admin-cohort';
 
 import './App.css';
 import {
@@ -65,6 +66,7 @@ export default class App extends Component {
                   <Route exact path="/admin/reward-edit/:id" component={EditReward} />
                   <Route exact path="/admin/configuration" component={AdminConfiguration} />
                   <Route exact path="/admin/configuration/addcohort" component={AddCohortPage} />
+                  <Route exact path="/admin/configuration/addadmincohort" component={AddAminCohort} />
                 </Grid.Column>
               </Grid.Row>
             </Grid>

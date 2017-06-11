@@ -98,7 +98,7 @@ describe('POST /cohorts/', () => {
       q3_start_date: '2017-07-10',
       q4_start_date: '2017-08-21',
       graduation_date: '2017-09-29',
-      campus_id: 6,
+      campuses: 6,
     })
     .expect((cohort) => {
       delete cohort.body.created_at;

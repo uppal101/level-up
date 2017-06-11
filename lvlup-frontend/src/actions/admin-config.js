@@ -14,3 +14,17 @@ export const addCohort = props => ({
 export const resetAddCohort = () => ({
   type: CONST.RESET_ADD_COHORT,
 });
+
+const adminCohortToAdd = (id, props) => {
+  const url = `/admins/${id}/cohorts`;
+  return axios.post(url, props).then(response => response.data);
+};
+
+export const adminCohort = (id, props) => ({
+  type: CONST.ADDMIN_COHORT_ADD,
+  payload: adminCohortToAdd(id, props),
+});
+
+export const resetAdminCohort = () => ({
+  type: CONST.RESET_ADDMIN_COHORT_ADD,
+});

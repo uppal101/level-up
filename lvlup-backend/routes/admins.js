@@ -39,6 +39,7 @@ router.route('/admins/:id')
 
 router.route('/admins/:id/cohorts')
   .post((req, res) => {
+    console.log(req.body);
     const cohortsArr = req.body.cohorts;
     const promiseArr = [];
     for (let i = 0; i < cohortsArr.length; i++) {
@@ -53,10 +54,10 @@ router.route('/admins/:id/cohorts')
     .then((adminsCohorts) => {
       const cohortsList = adminsCohorts.models.map(ele => ele.relations.cohort.attributes.name);
       res.status(200).json(cohortsList);
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    // .catch((err) => {
-    //   console.log(err);
-    // });
   });
 
 module.exports = router;

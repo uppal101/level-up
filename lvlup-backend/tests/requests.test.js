@@ -48,7 +48,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           cohort_id: 1,
           category_id: 1,
           status: 'Approved',
-          notes: null,
+          notes: 'Looking forward to using this',
           reward: {
             id: 6,
             name: 'The "No You Google!" Card',
@@ -72,7 +72,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           cohort_id: 1,
           category_id: 2,
           status: 'Pending approval',
-          notes: null,
+          notes: 'I would love to attend the next Community Meet and Eat',
           reward: {
             id: 7,
             name: 'Guaranteed Admission to Community Meet & Eat',
@@ -99,7 +99,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           notes: null,
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -125,7 +125,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
             id: 1,
             name: 'Gift Card to Gather',
             point_cost: 25,
-            description: '$5 gift card to the Gather cafe.',
+            description: '$5 gift card to the Gather cafe. Limit one per student.',
           },
           category: {
             id: 4,
@@ -147,7 +147,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           notes: null,
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -171,7 +171,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           notes: null,
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -195,7 +195,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           notes: null,
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -216,7 +216,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           cohort_id: 1,
           category_id: 2,
           status: 'Approved',
-          notes: null,
+          notes: 'Nice Work',
           reward: {
             id: 7,
             name: 'Guaranteed Admission to Community Meet & Eat',
@@ -245,7 +245,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
             id: 1,
             name: 'Gift Card to Gather',
             point_cost: 25,
-            description: '$5 gift card to the Gather cafe.',
+            description: '$5 gift card to the Gather cafe. Limit one per student.',
           },
           category: {
             id: 4,
@@ -264,10 +264,10 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           cohort_id: 1,
           category_id: 3,
           status: 'Approved',
-          notes: null,
+          notes: 'Please contact me with the card design',
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -341,7 +341,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
             id: 4,
             name: 'Gift Card to Gather',
             point_cost: 250,
-            description: '$50 gift card to the Gather cafe.',
+            description: '$50 gift card to the Gather cafe. Limit one per student.',
           },
           category: {
             id: 4,
@@ -384,10 +384,10 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
           cohort_id: 1,
           category_id: 3,
           status: 'Approved',
-          notes: null,
+          notes: 'These will be great for networking!',
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -413,7 +413,7 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
             id: 5,
             name: 'Gift Card to Gather',
             point_cost: 500,
-            description: '$100 gift card to the Gather cafe.',
+            description: '$100 gift card to the Gather cafe. Limit one per student.',
           },
           category: {
             id: 4,
@@ -473,6 +473,102 @@ describe('GET /api/requests/cohorts/:cohort_id', () => {
             name: 'Daniel Gardner',
           },
         },
+        {
+          id: 19,
+          student_id: 4,
+          reward_id: 1,
+          cohort_id: 1,
+          category_id: 4,
+          status: 'Approved',
+          notes: null,
+          reward: {
+            id: 1,
+            name: 'Gift Card to Gather',
+            point_cost: 25,
+            description: '$5 gift card to the Gather cafe. Limit one per student.',
+          },
+          category: {
+            id: 4,
+            category: 'Life',
+          },
+          student: {
+            id: 4,
+            username: 'lvl^-Demo',
+            name: 'lvl^ - Demo',
+          },
+        },
+        {
+          id: 20,
+          student_id: 4,
+          reward_id: 11,
+          cohort_id: 1,
+          category_id: 3,
+          status: 'Pending approval',
+          notes: 'Would love to pair program with any instructor',
+          reward: {
+            id: 11,
+            name: 'Instructor Pair Programming',
+            point_cost: 300,
+            description: 'Pair program with the instructor of your choice for 30 minutes.',
+          },
+          category: {
+            id: 3,
+            category: 'Career',
+          },
+          student: {
+            id: 4,
+            username: 'lvl^-Demo',
+            name: 'lvl^ - Demo',
+          },
+        },
+        {
+          id: 21,
+          student_id: 4,
+          reward_id: 6,
+          cohort_id: 1,
+          category_id: 1,
+          status: 'Pending approval',
+          notes: null,
+          reward: {
+            id: 6,
+            name: 'The "No You Google!" Card',
+            point_cost: 15,
+            description: 'The "No You Google!" Card allows a student veto an instructor "google it" response to a question, forcing the instructor to either answer the question or if necessary Google it themselves and report back with the answer.',
+          },
+          category: {
+            id: 1,
+            category: 'Education',
+          },
+          student: {
+            id: 4,
+            username: 'lvl^-Demo',
+            name: 'lvl^ - Demo',
+          },
+        },
+        {
+          id: 22,
+          student_id: 4,
+          reward_id: 7,
+          cohort_id: 1,
+          category_id: 2,
+          status: 'Pending approval',
+          notes: null,
+          reward: {
+            id: 7,
+            name: 'Guaranteed Admission to Community Meet & Eat',
+            point_cost: 20,
+            description: 'This reward allows a student to secure a guaranteed admission to the next available Community Meet & Eat.',
+          },
+          category: {
+            id: 2,
+            category: 'Community',
+          },
+          student: {
+            id: 4,
+            username: 'lvl^-Demo',
+            name: 'lvl^ - Demo',
+          },
+        },
       ], done);
   });
   it('Should return unauthorized when not logged in', (done) => {
@@ -504,7 +600,7 @@ describe('GET requests/students/:student_id', () => {
           cohort_id: 1,
           category_id: 2,
           status: 'Pending approval',
-          notes: null,
+          notes: 'I would love to attend the next Community Meet and Eat',
           reward: {
             id: 7,
             name: 'Guaranteed Admission to Community Meet & Eat',
@@ -531,7 +627,7 @@ describe('GET requests/students/:student_id', () => {
           notes: null,
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -552,7 +648,7 @@ describe('GET requests/students/:student_id', () => {
           cohort_id: 1,
           category_id: 2,
           status: 'Approved',
-          notes: null,
+          notes: 'Nice Work',
           reward: {
             id: 7,
             name: 'Guaranteed Admission to Community Meet & Eat',
@@ -576,10 +672,10 @@ describe('GET requests/students/:student_id', () => {
           cohort_id: 1,
           category_id: 3,
           status: 'Approved',
-          notes: null,
+          notes: 'Please contact me with the card design',
           reward: {
             id: 8,
-            name: 'Business Cards',
+            name: 'Now You Are Official',
             point_cost: 250,
             description: 'A box of professionally designed personal business cards to aid you in your networking and career search.',
           },
@@ -605,7 +701,7 @@ describe('GET requests/students/:student_id', () => {
             id: 4,
             name: 'Gift Card to Gather',
             point_cost: 250,
-            description: '$50 gift card to the Gather cafe.',
+            description: '$50 gift card to the Gather cafe. Limit one per student.',
           },
           category: {
             id: 4,
@@ -678,7 +774,7 @@ describe('POST /requests', () => {
         notes: 'Here is my new request!',
         category_id: 4,
         status: 'Pending approval',
-        id: 19,
+        id: 23,
       }, done);
   });
   it('Should return unauthorized when not logged in', (done) => {
@@ -707,7 +803,7 @@ describe('GET requests/:request_id', () => {
         cohort_id: 1,
         category_id: 1,
         status: 'Approved',
-        notes: null,
+        notes: 'Looking forward to using this',
         reward: {
           id: 6,
           name: 'The "No You Google!" Card',
@@ -802,7 +898,7 @@ describe('PUT /requests/:request_id/admin', () => {
         cohort_id: 1,
         category_id: 2,
         status: 'Approved',
-        notes: null,
+        notes: 'I would love to attend the next Community Meet and Eat',
       }, done);
   });
   it('Should return unauthorized when not logged in', (done) => {
