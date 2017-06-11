@@ -16,7 +16,7 @@ export const resetAddCohort = () => ({
 });
 
 const adminCohortToAdd = (id, props) => {
-  const url = `/admins/${id}/cohorts`;
+  const url = `/api/admins/${id}/cohorts`;
   return axios.post(url, props).then(response => response.data);
 };
 

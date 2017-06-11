@@ -21,6 +21,13 @@ function mapDispatchToProps(dispatch) {
 }
 
 class AddAdminCohortForm extends Component {
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+  }
+  submit(values) {
+    this.props.adminCohort(this.props.admin.id, values);
+  }
   componentWillMount() {
     this.props.allCohorts();
   }
@@ -34,18 +41,18 @@ class AddAdminCohortForm extends Component {
         <Container>
           <h2 className="addCohortHeader"> Add a Cohort To Your Profile </h2>
           <Segment inverted>
-            <Form onSubmit={handleSubmit(this.props.adminCohort(this.props.admin.id))}>
+            <Form onSubmit={handleSubmit((this.submit))}>
               <Form.Field inline>
                 <Field
-                  name="campuses"
+                  name="cohorts"
                   component={renderMultiSelectField}
                   type="text"
-                  label="Campus"
-                  placeholder="Select Campus"
+                  label="Cohorts"
+                  placeholder="Select Cohorts You Want To Add"
                   validate={[required]}
                 >
                   <option default>Select Campus</option>
-                  { this.props.cohorts.map(option => <option value={option.id}>{option.location}</option>)}
+                  { this.props.cohorts.map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
                 </Field>
               </Form.Field>
               <Form.Button basic color="orange">Add a Cohort</Form.Button>
