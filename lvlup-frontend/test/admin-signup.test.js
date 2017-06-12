@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
 import AdminSignUp from '../src/components/Admin/signup/signup';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('adminsignup should render', () => {
+  const store = mockStore({ lvlupApp });
   const adminsignup = shallow(
-    <AdminSignUp />,
+    <AdminSignUp store={store} />,
   );
-  expect(toJson(adminsignup)).toMatchSnapshot();
+  expect(shallowToJson(adminsignup)).toMatchSnapshot();
 });

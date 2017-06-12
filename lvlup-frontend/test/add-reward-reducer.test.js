@@ -3,9 +3,9 @@ import { addReward } from '../src/actions/add-reward';
 
 describe('add reward reducer', () => {
   it('should return the initial state when no action is passed in', () => {
-    expect(addedReward(undefined, {})).toEqual({ status: false });
+    expect(addedReward(undefined, {})).toEqual({ fulfilled: false });
   });
-  // 
+  //
   // it('should return the reward that was added', () => {
   //   const props = {
   //     name: 'Parker',
@@ -23,5 +23,4 @@ describe('add reward reducer', () => {
   //       campus_id: 1,
   //       category_id: 3,
   //     });
-  });
 });

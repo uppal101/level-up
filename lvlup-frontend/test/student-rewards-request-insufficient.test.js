@@ -1,10 +1,10 @@
-import RequestInsufficient from '../src/components/Student/student-reward-request/reward-request-insufficient';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
+import RequestInsufficient from '../src/components/Student/requests/request-insufficient-points';
 import lvlupApp from '../src/reducers/index';
 
 const middlewares = [thunk];

@@ -1,8 +1,5 @@
-import { loginInfo } from '../src/reducers/student-reducer';
-import { studentPointsAndCampus } from '../src/reducers/student-reducer';
-import { selectedReward } from '../src/reducers/student-reducer';
-import { submissions } from '../src/reducers/student-reducer';
-import { challenges } from '../src/reducers/student-reducer';
+import { loginInfo, studentPointsAndCampus, selectedReward, submissions, challenges, rewards, requests, submittedChallenge, selectedChallenge, requestedReward } from '../src/reducers/student-reducer';
+
 
 describe('student login reducer', () => {
   it('should return the initial state', () => {
@@ -31,5 +28,35 @@ describe('submissions reducer', () => {
 describe('challenges reducer', () => {
   it('should return the initial state', () => {
     expect(challenges(undefined, {})).toEqual({ challenges: [] });
+  });
+});
+
+describe('rewards reducer', () => {
+  it('should return the initial state', () => {
+    expect(rewards(undefined, {})).toEqual({ rewards: [] });
+  });
+});
+
+describe('requests reducer', () => {
+  it('should return the initial state', () => {
+    expect(requests(undefined, {})).toEqual({ requests: [] });
+  });
+});
+
+describe('submitted challenge reducer', () => {
+  it('should return the initial state', () => {
+    expect(submittedChallenge(undefined, {})).toEqual({ fulfilled: false });
+  });
+});
+
+describe('selected challenge reducer', () => {
+  it('should return the initial state', () => {
+    expect(selectedChallenge(undefined, {})).toEqual({});
+  });
+});
+
+describe('requested reward reducer', () => {
+  it('should return the initial state', () => {
+    expect(requestedReward(undefined, {})).toEqual({ fulfilled: false });
   });
 });

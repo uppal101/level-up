@@ -1,7 +1,9 @@
 exports[`test ChallengesTable should render 1`] = `
 <ChallengesTable
   campusChallenges={[Function]}
+  makeChallengeInactive={[Function]}
   resetAddChallenge={[Function]}
+  resetChallengeList={[Function]}
   resetEditChallenge={[Function]}
   selectChallenge={[Function]}
   store={

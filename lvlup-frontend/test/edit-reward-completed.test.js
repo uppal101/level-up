@@ -1,10 +1,10 @@
-import EditRewardCompleted from '../src/components/Admin/admin-edit-reward/edit-reward-completed';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
+import EditRewardCompleted from '../src/components/Admin/rewards/edit-reward/edit-reward-completed';
 import lvlupApp from '../src/reducers/index';
 
 const middlewares = [thunk];

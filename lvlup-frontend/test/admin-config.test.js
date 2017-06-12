@@ -1,12 +1,19 @@
-import AdminConfiguration from '../src/components/Admin/config/config-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import AdminConfiguration from '../src/components/Admin/config/config-main';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('AdminConfiguration should render', () => {
+  const store = mockStore({ lvlupApp });
   const config = shallow(
-    <AdminConfiguration />,
+    <AdminConfiguration store={store} />,
   );
-  expect(toJson(config)).toMatchSnapshot();
+  expect(shallowToJson(config)).toMatchSnapshot();
 });
