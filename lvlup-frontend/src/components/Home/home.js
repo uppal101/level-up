@@ -4,6 +4,7 @@ import Footer from './footer.js';
 import RecruiterModal from './recruiter-modal';
 import Technologies from './technologies';
 import Team from './team';
+import About from './about';
 import './homeview.css';
 
 class Home extends Component {
@@ -37,12 +38,15 @@ class Home extends Component {
           <Grid.Row>
             <Technologies />
           </Grid.Row>
-          <Grid.Row centered columns={3}>
+          <Grid.Row id="about-section">
+            <About />
+          </Grid.Row>
+          <Grid.Row centered columns={3} id="about-row">
             <Team />
           </Grid.Row>
           <Grid.Row centered>
 
-            <div className="description">
+            <div className="demo-section">
               <RecruiterModal />
             </div>
           </Grid.Row>
