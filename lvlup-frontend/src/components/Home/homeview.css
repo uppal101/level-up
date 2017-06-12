@@ -1,14 +1,37 @@
+#about-column {
+  padding: 60px 40px 0px 40px;
+}
+
+#about-header {
+  color: #F2711C;
+  font-family: 'Nova Square', sans-serif;
+  margin-bottom: 40px;
+}
+
 #about-row {
   padding: 0px;
 }
 
 #about-section {
-  padding: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 40px;
   font-size: 16px;
   line-height: 32px;
-  background-color: #CCCCCC;
+  background-color: #4A4A4A;
   text-align: center;
   font-family: 'Nova Square', sans-serif;
+}
+
+.about-reveal {
+  padding: 10px;
+  font-family: 'Nova Square', sans-serif;
+  font-size: 1.0em;
+  line-height: 24px;
+}
+
+#about-segment {
+  padding: 40px;
 }
 
 .cardDiv {
@@ -62,8 +85,13 @@
   margin-bottom: 20px;
 }
 
-.demo-section {
-  padding-top: 40px;
+.demo-section1 {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.demo-section2 {
+  padding-top: 45px;
   padding-bottom: 90px;
 }
 
@@ -118,7 +146,7 @@ div.description {
   margin-top: 60px;
   margin-right: 10%;
   margin-left: 10%;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
   text-align: center;
   font-family: 'Nova Square', sans-serif;
 }
@@ -160,16 +188,17 @@ div.description {
 
 .team-cards {
   background-color: #4A4A4A;
-  padding: 120px 40px;
+  padding: 60px 40px 100px 40px;
 }
 
 .team-card {
-  width: 400px !important;
+  max-width: 440px !important;
+  min-width: 440px !important;
 }
 
 .team-image {
-  height: 400px !important;
-  width: 400px !important;
+  /*height: 400px !important;
+  width: 400px !important;*/
 }
 
 .technologyCards {
@@ -190,6 +219,11 @@ div.description {
 
 .ui.form.email {
   margin-top: 30px !important;
+}
+
+.ui.move.reveal {
+  white-space: normal !important;
+  /*overflow: scroll !important;*/
 }
 
 .ui.small.nav.menu {
