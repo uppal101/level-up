@@ -11,7 +11,6 @@ import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard
 import { approveSelectedReward, denySelectedReward, inactiveReward } from './request-reducer';
 import { addedCohort, addAdminCohort } from './admin-config';
 
-console.log(loggedIn);
 const lvlupApp = combineReducers({
   loginInfo,
   studentPointsAndCampus,
