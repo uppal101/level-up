@@ -7,6 +7,7 @@ import { renderMultiSelectField } from '../../admin-common/render-fields';
 import { required } from '../../admin-common/validations';
 import { allCohorts } from '../../../../actions/admin-signup';
 import { adminCohort } from '../../../../actions/admin-config';
+import cohortsSorter from '../../../../helpers/cohort-sorter';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -41,7 +42,7 @@ class AddAdminCohortForm extends Component {
         <Container>
           <h2 className="addCohortHeader"> Add a Cohort To Your Profile </h2>
           <Segment inverted>
-            <Form onSubmit={handleSubmit((this.submit))}>
+            <Form onSubmit={handleSubmit(this.submit)}>
               <Form.Field inline>
                 <Field
                   name="cohorts"
@@ -52,7 +53,7 @@ class AddAdminCohortForm extends Component {
                   validate={[required]}
                 >
                   <option default>Select Campus</option>
-                  { this.props.cohorts.map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
+                  {cohortsSorter(this.props.cohorts, this.props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
                 </Field>
               </Form.Field>
               <Form.Button basic color="orange">Add a Cohort</Form.Button>
