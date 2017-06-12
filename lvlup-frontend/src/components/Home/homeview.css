@@ -140,7 +140,7 @@
 .cardDiv {
   /*width: 90%;*/
   margin-left: 10%;
-  margin-right: 10%
+  margin-right: 10%;
 }
 
 div.description {
@@ -152,4 +152,22 @@ div.description {
 .techHeader {
   font-family: 'Nova Square', sans-serif;
   text-align: center !important;
+  margin-bottom: 40px;
+}
+
+.cardHeader {
+  margin-top: 5px !important;
+}
+
+.cardDescription {
+  margin-bottom: 5px !important;
+  margin-top: 10px !important;
+}
+
+.imageCard {
+  margin-top: 5px !important;
+}
+
+.techCards {
+  margin-top: 60px;
 }

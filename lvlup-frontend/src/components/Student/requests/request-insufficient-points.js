@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Message } from 'semantic-ui-react';
+import './request-styles.css';
 
 class InsufficientPoints extends Component {
   constructor(props) {
@@ -23,12 +24,14 @@ class InsufficientPoints extends Component {
       );
     }
     return (
-      <Message
-        color="orange"
-        onDismiss={this.handleDismiss}
-        header="Insufficient Points!"
-        content="Unfortunately you do not have sufficient points for this reward...seems like a good time to lvl^"
-      />
+      <div className="insufficient-points">
+        <Message
+          color="orange"
+          onDismiss={this.handleDismiss}
+          header="Insufficient Points!"
+          content="Unfortunately you do not have sufficient points for this reward...seems like a good time to lvl^"
+        />
+      </div>
     );
   }
 }
