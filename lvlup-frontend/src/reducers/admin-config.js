@@ -14,7 +14,6 @@ export const addedCohort = (state = { fulfilled: false }, action) => {
 };
 
 export const addAdminCohort = (state = { fulfilled: false }, action) => {
-  console.log(action);
   switch (action.type) {
     case 'ADMIN_COHORT_ADD_FULFILLED':
       return Object.assign({}, { fulfilled: true }, action.payload);

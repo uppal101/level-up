@@ -15,6 +15,12 @@ router.route('/admins/')
   });
 
 router.route('/admins/:id')
+  .get((req, res) => {
+    Admin.forge({ id: req.params.id })
+    .fetch({ withRelated: ['cohorts.campus'] })
+    .then(admin => res.status(200).json(admin));
+  })
+
   .put((req, res) => {
     Admin.forge({ id: req.params.id })
     .fetch()
