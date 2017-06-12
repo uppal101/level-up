@@ -39,7 +39,6 @@ router.route('/admins/:id')
 
 router.route('/admins/:id/cohorts')
   .post((req, res) => {
-    console.log(req.body);
     const cohortsArr = req.body.cohorts;
     const promiseArr = [];
     for (let i = 0; i < cohortsArr.length; i++) {

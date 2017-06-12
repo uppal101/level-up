@@ -1,4 +1,4 @@
-function cohortsSorter(listA, listB) {
+function cohortsFilter(listA, listB) {
   const temp = [];
   for (let i = 0; i < listA.length; i++) {
     let there = false;
@@ -14,4 +14,4 @@ function cohortsSorter(listA, listB) {
   return temp;
 }
 
-export default cohortsSorter;
+export default cohortsFilter;

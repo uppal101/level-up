@@ -21,10 +21,10 @@ const adminCohortToAdd = (id, props) => {
 };
 
 export const adminCohort = (id, props) => ({
-  type: CONST.ADDMIN_COHORT_ADD,
+  type: CONST.ADMIN_COHORT_ADD,
   payload: adminCohortToAdd(id, props),
 });
 
 export const resetAdminCohort = () => ({
-  type: CONST.RESET_ADDMIN_COHORT_ADD,
+  type: CONST.RESET_ADMIN_COHORT_ADD,
 });

@@ -7,12 +7,13 @@ import { renderMultiSelectField } from '../../admin-common/render-fields';
 import { required } from '../../admin-common/validations';
 import { allCohorts } from '../../../../actions/admin-signup';
 import { adminCohort } from '../../../../actions/admin-config';
-import cohortsSorter from '../../../../helpers/cohort-sorter';
+import cohortsFilter from '../../../../helpers/cohort-filter';
+import '../admin-config-styles.css';
 
 function mapStateToProps(state, ownProps) {
   return {
     cohorts: state.allCohorts,
-    addedCohort: state.addedCohort,
+    addAdminCohort: state.addAdminCohort,
     admin: state.loggedIn,
   };
 }
@@ -51,9 +52,10 @@ class AddAdminCohortForm extends Component {
                   label="Cohorts"
                   placeholder="Select Cohorts You Want To Add"
                   validate={[required]}
+                  className="multiSelect"
                 >
-                  <option default>Select Campus</option>
-                  {cohortsSorter(this.props.cohorts, this.props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
+                  <option default>Select Cohorts</option>
+                  {cohortsFilter(this.props.cohorts, this.props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
                 </Field>
               </Form.Field>
               <Form.Button basic color="orange">Add a Cohort</Form.Button>
