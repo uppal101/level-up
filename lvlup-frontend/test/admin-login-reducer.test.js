@@ -11,4 +11,10 @@ describe('add login reducer', () => {
     const nextState = loggedIn(prevState, { type: CONST.ADMIN_LOGIN_FULFILLED, email: 'sanjeet.uppal92@gmail.com', password: 'youareawizard' });
     expect(nextState).toEqual({ status: true });
   });
+
+  it('should return a new state with the logged out user', () => {
+    const prevState = { status: true };
+    const nextState = loggedIn(prevState, { type: CONST.ADMIN_LOGOUT_FULFILLED, email: 'sanjeet.uppal92@gmail.com', password: 'youareawizard' });
+    expect(nextState).toEqual({ status: false });
+  });
 });
