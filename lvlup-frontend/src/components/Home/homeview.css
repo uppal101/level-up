@@ -6,6 +6,21 @@
   color: #F2711C;
   font-family: 'Nova Square', sans-serif;
   margin-bottom: 40px;
+  font-size: 48px;
+}
+
+.about-links {
+  margin-top: 55px;
+  font-family: 'Nova Square', sans-serif;
+  font-size: 18px;
+}
+
+.about-links a {
+  color: black;
+}
+
+.about-links a:hover {
+  color: orange;
 }
 
 #about-row {
@@ -32,6 +47,8 @@
 
 #about-segment {
   padding: 40px;
+  font-size: 18px;
+  line-height: 32px;
 }
 
 .cardDiv {
@@ -161,6 +178,11 @@ div.description {
   margin-top: 20px;
 }
 
+.name {
+  font-size: 36px;
+  font-family: 'Nova Square', sans-serif;
+}
+
 #nova-font {
   font-family: 'Nova Square', sans-serif;
 }
@@ -215,6 +237,7 @@ div.description {
   font-family: 'Nova Square', sans-serif;
   text-align: center !important;
   margin-bottom: 40px;
+  font-size: 48px;
 }
 
 .ui.form.email {
