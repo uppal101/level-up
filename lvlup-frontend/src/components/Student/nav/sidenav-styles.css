@@ -35,9 +35,9 @@
   text-align: center;
 }
 
-.ui.form select {
+/*.ui.form select {
   height: 37px !important;
-}
+}*/
 
 .signupPage {
   margin-left: 210px;
@@ -48,10 +48,7 @@
   text-align: center;
 }
 
-.oauth-error {
+.successAdminCohort {
   padding: 40px;
+  margin-top: 60px !important;
 }
-
-/*.ui.form select {
-  height: 37px !important;
-}*/

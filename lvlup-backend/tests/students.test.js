@@ -81,6 +81,16 @@ describe('GET students', () => {
         cohort_id: 1,
         username: 'dan_m_g',
       },
+      {
+        id: 4,
+        name: 'lvl^ - Demo',
+        email: 'lvlupteam@lvlup.tech',
+        github_user_name: 'lvlupteam',
+        photo_url: 'https://avatars3.githubusercontent.com/u/29073312?v=3',
+        gravatar_url: null,
+        cohort_id: 1,
+        username: 'lvl^-Demo',
+      },
     ], done);
   });
 });
@@ -219,6 +229,16 @@ describe('GET students/campuses/:campus_id', () => {
         cohort_id: 1,
         username: 'dan_m_g',
       },
+      {
+        id: 4,
+        name: 'lvl^ - Demo',
+        email: 'lvlupteam@lvlup.tech',
+        github_user_name: 'lvlupteam',
+        photo_url: 'https://avatars3.githubusercontent.com/u/29073312?v=3',
+        gravatar_url: null,
+        cohort_id: 1,
+        username: 'lvl^-Demo',
+      },
     ], done);
   });
 });
@@ -270,6 +290,16 @@ describe('GET students/cohorts/:cohort_id', () => {
         gravatar_url: null,
         cohort_id: 1,
         username: 'dan_m_g',
+      },
+      {
+        id: 4,
+        name: 'lvl^ - Demo',
+        email: 'lvlupteam@lvlup.tech',
+        github_user_name: 'lvlupteam',
+        photo_url: 'https://avatars3.githubusercontent.com/u/29073312?v=3',
+        gravatar_url: null,
+        cohort_id: 1,
+        username: 'lvl^-Demo',
       },
     ], done);
   });

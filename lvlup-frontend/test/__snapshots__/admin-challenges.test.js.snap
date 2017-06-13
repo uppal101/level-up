@@ -1,7 +1,6 @@
 exports[`test AdminChallenges should render 1`] = `
 <div
   className="lvl-table">
-  <ChallengesHeader />
   <Connect(ChallengesTable) />
 </div>
 `;
