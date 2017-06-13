@@ -1,6 +1,0 @@
-exports[`test Header should render 1`] = `
-<h2
-  className="header">
-  Rewards
-</h2>
-`;

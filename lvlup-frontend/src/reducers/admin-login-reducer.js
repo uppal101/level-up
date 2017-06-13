@@ -1,4 +1,3 @@
-// import initialState from './initialState';
 import * as CONST from '../constants/constants';
 
 export const loggedIn = (state = { status: false }, action) => {

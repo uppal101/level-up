@@ -1,10 +1,10 @@
-import ChallengesTable from '../src/components/Student/challenges/challenge-table';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
+import ChallengesTable from '../src/components/Student/challenges/challenges-table';
 import lvlupApp from '../src/reducers/index';
 
 const middlewares = [thunk];

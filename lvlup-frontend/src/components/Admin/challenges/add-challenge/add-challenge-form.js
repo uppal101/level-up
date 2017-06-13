@@ -44,7 +44,7 @@ class AddChallengeForm extends Component {
         <Form.Group>
           <Form.Field width={16}>
             <Field
-              name="`requirements_${i}`"
+              name={`requirements_${i}`}
               component={renderField}
               type="text"
               label="Requirement"
@@ -95,11 +95,12 @@ class AddChallengeForm extends Component {
             </Form.Group>
 
             {this.renderRequirementInputs(this.state.numberOfRequestInputs)}
+
             <Form.Group>
               <Form.Field width={4}>
                 {renderIf(this.state.numberOfRequestInputs < 5 && this.state.maxRequestInputs === false)(
                   <Button basic color="orange" onClick={() => this.addRequirement()}>Add Requirement</Button>,
-                )}
+                )}˚
               </Form.Field>
             </Form.Group>
 
