@@ -1,4 +1,4 @@
-exports[`test SubmssionMainForm should render 1`] = `
+exports[`test SubmissionMainForm should render 1`] = `
 <ReduxForm
   challengeSubmission={[Function]}
   store={

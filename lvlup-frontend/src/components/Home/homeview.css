@@ -1,33 +1,85 @@
-.home-header {
-  text-align: center;
-  margin-top: 0px;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  width: 100%;
-  height: 324px;
-  font-size: 9rem;
-  /*color: #4A4A4A;*/
-  color: #FFFFFF;
-  font-weight: bold;
-  font-family: 'Nova Square', sans-serif;
-  /*background-repeat: no-repeat;*/
-  /*background-size: cover;*/
-  background-image: url("../../images/tags.jpeg");
+#about-column {
+  padding: 60px 40px 0px 40px;
 }
 
-.ui.small.nav.menu {
-  background-color: #4A4A4A !important;
-  margin-bottom: 0px;
-  border-radius: 0% !important;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
-  border-color: #F2711C;
-}
-
-.hamburger {
+#about-header {
   color: #F2711C;
-  font-weight: 100 !important;
+  font-family: 'Nova Square', sans-serif;
+  margin-bottom: 40px;
+  font-size: 48px;
+}
+
+.about-links {
+  margin-top: 55px;
+  font-family: 'Nova Square', sans-serif;
   font-size: 18px;
+}
+
+.about-links a {
+  color: black;
+}
+
+.about-links a:hover {
+  color: orange;
+}
+
+#about-row {
+  padding: 0px;
+}
+
+#about-section {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 32px;
+  background-color: #4A4A4A;
+  text-align: center;
+  font-family: 'Nova Square', sans-serif;
+}
+
+.about-reveal {
+  padding: 10px;
+  font-family: 'Nova Square', sans-serif;
+  font-size: 1.0em;
+  line-height: 24px;
+}
+
+#about-segment {
+  padding: 40px;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.cardDiv {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.cardHeader {
+  margin-top: 5px !important;
+}
+
+.cardDescription {
+  margin-bottom: 5px !important;
+  margin-top: 10px !important;
+}
+
+#challenge-solution {
+  padding: 60px;
+  font-size: 16px;
+  line-height: 32px;
+  background-color: #CCCCCC;
+  text-align: center;
+  font-family: 'Nova Square', sans-serif;
+}
+
+#challenge-column {
+  padding-right: 40px;
+}
+
+#challenge-segment {
+  padding: 40px;
 }
 
 .description {
@@ -46,19 +98,78 @@
   padding-right: 2em;
 }
 
-.footer{
+#demo-instructions {
+  margin-bottom: 20px;
+}
+
+.demo-section1 {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.demo-section2 {
+  padding-top: 45px;
+  padding-bottom: 90px;
+}
+
+div.description {
+  text-align: center !important;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.footer {
   text-align: center;
   background-color: #4A4A4A !important;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 46px;
   color: white;
-  padding: 5px 12px;
+  padding: 5px 32px;
   border-radius: 0% !important;
   border-bottom: 1px solid;
   border-top: 1px solid;
   border-color: #F2711C;
+}
+
+.hamburger {
+  color: #F2711C;
+  font-weight: 100 !important;
+  font-size: 18px;
+}
+
+.home-header {
+  text-align: center;
+  margin-top: 0px;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  width: 100%;
+  height: 324px;
+  font-size: 9rem;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-family: 'Nova Square', sans-serif;
+  background-image: url("../../images/tags.jpeg");
+}
+
+.imageCard {
+  margin-top: 5px !important;
+}
+
+#intro-text {
+  font-size: 24px;
+  line-height: 38px;
+  margin-top: 60px;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 0px;
+  text-align: center;
+  font-family: 'Nova Square', sans-serif;
+}
+
+.modalGreeting {
+  margin-bottom: 10px;
 }
 
 .modalRecruiter {
@@ -67,12 +178,13 @@
   margin-top: 20px;
 }
 
-.modalGreeting {
-  margin-bottom: 10px;
+.name {
+  font-size: 36px;
+  font-family: 'Nova Square', sans-serif;
 }
 
-.p-topmargin {
-  margin-top: 10px;
+#nova-font {
+  font-family: 'Nova Square', sans-serif;
 }
 
 .p-left {
@@ -84,52 +196,31 @@
   margin-bottom: 25px;
 }
 
-.ui.form.email {
-  margin-top: 30px !important;
-}
-
-#nova-font {
- font-family: 'Nova Square', sans-serif;
-}
-
-#intro-text {
-  font-size: 24px;
-  line-height: 38px;
-  margin-top: 60px;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-bottom: 60px;
-  text-align: center;
-  font-family: 'Nova Square', sans-serif;
-}
-
-#demo-instructions {
-  margin-bottom: 20px;
-}
-
-#challenge-solution {
-  padding: 60px;
-  font-size: 16px;
-  line-height: 32px;
-  background-color: #CCCCCC;
-  text-align: center;
-  font-family: 'Nova Square', sans-serif;
-}
-
-#challenge-column {
-  padding-right: 40px;
+.p-topmargin {
+  margin-top: 10px;
 }
 
 #solution-column {
   padding-left: 40px;
 }
 
-#challenge-segment {
+#solution-segment {
   padding: 40px;
 }
 
-#solution-segment {
-  padding: 40px;
+.team-cards {
+  background-color: #4A4A4A;
+  padding: 60px 40px 100px 40px;
+}
+
+.team-card {
+  max-width: 440px !important;
+  min-width: 440px !important;
+}
+
+.team-image {
+  /*height: 400px !important;
+  width: 400px !important;*/
 }
 
 .technologyCards {
@@ -137,37 +228,32 @@
   text-align: center !important;
 }
 
-.cardDiv {
-  /*width: 90%;*/
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-div.description {
-  text-align: center !important;
-  width: 80%;
-  margin-left: 10%;
+.techCards {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .techHeader {
   font-family: 'Nova Square', sans-serif;
   text-align: center !important;
   margin-bottom: 40px;
+  font-size: 48px;
 }
 
-.cardHeader {
-  margin-top: 5px !important;
+.ui.form.email {
+  margin-top: 30px !important;
 }
 
-.cardDescription {
-  margin-bottom: 5px !important;
-  margin-top: 10px !important;
+.ui.move.reveal {
+  white-space: normal !important;
+  /*overflow: scroll !important;*/
 }
 
-.imageCard {
-  margin-top: 5px !important;
-}
-
-.techCards {
-  margin-top: 60px;
+.ui.small.nav.menu {
+  background-color: #4A4A4A !important;
+  margin-bottom: 0px;
+  border-radius: 0% !important;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-color: #F2711C;
 }

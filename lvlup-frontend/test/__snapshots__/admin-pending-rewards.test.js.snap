@@ -1,7 +1,9 @@
 exports[`test PendingRewards should render 1`] = `
-<RequestsTable
+<PendingRequestsTable
   approveSelectedReward={[Function]}
   denySelectedReward={[Function]}
+  requestsAction={[Function]}
+  resetPendingRequests={[Function]}
   store={
     Object {
       "clearActions": [Function],

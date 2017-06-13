@@ -1,5 +1,6 @@
 exports[`test PendingChallenges should render 1`] = `
-<ChallengesTable
+<PendingSubmissionsTable
+  resetPendingSubmissions={[Function]}
   selectChallenge={[Function]}
   store={
     Object {
