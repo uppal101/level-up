@@ -28,7 +28,7 @@ class Technologies extends Component {
         <Grid.Column centered width={16} id="technologies-column">
           <div className="cardDiv">
             <h1 className="techHeader" >Technologies Used To Build lvl^</h1>
-            <Card.Group className="technologyCards" itemsPerRow={6}>
+            <Card.Group className="technologyCards">
               {this.renderCards(technologiesUsed)}
             </Card.Group>
           </div>
