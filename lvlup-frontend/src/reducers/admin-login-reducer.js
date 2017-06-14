@@ -8,6 +8,8 @@ export const loggedIn = (state = { status: false }, action) => {
       return Object.assign({}, { status: false, error: 'Login Failed. Please Check your Email and Password' }, action.payload);
     case CONST.ADMIN_LOGOUT_FULFILLED:
       return Object.assign({}, { status: false });
+    case CONST.RESET_ADMIN_FULFILLED:
+      return Object.assign({}, { status: true, updated: true }, action.payload);
     default:
       return state;
   }

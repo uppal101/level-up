@@ -47,7 +47,7 @@ describe('POST /rewards/', () => {
       delete reward.body.updated_at;
     })
     .expect(200, {
-      id: 13,
+      id: 22,
       name: 'Who said there is not such a thing as free lunch',
       point_cost: 75,
       description: 'Free individual lunch $15 limit',
@@ -89,7 +89,7 @@ describe('GET /rewards/:id', () => {
         id: 1,
         name: 'Gift Card to Gather',
         point_cost: 25,
-        description: '$5 gift card to the Gather cafe.',
+        description: '$5 gift card to the Gather cafe. Limit one per student.',
         campus_id: 1,
         category_id: 4,
         active: 'Active',

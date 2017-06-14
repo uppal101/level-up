@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Grid, Container, Segment } from 'semantic-ui-react';
+import { Grid, Segment, Card } from 'semantic-ui-react';
 import Footer from './footer.js';
 import RecruiterModal from './recruiter-modal';
 import Technologies from './technologies';
-import technologiesUsed from '../../helpers/technologies';
+import Team from './team';
+import About from './about';
 import './homeview.css';
 
 class Home extends Component {
@@ -19,6 +20,11 @@ class Home extends Component {
           <Grid.Row>
             <div textAlign="center" id="intro-text">
               <u>The Mission:</u> lvl^ was built to be an education enrichment platform for students currently enrolled in one of the full time immersive programs offered at any of Galvanize’s seven nationwide campuses.  The platform provides a gamification of tasks aimed to contribute to student’s growth in their journey to become a professional in the tech industry.  Students are provided with challenges which fall into four categories of growth: education, career, community and life/wellness.  Administrators are able to review and approve or deny student challenge submissions which upon approval will award the student with points.  Students may then cash in accumulated points for relevant rewards which fall into one of the four categories of growth.  Step up your game and lvl^!
+            </div>
+          </Grid.Row>
+          <Grid.Row centered>
+            <div className="demo-section1">
+              <RecruiterModal />
             </div>
           </Grid.Row>
           <Grid.Row id="challenge-solution">
@@ -37,9 +43,14 @@ class Home extends Component {
           <Grid.Row>
             <Technologies />
           </Grid.Row>
+          <Grid.Row id="about-section">
+            <About />
+          </Grid.Row>
+          <Grid.Row centered columns={3} id="about-row">
+            <Team />
+          </Grid.Row>
           <Grid.Row centered>
-
-            <div className="description">
+            <div className="demo-section2">
               <RecruiterModal />
             </div>
           </Grid.Row>

@@ -367,7 +367,7 @@ exports.seed = function (knex, Promise) {
       active: 'Active',
     },
     {
-      id: 34,
+      id: 35,
       name: 'I am a TED speaker',
       point_value: 1500,
       description: 'Speak at a TED conference.',
@@ -377,7 +377,7 @@ exports.seed = function (knex, Promise) {
       active: 'Active',
     },
     {
-      id: 34,
+      id: 36,
       name: 'Attend a Job Fair',
       point_value: 5,
       description: 'Attend a Job Fair.',
@@ -387,7 +387,7 @@ exports.seed = function (knex, Promise) {
       active: 'Active',
     },
     {
-      id: 35,
+      id: 37,
       name: 'Attend a Recommended Job Fair',
       point_value: 10,
       description: 'Attend a Recommended Job Fair.',
@@ -398,7 +398,7 @@ exports.seed = function (knex, Promise) {
       active: 'Active',
     },
     {
-      id: 36,
+      id: 38,
       name: 'Attend a Meet-up',
       point_value: 10,
       description: 'Attend a Meet-up.',

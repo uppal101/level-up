@@ -47,9 +47,9 @@ const badEmail = {
 const newUser = {
   username: 'ketohacker',
   name: 'Hamid Aghdaee',
-  email: 'hamid.aghdaee@galvanize.com',
+  email: 'testEmail@email.com',
   cohorts: [1, 2],
-  campus_id: 1,
+  campuses: 1,
   password: 'galvanize',
 };
 
@@ -60,8 +60,6 @@ describe('User Log In and Sign Ups', (done) => {
     .set('Accept', 'application/json')
     .send(login)
     .expect((res) => {
-      delete res.body.created_at;
-      delete res.body.updated_at;
       delete res.body.cohorts[0].created_at;
       delete res.body.cohorts[0].updated_at;
       delete res.body.cohorts[1].created_at;
@@ -165,51 +163,17 @@ describe('User Log In and Sign Ups', (done) => {
     })
     .expect(200,
       {
-        id: 3,
-        username: 'ketohacker',
-        name: 'Hamid Aghdaee',
-        email: 'hamid.aghdaee@galvanize.com',
-        gravatar_url: null,
-        campus_id: 1,
-        confirmed: false,
-        cohorts: [{
-          id: 1,
-          name: 'g42',
-          type: 'WDI',
-          q1_start_date: '2017-01-09T08:00:00.000Z',
-          q2_start_date: '2017-02-21T08:00:00.000Z',
-          q3_start_date: '2017-04-03T07:00:00.000Z',
-          q4_start_date: '2017-05-15T07:00:00.000Z',
-          graduation_date: '2017-06-23T07:00:00.000Z',
-          campus_id: 1,
-          campus: {
-            id: 1,
-            location: 'San Francisco',
-          },
-        }, {
-          id: 2,
-          name: 'g52',
-          type: 'WDI',
-          q1_start_date: '2017-04-17T07:00:00.000Z',
-          q2_start_date: '2017-05-29T07:00:00.000Z',
-          q3_start_date: '2017-07-10T07:00:00.000Z',
-          q4_start_date: '2017-08-21T07:00:00.000Z',
-          graduation_date: '2017-09-29T07:00:00.000Z',
-          campus_id: 1,
-          campus: {
-            id: 1,
-            location: 'San Francisco',
-          },
-        }],
+        needConfirm: 'Please wait for email to confirm',
+        status: true,
       }, done);
   });
   it('Should send an error message if a user is already signed up', (done) => {
     const newUser = {
       username: 'ketohacker',
       name: 'Hamid Aghdaee',
-      email: 'hamid.aghdaee@galvanize.com',
+      email: 'testEmail@email.com',
       cohorts: [1, 2],
-      campus_id: 1,
+      campuses: 1,
       password: 'galvanize',
     };
     supertest(app)
