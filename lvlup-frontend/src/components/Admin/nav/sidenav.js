@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { submissionsAction, requestsAction } from '../../../actions/admin-dash-actions';
+import { resetAdmin } from '../../../actions/admin-config';
 import './sidenav-styles.css';
 
 export const mapDispatchToProps = dispatch => bindActionCreators({
-  submissionsAction, requestsAction,
+  submissionsAction, requestsAction, resetAdmin,
 }, dispatch);
 
 export const mapStateToProps = state => ({
@@ -18,6 +19,12 @@ export const mapStateToProps = state => ({
 });
 
 export class AdminSidenav extends Component {
+  componentDidMount() {
+    const userId = localStorage.getItem('userId');
+    if (!this.props.loggedIn.username && userId) {
+      this.props.resetAdmin(Number(userId));
+    }
+  }
   render() {
     if (!this.props.loggedIn.username) {
       return (
