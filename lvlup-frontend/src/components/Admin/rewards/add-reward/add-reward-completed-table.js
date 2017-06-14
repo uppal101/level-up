@@ -1,11 +1,6 @@
 import React from 'react';
 import { Label, Table, Button, Container, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-const mapStateToProps = state => ({
-  addedReward: state.addedReward,
-});
 
 const AddRewardCompleted = props => (
   <Container className="lvl-table">
@@ -45,4 +40,4 @@ const AddRewardCompleted = props => (
 );
 
 
-export default connect(mapStateToProps)(AddRewardCompleted);
+export default AddRewardCompleted;
