@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import AddChallengeForm from './add-challenge-form';
-import AddChallengeCompleted from './add-challenge-completed';
+import AddChallengeForm from './add-challenge-container';
+import AddChallengeCompleted from './added-challenge-container';
 
 const mapStateToProps = state => ({
   addStatus: state.addedChallenge,

@@ -17,7 +17,7 @@ class EditChallengeForm extends Component {
     values.challenge_id = this.props.challenge.id;
     this.props.editChallenge(values);
   }
-  componentWillMount() {
+  componentDidMount() {
     this.props.allCampuses();
   }
   render() {
