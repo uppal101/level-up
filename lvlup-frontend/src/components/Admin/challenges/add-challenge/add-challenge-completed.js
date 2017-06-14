@@ -1,12 +1,6 @@
 import React from 'react';
 import { Label, Table, Button, Grid, Container, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-const mapStateToProps = state => ({
-  addedChallenge: state.addedChallenge,
-  campuses: state.allCampuses,
-});
 
 const getLocation = (campusId, campuses) => {
   const matched = campuses.filter(campus => campus.id === Number(campusId));
@@ -72,7 +66,6 @@ const AddChallengeCompleted = props => (
       </Link>
     </Grid>
   </Container>
-
 );
 
-export default connect(mapStateToProps)(AddChallengeCompleted);
+export default AddChallengeCompleted;
