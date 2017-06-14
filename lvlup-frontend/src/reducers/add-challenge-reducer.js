@@ -6,6 +6,7 @@ export const addedChallenge = (state = { fulfilled: false }, action) => {
       return Object.assign({}, { fulfilled: true }, action.payload);
     case CONST.ADD_CHALLENGE_REJECTED:
       return Object.assign({}, { fulfilled: false, error: 'Server Error - Please Try Again' }, action.payload);
+      console.log(action.payload);
     case CONST.RESET_ADD_CHALLENGE:
       return Object.assign({}, { fulfilled: false });
     default:

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Table, Container, Button, Loader } from 'semantic-ui-react';
+import { Icon, Table, Container, Button, Loader, List } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -38,6 +38,15 @@ class ChallengesTable extends Component {
         <Table.Cell>{item.name}</Table.Cell>
         <Table.Cell>{item.category.category}</Table.Cell>
         <Table.Cell>{item.description}</Table.Cell>
+        <Table.Cell>
+          {item.requirements_1 ? <List bulleted>
+            <List.Item>{item.requirements_1}</List.Item>
+            {item.requirements_2 ? <List.Item>{item.requirements_2}</List.Item> : null}
+            {item.requirements_3 ? <List.Item>{item.requirements_3}</List.Item> : null}
+            {item.requirements_4 ? <List.Item>{item.requirements_4}</List.Item> : null}
+            {item.requirements_5 ? <List.Item>{item.requirements_5}</List.Item> : null}
+          </List> : 'No requirements!'}
+        </Table.Cell>
         <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}>
           <Link to={`/admin/challenge-edit/${item.id}`}>
             <Icon color="orange" name="pencil" />
@@ -70,6 +79,7 @@ class ChallengesTable extends Component {
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Requirements</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
