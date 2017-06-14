@@ -19,7 +19,7 @@ class EditRewardForm extends Component {
     this.props.editReward(values);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.allCampuses();
   }
   render() {
