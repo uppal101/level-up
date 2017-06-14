@@ -53,7 +53,7 @@ class AddACohortForm extends Component {
                   placeholder="Select Type"
                   validate={[required]}
                 >
-                  <option default>Select Campus</option>
+                  <option default>Select Type Of Cohort</option>
                   <option value="WDI">Web Development Immersive</option>
                   <option value="DSI">Data Science Immersive</option>
                 </Field>

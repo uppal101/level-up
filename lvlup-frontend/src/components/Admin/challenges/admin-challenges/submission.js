@@ -3,7 +3,7 @@ import { Table, List, Container, Loader } from 'semantic-ui-react';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
 import ApprovalMain from './approval-main';
-import renderSubmission from './render-submission';
+import renderSubmission from '../../admin-common/render-submission';
 
 const SelectedSubmission = (props) => {
   if (!props.selectedChallenge.id) {

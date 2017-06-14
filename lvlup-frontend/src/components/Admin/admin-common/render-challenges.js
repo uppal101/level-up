@@ -16,7 +16,7 @@ const renderChallenges = props => props.challenges.challenges.filter(challenges 
         {item.requirements_5 ? <List.Item>{item.requirements_5}</List.Item> : null}
       </List> : 'No requirements!'}
     </Table.Cell>
-    <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}>
+    <Table.Cell textAlign="center" onClick={() => props.selectChallenge(item)}>
       <Link to={`/admin/challenge-edit/${item.id}`}>
         <Icon color="orange" name="pencil" />
       </Link>
