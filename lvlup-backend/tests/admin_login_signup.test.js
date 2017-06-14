@@ -75,7 +75,6 @@ describe('User Log In and Sign Ups', (done) => {
       delete res.body.cohorts[0].campus.updated_at;
       delete res.body.cohorts[1].campus.updated_at;
     })
-    // .expect('set-cookie', /authToken=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
     .expect(200,
       {
         id: 1,
@@ -146,6 +145,22 @@ describe('User Log In and Sign Ups', (done) => {
     .post('/api/admin/signup')
     .set('Accept', 'application/json')
     .send(newUser)
+    .expect((res) => {
+      delete res.body.cohorts[0].created_at;
+      delete res.body.cohorts[0].updated_at;
+      delete res.body.cohorts[1].created_at;
+      delete res.body.cohorts[1].updated_at;
+      delete res.body.cohorts[0]._pivot_id;
+      delete res.body.cohorts[0]._pivot_admin_id;
+      delete res.body.cohorts[1]._pivot_admin_id;
+      delete res.body.cohorts[1]._pivot_id;
+      delete res.body.cohorts[0]._pivot_cohort_id;
+      delete res.body.cohorts[1]._pivot_cohort_id;
+      delete res.body.cohorts[0].campus.created_at;
+      delete res.body.cohorts[1].campus.created_at;
+      delete res.body.cohorts[0].campus.updated_at;
+      delete res.body.cohorts[1].campus.updated_at;
+    })
     .expect(200,
       {
         needConfirm: 'Please wait for email to confirm',
@@ -165,7 +180,6 @@ describe('User Log In and Sign Ups', (done) => {
     .post('/api/admin/signup')
     .set('Accept', 'application/json')
     .send(login)
-    // .expect('set-cookie', /token=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
     .expect(400, { error: 'User already exists' }, done);
   });
 });

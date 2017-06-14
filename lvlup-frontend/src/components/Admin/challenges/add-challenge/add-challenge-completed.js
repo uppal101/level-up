@@ -1,11 +1,17 @@
 import React from 'react';
-import { Label, Table, Button, Grid, Container } from 'semantic-ui-react';
+import { Label, Table, Button, Grid, Container, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   addedChallenge: state.addedChallenge,
+  campuses: state.allCampuses,
 });
+
+const getLocation = (campusId, campuses) => {
+  const matched = campuses.filter(campus => campus.id === Number(campusId));
+  return matched[0].location;
+};
 
 const AddChallengeCompleted = props => (
   <Container className="lvl-table">
@@ -30,6 +36,30 @@ const AddChallengeCompleted = props => (
         </Table.Row>
         <Table.Row>
           <Table.Cell>
+            <Label ribbon>Requirements</Label>
+            {props.addedChallenge.data.requirements_1 ? <List bulleted>
+              <List.Item>{props.addedChallenge.data.requirements_1}</List.Item>
+              {props.addedChallenge.data.requirements_2 ? <List.Item>{props.addedChallenge.data.requirements_2}</List.Item> : null}
+              {props.addedChallenge.data.requirements_3 ? <List.Item>{props.addedChallenge.data.requirements_3}</List.Item> : null}
+              {props.addedChallenge.data.requirements_4 ? <List.Item>{props.addedChallenge.data.requirements_4}</List.Item> : null}
+              {props.addedChallenge.data.requirements_5 ? <List.Item>{props.addedChallenge.data.requirements_5}</List.Item> : null}
+            </List> : 'No requirements!'}
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Label ribbon>Campus</Label>
+            {getLocation(props.addedChallenge.data.campus_id, props.campuses)}
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            <Label ribbon>Category</Label>
+            {props.addedChallenge.data.category_id}
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
             <Label ribbon>Description</Label>
             {props.addedChallenge.data.description}
           </Table.Cell>
@@ -42,6 +72,7 @@ const AddChallengeCompleted = props => (
       </Link>
     </Grid>
   </Container>
+
 );
 
 export default connect(mapStateToProps)(AddChallengeCompleted);
