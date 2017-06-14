@@ -1,74 +1,18 @@
-import React, { Component } from 'react';
-import { Icon, Table, Container, Button, Loader, List } from 'semantic-ui-react';
+import React from 'react';
+import { Table, Container, Button, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { resetEditChallenge, makeChallengeInactive } from '../../../../actions/edit-challenge';
-import { resetAddChallenge } from '../../../../actions/add-challenge';
-import { campusChallenges, selectChallenge } from '../../../../actions/student-challenges-actions';
-import { submissionsAction } from '../../../../actions/admin-dash-actions';
-import { resetChallengeList } from '../../../../actions/reset-actions';
 import './challenges-style.css';
-
-const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
-  challenges: state.challenges,
-  selectedChallenge: state.selectedChallenge,
-});
+import renderChallenges from './render-challenges';
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge, makeChallengeInactive, resetChallengeList }, dispatch);
-
-
-class ChallengesTable extends Component {
-  constructor(props) {
-    super(props);
-    this.renderTable = this.renderTable.bind(this);
+const ChallengesTable = (props) => {
+  if (props.challenges.challenges.length === 0) {
+    return (<Loader active inline="centered"> Loading </Loader>);
   }
-
-  componentWillMount() {
-    this.props.campusChallenges(this.props.adminInfo.campus_id);
-    this.props.resetEditChallenge();
-    this.props.resetAddChallenge();
-  }
-
-  renderTable(list) {
-    return list.filter(challenges => challenges.active === 'Active').map(item => (
-      <Table.Row key={item.id}>
-        <Table.Cell>{item.name}</Table.Cell>
-        <Table.Cell>{item.category.category}</Table.Cell>
-        <Table.Cell>{item.description}</Table.Cell>
-        <Table.Cell>
-          {item.requirements_1 ? <List bulleted>
-            <List.Item>{item.requirements_1}</List.Item>
-            {item.requirements_2 ? <List.Item>{item.requirements_2}</List.Item> : null}
-            {item.requirements_3 ? <List.Item>{item.requirements_3}</List.Item> : null}
-            {item.requirements_4 ? <List.Item>{item.requirements_4}</List.Item> : null}
-            {item.requirements_5 ? <List.Item>{item.requirements_5}</List.Item> : null}
-          </List> : 'No requirements!'}
-        </Table.Cell>
-        <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}>
-          <Link to={`/admin/challenge-edit/${item.id}`}>
-            <Icon color="orange" name="pencil" />
-          </Link>
-        </Table.Cell>
-        <Table.Cell textAlign="center"><Icon
-          id="hover-icon"
-          name="trash"
-          onClick={() => this.props.makeChallengeInactive(item).then(() => {
-            this.props.resetChallengeList();
-            this.props.campusChallenges(this.props.adminInfo.campus_id);
-          })}
-        /></Table.Cell>
-        <Table.Cell textAlign="center">{item.point_value}</Table.Cell>
-      </Table.Row>
-    ));
-  }
-  render() {
-    if (this.props.challenges.challenges.length === 0) {
-      return (<Loader active inline="centered"> Loading </Loader>);
-    }
-    return (
+  return (
+    <div className="lvl-table">
       <Container>
         <Table celled>
           <Table.Header>
@@ -87,15 +31,16 @@ class ChallengesTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {this.renderTable(this.props.challenges.challenges)}
+            {renderChallenges(props)}
           </Table.Body>
 
         </Table>
-        <Link to="/admin/challenge-add"><Button basic color="orange" content="Add Challenge" /></Link>
+        <Link to="/admin/challenge-add">
+          <Button basic color="orange" content="Add Challenge" />
+        </Link>
       </Container>
-    );
-  }
-}
+    </div>
+  );
+};
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(ChallengesTable);
+export default ChallengesTable;

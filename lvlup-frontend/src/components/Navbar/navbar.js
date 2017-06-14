@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 import '../Home/homeview.css';
 import { connect } from 'react-redux';
-import LoginGithub from './login-github';
+// import LoginGithub from './login-github';
+import LoginModal from './login-modal';
 import LogOutGithub from './logout-student';
 import LogOutAdmin from './logout-admin';
 import renderIf from 'render-if';
@@ -30,7 +31,7 @@ class NavBar extends Component {
         </Menu.Item>
         <Menu.Item className="right">
           {renderIf(!this.props.loginInfo.status && !this.props.loggedIn.status)(
-            <LoginGithub />,
+            <LoginModal />,
           )}
           {renderIf(this.props.loginInfo.status)(
             <LogOutGithub />,
