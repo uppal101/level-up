@@ -24,9 +24,9 @@ const renderChallenges = props => props.challenges.challenges.filter(challenges 
     <Table.Cell textAlign="center"><Icon
       id="hover-icon"
       name="trash"
-      onClick={() => this.props.makeChallengeInactive(item).then(() => {
-        this.props.resetChallengeList();
-        this.props.campusChallenges(this.props.adminInfo.campus_id);
+      onClick={() => props.makeChallengeInactive(item).then(() => {
+        props.resetChallengeList();
+        props.campusChallenges(props.adminInfo.campus_id);
       })}
     /></Table.Cell>
     <Table.Cell textAlign="center">{item.point_value}</Table.Cell>
