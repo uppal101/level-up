@@ -133,8 +133,8 @@ exports.seed = function (knex, Promise) {
       description: 'Host a one time technology based meetup.',
       campus_id: 1,
       category_id: 2,
-      requirements_1: 'Show an invitation or or event on meetup with description of meeting.'
-      requirements_2: 'Show pictures of event.'
+      requirements_1: 'Show an invitation or or event on meetup with description of meeting.',
+      requirements_2: 'Show pictures of event.',
       active: 'Active',
     },
     {
@@ -259,8 +259,8 @@ exports.seed = function (knex, Promise) {
       description: 'Host a technology based meetup at least 4 times.',
       campus_id: 1,
       category_id: 2,
-      requirements_1: 'Show an invitation or or event on meetup with description of meetings.'
-      requirements_2: 'Show pictures of events.'
+      requirements_1: 'Show an invitation or or event on meetup with description of meetings.',
+      requirements_2: 'Show pictures of events.',
       active: 'Active',
     },
     {
@@ -270,7 +270,7 @@ exports.seed = function (knex, Promise) {
       description: 'Organize and host a review session for your classmate.',
       campus_id: 1,
       category_id: 1,
-      requirements_1: 'Show itinerary of subjects covered and by who.'
+      requirements_1: 'Show itinerary of subjects covered and by who.',
       active: 'Active',
     },
     {
@@ -331,7 +331,7 @@ exports.seed = function (knex, Promise) {
       campus_id: 1,
       category_id: 3,
       requirements_1: 'Must be improved by instructor.',
-      requirements_1: 'Technology must not be taught at Galvanize.',
+      requirements_2: 'Technology must not be taught at Galvanize.',
       active: 'Active',
     },
     {

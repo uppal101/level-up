@@ -77,7 +77,6 @@ describe('User Log In and Sign Ups', (done) => {
       delete res.body.cohorts[0].campus.updated_at;
       delete res.body.cohorts[1].campus.updated_at;
     })
-    // .expect('set-cookie', /authToken=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
     .expect(200,
       {
         id: 1,
@@ -164,7 +163,6 @@ describe('User Log In and Sign Ups', (done) => {
       delete res.body.cohorts[0].campus.updated_at;
       delete res.body.cohorts[1].campus.updated_at;
     })
-    // .expect('set-cookie', /token=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
     .expect(200,
       {
         id: 3,
@@ -218,7 +216,6 @@ describe('User Log In and Sign Ups', (done) => {
     .post('/api/admin/signup')
     .set('Accept', 'application/json')
     .send(login)
-    // .expect('set-cookie', /token=[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+; Path=\/;.+HttpOnly/)
     .expect(400, { error: 'User already exists' }, done);
   });
 });

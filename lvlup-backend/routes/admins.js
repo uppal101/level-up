@@ -54,9 +54,6 @@ router.route('/admins/:id/cohorts')
       const cohortsList = adminsCohorts.models.map(ele => ele.relations.cohort.attributes.name);
       res.status(200).json(cohortsList);
     });
-    // .catch((err) => {
-    //   console.log(err);
-    // });
   });
 
 module.exports = router;
