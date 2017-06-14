@@ -26,6 +26,7 @@ class InsufficientPoints extends Component {
     return (
       <div className="insufficient-points">
         <Message
+          textAlign="center"
           color="orange"
           onDismiss={this.handleDismiss}
           header="Insufficient Points!"
