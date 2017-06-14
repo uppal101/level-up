@@ -1,12 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import AddRewardForm from './add-reward-form';
-import AddRewardCompleted from './add-reward-completed';
-
-const mapStateToProps = state => ({
-  addStatus: state.addedReward,
-});
+import AddRewardForm from './add-reward-form-container';
+import AddRewardCompleted from './add-reward-completed-container';
 
 const AddReward = (props) => {
   const ifAdded = renderIf(props.addStatus.fulfilled);
@@ -19,4 +14,4 @@ const AddReward = (props) => {
   );
 };
 
-export default connect(mapStateToProps)(AddReward);
+export default AddReward;
