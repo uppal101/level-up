@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import EditChallengeForm from './edit-challenge-form';
-import EditChallengeCompleted from './edit-challenge-completed';
+import EditChallengeForm from './edit-challenge-container';
+import EditChallengeCompleted from './edited-challenge-container';
 
 const mapStateToProps = state => ({
   editStatus: state.editedChallenge,
