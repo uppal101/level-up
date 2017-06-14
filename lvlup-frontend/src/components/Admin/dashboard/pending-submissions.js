@@ -35,7 +35,7 @@ class PendingSubmissionsTable extends Component {
         <Table.Cell>{item.student.name}</Table.Cell>
         <Table.Cell>{item.challenge.name}</Table.Cell>
         <Table.Cell textAlign="center">{formatDate(item.created_at)}</Table.Cell>
-        <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}><Link to={`/admin/individual-pending-challenge/${item.id}`}><Icon color="orange" name="eye" /></Link></Table.Cell>
+        <Table.Cell textAlign="center" onClick={() => this.props.selectChallenge(item)}><Link to={`/admin/pending-submission/${item.id}`}><Icon color="orange" name="eye" /></Link></Table.Cell>
       </Table.Row>
       ),
     );
