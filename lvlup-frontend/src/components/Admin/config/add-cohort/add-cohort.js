@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const AddCohortPage = props => (
-  <div className="admin-config">
+  <div>
     {renderIf(props.addCohort.fulfilled === false)(<AddACohortForm />)}
     {renderIf(props.addCohort.fulfilled === true)(<AddCohortComplete />)}
   </div>

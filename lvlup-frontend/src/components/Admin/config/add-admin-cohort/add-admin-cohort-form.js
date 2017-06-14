@@ -12,10 +12,10 @@ class AddAdminCohortForm extends PureComponent {
     this.submit = this.submit.bind(this);
   }
   submit(values) {
-    props.adminCohort(props.admin.id, values);
+    this.props.adminCohort(this.props.admin.id, values);
   }
   render() {
-    if (props.cohorts.length === 0) {
+    if (this.props.cohorts.length === 0) {
       return <Loader active inline="centered"> Loading </Loader>;
     }
     const { handleSubmit } = this.props;
@@ -36,7 +36,7 @@ class AddAdminCohortForm extends PureComponent {
                   className="multiSelect"
                 >
                   <option default>Select Cohorts</option>
-                  {cohortsFilter(props.cohorts, props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
+                  {cohortsFilter(this.props.cohorts, this.props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
                 </Field>
               </Form.Field>
               <Form.Button basic color="orange">Add a Cohort</Form.Button>
