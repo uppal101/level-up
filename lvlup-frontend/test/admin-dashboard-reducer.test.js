@@ -6,11 +6,11 @@ describe('admin pending submissions reducer', () => {
     expect(adminPendingSubmissions(undefined, {})).toEqual({ submissionsAdmin: [] });
   });
 
-  // it('should return a new state with all pending submission', () => {
-  //   const prevState = { submissionsAdmin: [] };
-  //   const nextState = adminPendingSubmissions(prevState, { type: CONST.ADMIN_SUBMISSIONS_FULFILLED, name: 'Ghiradelli trip', point_value: 50, description: 'Indulge your sweet tooth', campus_id: 1, category_id: 4 });
-  //   expect(nextState).toEqual({ submissionsAdmin: [] });
-  // });
+  it('should return a new state with the all pending submissions', () => {
+    const prevState = { submissionsAdmin: [] };
+    const nextState = adminPendingSubmissions(prevState, { type: CONST.ADMIN_SUBMISSIONS_FULFILLED, payload: [{ test: 1 }] });
+    expect(nextState).toEqual({ submissionsAdmin: [{ test: 1 }] });
+  });
 });
 
 describe('admin pending requests reducer', () => {
@@ -18,9 +18,9 @@ describe('admin pending requests reducer', () => {
     expect(adminPendingRequests(undefined, {})).toEqual({ requestsAdmin: [] });
   });
 
-  // it('should return a new state with all pending submission', () => {
-  //   const prevState = { requestsAdmin: [] };
-  //   const nextState = adminPendingRequests(prevState, { type: CONST.ADMIN_REQUESTS_FULFILLED, name: 'Ghiradelli trip', point_value: 50, description: 'Indulge your sweet tooth', campus_id: 1, category_id: 4 });
-  //   expect(nextState).toEqual({ requestsAdmin: [] });
-  // });
+  it('should return a new state with the all pending requests', () => {
+    const prevState = { requestsAdmin: [] };
+    const nextState = adminPendingRequests(prevState, { type: CONST.ADMIN_REQUESTS_FULFILLED, payload: [{ test: 2 }] });
+    expect(nextState).toEqual({ requestsAdmin: [{ test: 2 }] });
+  });
 });

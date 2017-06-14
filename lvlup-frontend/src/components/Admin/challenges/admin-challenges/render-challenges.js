@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Table } from 'semantic-ui-react';
+import { Icon, Table, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const renderChallenges = props => props.challenges.challenges.filter(challenges => challenges.active === 'Active').map(item => (

@@ -24,6 +24,13 @@ exports[`test Home should render 1`] = `
       </div>
     </GridRow>
     <GridRow
+      centered={true}>
+      <div
+        className="demo-section1">
+        <RecruiterModal />
+      </div>
+    </GridRow>
+    <GridRow
       id="challenge-solution">
       <GridColumn
         id="challenge-column"
@@ -56,9 +63,19 @@ exports[`test Home should render 1`] = `
       <Technologies />
     </GridRow>
     <GridRow
+      id="about-section">
+      <About />
+    </GridRow>
+    <GridRow
+      centered={true}
+      columns={3}
+      id="about-row">
+      <Team />
+    </GridRow>
+    <GridRow
       centered={true}>
       <div
-        className="description">
+        className="demo-section2">
         <RecruiterModal />
       </div>
     </GridRow>
