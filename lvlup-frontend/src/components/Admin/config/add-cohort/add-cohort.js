@@ -8,15 +8,11 @@ const mapStateToProps = state => ({
   addCohort: state.addedCohort,
 });
 
-class AddCohortPage extends Component {
-  render() {
-    return (
-      <div className="admin-config">
-        {renderIf(this.props.addCohort.fulfilled === false)(<AddACohortForm />)}
-        {renderIf(this.props.addCohort.fulfilled === true)(<AddCohortComplete />)}
-      </div>
-    );
-  }
-}
+const AddCohortPage = props => (
+  <div className="admin-config">
+    {renderIf(props.addCohort.fulfilled === false)(<AddACohortForm />)}
+    {renderIf(props.addCohort.fulfilled === true)(<AddCohortComplete />)}
+  </div>
+);
 
 export default connect(mapStateToProps)(AddCohortPage);
