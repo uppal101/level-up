@@ -4,7 +4,7 @@ import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
 import AdminSignUp from './components/Admin/signup/signup';
 import AdminLogin from './components/Admin/login/login';
-import SelectedChallenge from './components/Admin/challenges/admin-challenges/individual-challenge';
+import SelectedSubmission from './components/Admin/challenges/admin-challenges/submission-main';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
 import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-main';
 import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-main';
@@ -57,7 +57,7 @@ export default class App extends Component {
                   <Route exact path="/login-admin" component={AdminLogin} />
                   <Route exact path="/signup-admin" component={AdminSignUp} />
                   <Route exact path="/admin/dashboard" component={AdminHome} />
-                  <Route exact path="/admin/individual-pending-challenge/:id" component={SelectedChallenge} />
+                  <Route exact path="/admin/pending-submission/:id" component={SelectedSubmission} />
                   <Route exact path="/admin/challenges" component={AdminChallenges} />
                   <Route exact path="/admin/rewards" component={AdminRewards} />
                   <Route exact path="/admin/challenge-add" component={AddChallenge} />

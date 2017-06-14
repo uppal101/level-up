@@ -1,18 +1,8 @@
 import { Form, Grid } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { submissionFormAdmin } from '../../../../actions/challenge-review';
 import { renderField, renderSelectField } from '../../admin-common/render-fields';
 import { required } from '../../admin-common/validations';
-
-const mapDispatchToProps = dispatch => bindActionCreators({ submissionFormAdmin }, dispatch);
-
-const mapStateToProps = state => ({
-  selectedChallenge: state.selectedChallenge,
-});
-
 
 class SubmissionApprovalForm extends Component {
   constructor(props) {
@@ -65,7 +55,6 @@ class SubmissionApprovalForm extends Component {
           </Grid>
           <Grid centered>
             <Grid.Row>
-
               <Form.Button basic color="orange">Submit Review</Form.Button>
             </Grid.Row>
           </Grid>
@@ -75,6 +64,4 @@ class SubmissionApprovalForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'submissionApproval',
-})(SubmissionApprovalForm));
+export default SubmissionApprovalForm;
