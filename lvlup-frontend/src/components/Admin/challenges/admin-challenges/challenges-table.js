@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table, Container, Button, Loader } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import './challenges-style.css';
 import renderChallenges from './render-challenges';
@@ -21,6 +23,7 @@ const ChallengesTable = (props) => {
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Category</Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Requirements</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
