@@ -10,7 +10,7 @@ import AdminChallenges from './components/Admin/challenges/admin-challenges/chal
 import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-main';
 import AddChallenge from './components/Admin/challenges/add-challenge/add-challenge-main';
 import EditChallenge from './components/Admin/challenges/edit-challenge/edit-challenge-main';
-import AddReward from './components/Admin/rewards/add-reward//add-reward-main';
+import AddReward from './components/Admin/rewards/add-reward/add-reward-container';
 import EditReward from './components/Admin/rewards/edit-reward/edit-reward-main';
 import StudentChallenges from './components/Student/challenges/challenges-main';
 import SubmissionMain from './components/Student/submissions/submission-main';
