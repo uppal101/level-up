@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
-import AddRewardForm from './add-reward-form';
-import AddRewardCompleted from './add-reward-completed';
+import AddRewardForm from './add-reward-form-main';
+import AddRewardCompleted from './add-reward-completed-main';
 
 const mapStateToProps = state => ({
   addStatus: state.addedReward,
