@@ -1,7 +1,5 @@
 import React from 'react';
 import { Table, Container, Button, Loader } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import './challenges-style.css';
 import renderChallenges from '../../helpers/render-challenges';

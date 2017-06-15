@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
 import './homeview.css';
-import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <div className="footer" textAlign="center">

@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,7 +15,13 @@ const mapStateToProps = state => ({
   selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges, selectChallenge, resetEditChallenge, submissionsAction, resetAddChallenge, makeChallengeInactive, resetChallengeList }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges,
+  selectChallenge,
+  resetEditChallenge,
+  submissionsAction,
+  resetAddChallenge,
+  makeChallengeInactive,
+  resetChallengeList }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
