@@ -5,7 +5,7 @@ import { quarterConverter, quarterPointFinder, getFirstName } from '../helpers/d
 import renderSubmissions from '../helpers/render-submissions';
 import renderAchievements from '../helpers/render-achievements';
 import renderRewardsEarned from '../helpers/render-rewards-earned';
-import SignupInfo from './student-signup';
+import SignupInfo from './signup-container';
 import SignUpError from './signup-error';
 
 const StudentDashboard = (props) => {

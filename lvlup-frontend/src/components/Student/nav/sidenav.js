@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Menu, Icon, Image, Loader } from 'semantic-ui-react';
 import './sidenav-styles.css';
 import { Link } from 'react-router-dom';
