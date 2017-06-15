@@ -1,7 +1,11 @@
 exports[`test RequestInsufficient should render 1`] = `
-<Message
-  color="orange"
-  content="Unfortunately you do not have sufficient points for this reward...seems like a good time to lvl^"
-  header="Insufficient Points!"
-  onDismiss={[Function]} />
+<div
+  className="insufficient-points">
+  <Message
+    color="orange"
+    content="Unfortunately you do not have sufficient points for this reward...seems like a good time to lvl^"
+    header="Insufficient Points!"
+    onDismiss={[Function]}
+    textAlign="center" />
+</div>
 `;

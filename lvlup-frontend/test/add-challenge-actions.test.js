@@ -21,9 +21,9 @@ describe('async actions', () => {
     const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } };
 
 
-    const store = mockStore();
+    const store = mockStore({ state: {} });
 
-    return store.dispatch(actions.postNewChallenge())
+    return store.dispatch(actions.addChallenge({ body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } }))
     .then(() => {
       expect(store.getActions().toEqual(expectedActions));
     });

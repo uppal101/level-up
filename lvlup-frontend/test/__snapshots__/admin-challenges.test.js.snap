@@ -1,6 +1,38 @@
 exports[`test AdminChallenges should render 1`] = `
-<div
-  className="lvl-table">
-  <Connect(ChallengesTable) />
-</div>
+<lifecycle(ChallengesTable)
+  campusChallenges={[Function]}
+  makeChallengeInactive={[Function]}
+  resetAddChallenge={[Function]}
+  resetChallengeList={[Function]}
+  resetEditChallenge={[Function]}
+  selectChallenge={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  }
+  submissionsAction={[Function]} />
 `;
