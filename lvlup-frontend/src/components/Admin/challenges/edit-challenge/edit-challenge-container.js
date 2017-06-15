@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm } from 'redux-form';
 import EditChallengeForm from './edit-challenge-form';
-import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { allCampuses,  } from '../../../../actions/admin-signup';
 import { editChallenge } from '../../../../actions/edit-challenge';
 
 const connectToStore = connect(
@@ -24,7 +24,7 @@ const connectToStore = connect(
       requirements_4: state.selectedChallenge.requirements_4 ? state.selectedChallenge.requirements_4 : '',
       requirements_5: state.selectedChallenge.requirements_5 ? state.selectedChallenge.requirements_5 : '',
     },
-  }), { editChallenge, allCampuses, setCampuses },
+  }), { editChallenge, allCampuses,  },
 );
 
 const onDidMount = lifecycle({

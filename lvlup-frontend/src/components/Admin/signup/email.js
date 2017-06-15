@@ -3,13 +3,13 @@ import { Form, Button, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/admin-signup';
+import { signup, allCohorts, allCampuses } from '../../../actions/admin-signup';
 import { renderField, renderMultiSelectField, renderSelectField } from '../admin-common/render-fields';
 import { required, minValue7, email } from '../admin-common/validations';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ signup, setCampuses, setCohorts, allCampuses, allCohorts }, dispatch);
+  return bindActionCreators({ signup, allCampuses, allCohorts }, dispatch);
 }
 function mapStateToProps(state, ownProps) {
   return {

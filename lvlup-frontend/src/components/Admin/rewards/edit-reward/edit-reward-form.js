@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { allCampuses,  } from '../../../../actions/admin-signup';
 import { editReward } from '../../../../actions/edit-reward';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
 import { required, number } from '../../admin-common/validations';
@@ -120,7 +120,7 @@ EditRewardForm = connect(
       category_id: state.selectedReward.category_id,
       description: state.selectedReward.description,
     },
-  }), { editReward, allCampuses, setCampuses },
+  }), { editReward, allCampuses,  },
 )(EditRewardForm);
 
 export default EditRewardForm;
