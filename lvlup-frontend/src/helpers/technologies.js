@@ -3,6 +3,7 @@ const technologiesUsed = [{ tech: 'JavaScript', stack: 'Full Stack', description
 { tech: 'React', stack: 'Front End', description: "lvl^'s front end is built with React.", image: 'react' },
 { tech: 'Redux', stack: 'Front End', description: "Redux is used to control lvl^'s state on the front end.", image: 'redux' },
 { tech: 'React-Redux', stack: 'Front End', description: 'React-Redux is used to connect React to the Redux Store', image: 'react-redux' },
+{ tech: 'Recompose', stack: 'Front End', description: 'Recompose is used to wrap our "dumb components" in higher order components to pass props and connect to the store.', image: 'recompose' },
 { tech: 'React-Router-DOM', stack: 'Front End', description: 'React-Router-DOM is used for navigation on the front end.', image: 'react-router' },
 { tech: 'Redux-Forms', stack: 'Front End', description: 'Redux-Forms is used for all of our form inputs.', image: 'redux-forms' },
 { tech: 'Semantic UI', stack: 'Front End', description: "lvl^'s front end is designed with components from Semantic UI.", image: 'semantic-ui' },
