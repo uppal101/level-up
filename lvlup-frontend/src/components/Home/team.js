@@ -8,7 +8,7 @@ const Team = () => (
       <Grid.Row>
         <Grid.Column>
           <Card.Group>
-            <Card fluid className="team-card" centered raised="true" color="orange">
+            <Card fluid className="team-card" centered color="orange">
               <Reveal animated="move up">
                 <Reveal.Content visible>
                   <Image className="team-image" src="https://avatars.githubusercontent.com/uppal101" />
@@ -36,7 +36,7 @@ const Team = () => (
                 </Card.Description>
               </Card.Content>
             </Card>
-            <Card fluid className="team-card" centered raised="true" color="orange">
+            <Card fluid className="team-card" centered color="orange">
               <Reveal animated="move up">
                 <Reveal.Content visible>
                   <Image className="team-image" src="https://avatars.githubusercontent.com/tkstang" />
@@ -65,7 +65,7 @@ const Team = () => (
                 </Card.Description>
               </Card.Content>
             </Card>
-            <Card fluid className="team-card" centered raised="true" color="orange">
+            <Card fluid className="team-card" centered color="orange">
               <Reveal animated="move up">
                 <Reveal.Content visible>
                   <Image className="team-image" src="https://avatars2.githubusercontent.com/u/22782154?v=3" />

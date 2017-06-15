@@ -6,7 +6,6 @@ import { addReward } from '../../../../actions/add-reward';
 import { compose, lifecycle } from 'recompose';
 import AddRewardForm from './add-reward-form';
 
-
 const mapDispatchToProps = dispatch => bindActionCreators({ addReward, allCampuses }, dispatch);
 
 const mapStateToProps = state => ({
