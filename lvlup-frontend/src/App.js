@@ -4,15 +4,15 @@ import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
 import AdminSignUp from './components/Admin/signup/signup';
 import AdminLogin from './components/Admin/login/login';
-import SelectedSubmission from './components/Admin/challenges/admin-challenges/submission-main';
+import IndividualSubmission from './components/Admin/challenges/admin-challenges/individual-submission-container';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
-import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-main';
-import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-main';
+import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-container';
+import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-container';
 import AddChallenge from './components/Admin/challenges/add-challenge/add-challenge-main';
 import EditChallenge from './components/Admin/challenges/edit-challenge/edit-challenge-main';
 import AddReward from './components/Admin/rewards/add-reward/added-reward-container';
 import EditReward from './components/Admin/rewards/edit-reward/edited-reward-container';
-import StudentChallenges from './components/Student/challenges/challenges-main';
+import StudentChallenges from './components/Student/challenges/challenges-container';
 import SubmissionMain from './components/Student/submissions/submission-main';
 import StudentRewards from './components/Student/rewards/rewards-main';
 import StudentRewardRequest from './components/Student/requests/request-main';
@@ -57,7 +57,7 @@ export default class App extends Component {
                   <Route exact path="/login-admin" component={AdminLogin} />
                   <Route exact path="/signup-admin" component={AdminSignUp} />
                   <Route exact path="/admin/dashboard" component={AdminHome} />
-                  <Route exact path="/admin/pending-submission/:id" component={SelectedSubmission} />
+                  <Route exact path="/admin/pending-submission/:id" component={IndividualSubmission} />
                   <Route exact path="/admin/challenges" component={AdminChallenges} />
                   <Route exact path="/admin/rewards" component={AdminRewards} />
                   <Route exact path="/admin/challenge-add" component={AddChallenge} />

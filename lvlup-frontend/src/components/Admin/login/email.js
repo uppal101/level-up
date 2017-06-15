@@ -4,8 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/admin-login';
-import { renderField } from '../admin-common/render-fields';
-import { required, email, minValue7 } from '../admin-common/validations';
+import { renderField } from '../helpers/render-fields';
+import { required, email, minValue7 } from '../helpers/validations';
 import './loginview.css';
 
 function mapDispatchToProps(dispatch) {

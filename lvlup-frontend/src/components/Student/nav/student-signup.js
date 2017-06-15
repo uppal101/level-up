@@ -5,8 +5,8 @@ import { allCohorts } from '../../../actions/admin-signup';
 import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { renderField, renderSelectField } from '../../Admin/admin-common/render-fields';
-import { required } from '../../Admin/admin-common/validations';
+import { renderField, renderSelectField } from '../../Admin/helpers/render-fields';
+import { required } from '../../Admin/helpers/validations';
 import './sidenav-styles.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts, signupStudent, moreStudentInfo }, dispatch);

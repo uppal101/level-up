@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field } from 'redux-form';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
-import { required, number } from '../../admin-common/validations';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
+import { required, number } from '../../helpers/validations';
 import './edit-challenge-styles.css';
 
 class EditChallengeForm extends Component {

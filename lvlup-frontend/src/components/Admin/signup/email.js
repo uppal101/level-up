@@ -4,8 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { signup, allCohorts, allCampuses, setCohorts, setCampuses } from '../../../actions/admin-signup';
-import { renderField, renderMultiSelectField, renderSelectField } from '../admin-common/render-fields';
-import { required, minValue7, email } from '../admin-common/validations';
+import { renderField, renderMultiSelectField, renderSelectField } from '../helpers/render-fields';
+import { required, minValue7, email } from '../helpers/validations';
 import './signupview.css';
 
 function mapDispatchToProps(dispatch) {

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
-import '../Home/homeview.css';
 import { connect } from 'react-redux';
-// import LoginGithub from './login-github';
+import renderIf from 'render-if';
+import { Link } from 'react-router-dom';
+import '../Home/homeview.css';
 import LoginModal from './login-modal';
 import LogOutGithub from './logout-student';
 import LogOutAdmin from './logout-admin';
-import renderIf from 'render-if';
-import { Link } from 'react-router-dom';
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,

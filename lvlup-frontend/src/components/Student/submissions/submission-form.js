@@ -5,9 +5,9 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import uploadcare from 'uploadcare-widget';
 import { challengeSubmission } from '../../../actions/student-challenges-actions';
-import { required, minValue7 } from '../../Admin/admin-common/validations';
+import { required, minValue7 } from '../../Admin/helpers/validations';
 import './submission-styles.css';
-import { renderField, renderTextAreaField } from '../../Admin/admin-common/render-fields';
+import { renderField, renderTextAreaField } from '../../Admin/helpers/render-fields';
 
 
 const mapStateToProps = state => ({

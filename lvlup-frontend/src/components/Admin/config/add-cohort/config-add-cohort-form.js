@@ -3,8 +3,8 @@ import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { renderField, renderSelectField } from '../../admin-common/render-fields';
-import { required } from '../../admin-common/validations';
+import { renderField, renderSelectField } from '../../helpers/render-fields';
+import { required } from '../../helpers/validations';
 import { allCampuses } from '../../../../actions/admin-signup';
 import { addCohort } from '../../../../actions/admin-config';
 

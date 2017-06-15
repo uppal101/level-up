@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table, Container, Loader } from 'semantic-ui-react';
 import './dashboard-styles.css';
-import renderPendingSubmissions from '../admin-common/render-pending-submissions';
+import renderPendingSubmissions from '../helpers/render-pending-submissions';
 
 const PendingSubmissionsTable = (props) => {
   if (props.pendingSubmissions.submissionsAdmin.length === 0) {
