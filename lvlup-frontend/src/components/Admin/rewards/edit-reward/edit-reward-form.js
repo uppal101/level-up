@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { allCampuses,  } from '../../../../actions/admin-signup';
+import { allCampuses  } from '../../../../actions/admin-signup';
 import { editReward } from '../../../../actions/edit-reward';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
 import { required, number } from '../../helpers/validations';
