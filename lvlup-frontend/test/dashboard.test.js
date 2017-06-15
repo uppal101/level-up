@@ -1,4 +1,4 @@
-import * as helpers from '../src/helpers/dashboard';
+import * as helpers from '../src/components/Student/helpers/dashboard';
 
 describe('quarter converter', () => {
   it('should return quarter', () => {

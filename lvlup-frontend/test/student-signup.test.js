@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import StudentSignup from '../src/components/Student/nav/student-signup';
+import StudentSignup from '../src/components/Student/dashboard/student-signup';
 import lvlupApp from '../src/reducers/index';
 
 const middlewares = [thunk];
