@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   editStatus: state.editedChallenge,
 });
 
-export const EditChallenge = (props) => {
+const EditChallenge = (props) => {
   const ifEdited = renderIf(props.editStatus.fulfilled);
   const ifNotEdited = renderIf(!props.editStatus.fulfilled);
   return (

@@ -9,6 +9,7 @@ import { required, minValue7 } from '../../Admin/helpers/validations';
 import './submission-styles.css';
 import { renderField, renderTextAreaField } from '../../Admin/helpers/render-fields';
 
+const upload = 'uploadcare-uploader';
 
 const mapStateToProps = state => ({
   loginInfo: state.loginInfo,
@@ -98,7 +99,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_1" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_1" role={upload} />
                 </div>
                 <Form.Field inline id="submit-image">
                   <Field
@@ -110,7 +111,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_2" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_2" role={upload} />
                 </div>
                 <Form.Field inline id="submit-image">
                   <Field
@@ -122,7 +123,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_3" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_3" role={upload} />
                 </div>
                 <Form.Button basic color="orange" floated="right">lvl^</Form.Button>
               </Form>

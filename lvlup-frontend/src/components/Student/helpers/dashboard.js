@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 export const quarterConverter = (quarter) => {
   switch (quarter) {
     case 'q1':
@@ -35,5 +33,3 @@ export const quarterPointFinder = (pointsObj) => {
 };
 
 export const getFirstName = name => name.split(' ')[0];
-
-export const formatDate = time => moment(time).format('MM/DD/YYYY');
