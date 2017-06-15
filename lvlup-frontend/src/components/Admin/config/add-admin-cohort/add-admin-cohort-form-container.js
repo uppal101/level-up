@@ -1,11 +1,10 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
+import { reduxForm } from 'redux-form';
 import { allCohorts } from '../../../../actions/admin-signup';
 import { adminCohort } from '../../../../actions/admin-config';
 import AddAdminCohortForm from './add-admin-cohort-form';
-import { reduxForm } from 'redux-form';
 
 const mapStateToProps = state => ({
   cohorts: state.allCohorts,

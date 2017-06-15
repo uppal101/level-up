@@ -1,8 +1,7 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { resetAdmin } from '../../../../actions/admin-config';
 import { compose, lifecycle } from 'recompose';
+import { resetAdmin } from '../../../../actions/admin-config';
 import AdminCohortSuccessMessage from './add-admin-cohort-complete';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ resetAdmin }, dispatch);

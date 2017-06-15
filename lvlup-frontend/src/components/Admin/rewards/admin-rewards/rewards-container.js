@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import RewardsTable from './rewards-table';
 import { connect } from 'react-redux';
+import { compose, lifecycle } from 'recompose';
 import { bindActionCreators } from 'redux';
+import RewardsTable from './rewards-table';
 import { campusRewards, selectReward } from '../../../../actions/student-rewards-actions';
 import { resetEditReward, makeRewardInactive } from '../../../../actions/edit-reward';
 import { resetAddReward } from '../../../../actions/add-reward';
 import { resetRewardsList } from '../../../../actions/reset-actions';
-import { compose, lifecycle } from 'recompose';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,

@@ -1,6 +1,5 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose } from 'recompose';
 import AddCohortComplete from './add-cohort-confirmed';
 
 const mapStateToProps = state => ({

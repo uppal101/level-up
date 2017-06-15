@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Menu } from 'semantic-ui-react';
+import renderIf from 'render-if';
+import { Link } from 'react-router-dom';
 import '../Home/homeview.css';
 import LoginModal from './login-modal';
 import LogOutGithub from './logout-student-container';
 import LogOutAdmin from './logout-admin-container';
-import renderIf from 'render-if';
-import { Link } from 'react-router-dom';
 
 const NavBar = props => (
   <Menu secondary size="small" className="nav">

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Form } from 'semantic-ui-react';
 import { Field } from 'redux-form';
-import { renderField } from '../admin-common/render-fields';
-import { required, email, minValue7 } from '../admin-common/validations';
+import { renderField } from '../helpers/render-fields';
+import { required, email, minValue7 } from '../helpers/validations';
 import './loginview.css';
 
 

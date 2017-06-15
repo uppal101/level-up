@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Form, Container, Segment, Loader } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
