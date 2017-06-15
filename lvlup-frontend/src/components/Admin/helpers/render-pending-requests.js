@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Table, Popup } from 'semantic-ui-react';
-import { formatDate } from '../../../helpers/dashboard';
+import { formatDate } from '../../../helpers/format-date';
 
 const renderPendingRequests = props => props.pendingRequests.requestsAdmin.filter(reward => reward.status === 'Pending approval').map(item => (
   <Table.Row key={`${item.id}requests-table-admin`}>

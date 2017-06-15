@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { formatDate } from '../../../helpers/dashboard';
+import { formatDate } from '../../../helpers/format-date';
 
 const renderPendingSubmissions = props => props.pendingSubmissions.submissionsAdmin.filter(challenge => challenge.submission_status === 'Pending approval').map(item => (
   <Table.Row key={`${item.id}challenges-table-admin`}>
