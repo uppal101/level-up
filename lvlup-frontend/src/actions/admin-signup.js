@@ -31,17 +31,6 @@ export const allCohorts = () => ({
   payload: getCohorts(),
 });
 
-export const setCampuses = campus => ({
-  type: CONST.SET_CAMPUSES,
-  campus,
-
-});
-
-export const setCohorts = cohort => ({
-  type: CONST.SET_COHORT,
-  cohort,
-});
-
 const recruiterEmail = (props) => {
   const url = '/api/recruiter';
   return axios.post(url, props).then(response => response.data);

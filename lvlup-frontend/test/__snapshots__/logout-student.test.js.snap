@@ -1,32 +1,17 @@
 exports[`test LogoutStudent should render 1`] = `
-<LogOutGithub
-  loggingOutStudent={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<Link
+  replace={false}
+  to="/">
+  <Button
+    as="button"
+    color="orange"
+    inverted={true}
+    onClick={[Function]}
+    size="small">
+    <Icon
+      as="i"
+      name="github" />
+     Log Out
+  </Button>
+</Link>
 `;

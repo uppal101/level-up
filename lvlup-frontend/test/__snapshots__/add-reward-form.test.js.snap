@@ -2,7 +2,7 @@ exports[`test AddRewardForm should render 1`] = `
 <ReduxForm
   addReward={[Function]}
   allCampuses={[Function]}
-  setCampuses={[Function]}
+  ={[Function]}
   store={
     Object {
       "clearActions": [Function],
