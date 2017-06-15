@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
-import Form from './email.js';
+import React from 'react';
+import LoginForm from './signin-form-container';
 import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import renderIf from 'render-if';
 import AdminConfirmMessage from './confirm-admin-message';
 import './loginview.css';
 
-const mapStateToProps = state => ({
-  loggedIn: state.loggedIn,
-});
-
-export const AdminLogin = props => (
+const AdminLogin = props => (
   <div>
     {renderIf(!props.loggedIn.status)(
       <div className="login">
-        <Form />
+        <LoginForm />
         <p id="need-account">Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
         {props.loggedIn.error ? <p className="errorMessage">{props.loggedIn.error}</p> : null}
       </div>)}
@@ -30,4 +25,4 @@ export const AdminLogin = props => (
 );
 
 
-export default connect(mapStateToProps)(AdminLogin);
+export default AdminLogin;

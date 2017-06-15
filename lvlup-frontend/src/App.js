@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import Home from './components/Home/home';
 import NavBar from './components/Navbar/navbar';
 import AdminSignUp from './components/Admin/signup/signup';
-import AdminLogin from './components/Admin/login/login';
+import AdminLogin from './components/Admin/login/login-container';
 import SelectedSubmission from './components/Admin/challenges/admin-challenges/submission-main';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
 import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-main';
