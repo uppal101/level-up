@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Button, Loader } from 'semantic-ui-react';
 import { Field } from 'redux-form';
-import { renderField, renderMultiSelectField, renderSelectField } from '../admin-common/render-fields';
-import { required, minValue7, email } from '../admin-common/validations';
+import { renderField, renderMultiSelectField, renderSelectField } from '../helpers/render-fields';
+import { required, minValue7, email } from '../helpers/validations';
 import './signupview.css';
 
 const SignupForm = (props) => {
