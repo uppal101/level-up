@@ -10,7 +10,7 @@ import { compose, lifecycle } from 'recompose';
 
 const mapStateToProps = state => ({
   adminInfo: state.loggedIn,
-  rewards: state.rewardsu,
+  rewards: state.rewards,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, selectReward, resetEditReward, resetAddReward, makeRewardInactive, resetRewardsList }, dispatch);
