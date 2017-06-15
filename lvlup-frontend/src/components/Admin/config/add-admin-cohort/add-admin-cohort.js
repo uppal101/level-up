@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import renderIf from 'render-if';
 import { Container } from 'semantic-ui-react';
-import AddAdminCohortForm from './add-admin-cohort-form';
-import AdminCohortSuccessMessage from './add-admin-cohort-complete';
-
-const mapStateToProps = state => ({
-  addAdminCohort: state.addAdminCohort,
-});
+import AddAdminCohortForm from './add-admin-cohort-form-container';
+import AdminCohortSuccessMessage from './add-admin-cohort-complete-container';
 
 const AddAminCohort = props => (
   <Container>
@@ -16,4 +11,4 @@ const AddAminCohort = props => (
   </Container>
   );
 
-export default connect(mapStateToProps)(AddAminCohort);
+export default AddAminCohort;

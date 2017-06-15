@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const renderRewards = props => props.rewards.filter(reward => reward.active === 'Active').map(item => (
+const renderRewards = props => props.rewards.rewards.filter(reward => reward.active === 'Active').map(item => (
   <Table.Row key={`${item.id}rewards-table-admin`}>
     <Table.Cell>{item.name}</Table.Cell>
     <Table.Cell>{item.category.category}</Table.Cell>
