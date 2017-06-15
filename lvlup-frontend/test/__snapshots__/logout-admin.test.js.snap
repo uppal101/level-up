@@ -1,14 +1,17 @@
 exports[`test LogoutAdmin should render 1`] = `
-<LogOutAdmin
-  loggingOutAdmin={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  } />
+<Link
+  replace={false}
+  to="/">
+  <Button
+    as="button"
+    color="orange"
+    inverted={true}
+    onClick={[Function]}
+    size="small">
+    <Icon
+      as="i"
+      name="remove circle" />
+     Log Out
+  </Button>
+</Link>
 `;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm } from 'redux-form';
 import AddChallengeForm from './add-challenge-form';
-import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { allCampuses } from '../../../../actions/admin-signup';
 import { addChallenge } from '../../../../actions/add-challenge';
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
   campuses: state.allCampuses,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ addChallenge, allCampuses, setCampuses }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ addChallenge, allCampuses  }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 

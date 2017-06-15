@@ -1,12 +1,19 @@
-import StudentChallenges from '../src/components/Student/challenges/challenges-main';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import StudentChallenges from '../src/components/Student/challenges/challenges-container';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('StudentChallenges should render', () => {
+  const store = mockStore({ lvlupApp });
   const challenge = shallow(
-    <StudentChallenges />,
+    <StudentChallenges store={store} />,
   );
-  expect(toJson(challenge)).toMatchSnapshot();
+  expect(shallowToJson(challenge)).toMatchSnapshot();
 });

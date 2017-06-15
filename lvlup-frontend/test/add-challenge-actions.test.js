@@ -8,7 +8,16 @@ import * as types from '../src/constants/constants';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('async actions', () => {
+describe('add challenge actions', () => {
+  it('should create an action reset add challenge', () => {
+    const expectedAction = {
+      type: types.RESET_ADD_CHALLENGE,
+    };
+    expect(actions.resetAddChallenge()).toEqual(expectedAction);
+  });
+});
+
+describe('add challenge async actions', () => {
   afterEach(() => {
     nock.cleanAll();
   });
@@ -16,16 +25,16 @@ describe('async actions', () => {
   it('should allow an admin to add a challenge', () => {
     nock('http://lvlup-galvanize.herokuapp.com/')
     .post('/api/challenges')
-    .reply(200, { body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } });
+    .reply(200, { payload: { test: 1 } });
 
-    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } };
+    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, payload: { test: 1 } };
 
 
-    const store = mockStore({ state: {} });
+    const store = mockStore({ test: 1 });
 
-    return store.dispatch(actions.addChallenge({ body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } }))
+    return store.dispatch(actions.addChallenge({ payload: { test: 1 } }))
     .then(() => {
-      expect(store.getActions().toEqual(expectedActions));
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 });
