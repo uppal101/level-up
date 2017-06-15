@@ -20,7 +20,7 @@ import StudentSidenav from './components/Student/nav/sidenav';
 import AdminSidenav from './components/Admin/nav/sidenav';
 import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
-import AddCohortPage from './components/Admin/config/add-cohort/add-cohort';
+import AddCohortPage from './components/Admin/config/add-cohort/added-cohort-container';
 import AddAminCohort from './components/Admin/config/add-admin-cohort/added-admin-cohort-container';
 
 import './App.css';
