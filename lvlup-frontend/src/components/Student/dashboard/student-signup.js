@@ -3,7 +3,7 @@ import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import { renderField, renderSelectField } from '../../Admin/helpers/render-fields';
 import { required } from '../../Admin/helpers/validations';
-import './sidenav-styles.css';
+import '../nav/sidenav-styles.css';
 
 class SignupInfo extends Component {
   constructor(props) {
