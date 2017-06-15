@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field } from 'redux-form';
-import { renderField, renderSelectField } from '../../admin-common/render-fields';
-import { required } from '../../admin-common/validations';
+import { renderField, renderSelectField } from '../../helpers/render-fields';
+import { required } from '../../helpers/validations';
 
 const AddACohortForm = (props) => {
   if (props.campuses.length === 0) {

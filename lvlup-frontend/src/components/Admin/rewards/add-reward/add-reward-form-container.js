@@ -1,4 +1,3 @@
-import React from 'react';
 import { reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -6,9 +5,11 @@ import { allCampuses,  } from '../../../../actions/admin-signup';
 import { addReward } from '../../../../actions/add-reward';
 import { compose, lifecycle } from 'recompose';
 import AddRewardForm from './add-reward-form';
+import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
+import { addReward } from '../../../../actions/add-reward';
 
 
-const mapDispatchToProps = dispatch => bindActionCreators({ addReward, allCampuses,  }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ addReward, allCampuses }, dispatch);
 
 const mapStateToProps = state => ({
   addReward: false,

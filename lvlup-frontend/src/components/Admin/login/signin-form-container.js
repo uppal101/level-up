@@ -1,9 +1,8 @@
-import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { login } from '../../../actions/admin-login';
 import { reduxForm } from 'redux-form';
-import { compose, lifecycle } from 'recompose';
+import { compose } from 'recompose';
+import { login } from '../../../actions/admin-login';
 import LoginForm from './email';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);

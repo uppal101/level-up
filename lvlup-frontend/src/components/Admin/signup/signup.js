@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import SignupForm from './signup-form-container';
+import React from 'react';
 import renderIf from 'render-if';
+import SignupForm from './signup-form-container';
 import SignUpMessage from './signup-message';
 import './signupview.css';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { loggingOutAdmin } from '../../actions/navbar';
 
 const LogOutAdmin = props => (
   <Link to={'/'}>
@@ -10,6 +9,5 @@ const LogOutAdmin = props => (
     </Button>
   </Link>
 );
-
 
 export default LogOutAdmin;

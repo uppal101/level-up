@@ -1,7 +1,5 @@
-import React from 'react';
 import { compose, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { reduxForm } from 'redux-form';
 import EditChallengeForm from './edit-challenge-form';
 import { allCampuses,  } from '../../../../actions/admin-signup';
