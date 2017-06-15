@@ -3,7 +3,7 @@ import { Table, Loader } from 'semantic-ui-react';
 import renderChallenges from '../helpers/render-challenges';
 
 const StudentChallengesTable = (props) => {
-  if (this.props.challenges.challenges.length === 0) {
+  if (props.challenges.challenges.length === 0) {
     return <Loader active inline="centered"> Loading </Loader>;
   }
   return (
