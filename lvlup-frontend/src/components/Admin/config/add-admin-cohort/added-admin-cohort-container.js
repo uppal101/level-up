@@ -1,7 +1,6 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import AddAminCohort from './add-admin-cohort';
 import { compose } from 'recompose';
+import AddAminCohort from './add-admin-cohort';
 
 
 const mapStateToProps = state => ({

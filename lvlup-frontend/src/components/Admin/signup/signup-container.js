@@ -1,6 +1,5 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import { compose } from 'recompose';
 import AdminSignup from './signup';
 
 const mapStateToProps = state => ({

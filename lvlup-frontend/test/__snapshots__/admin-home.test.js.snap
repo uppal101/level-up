@@ -1,7 +1,7 @@
 exports[`test AdminHome should render 1`] = `
 <div
   className="lvl-table">
-  <Connect(PendingSubmissionsTable) />
-  <Connect(PendingRequestsTable) />
+  <Connect(lifecycle(PendingSubmissionsTable)) />
+  <Connect(lifecycle(PendingRequestsTable)) />
 </div>
 `;

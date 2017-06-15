@@ -1,17 +1,7 @@
 exports[`test Footer should render 1`] = `
 <div
-  className="footer">
-  <Link
-    replace={false}
-    to="/login-admin">
-    <Button
-      as="button"
-      color="orange"
-      floated="right"
-      inverted={true}
-      size="small">
-      Admin
-    </Button>
-  </Link>
+  className="footer"
+  textAlign="center">
+  Contact Us     ||   Enter   ||    To the Top   
 </div>
 `;

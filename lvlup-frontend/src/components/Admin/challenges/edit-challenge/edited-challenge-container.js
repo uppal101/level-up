@@ -1,4 +1,3 @@
-import React from 'react';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import EditChallengeCompleted from './edit-challenge-completed';
