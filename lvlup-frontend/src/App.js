@@ -15,7 +15,7 @@ import EditReward from './components/Admin/rewards/edit-reward/edited-reward-con
 import StudentChallenges from './components/Student/challenges/challenges-container';
 import SubmissionMain from './components/Student/submissions/submission-main';
 import StudentRewardsTable from './components/Student/rewards/rewards-main';
-import StudentRewardRequest from './components/Student/requests/request-main';
+import StudentRewardRequest from './components/Student/requests/request-container';
 import StudentSidenav from './components/Student/nav/sidenav-container';
 import AdminSidenav from './components/Admin/nav/sidenav-container';
 import StudentDashboard from './components/Student/dashboard/dashboard-container';

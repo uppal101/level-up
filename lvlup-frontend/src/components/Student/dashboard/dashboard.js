@@ -5,7 +5,7 @@ import { quarterConverter, quarterPointFinder, getFirstName } from '../helpers/d
 import renderSubmissions from '../helpers/render-submissions';
 import renderAchievements from '../helpers/render-achievements';
 import renderRewardsEarned from '../helpers/render-rewards-earned';
-import SignupInfo from './student-signup';
+import SignupInfo from './signup-container';
 import SignUpError from './signup-error';
 
 const StudentDashboard = (props) => {
@@ -19,7 +19,7 @@ const StudentDashboard = (props) => {
   if (!props.loginInfo.name && !props.lvlUpInfo.totalEarned) {
     return <Loader active inline="centered"> Loading </Loader>;
   }
-  if (!props.lvlUpInfo.currentQuarter && props.submissions.submissions.length === 0) {
+  if (!props.loginInfo.cohort_id && props.submissions.submissions.length === 0) {
     return <SignupInfo />;
   }
   return (
