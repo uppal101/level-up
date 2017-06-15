@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Grid, Card, Image, Reveal, Segment, Icon } from 'semantic-ui-react';
+import React from 'react';
+import { Grid, Card, Image, Reveal, Icon } from 'semantic-ui-react';
 import './homeview.css';
 
-const Team = props => (
+const Team = () => (
   <div className="team-cards">
     <Grid>
       <Grid.Row>

@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button } from 'semantic-ui-react';
 import './homeview.css';
 import { Link } from 'react-router-dom';
 
-class Footer extends Component {
-  render() {
-    return (
-      <div className="footer">
-        <Link to={'/login-admin'}><Button inverted color="orange" size="small" floated="right">Admin</Button></Link>
-      </div>
-    );
-  }
-}
+const Footer = () => (
+  <div className="footer" textAlign="center">
+    Contact Us &emsp;&emsp;&emsp; || &emsp;&emsp;Enter &emsp;&emsp;|| &emsp;&emsp;&emsp;To the Top &emsp;&emsp;
+  </div>
+);
 
 export default Footer;

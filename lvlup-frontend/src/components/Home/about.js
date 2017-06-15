@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Segment } from 'semantic-ui-react';
 import './homeview.css';
 
-const About = props => (
+const About = () => (
   <div>
     <Grid>
       <Grid.Row>
