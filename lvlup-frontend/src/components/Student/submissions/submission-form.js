@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Form, Segment, Container, Loader } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
-import uploadcare from 'uploadcare-widget';
-import { challengeSubmission } from '../../../actions/student-challenges-actions';
+import { Field } from 'redux-form';
 import { required, minValue7 } from '../../Admin/helpers/validations';
 import './submission-styles.css';
 import { renderField, renderTextAreaField } from '../../Admin/helpers/render-fields';
 
-
-const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
-  selectedChallenge: state.selectedChallenge,
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({ challengeSubmission }, dispatch);
-
+const upload = 'uploadcare-uploader';
 
 class ChallengeSubmissionForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-  }
-
-  componentDidMount() {
-    uploadcare.start({
-      publicKey: '1c7b669f9c1e6b59ad80',
-      tabs: 'all',
-    });
   }
 
   submit(values) {
@@ -98,7 +80,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_1" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_1" role={upload} />
                 </div>
                 <Form.Field inline id="submit-image">
                   <Field
@@ -110,7 +92,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_2" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_2" role={upload} />
                 </div>
                 <Form.Field inline id="submit-image">
                   <Field
@@ -122,7 +104,7 @@ class ChallengeSubmissionForm extends Component {
                   />
                 </Form.Field>
                 <div>
-                  <input type="text" name="submission_image_link_3" role="uploadcare-uploader" />
+                  <input type="text" name="submission_image_link_3" role={upload} />
                 </div>
                 <Form.Button basic color="orange" floated="right">lvl^</Form.Button>
               </Form>
@@ -134,4 +116,4 @@ class ChallengeSubmissionForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'submission' })(ChallengeSubmissionForm));
+export default ChallengeSubmissionForm;

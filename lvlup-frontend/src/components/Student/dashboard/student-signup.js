@@ -1,30 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Loader, Container, Segment } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import { allCohorts } from '../../../actions/admin-signup';
-import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { Field } from 'redux-form';
 import { renderField, renderSelectField } from '../../Admin/helpers/render-fields';
 import { required } from '../../Admin/helpers/validations';
-import './sidenav-styles.css';
-
-const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts, signupStudent, moreStudentInfo }, dispatch);
-
-const mapStateToProps = state => ({
-  cohorts: state.allCohorts,
-  loginInfo: state.loginInfo,
-});
-
+import '../nav/sidenav-styles.css';
 
 class SignupInfo extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.allCohorts();
   }
 
   submit(values) {
@@ -87,5 +71,4 @@ class SignupInfo extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'studentSignup' })(SignupInfo));
+export default SignupInfo;

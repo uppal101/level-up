@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Message, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import './sidenav-styles.css';
+import '../nav/sidenav-styles.css';
 
 class SignUpError extends Component {
   render() {
