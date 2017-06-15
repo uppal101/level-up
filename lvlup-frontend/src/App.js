@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import Home from './components/Home/home';
-import NavBar from './components/Navbar/navbar';
-import AdminSignUp from './components/Admin/signup/signup';
-import AdminLogin from './components/Admin/login/login';
 import IndividualSubmission from './components/Admin/challenges/admin-challenges/individual-submission-container';
+import NavBar from './components/Navbar/navbar-container';
+import AdminSignUp from './components/Admin/signup/signup-container';
+import AdminLogin from './components/Admin/login/login-container';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
 import AdminChallenges from './components/Admin/challenges/admin-challenges/challenges-container';
 import AdminRewards from './components/Admin/rewards/admin-rewards/rewards-container';
@@ -20,8 +20,8 @@ import StudentSidenav from './components/Student/nav/sidenav';
 import AdminSidenav from './components/Admin/nav/sidenav-container';
 import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
-import AddCohortPage from './components/Admin/config/add-cohort/add-cohort';
-import AddAminCohort from './components/Admin/config/add-admin-cohort/add-admin-cohort';
+import AddCohortPage from './components/Admin/config/add-cohort/added-cohort-container';
+import AddAminCohort from './components/Admin/config/add-admin-cohort/added-admin-cohort-container';
 
 import './App.css';
 import {

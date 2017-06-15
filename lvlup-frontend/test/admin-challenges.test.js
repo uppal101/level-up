@@ -2,11 +2,18 @@ import AdminChallenges from '../src/components/Admin/challenges/admin-challenges
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { shallowToJson } from 'enzyme-to-json';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import lvlupApp from '../src/reducers/index';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 test('AdminChallenges should render', () => {
+  const store = mockStore({ lvlupApp });
   const adminchallenges = shallow(
-    <AdminChallenges />,
+    <AdminChallenges store={store} />,
   );
-  expect(toJson(adminchallenges)).toMatchSnapshot();
+  expect(shallowToJson(adminchallenges)).toMatchSnapshot();
 });

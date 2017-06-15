@@ -1,6 +1,7 @@
 exports[`test AdminSidenav should render 1`] = `
 <AdminSidenav
   requestsAction={[Function]}
+  resetAdmin={[Function]}
   store={
     Object {
       "clearActions": [Function],

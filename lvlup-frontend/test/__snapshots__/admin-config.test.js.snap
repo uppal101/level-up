@@ -1,6 +1,7 @@
 exports[`test AdminConfiguration should render 1`] = `
 <AdminConfiguration
   resetAddCohort={[Function]}
+  resetAdminCohort={[Function]}
   store={
     Object {
       "clearActions": [Function],

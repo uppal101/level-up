@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { allCohorts } from '../../../../actions/admin-signup';
 import { adminCohort } from '../../../../actions/admin-config';
-import AddAdminCohortForm from './config-add-cohort-form';
+import AddAdminCohortForm from './add-admin-cohort-form';
 import { reduxForm } from 'redux-form';
 
 const mapStateToProps = state => ({

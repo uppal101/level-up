@@ -8,7 +8,7 @@ import renderChallenges from '../../helpers/render-challenges';
 
 
 const ChallengesTable = (props) => {
-  if (props.challenges.challenges.length === 0) {
+  if (props.challenges.length === 0) {
     return (<Loader active inline="centered"> Loading </Loader>);
   }
   return (

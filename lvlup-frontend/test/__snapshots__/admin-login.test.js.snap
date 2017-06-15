@@ -1,5 +1,5 @@
 exports[`test AdminLogin should render 1`] = `
-<AdminLogin
+<Component
   dispatch={[Function]}
   store={
     Object {
