@@ -19,7 +19,10 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    this.props.campusChallenges(this.props.lvlUpInfo.campusId);
+    if (!this.props.challenges.fetched) {
+      console.log('did not fetch');
+      return this.props.campusChallenges(this.props.lvlUpInfo.campusId);
+    }
     this.props.resetChallenge();
   },
 });

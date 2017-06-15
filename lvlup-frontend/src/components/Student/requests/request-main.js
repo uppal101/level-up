@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import renderIf from 'render-if';
 import RewardRequestForm from './request-form-container';
 import RequestCompleted from './request-completed-container';
