@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PendingSubmissionsTable from './pending-submissions';
-import PendingRequestsTable from './pending-requests';
+import React from 'react';
+import PendingSubmissionsTable from './submissions-container';
+import PendingRequestsTable from './requests-container';
 
 const AdminHome = () => (
   <div className="lvl-table">

@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { Field } from 'redux-form';
+import renderIf from 'render-if';
 import { renderField } from '../Admin/admin-common/render-fields';
 import { required, email } from '../Admin/admin-common/validations';
-import { recruiter } from '../../actions/admin-signup';
-import renderIf from 'render-if';
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ recruiter }, dispatch);
-}
-
-function mapStateToProps(state, ownProps) {
-  return {
-    recruiter: state.recruiter,
-  };
-}
 
 class RecruiterEmail extends Component {
   render() {
@@ -45,6 +32,4 @@ class RecruiterEmail extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
-  form: 'recruiter',
-})(RecruiterEmail));
+export default RecruiterEmail;
