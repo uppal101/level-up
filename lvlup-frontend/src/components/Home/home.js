@@ -10,13 +10,13 @@ import './homeview.css';
 const Home = () => (
   <div>
     <Grid>
-      <Grid.Row centered column width={16}>
+      <Grid.Row centered width={16}>
         <h1 className="home-header">live.work.grow.lvl^</h1>
       </Grid.Row>
     </Grid>
     <Grid padded>
       <Grid.Row>
-        <div textAlign="center" id="intro-text">
+        <div id="intro-text">
           <u>The Mission:</u> lvl^ was built to be an education enrichment platform for students currently enrolled in one of the full time immersive programs offered at any of Galvanize’s seven nationwide campuses.  The platform provides a gamification of tasks aimed to contribute to student’s growth in their journey to become a professional in the tech industry.  Students are provided with challenges which fall into four categories of growth: education, career, community and life/wellness.  Administrators are able to review and approve or deny student challenge submissions which upon approval will award the student with points.  Students may then cash in accumulated points for relevant rewards which fall into one of the four categories of growth.  Step up your game and lvl^!
             </div>
       </Grid.Row>

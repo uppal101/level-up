@@ -6,7 +6,7 @@ import './homeview.css';
 
 const Technologies = () => (
   <div className="techCards">
-    <Grid.Column centered width={16} id="technologies-column">
+    <Grid.Column width={16} id="technologies-column">
       <div className="cardDiv">
         <h1 className="techHeader" >Technologies Used To Build lvl^</h1>
         <Card.Group className="technologyCards">
