@@ -20,6 +20,24 @@ describe('quarter converter', () => {
 
 describe('quarter point finder', () => {
   it('should return points earned in the quarter', () => {
-    expect(helpers.quarterPointFinder('q1')).toEqual(165);
+    const pointsObj = {
+      q1Earned: 125,
+      q2Earned: 100,
+      q3Earned: 100,
+      q4Earned: 100,
+      totalEarned: 425,
+    };
+    expect(helpers.quarterPointFinder('q1')).toEqual(pointsObj.q1Earned);
+  });
+
+  it('should return points earned in the quarter', () => {
+    const pointsObj = {
+      q1Earned: 125,
+      q2Earned: 100,
+      q3Earned: 100,
+      q4Earned: 100,
+      totalEarned: 425,
+    };
+    expect(helpers.quarterPointFinder('q2')).toEqual(pointsObj.q2Earned);
   });
 });

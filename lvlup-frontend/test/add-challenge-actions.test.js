@@ -25,14 +25,14 @@ describe('add challenge async actions', () => {
   it('should allow an admin to add a challenge', () => {
     nock('http://lvlup-galvanize.herokuapp.com/')
     .post('/api/challenges')
-    .reply(200, { body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } });
+    .reply(200, { payload: { test: 1 } });
 
-    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, payload: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } };
+    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, payload: { test: 1 } };
 
 
-    const store = mockStore({ state: {} });
+    const store = mockStore({ test: 1 });
 
-    return store.dispatch(actions.addChallenge({ payload: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } }))
+    return store.dispatch(actions.addChallenge({ payload: { test: 1 } }))
     .then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });

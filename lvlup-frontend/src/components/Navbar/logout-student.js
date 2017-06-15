@@ -11,12 +11,4 @@ const LogOutGithub = props => (
   </Link>
 );
 
-const LogOutGithub = () => (
-  <Link to={'/'}>
-    <Button inverted color="orange" size="small" onClick={() => this.props.loggingOutStudent()}>
-      <Icon name="github" /> Log Out
-        </Button>
-  </Link>
-);
-
 export default LogOutGithub;
