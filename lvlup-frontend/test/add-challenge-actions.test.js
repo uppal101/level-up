@@ -8,7 +8,16 @@ import * as types from '../src/constants/constants';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('async actions', () => {
+describe('add challenge actions', () => {
+  it('should create an action reset add challenge', () => {
+    const expectedAction = {
+      type: types.RESET_ADD_CHALLENGE,
+    };
+    expect(actions.resetAddChallenge()).toEqual(expectedAction);
+  });
+});
+
+describe('add challenge async actions', () => {
   afterEach(() => {
     nock.cleanAll();
   });
@@ -18,14 +27,14 @@ describe('async actions', () => {
     .post('/api/challenges')
     .reply(200, { body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } });
 
-    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } };
+    const expectedActions = { type: types.ADD_CHALLENGE_FULFILLED, payload: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } };
 
 
     const store = mockStore({ state: {} });
 
-    return store.dispatch(actions.addChallenge({ body: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } }))
+    return store.dispatch(actions.addChallenge({ payload: { name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' } }))
     .then(() => {
-      expect(store.getActions().toEqual(expectedActions));
+      expect(store.getActions()).toEqual(expectedActions);
     });
   });
 });
