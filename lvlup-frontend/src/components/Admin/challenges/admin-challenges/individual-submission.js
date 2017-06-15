@@ -2,10 +2,10 @@ import React from 'react';
 import { Table, List, Container, Loader } from 'semantic-ui-react';
 import renderIf from 'render-if';
 import { Redirect } from 'react-router-dom';
-import ApprovalMain from './approval-main';
-import renderSubmission from '../../admin-common/render-submission';
+import ApprovalContainer from './approval-container';
+import renderSubmission from '../../helpers/render-submission';
 
-const SelectedSubmission = (props) => {
+const IndividualSubmission = (props) => {
   if (!props.selectedChallenge.id) {
     return (<Loader active inline="centered"> Loading </Loader>);
   }
@@ -66,7 +66,7 @@ const SelectedSubmission = (props) => {
               {renderSubmission(props.selectedChallenge)}
             </Table.Body>
           </Table>
-          <ApprovalMain />
+          <ApprovalContainer />
         </div>
         {renderIf(props.selectedChallenge.submission_status === 'Approved' || props.selectedChallenge.submission_status === 'Denied')(
           <Redirect to="/admin/dashboard" />,
@@ -76,4 +76,4 @@ const SelectedSubmission = (props) => {
   );
 };
 
-export default SelectedSubmission;
+export default IndividualSubmission;

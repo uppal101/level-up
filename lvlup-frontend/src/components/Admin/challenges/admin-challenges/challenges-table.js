@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import './challenges-style.css';
-import renderChallenges from '../../admin-common/render-challenges';
+import renderChallenges from '../../helpers/render-challenges';
 
 
 const ChallengesTable = (props) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import SelectedSubmission from './submission';
+import IndividualSubmission from './individual-submission';
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedIn,
@@ -10,4 +10,4 @@ const mapStateToProps = state => ({
 
 const connectToStore = connect(mapStateToProps);
 
-export default compose(connectToStore)(SelectedSubmission);
+export default compose(connectToStore)(IndividualSubmission);

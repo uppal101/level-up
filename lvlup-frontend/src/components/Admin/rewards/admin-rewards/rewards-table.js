@@ -1,5 +1,5 @@
 import React from 'react';
-import renderRewards from './render-rewards';
+import renderRewards from '../../helpers/render-rewards';
 import { Table, Container, Button, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../../dashboard/dashboard-styles.css';

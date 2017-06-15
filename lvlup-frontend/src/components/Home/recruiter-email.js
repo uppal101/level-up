@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import renderIf from 'render-if';
-import { renderField } from '../Admin/admin-common/render-fields';
-import { required, email } from '../Admin/admin-common/validations';
+import { renderField } from '../Admin/helpers/render-fields';
+import { required, email } from '../Admin/helpers/validations';
 
 class RecruiterEmail extends Component {
   render() {

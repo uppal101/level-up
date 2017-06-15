@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Form, Loader, Container, Segment } from 'semantic-ui-react';
 import { Field } from 'redux-form';
-import { renderMultiSelectField } from '../../admin-common/render-fields';
-import { required } from '../../admin-common/validations';
+import { renderMultiSelectField } from '../../helpers/render-fields';
+import { required } from '../../helpers/validations';
 import cohortsFilter from '../../../../helpers/cohort-filter';
 import '../admin-config-styles.css';
 

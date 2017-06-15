@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import { Form, Container, Segment, Button, Loader } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import renderIf from 'render-if';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
-import { renderRequirementInputs } from '../../admin-common/render-requirements';
-import { required, number } from '../../admin-common/validations';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
+import { renderRequirementInputs } from '../../helpers/render-requirements';
+import { required, number } from '../../helpers/validations';
 import './add-challenge-styles.css';
 
 class AddChallengeForm extends PureComponent {

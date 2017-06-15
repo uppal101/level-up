@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Card } from 'semantic-ui-react';
 import technologiesUsed from '../../helpers/technologies';
-import renderTechCards from '../Admin/admin-common/render-tech-cards';
+import renderTechCards from '../Admin/helpers/render-tech-cards';
 import './homeview.css';
 
 const Technologies = () => (
