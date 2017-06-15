@@ -14,9 +14,9 @@ import AddReward from './components/Admin/rewards/add-reward/added-reward-contai
 import EditReward from './components/Admin/rewards/edit-reward/edited-reward-container';
 import StudentChallenges from './components/Student/challenges/challenges-container';
 import SubmissionMain from './components/Student/submissions/submission-main';
-import StudentRewards from './components/Student/rewards/rewards-main';
+import StudentRewardsTable from './components/Student/rewards/rewards-main';
 import StudentRewardRequest from './components/Student/requests/request-main';
-import StudentSidenav from './components/Student/nav/sidenav';
+import StudentSidenav from './components/Student/nav/sidenav-container';
 import AdminSidenav from './components/Admin/nav/sidenav-container';
 import StudentDashboard from './components/Student/dashboard/dashboard-container';
 import AdminConfiguration from './components/Admin/config/config-main';
@@ -52,7 +52,7 @@ export default class App extends Component {
                   <Route exact path="/student/dashboard" component={StudentDashboard} />
                   <Route exact path="/student/challenges" component={StudentChallenges} />
                   <Route path="/student/challenge-submission/:id" component={SubmissionMain} />
-                  <Route exact path="/student/rewards" component={StudentRewards} />
+                  <Route exact path="/student/rewards" component={StudentRewardsTable} />
                   <Route exact path="/student/reward-request/:id" component={StudentRewardRequest} />
                   <Route exact path="/login-admin" component={AdminLogin} />
                   <Route exact path="/signup-admin" component={AdminSignUp} />
