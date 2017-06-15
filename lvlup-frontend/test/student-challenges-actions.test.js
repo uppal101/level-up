@@ -8,12 +8,13 @@ describe('student challenges actions', () => {
     };
     expect(actions.resetChallenge()).toEqual(expectedAction);
   });
-  it('should create an action reset challenge', () => {
-    const challenge = 'test';
+
+  it('should create an action select challenge', () => {
+    const challenge = { test: 1 };
     const expectedAction = {
       type: types.SELECTED_CHALLENGE,
       challenge,
     };
-    expect(actions.selectChallenge()).toEqual(expectedAction);
+    expect(actions.selectChallenge(challenge)).toEqual(expectedAction);
   });
 });

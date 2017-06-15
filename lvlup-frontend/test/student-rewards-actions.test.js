@@ -10,11 +10,11 @@ describe('student rewards actions', () => {
   });
 
   it('should create an action select reward', () => {
-    const reward = 'test';
+    const reward = { test: 1 };
     const expectedAction = {
       type: types.SELECTED_REWARD,
       reward,
     };
-    expect(actions.selectReward()).toEqual(expectedAction);
+    expect(actions.selectReward(reward)).toEqual(expectedAction);
   });
 });
