@@ -19,7 +19,7 @@ const StudentDashboard = (props) => {
   if (!props.loginInfo.name && !props.lvlUpInfo.totalEarned) {
     return <Loader active inline="centered"> Loading </Loader>;
   }
-  if (!props.lvlUpInfo.currentQuarter && props.submissions.submissions.length === 0) {
+  if (!props.loginInfo.cohort_id && props.submissions.submissions.length === 0) {
     return <SignupInfo />;
   }
   return (
