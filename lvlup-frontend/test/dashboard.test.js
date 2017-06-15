@@ -19,25 +19,63 @@ describe('quarter converter', () => {
 });
 
 describe('quarter point finder', () => {
-  it('should return points earned in the quarter', () => {
+  it('should return points earned in the quarter one', () => {
     const pointsObj = {
+      currentQuarter: 'q1',
       q1Earned: 125,
-      q2Earned: 100,
-      q3Earned: 100,
-      q4Earned: 100,
-      totalEarned: 425,
+      totalEarned: 125,
     };
-    expect(helpers.quarterPointFinder('q1')).toEqual(pointsObj.q1Earned);
+    expect(helpers.quarterPointFinder(pointsObj)).toEqual(pointsObj.q1Earned);
   });
 
-  it('should return points earned in the quarter', () => {
+  it('should return points earned in the quarter two', () => {
     const pointsObj = {
+      currentQuarter: 'q2',
+      q1Earned: 125,
+      q2Earned: 100,
+      totalEarned: 225,
+    };
+    expect(helpers.quarterPointFinder(pointsObj)).toEqual(pointsObj.q2Earned);
+  });
+
+  it('should return points earned in the quarter three', () => {
+    const pointsObj = {
+      currentQuarter: 'q3',
+      q1Earned: 125,
+      q2Earned: 100,
+      q3Earned: 100,
+      totalEarned: 325,
+    };
+    expect(helpers.quarterPointFinder(pointsObj)).toEqual(pointsObj.q3Earned);
+  });
+
+  it('should return points earned in the quarter four', () => {
+    const pointsObj = {
+      currentQuarter: 'q4',
       q1Earned: 125,
       q2Earned: 100,
       q3Earned: 100,
       q4Earned: 100,
       totalEarned: 425,
     };
-    expect(helpers.quarterPointFinder('q2')).toEqual(pointsObj.q2Earned);
+    expect(helpers.quarterPointFinder(pointsObj)).toEqual(pointsObj.q4Earned);
+  });
+
+  it('should return total points earned when graduated', () => {
+    const pointsObj = {
+      currentQuarter: 'grad',
+      q1Earned: 125,
+      q2Earned: 100,
+      q3Earned: 100,
+      q4Earned: 100,
+      totalEarned: 425,
+    };
+    expect(helpers.quarterPointFinder(pointsObj)).toEqual(pointsObj.totalEarned);
+  });
+});
+
+describe('get first name', () => {
+  it('should return first letter', () => {
+    expect(helpers.getFirstName('first name')).toEqual('first');
   });
 });
