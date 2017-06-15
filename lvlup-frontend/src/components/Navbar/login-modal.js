@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Modal, Button, Image } from 'semantic-ui-react';
 import LoginGithub from './login-github';
 import AdminLogin from './admin-login';

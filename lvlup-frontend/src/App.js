@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
 import Home from './components/Home/home';
-import NavBar from './components/Navbar/navbar';
-import AdminSignUp from './components/Admin/signup/signup';
+import NavBar from './components/Navbar/navbar-container';
+import AdminSignUp from './components/Admin/signup/signup-container';
 import AdminLogin from './components/Admin/login/login-container';
 import SelectedSubmission from './components/Admin/challenges/admin-challenges/submission-main';
 import AdminHome from './components/Admin/dashboard/dashboard-main';
