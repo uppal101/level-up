@@ -120,7 +120,7 @@ EditRewardForm = connect(
       category_id: state.selectedReward.category_id,
       description: state.selectedReward.description,
     },
-  }), { editReward, allCampuses,  },
+  }), { editReward, allCampuses },
 )(EditRewardForm);
 
 export default EditRewardForm;
