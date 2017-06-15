@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Header, Icon, Modal, Image, Grid } from 'semantic-ui-react';
-import RecruiterEmail from './recruiter-email';
+import RecruiterEmail from './recruiter-email-container';
 import './homeview.css';
 
 const RecruiterModal = () => (

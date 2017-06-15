@@ -17,7 +17,7 @@ import SubmissionMain from './components/Student/submissions/submission-main';
 import StudentRewards from './components/Student/rewards/rewards-main';
 import StudentRewardRequest from './components/Student/requests/request-main';
 import StudentSidenav from './components/Student/nav/sidenav';
-import AdminSidenav from './components/Admin/nav/sidenav';
+import AdminSidenav from './components/Admin/nav/sidenav-container';
 import StudentDashboard from './components/Student/dashboard/dashboard-main';
 import AdminConfiguration from './components/Admin/config/config-main';
 import AddCohortPage from './components/Admin/config/add-cohort/add-cohort';

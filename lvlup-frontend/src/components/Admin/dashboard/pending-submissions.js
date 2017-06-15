@@ -23,7 +23,6 @@ const PendingSubmissionsTable = (props) => {
             <Table.HeaderCell textAlign="center">View</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-
         <Table.Body>
           {renderPendingSubmissions(props)}
         </Table.Body>
