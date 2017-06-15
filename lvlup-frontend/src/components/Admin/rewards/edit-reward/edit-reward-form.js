@@ -4,8 +4,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { allCampuses,  } from '../../../../actions/admin-signup';
 import { editReward } from '../../../../actions/edit-reward';
-import { renderField, renderTextAreaField, renderSelectField, categories } from '../../admin-common/render-fields';
-import { required, number } from '../../admin-common/validations';
+import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
+import { required, number } from '../../helpers/validations';
 import './edit-reward-styles.css';
 
 class EditRewardForm extends Component {

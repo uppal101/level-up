@@ -1,8 +1,8 @@
 import { Form, Grid } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import React, { Component } from 'react';
-import { renderField, renderSelectField } from '../../admin-common/render-fields';
-import { required } from '../../admin-common/validations';
+import { renderField, renderSelectField } from '../../helpers/render-fields';
+import { required } from '../../helpers/validations';
 
 class SubmissionApprovalForm extends Component {
   constructor(props) {

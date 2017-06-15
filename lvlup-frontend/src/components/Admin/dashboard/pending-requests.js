@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, Table, Popup, Container, Loader } from 'semantic-ui-react';
-import renderPendingRequests from '../admin-common/render-pending-requests';
+import renderPendingRequests from '../helpers/render-pending-requests';
 import './dashboard-styles.css';
 
 const PendingRequestsTable = (props) => {

@@ -186,6 +186,11 @@ div.description {
   font-family: 'Nova Square', sans-serif;
 }
 
+#nav {
+  height: 100px;
+  text-align: center;
+}
+
 #nova-font {
   font-family: 'Nova Square', sans-serif;
 }
