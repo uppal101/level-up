@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
-import ChallengeSubmissionForm from './submission-form';
-import SubmissionCompleted from './submission-completed';
+import React from 'react';
 import { connect } from 'react-redux';
 import renderIf from 'render-if';
+import ChallengeSubmissionForm from './submission-container';
+import SubmissionCompleted from './submitted-challenge-container';
 
 const mapStateToProps = state => ({
   submissionStatus: state.submittedChallenge,
 });
 
-class SubmissionMain extends Component {
-  render() {
-    return (
-      <div>
-        {renderIf(this.props.submissionStatus.fulfilled === false)(
-          <ChallengeSubmissionForm />,
-      )}
-
-        {renderIf(this.props.submissionStatus.fulfilled === true)(
-          <SubmissionCompleted />)}
-      </div>
-    );
-  }
-}
+const SubmissionMain = props => (
+  <div>
+    {renderIf(this.props.submissionStatus.fulfilled === false)(
+      <ChallengeSubmissionForm />,
+  )}
+    {renderIf(this.props.submissionStatus.fulfilled === true)(
+      <SubmissionCompleted />)}
+  </div>
+);
 
 export default connect(mapStateToProps)(SubmissionMain);

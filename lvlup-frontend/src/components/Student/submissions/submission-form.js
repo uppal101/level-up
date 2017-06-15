@@ -1,35 +1,16 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Form, Segment, Container, Loader } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import { bindActionCreators } from 'redux';
-import uploadcare from 'uploadcare-widget';
-import { challengeSubmission } from '../../../actions/student-challenges-actions';
+import { Field } from 'redux-form';
 import { required, minValue7 } from '../../Admin/helpers/validations';
 import './submission-styles.css';
 import { renderField, renderTextAreaField } from '../../Admin/helpers/render-fields';
 
 const upload = 'uploadcare-uploader';
 
-const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
-  selectedChallenge: state.selectedChallenge,
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({ challengeSubmission }, dispatch);
-
-
 class ChallengeSubmissionForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
-  }
-
-  componentDidMount() {
-    uploadcare.start({
-      publicKey: '1c7b669f9c1e6b59ad80',
-      tabs: 'all',
-    });
   }
 
   submit(values) {
@@ -135,4 +116,4 @@ class ChallengeSubmissionForm extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form: 'submission' })(ChallengeSubmissionForm));
+export default ChallengeSubmissionForm;
