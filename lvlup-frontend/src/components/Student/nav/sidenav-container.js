@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
-  componentWillMount() {
+  componentDidMount() {
     this.props.loggingInAction()
     .then(() => {
       if (this.props.loginInfo.username) {
