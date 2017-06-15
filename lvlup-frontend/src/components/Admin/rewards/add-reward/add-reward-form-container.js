@@ -5,8 +5,6 @@ import { allCampuses } from '../../../../actions/admin-signup';
 import { addReward } from '../../../../actions/add-reward';
 import { compose, lifecycle } from 'recompose';
 import AddRewardForm from './add-reward-form';
-import { allCampuses, setCampuses } from '../../../../actions/admin-signup';
-import { addReward } from '../../../../actions/add-reward';
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({ addReward, allCampuses }, dispatch);
