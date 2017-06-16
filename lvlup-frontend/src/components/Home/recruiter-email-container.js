@@ -7,7 +7,7 @@ import { recruiter } from '../../actions/admin-signup';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ recruiter }, dispatch);
 
-const mapStateToProps = state => ({ recruiter: state.recruiter });
+const mapStateToProps = state => ({ recruiterDemo: state.recruiterDemo });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
