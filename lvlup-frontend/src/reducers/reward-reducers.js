@@ -1,4 +1,5 @@
 import * as CONST from '../constants/constants';
+import { selectionSort, selectionSortReverse } from '../helpers/sort';
 
 export const addedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -96,6 +97,30 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
     case CONST.RESET_REWARDS_ADMIN:
       return Object.assign({}, { rewards: [] });
+    case CONST.SORT_REWARD_TITLE:
+      return Object.assign({}, state, {
+        rewards: selectionSort(state.rewards, 'name'),
+      });
+    case CONST.SORT_REWARD_CATAGORY:
+      return Object.assign({}, state, {
+        rewards: selectionSort(state.rewards, 'category_id'),
+      });
+    case CONST.SORT_REWARD_POINTS:
+      return Object.assign({}, state, {
+        rewards: selectionSort(state.rewards, 'point_cost'),
+      });
+    case CONST.SORT_REWARD_TITLE_REVERSE:
+      return Object.assign({}, state, {
+        rewards: selectionSortReverse(state.rewards, 'name'),
+      });
+    case CONST.SORT_REWARD_CATAGORY_REVERSE:
+      return Object.assign({}, state, {
+        rewards: selectionSortReverse(state.rewards, 'category_id'),
+      });
+    case CONST.SORT_REWARD_POINTS_REVERSE:
+      return Object.assign({}, state, {
+        rewards: selectionSortReverse(state.rewards, 'point_cost'),
+      });
     default:
       return state;
   }

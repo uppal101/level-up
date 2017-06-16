@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Loader } from 'semantic-ui-react';
+import { Table, Container, Loader, Icon } from 'semantic-ui-react';
 import renderRewards from '../helpers/render-rewards';
 
 const StudentRewardsTable = (props) => {
@@ -15,10 +15,10 @@ const StudentRewardsTable = (props) => {
               <Table.HeaderCell textAlign="center" colSpan="5">Rewards</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Category</Table.HeaderCell>
+              <Table.HeaderCell>Title <br /><Icon name="sort alphabet ascending" onClick={() => props.sortRewardName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardNameReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCatagory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCatagoryReverse()} /></Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points <Icon name="sort numeric ascending" onClick={() => props.sortRewardPoints()} /><Icon name="sort numeric descending" onClick={() => props.sortRewardPointsReverse()} /></Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Request</Table.HeaderCell>
             </Table.Row>
           </Table.Header>

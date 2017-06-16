@@ -1,10 +1,5 @@
 import * as CONST from '../constants/constants';
-import { selectionSortChallengeRewardName,
-  selectionSortChallengeRewardNameReverse,
-  selectionSortChallengeRewardCatagory,
-  selectionSortChallengeRewardCatagoryReverse,
-  selectionSortChallengeRewardPoints,
-  selectionSortChallengeRewardPointsReverse } from '../helpers/sort';
+import { selectionSort, selectionSortReverse } from '../helpers/sort';
 
 export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -36,27 +31,27 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
       });
     case CONST.SORT_CHALLENGE_TITLE:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardName(state.challenges),
+        challenges: selectionSort(state.challenges, 'name'),
       });
     case CONST.SORT_CHALLENGE_CATAGORY:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardCatagory(state.challenges),
+        challenges: selectionSort(state.challenges, 'category_id'),
       });
     case CONST.SORT_CHALLENGE_POINTS:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardPoints(state.challenges),
+        challenges: selectionSort(state.challenges, 'point_value'),
       });
     case CONST.SORT_CHALLENGE_TITLE_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardNameReverse(state.challenges),
+        challenges: selectionSortReverse(state.challenges, 'name'),
       });
     case CONST.SORT_CHALLENGE_CATAGORY_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardCatagoryReverse(state.challenges),
+        challenges: selectionSortReverse(state.challenges, 'category_id'),
       });
     case CONST.SORT_CHALLENGE_POINTS_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortChallengeRewardPointsReverse(state.challenges),
+        challenges: selectionSortReverse(state.challenges, 'point_value'),
       });
     default:
       return state;

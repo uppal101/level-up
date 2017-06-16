@@ -6,6 +6,12 @@ import { campusRewards, selectReward } from '../../../../actions/student-rewards
 import { resetEditReward, makeRewardInactive } from '../../../../actions/edit-reward';
 import { resetAddReward } from '../../../../actions/add-reward';
 import { resetRewardsList } from '../../../../actions/reset-actions';
+import { sortRewardName,
+  sortRewardCatagory,
+  sortRewardPoints,
+  sortRewardNameReverse,
+  sortRewardCatagoryReverse,
+  sortRewardPointsReverse } from '../../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.adminLoginInfo,
@@ -17,7 +23,13 @@ const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards,
   resetEditReward,
   resetAddReward,
   makeRewardInactive,
-  resetRewardsList }, dispatch);
+  resetRewardsList,
+  sortRewardName,
+  sortRewardCatagory,
+  sortRewardPoints,
+  sortRewardNameReverse,
+  sortRewardCatagoryReverse,
+  sortRewardPointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
