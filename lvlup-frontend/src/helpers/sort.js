@@ -6,7 +6,7 @@ const swap = (arr, idx1, idx2) => {
   return arr;
 };
 
-export const bubbleSortStudentName = (arr) => {
+export const bubbleSort = (arr) => {
   let done = false;
   while (!done) {
     done = true;
@@ -20,11 +20,11 @@ export const bubbleSortStudentName = (arr) => {
   return arr;
 };
 
-export const selectionSortChallengeRewardName = (arr) => {
+export const selectionSort = (arr, key) => {
   for (let i = 0; i < arr.length; i++) {
     let min = i;
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].name < arr[min].name) {
+      if (arr[j][key] < arr[min][key]) {
         min = j;
       }
     }
@@ -33,11 +33,11 @@ export const selectionSortChallengeRewardName = (arr) => {
   return arr;
 };
 
-export const selectionSortChallengeRewardNameReverse = (arr) => {
+export const selectionSortReverse = (arr, key) => {
   for (let i = 0; i < arr.length; i++) {
     let max = i;
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].name > arr[max].name) {
+      if (arr[j][key] > arr[max][key]) {
         max = j;
       }
     }
@@ -46,59 +46,8 @@ export const selectionSortChallengeRewardNameReverse = (arr) => {
   return arr;
 };
 
-export const selectionSortChallengeRewardCatagory = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].category_id < arr[min].category_id) {
-        min = j;
-      }
-    }
-    swap(arr, i, min);
-  }
-  return arr;
-};
 
-export const selectionSortChallengeRewardCatagoryReverse = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let max = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].category_id > arr[max].category_id) {
-        max = j;
-      }
-    }
-    swap(arr, i, max);
-  }
-  return arr;
-};
-
-export const selectionSortChallengeRewardPoints = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].point_value < arr[min].point_value) {
-        min = j;
-      }
-    }
-    swap(arr, i, min);
-  }
-  return arr;
-};
-
-export const selectionSortChallengeRewardPointsReverse = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    let max = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].point_value > arr[max].point_value) {
-        max = j;
-      }
-    }
-    swap(arr, i, max);
-  }
-  return arr;
-};
-
-export const insertionSortPoints = (arr) => {
+export const insertionSort = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let key = i;
     for (let j = i - 1; j >= 0; j--) {

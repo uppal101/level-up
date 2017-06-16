@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import StudentChallengesTable from './challenges-table';
 import { campusChallenges, selectChallenge, resetChallenge } from '../../../actions/student-challenges-actions';
+import { sortChallengeName,
+  sortChallengeCatagory,
+  sortChallengePoints,
+  sortChallengeNameReverse,
+  sortChallengeCatagoryReverse,
+  sortChallengePointsReverse } from '../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
   studentLoginInfo: state.studentLoginInfo,
@@ -13,7 +19,13 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   campusChallenges,
   selectChallenge,
-  resetChallenge }, dispatch);
+  resetChallenge,
+  sortChallengeName,
+  sortChallengeCatagory,
+  sortChallengePoints,
+  sortChallengeNameReverse,
+  sortChallengeCatagoryReverse,
+  sortChallengePointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
