@@ -101,6 +101,10 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
         rewards: state.rewards.concat(action.payload),
         fetched: true,
       });
+    case CONST.RESET_AFTER_ADDED_REWARD_FULFILLED:
+      return Object.assign({}, state, {
+        rewards: action.payload,
+      });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
     case CONST.RESET_REWARDS_ADMIN:

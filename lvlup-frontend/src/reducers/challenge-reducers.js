@@ -25,6 +25,10 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
         challenges: state.challenges.concat(action.payload),
         fetched: true,
       });
+    case CONST.RESET_AFTER_ADDED_CHALLENGE_FULFILLED:
+      return Object.assign({}, state, {
+        challenges: action.payload,
+      });
     case CONST.CHALLENGES_CAMPUS_REJECTED:
       return Object.assign({}, {
         error: 'Server Error - Please Try Again',

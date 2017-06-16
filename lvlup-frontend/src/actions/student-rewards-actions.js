@@ -13,6 +13,11 @@ export const campusRewards = campusId => ({
   payload: fetchRewards(campusId),
 });
 
+export const resetCampusRewards = campusId => ({
+  type: CONST.RESET_AFTER_ADDED_REWARD,
+  payload: fetchRewards(campusId),
+});
+
 export const selectReward = reward => ({
   type: CONST.SELECTED_REWARD,
   reward,
