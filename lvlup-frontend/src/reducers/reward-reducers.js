@@ -1,4 +1,8 @@
 import * as CONST from '../constants/constants';
+import {
+  mergeSort,
+  quickSort,
+} from '../helpers/sort-date';
 
 export const addedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -80,6 +84,10 @@ export const requests = (state = { requests: [] }, action) => {
       });
     case CONST.REQUESTS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    case CONST.SORT_REQUESTS_CHRONO:
+      return { ...state, requests: mergeSort(state.requests) };
+    case CONST.SORT_REQUESTS_REV_CHRONO:
+      return { ...state, requests: quickSort(state.requests).reverse() };
     default:
       return state;
   }
@@ -96,6 +104,10 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
     case CONST.RESET_REWARDS_ADMIN:
       return Object.assign({}, { rewards: [] });
+    case CONST.SORT_REWARDS_CHRONO:
+      return { ...state, rewards: mergeSort(state.rewards) };
+    case CONST.SORT_REWARDS_REV_CHRONO:
+      return { ...state, rewards: quickSort(state.rewards).reverse() };
     default:
       return state;
   }

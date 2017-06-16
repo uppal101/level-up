@@ -1,5 +1,9 @@
 import * as CONST from '../constants/constants';
 import initialState from './initialState';
+import {
+  mergeSort,
+  quickSort,
+} from '../helpers/sort-date';
 
 export const addedCohort = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -38,6 +42,10 @@ export const adminPendingSubmissions = (state = { submissionsAdmin: [] }, action
       return Object.assign({}, state, { error: 'Server Error - Please Try Again' });
     case CONST.RESET_PENDING_SUBMISSIONS:
       return Object.assign({}, { submissionsAdmin: [] });
+    case CONST.SORT_SUBMITTED_CHRONO:
+      return { ...state, submissionsAdmin: mergeSort(state.submissionsAdmin) };
+    case CONST.SORT_SUBMITTED_REV_CHRONO:
+      return { ...state, submissionsAdmin: quickSort(state.submissionsAdmin).reverse() };
     default:
       return state;
   }
@@ -53,6 +61,10 @@ export const adminPendingRequests = (state = { requestsAdmin: [] }, action) => {
       return Object.assign({}, state, { error: 'Server Error - Please Try Again' });
     case CONST.RESET_PENDING_REWARDS:
       return Object.assign({}, { requestsAdmin: [] });
+    case CONST.SORT_REQUESTS_CHRONO:
+      return { ...state, requestsAdmin: mergeSort(state.requestsAdmin) };
+    case CONST.SORT_REQUESTS_REV_CHRONO:
+      return { ...state, requestsAdmin: quickSort(state.requestsAdmin).reverse() };
     default:
       return state;
   }

@@ -1,9 +1,8 @@
 import * as CONST from '../constants/constants';
 import {
-  mergeSortSubmissions,
-  mergeSortRequests,
-  quickSortSubmissions,
-  quickSortRequests } from '../helpers/sort-date';
+  mergeSort,
+  quickSort,
+} from '../helpers/sort-date';
 
 export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -83,10 +82,10 @@ export const submissions = (state = { submissions: [] }, action) => {
       });
     case CONST.SUBMISSIONS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
-    case CONST.SORT_CHALLENGES_CHRONO:
-      return { ...state, ...quickSortSubmissions(state.submissions) };
-    case CONST.SORT_CHALLENGES_REV_CHRONO:
-      return { ...state, ...mergeSortSubmissions(state.submissions) };
+    case CONST.SORT_SUBMISSIONS_CHRONO:
+      return { ...state, submissions: mergeSort(state.submissions) };
+    case CONST.SORT_SUBMISSIONS_REV_CHRONO:
+      return { ...state, submissions: quickSort(state.submissions).reverse() };
     default:
       return state;
   }
