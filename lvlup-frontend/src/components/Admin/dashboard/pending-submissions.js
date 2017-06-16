@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Loader } from 'semantic-ui-react';
+import { Table, Container, Loader, Icon } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import renderPendingSubmissions from '../helpers/render-pending-submissions';
 
@@ -19,7 +19,18 @@ const PendingSubmissionsTable = (props) => {
           <Table.Row>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Date Submitted</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center">Date Submitted
+              <Icon
+                id="hover-icon"
+                name="sort descending"
+                onClick={() => props.sortSubmittedChrono()}
+              />
+              <Icon
+                id="hover-icon"
+                name="sort ascending"
+                onClick={() => props.sortSubmittedRevChrono()}
+              />
+            </Table.HeaderCell>
             <Table.HeaderCell textAlign="center">View</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
