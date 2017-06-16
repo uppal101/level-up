@@ -7,7 +7,7 @@ import RewardRequestForm from './request-form';
 import './request-styles.css';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   reward: state.selectedReward,
 });
 

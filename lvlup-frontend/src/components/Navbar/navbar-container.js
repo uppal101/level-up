@@ -3,8 +3,8 @@ import { compose } from 'recompose';
 import NavBar from './navbar';
 
 const mapStateToProps = state => ({
-  loggedIn: state.loggedIn,
-  loginInfo: state.loginInfo,
+  adminLoginInfo: state.adminLoginInfo,
+  studentLoginInfo: state.studentLoginInfo,
 });
 
 const connectToStore = connect(mapStateToProps);

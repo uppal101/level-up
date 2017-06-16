@@ -10,24 +10,24 @@ import LogOutAdmin from './logout-admin-container';
 const NavBar = props => (
   <Menu secondary size="small" className="nav">
     <Menu.Item className="center" header>
-      {renderIf(!props.loginInfo.status && !props.loggedIn.status)(
+      {renderIf(!props.studentLoginInfo.status && !props.adminLoginInfo.status)(
         <Link to={'/'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
       )}
-      {renderIf(props.loginInfo.status)(
+      {renderIf(props.studentLoginInfo.status)(
         <Link to={'/student/dashboard'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
       )}
-      {renderIf(props.loggedIn.status)(
+      {renderIf(props.adminLoginInfo.status)(
         <Link to={'/admin/dashboard'}><div className="hamburger" id="nova-font">lvl^</div></Link>,
       )}
     </Menu.Item>
     <Menu.Item className="right">
-      {renderIf(!props.loginInfo.status && !props.loggedIn.status)(
+      {renderIf(!props.studentLoginInfo.status && !props.adminLoginInfo.status)(
         <LoginModal />,
       )}
-      {renderIf(props.loginInfo.status)(
+      {renderIf(props.studentLoginInfo.status)(
         <LogOutGithub />,
       )}
-      {renderIf(props.loggedIn.status)(
+      {renderIf(props.adminLoginInfo.status)(
         <LogOutAdmin />,
       )}
     </Menu.Item>

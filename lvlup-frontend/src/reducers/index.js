@@ -1,28 +1,26 @@
 import { combineReducers } from 'redux';
-import { loginInfo, studentPointsAndCampus, submissions, challenges, requests, selectedChallenge, selectedReward, requestedReward, rewards, submittedChallenge } from './student-reducer';
+import { studentLoginInfo, studentPointsAndCampus, submissions, challenges, requests, selectedChallenge, selectedReward, requestedReward, rewards, submittedChallenge } from './student-reducer';
 import { reducer as formReducer } from 'redux-form';
-import { loggedIn } from './admin-login-reducer';
-import { signedUp, allCampuses, allCohorts, setCampus, setCohort, recruiterDemo } from './admin-signup-reducer';
-import { addedChallenge } from './add-challenge-reducer';
+import { adminLoginInfo } from './admin-login-reducer';
+import { adminSignup, allCampuses, allCohorts, recruiterDemo } from './admin-signup-reducer';
+import { addedChallenge } from './challenge-reducers';
 import { editedReward } from './edit-reward-reducer';
 import { editedChallenge, inactiveChallenge } from './edit-challenge-reducer';
-import { addedReward } from './add-reward-reducer';
+import { addedReward } from './reward-reducers';
 import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
 import { approveSelectedReward, denySelectedReward, inactiveReward } from './request-reducer';
 import { addedCohort, addAdminCohort } from './admin-config';
 
 const lvlupApp = combineReducers({
-  loginInfo,
+  studentLoginInfo,
   studentPointsAndCampus,
   submissions,
   requests,
   form: formReducer,
-  loggedIn,
-  signedUp,
+  adminLoginInfo,
+  adminSignup,
   allCampuses,
   allCohorts,
-  setCampus,
-  setCohort,
   challenges,
   rewards,
   selectedReward,

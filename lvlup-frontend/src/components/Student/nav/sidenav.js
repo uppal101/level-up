@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 
 const StudentSidenav = (props) => {
-  if (!props.loginInfo.id && !props.studentPointsAndCampus.currentTotal) {
+  if (!props.studentLoginInfo.id && !props.studentPointsAndCampus.currentTotal) {
     return <Loader active inline="centered"> Loading </Loader>;
   }
   return (
     <Menu inverted vertical className="studentSidenav">
-      <Menu.Item id="student-sidenav-info"><Image src={props.loginInfo.gravatar_url ? props.loginInfo.gravatar_url : props.loginInfo.photo_url} shape="circular" size="tiny" centered />
+      <Menu.Item id="student-sidenav-info"><Image src={props.studentLoginInfo.gravatar_url ? props.studentLoginInfo.gravatar_url : props.studentLoginInfo.photo_url} shape="circular" size="tiny" centered />
         <div className="userdiv">
-          <h4>{props.loginInfo.username}</h4>
+          <h4>{props.studentLoginInfo.username}</h4>
           <p>{props.studentPointsAndCampus.totalEarned ? `${props.studentPointsAndCampus.totalEarned}  Points Earned` : '0 Points Earned'}</p>
           <p> {props.studentPointsAndCampus.currentTotal ? `${props.studentPointsAndCampus.currentTotal} Points Remaining` : '0 Points Remaining'}</p>
           <p>{props.studentPointsAndCampus.cohort ? `${props.studentPointsAndCampus.cohort}  ${props.studentPointsAndCampus.cohortType} -  ${props.studentPointsAndCampus.location}` : null}</p>

@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   requestsAction }, dispatch);
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   studentPointsAndCampus: state.studentPointsAndCampus,
 });
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
@@ -20,17 +20,17 @@ const onDidMount = lifecycle({
   componentDidMount() {
     this.props.loggingInAction()
     .then(() => {
-      if (this.props.loginInfo.username) {
-        this.props.moreStudentInfo(this.props.loginInfo.id);
+      if (this.props.studentLoginInfo.username) {
+        this.props.moreStudentInfo(this.props.studentLoginInfo.id);
       }
     })
-    .then(() => this.props.submissionsAction(this.props.loginInfo.id))
-    .then(() => this.props.requestsAction(this.props.loginInfo.id));
+    .then(() => this.props.submissionsAction(this.props.studentLoginInfo.id))
+    .then(() => this.props.requestsAction(this.props.studentLoginInfo.id));
   },
 
   componentDidUpdate(prevProps) {
-    if (prevProps.loginInfo.cohort_id !== this.props.loginInfo.cohort_id) {
-      this.props.moreStudentInfo(this.props.loginInfo.id);
+    if (prevProps.studentLoginInfo.cohort_id !== this.props.studentLoginInfo.cohort_id) {
+      this.props.moreStudentInfo(this.props.studentLoginInfo.id);
     }
   },
 });

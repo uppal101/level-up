@@ -7,7 +7,7 @@ import { requestsAction } from '../../../actions/admin-dash-actions';
 import { resetPendingRequests } from '../../../actions/reset-actions';
 
 const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
+  adminInfo: state.adminLoginInfo,
   pendingRequests: state.adminPendingRequests,
 });
 

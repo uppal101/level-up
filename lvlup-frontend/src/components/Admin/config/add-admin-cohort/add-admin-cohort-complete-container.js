@@ -8,7 +8,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({ resetAdmin }, dispat
 
 
 const mapStateToProps = state => ({
-  admin: state.loggedIn,
+  admin: state.adminLoginInfo,
 });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

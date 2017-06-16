@@ -7,7 +7,7 @@ import { submissionsAction } from '../../../actions/admin-dash-actions';
 import { resetPendingSubmissions } from '../../../actions/reset-actions';
 
 const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
+  adminInfo: state.adminLoginInfo,
   pendingSubmissions: state.adminPendingSubmissions,
   selectedChallenge: state.selectedChallenge,
 });

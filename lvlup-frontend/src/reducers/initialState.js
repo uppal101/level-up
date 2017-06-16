@@ -1,6 +1,6 @@
 export default {
-  loggedIn: { status: false },
-  signedUp: { status: false },
+  adminLoginInfo: { status: false },
+  adminSignup: { status: false },
   challengeAdded: { status: false },
   rewardEdited: { status: false },
   challengeEdited: { status: false },
