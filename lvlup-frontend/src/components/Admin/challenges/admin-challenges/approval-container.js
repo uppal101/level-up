@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
   selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ submissionFormAdmin }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  submissionFormAdmin }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 

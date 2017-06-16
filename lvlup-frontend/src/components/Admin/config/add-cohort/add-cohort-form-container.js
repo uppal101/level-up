@@ -11,7 +11,9 @@ const mapStateToProps = state => ({
   addedCohort: state.addedCohort,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ allCampuses, addCohort }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  allCampuses,
+  addCohort }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
