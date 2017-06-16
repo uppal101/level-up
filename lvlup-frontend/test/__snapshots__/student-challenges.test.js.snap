@@ -3,6 +3,12 @@ exports[`test StudentChallenges should render 1`] = `
   campusChallenges={[Function]}
   resetChallenge={[Function]}
   selectChallenge={[Function]}
+  sortChallengeCatagory={[Function]}
+  sortChallengeCatagoryReverse={[Function]}
+  sortChallengeName={[Function]}
+  sortChallengeNameReverse={[Function]}
+  sortChallengePoints={[Function]}
+  sortChallengePointsReverse={[Function]}
   store={
     Object {
       "clearActions": [Function],

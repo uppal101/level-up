@@ -126,6 +126,13 @@ describe('submitted challenge reducer', () => {
     const nextState = submittedChallenge(prevState, { type: CONST.RESET_CHALLENGE });
     expect(nextState).toEqual({ fulfilled: false });
   });
+
+  it('should return old state when sent incorrect input for submitted reward', () => {
+    const prevState = { fulfilled: false };
+    const nextState = submittedChallenge(prevState, { type: CONST.CHALLENGE_SUBMISSION_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ fulfilled: false, error: 'Server Error - Please Try Again' });
+  });
+
 });
 
 describe('selected challenge reducer', () => {

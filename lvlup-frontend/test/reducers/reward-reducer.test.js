@@ -14,8 +14,8 @@ describe('approve reward reducer', () => {
 
   it('should return old state when sent incorrect input for approve reward', () => {
     const prevState = { status: 'Pending' };
-    const nextState = addedReward(prevState, { type: CONST.APPROVE_REWARD_REJECTED, reject : [test: 1]});
-    expect(nextState).toEqual({ status: 'Pending' });
+    const nextState = approveSelectedReward(prevState, { type: CONST.APPROVE_REWARD_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ status: 'Pending', error: 'Server Error - Please Try Again' });
   });
 });
 
@@ -155,8 +155,8 @@ describe('add reward reducer', () => {
 
   it('should return old state when sent incorrect input for add reward', () => {
     const prevState = { fulfilled: false };
-    const nextState = addedReward(prevState, { type: CONST.STUDENT_LOGIN_REJECTED, reject : [test: 1]});
-    expect(nextState).toEqual({ fulfilled: false });
+    const nextState = addedReward(prevState, { type: CONST.ADD_REWARD_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ fulfilled: false, error: 'Server Error - Please Try Again' });
   });
 });
 

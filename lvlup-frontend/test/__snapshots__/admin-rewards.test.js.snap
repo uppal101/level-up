@@ -6,6 +6,12 @@ exports[`test AdminRewards should render 1`] = `
   resetEditReward={[Function]}
   resetRewardsList={[Function]}
   selectReward={[Function]}
+  sortRewardCatagory={[Function]}
+  sortRewardCatagoryReverse={[Function]}
+  sortRewardName={[Function]}
+  sortRewardNameReverse={[Function]}
+  sortRewardPoints={[Function]}
+  sortRewardPointsReverse={[Function]}
   store={
     Object {
       "clearActions": [Function],

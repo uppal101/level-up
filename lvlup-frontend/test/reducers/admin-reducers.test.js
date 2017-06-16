@@ -11,6 +11,12 @@ describe('admin adminSignup reducer', () => {
     const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_FULFILLED, payload: { test: 1 } });
     expect(nextState).toEqual({ test: 1 });
   });
+
+  it('should return old state when sent incorrect input for added cohort', () => {
+    const prevState = { status: false };
+    const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Please check that you have filled out all the required fields', status: false});
+  });
 });
 
 describe('admin pending submissions reducer', () => {
@@ -30,6 +36,12 @@ describe('admin pending submissions reducer', () => {
     const nextState = adminPendingSubmissions(prevState, { type: CONST.RESET_PENDING_SUBMISSIONS });
 
     expect(nextState).toEqual({ submissionsAdmin: [] });
+  });
+
+  it('should return old state when sent incorrect input for pending submissions', () => {
+    const prevState = { submissionsAdmin: [] };
+    const nextState = adminPendingSubmissions(prevState, { type: CONST.ADMIN_SUBMISSIONS_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again', submissionsAdmin: [] });
   });
 });
 

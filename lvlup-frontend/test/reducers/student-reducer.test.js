@@ -51,7 +51,7 @@ describe('student points and campus reducer', () => {
 
   it('should return old state when sent incorrect input for student points and campus', () => {
     const prevState = {};
-    const nextState = studentPointsAndCampus(prevState, { type: CONST.STUDENT_SIGNUP_REJECTED, reject : [ test: 1]});
-    expect(nextState).toEqual({});
+    const nextState = studentPointsAndCampus(prevState, { type: CONST.POINTS_COHORT_REJECTED, reject : [ test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error' });
   });
 });
