@@ -1,4 +1,4 @@
-import { studentLoginInfo, studentPointsAndCampus, selectedReward, submissions, challenges, rewards, requests, submittedChallenge, selectedChallenge, requestedReward } from '../src/reducers/student-reducer';
+import { studentLoginInfo, studentPointsAndCampus, selectedReward, rewards, requests, requestedReward } from '../src/reducers/student-reducer';
 import * as CONST from '../src/constants/constants';
 
 
@@ -50,31 +50,6 @@ describe('selected reward reducer', () => {
   });
 });
 
-describe('submissions reducer', () => {
-  it('should return the initial state', () => {
-    expect(submissions(undefined, {})).toEqual({ submissions: [] });
-  });
-
-  it('should return a new state with the submission', () => {
-    const prevState = { submissions: [] };
-    const nextState = submissions(prevState, { type: CONST.SUBMISSIONS_FULFILLED, payload: [{ test: 10 }] });
-
-    expect(nextState).toEqual({ submissions: [{ test: 10 }] });
-  });
-});
-
-describe('challenges reducer', () => {
-  it('should return the initial state', () => {
-    expect(challenges(undefined, {})).toEqual({ challenges: [] });
-  });
-
-  it('should return a new state with the challenge', () => {
-    const prevState = { challenges: [] };
-    const nextState = challenges(prevState, { type: CONST.CHALLENGES_CAMPUS_FULFILLED, payload: [{ test: 9 }] });
-
-    expect(nextState).toEqual({ challenges: [{ test: 9 }] });
-  });
-});
 
 describe('rewards reducer', () => {
   it('should return the initial state', () => {
@@ -101,35 +76,6 @@ describe('requests reducer', () => {
   });
 });
 
-describe('submitted challenge reducer', () => {
-  it('should return the initial state', () => {
-    expect(submittedChallenge(undefined, {})).toEqual({ fulfilled: false });
-  });
-
-  it('should return a new state with the submitted challenge', () => {
-    const prevState = { fulfilled: false };
-    const nextState = submittedChallenge(prevState, { type: CONST.CHALLENGE_SUBMISSION_FULFILLED, test: 5 });
-    expect(nextState).toEqual({ fulfilled: true });
-  });
-});
-
-describe('selected challenge reducer', () => {
-  it('should return the initial state', () => {
-    expect(selectedChallenge(undefined, {})).toEqual({});
-  });
-
-  it('should return a new state with the selected challenge', () => {
-    const prevState = {};
-    const nextState = selectedChallenge(prevState, { type: CONST.SELECTED_CHALLENGE, challenge: { test: 6 } });
-    expect(nextState).toEqual({ test: 6 });
-  });
-
-  it('should return a new state with the submission form', () => {
-    const prevState = {};
-    const nextState = selectedChallenge(prevState, { type: CONST.ADMIN_SUBMISSION_FORM_FULFILLED, payload: { test: 7 } });
-    expect(nextState).toEqual({ test: 7 });
-  });
-});
 
 describe('requested reward reducer', () => {
   it('should return the initial state', () => {
