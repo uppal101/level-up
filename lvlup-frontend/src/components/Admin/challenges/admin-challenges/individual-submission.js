@@ -14,7 +14,7 @@ const IndividualSubmission = (props) => {
       <Container>
         <h1 className="header">{`Challenge Submission Review: ${props.selectedChallenge.challenge.name}`}</h1>
         <div>
-          <h3>{`${props.selectedChallenge.student.name}, ${props.loggedIn.cohorts.filter(cohort => cohort.id === props.selectedChallenge.cohort_id).map(cohort => cohort.name)}` }</h3>
+          <h3>{`${props.selectedChallenge.student.name}, ${props.adminLoginInfo.cohorts.filter(cohort => cohort.id === props.selectedChallenge.cohort_id).map(cohort => cohort.name)}` }</h3>
           <Table celled>
             <Table.Header>
               <Table.Row>

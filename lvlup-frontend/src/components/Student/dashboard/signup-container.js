@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts,
 
 const mapStateToProps = state => ({
   cohorts: state.allCohorts,
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
 });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

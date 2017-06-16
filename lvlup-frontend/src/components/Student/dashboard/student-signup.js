@@ -23,7 +23,7 @@ class SignupInfo extends Component {
     return (
       <div className="signupPage">
         <Container>
-          <h2 className="signupText">{`Welcome, ${this.props.loginInfo.name}`}</h2>
+          <h2 className="signupText">{`Welcome, ${this.props.studentLoginInfo.name}`}</h2>
           <p className="signupText">Please complete the form below to get started!</p>
           <Segment inverted>
             <Form onSubmit={handleSubmit(this.submit)}>

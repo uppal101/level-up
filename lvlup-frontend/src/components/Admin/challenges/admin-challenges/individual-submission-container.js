@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import IndividualSubmission from './individual-submission';
 
 const mapStateToProps = state => ({
-  loggedIn: state.loggedIn,
+  adminLoginInfo: state.adminLoginInfo,
   selectedChallenge: state.selectedChallenge,
 });
 

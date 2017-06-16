@@ -7,16 +7,16 @@ import './loginview.css';
 
 const AdminLogin = props => (
   <div>
-    {renderIf(!props.loggedIn.status)(
+    {renderIf(!props.adminLoginInfo.status)(
       <div className="login">
         <LoginForm />
         <p id="need-account">Need an account?<Link to={'/signup-admin'}> Sign Up</Link>. Valid Galvanize email required. </p>
-        {props.loggedIn.error ? <p className="errorMessage">{props.loggedIn.error}</p> : null}
+        {props.adminLoginInfo.error ? <p className="errorMessage">{props.adminLoginInfo.error}</p> : null}
       </div>)}
-    {renderIf(props.loggedIn.status && props.loggedIn.confirmed)(
+    {renderIf(props.adminLoginInfo.status && props.adminLoginInfo.confirmed)(
       <Redirect to="/admin/dashboard" />,
     )}
-    {renderIf(props.loggedIn.status && !props.loggedIn.confirmed)(
+    {renderIf(props.adminLoginInfo.status && !props.adminLoginInfo.confirmed)(
       <div className="alert-message-confirm">
         <AdminConfirmMessage />
       </div>,

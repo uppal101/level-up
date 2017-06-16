@@ -8,7 +8,7 @@ import { resetAddReward } from '../../../../actions/add-reward';
 import { resetRewardsList } from '../../../../actions/reset-actions';
 
 const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
+  adminInfo: state.adminLoginInfo,
   rewards: state.rewards,
 });
 

@@ -7,7 +7,7 @@ import { challengeSubmission } from '../../../actions/student-challenges-actions
 import ChallengeSubmissionForm from './submission-form';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   selectedChallenge: state.selectedChallenge,
 });
 

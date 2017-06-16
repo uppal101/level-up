@@ -5,7 +5,7 @@ import StudentDashboard from './dashboard';
 import { submissionsAction } from '../../../actions/student-dash-actions';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
   submissions: state.submissions,
   requests: state.requests,
@@ -18,8 +18,8 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    if (this.props.loginInfo.id) {
-      this.props.submissionsAction(this.props.loginInfo.id);
+    if (this.props.studentLoginInfo.id) {
+      this.props.submissionsAction(this.props.studentLoginInfo.id);
     }
   },
 });

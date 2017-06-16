@@ -10,7 +10,7 @@ import { resetChallengeList } from '../../../../actions/reset-actions';
 import './challenges-style.css';
 
 const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
+  adminInfo: state.adminLoginInfo,
   challenges: state.challenges,
   selectedChallenge: state.selectedChallenge,
 });

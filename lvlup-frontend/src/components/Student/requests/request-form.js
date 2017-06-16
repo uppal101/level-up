@@ -10,8 +10,8 @@ class RewardRequestForm extends Component {
   }
 
   submit(values) {
-    values.student_id = this.props.loginInfo.id;
-    values.cohort_id = this.props.loginInfo.cohort_id;
+    values.student_id = this.props.studentLoginInfo.id;
+    values.cohort_id = this.props.studentLoginInfo.cohort_id;
     values.category_id = this.props.reward.category_id;
     values.reward_id = this.props.reward.id;
     this.props.rewardRequest(values);

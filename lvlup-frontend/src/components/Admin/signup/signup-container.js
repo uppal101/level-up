@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import AdminSignup from './signup';
 
 const mapStateToProps = state => ({
-  signedUp: state.signedUp,
+  adminSignup: state.adminSignup,
 });
 
 const connectToStore = connect(mapStateToProps);
