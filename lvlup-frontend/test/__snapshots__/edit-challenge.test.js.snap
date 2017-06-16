@@ -1,5 +1,5 @@
 exports[`test EditChallenge should render 1`] = `
-<Component
+<EditChallenge
   dispatch={[Function]}
   store={
     Object {

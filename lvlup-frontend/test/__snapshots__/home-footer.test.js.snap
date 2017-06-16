@@ -1,7 +1,6 @@
 exports[`test Footer should render 1`] = `
 <div
-  className="footer"
-  textAlign="center">
+  className="footer">
   Contact Us     ||   Enter   ||    To the Top   
 </div>
 `;

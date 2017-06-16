@@ -3,7 +3,6 @@ exports[`test Home should render 1`] = `
   <Grid>
     <GridRow
       centered={true}
-      column={true}
       width={16}>
       <h1
         className="home-header">
@@ -15,8 +14,7 @@ exports[`test Home should render 1`] = `
     padded={true}>
     <GridRow>
       <div
-        id="intro-text"
-        textAlign="center">
+        id="intro-text">
         <u>
           The Mission:
         </u>

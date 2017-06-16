@@ -1,5 +1,5 @@
 exports[`test StudentDashboard should render 1`] = `
-<StudentDashboard
+<lifecycle(StudentDashboard)
   store={
     Object {
       "clearActions": [Function],
