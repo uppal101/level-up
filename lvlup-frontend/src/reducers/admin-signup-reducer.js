@@ -58,10 +58,10 @@ export const setCohort = (state = '', action) => {
   }
 };
 
-export const recruiter = (state = '', action) => {
+export const recruiterDemo = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.RECRUITER_FULFILLED:
-      return action.payload;
+      return Object.assign({}, { fulfilled: true }, action.payload);
     default:
       return state;
   }

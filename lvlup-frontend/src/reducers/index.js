@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { loginInfo, studentPointsAndCampus, submissions, challenges, requests, selectedChallenge, selectedReward, requestedReward, rewards, submittedChallenge } from './student-reducer';
 import { reducer as formReducer } from 'redux-form';
 import { loggedIn } from './admin-login-reducer';
-import { signedUp, allCampuses, allCohorts, setCampus, setCohort, recruiter } from './admin-signup-reducer';
+import { signedUp, allCampuses, allCohorts, setCampus, setCohort, recruiterDemo } from './admin-signup-reducer';
 import { addedChallenge } from './add-challenge-reducer';
 import { editedReward } from './edit-reward-reducer';
 import { editedChallenge, inactiveChallenge } from './edit-challenge-reducer';
@@ -39,7 +39,7 @@ const lvlupApp = combineReducers({
   denySelectedReward,
   inactiveReward,
   inactiveChallenge,
-  recruiter,
+  recruiterDemo,
   addedCohort,
   addAdminCohort,
 });
