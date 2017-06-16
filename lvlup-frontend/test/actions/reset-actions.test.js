@@ -1,5 +1,5 @@
-import * as actions from '../src/actions/reset-actions';
-import * as types from '../src/constants/constants';
+import * as actions from '../../src/actions/reset-actions';
+import * as types from '../../src/constants/constants';
 
 describe('reset actions', () => {
   it('should create an action reset pending submission', () => {

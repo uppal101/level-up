@@ -1,6 +1,34 @@
 exports[`test StudentRewards should render 1`] = `
-<div
-  className="lvl-table">
-  <Connect(RewardsTable) />
-</div>
+<lifecycle(StudentRewardsTable)
+  campusRewards={[Function]}
+  resetRequest={[Function]}
+  selectReward={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "notify": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": null,
+    }
+  } />
 `;

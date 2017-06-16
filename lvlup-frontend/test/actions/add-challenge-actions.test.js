@@ -2,9 +2,9 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import * as actions from '../src/actions/add-challenge';
-import * as types from '../src/constants/constants';
-import * as reducer from '../src/reducers/index';
+import * as actions from '../../src/actions/add-challenge';
+import * as types from '../../src/constants/constants';
+import * as reducer from '../../src/reducers/index';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
