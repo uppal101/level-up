@@ -71,6 +71,19 @@ export const selectedChallenge = (state = {}, action) => {
   }
 };
 
+export const submissions = (state = { submissions: [] }, action) => {
+  switch (action.type) {
+    case CONST.SUBMISSIONS_FULFILLED:
+      return Object.assign({}, state, {
+        submissions: state.submissions.concat(action.payload),
+      });
+    case CONST.SUBMISSIONS_REJECTED:
+      return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
+    default:
+      return state;
+  }
+};
+
 export const submittedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
     case CONST.CHALLENGE_SUBMISSION_FULFILLED:
