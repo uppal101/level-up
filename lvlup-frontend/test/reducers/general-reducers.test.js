@@ -1,17 +1,5 @@
-import { adminSignup, allCampuses, allCohorts } from '../src/reducers/admin-signup-reducer';
-import * as CONST from '../src/constants/constants';
-
-describe('admin adminSignup reducer', () => {
-  it('should return the initial state', () => {
-    expect(adminSignup(undefined, {})).toEqual({ status: false });
-  });
-
-  it('should return a new state with the signed up user', () => {
-    const prevState = {};
-    const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_FULFILLED, payload: { test: 1 } });
-    expect(nextState).toEqual({ test: 1 });
-  });
-});
+import { allCampuses, allCohorts, recruiterDemo } from '../../src/reducers/general-reducers';
+import * as CONST from '../../src/constants/constants';
 
 describe('admin allCampuses reducer', () => {
   it('should return the initial state', () => {
@@ -34,5 +22,17 @@ describe('admin allCohorts reducer', () => {
     const prevState = [];
     const nextState = allCohorts(prevState, { type: CONST.ALL_COHORTS_FULFILLED, payload: { test: 3 } });
     expect(nextState).toEqual({ test: 3 });
+  });
+});
+
+describe('recruiter demo reducer', () => {
+  it('should return the initial state', () => {
+    expect(recruiterDemo(undefined, {})).toEqual({ fulfilled: false });
+  });
+
+  it('should return a new state with all admin cohorts', () => {
+    const prevState = { fulfilled: false };
+    const nextState = recruiterDemo(prevState, { type: CONST.RECRUITER_FULFILLED, test: 1 });
+    expect(nextState).toEqual({ fulfilled: true });
   });
 });

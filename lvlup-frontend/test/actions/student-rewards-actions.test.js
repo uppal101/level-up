@@ -1,5 +1,5 @@
-import * as actions from '../src/actions/student-rewards-actions';
-import * as types from '../src/constants/constants';
+import * as actions from '../../src/actions/student-rewards-actions';
+import * as types from '../../src/constants/constants';
 
 describe('student rewards actions', () => {
   it('should create an action reset request', () => {
