@@ -7,6 +7,12 @@ import { resetAddChallenge } from '../../../../actions/add-challenge';
 import { campusChallenges, selectChallenge } from '../../../../actions/student-challenges-actions';
 import { submissionsAction } from '../../../../actions/admin-dash-actions';
 import { resetChallengeList } from '../../../../actions/reset-actions';
+import { sortChallengeName,
+  sortChallengeCatagory,
+  sortChallengePoints,
+  sortChallengeNameReverse,
+  sortChallengeCatagoryReverse,
+  sortChallengePointsReverse } from '../../../../actions/sort-actions';
 import './challenges-style.css';
 
 const mapStateToProps = state => ({
@@ -21,7 +27,13 @@ const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges,
   submissionsAction,
   resetAddChallenge,
   makeChallengeInactive,
-  resetChallengeList }, dispatch);
+  resetChallengeList,
+  sortChallengeName,
+  sortChallengeCatagory,
+  sortChallengePoints,
+  sortChallengeNameReverse,
+  sortChallengeCatagoryReverse,
+  sortChallengePointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
