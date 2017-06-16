@@ -12,13 +12,18 @@ const mapStateToProps = state => ({
   rewards: state.rewards,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards, selectReward, resetEditReward, resetAddReward, makeRewardInactive, resetRewardsList }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards,
+  selectReward,
+  resetEditReward,
+  resetAddReward,
+  makeRewardInactive,
+  resetRewardsList }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    this.props.campusRewards(this.props.adminInfo.campus_id);
+    if (!this.props.rewards.fetched) this.props.campusRewards(this.props.adminInfo.campus_id);
     this.props.resetEditReward();
     this.props.resetAddReward();
   },

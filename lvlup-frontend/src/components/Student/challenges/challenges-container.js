@@ -5,7 +5,7 @@ import StudentChallengesTable from './challenges-table';
 import { campusChallenges, selectChallenge, resetChallenge } from '../../../actions/student-challenges-actions';
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   lvlUpInfo: state.studentPointsAndCampus,
   challenges: state.challenges,
 });
@@ -19,10 +19,7 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    if (!this.props.challenges.fetched) {
-      console.log('did not fetch');
-      return this.props.campusChallenges(this.props.lvlUpInfo.campusId);
-    }
+    if (!this.props.challenges.fetched) this.props.campusChallenges(this.props.lvlUpInfo.campusId);
     this.props.resetChallenge();
   },
 });

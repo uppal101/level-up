@@ -11,7 +11,9 @@ const mapStateToProps = state => ({
   campuses: state.allCampuses,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ addChallenge, allCampuses  }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  addChallenge,
+  allCampuses }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 

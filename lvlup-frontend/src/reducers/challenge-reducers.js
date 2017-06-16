@@ -13,7 +13,7 @@ export const addedChallenge = (state = { fulfilled: false }, action) => {
   }
 };
 
-export const challenges = (state = { challenges: [] }, action) => {
+export const challenges = (state = { challenges: [], fetched: false }, action) => {
   switch (action.type) {
     case CONST.CHALLENGES_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
@@ -27,7 +27,6 @@ export const challenges = (state = { challenges: [] }, action) => {
     case CONST.RESET_CHALLENGE_ADMIN:
       return Object.assign({}, {
         challenges: [],
-        fetched: false,
       });
     default:
       return state;

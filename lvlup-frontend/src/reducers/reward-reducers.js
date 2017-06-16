@@ -85,11 +85,12 @@ export const requests = (state = { requests: [] }, action) => {
   }
 };
 
-export const rewards = (state = { rewards: [] }, action) => {
+export const rewards = (state = { rewards: [], fetched: false }, action) => {
   switch (action.type) {
     case CONST.REWARDS_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
         rewards: state.rewards.concat(action.payload),
+        fetched: true;
       });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
