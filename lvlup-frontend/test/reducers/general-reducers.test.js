@@ -1,4 +1,4 @@
-import { allCampuses, allCohorts } from '../../src/reducers/general-reducers';
+import { allCampuses, allCohorts, recruiterDemo } from '../../src/reducers/general-reducers';
 import * as CONST from '../../src/constants/constants';
 
 describe('admin allCampuses reducer', () => {
@@ -22,5 +22,17 @@ describe('admin allCohorts reducer', () => {
     const prevState = [];
     const nextState = allCohorts(prevState, { type: CONST.ALL_COHORTS_FULFILLED, payload: { test: 3 } });
     expect(nextState).toEqual({ test: 3 });
+  });
+});
+
+describe('recruiter demo reducer', () => {
+  it('should return the initial state', () => {
+    expect(recruiterDemo(undefined, {})).toEqual({ fulfilled: false });
+  });
+
+  it('should return a new state with all admin cohorts', () => {
+    const prevState = { fulfilled: false };
+    const nextState = recruiterDemo(prevState, { type: CONST.RECRUITER_FULFILLED, test: 1 });
+    expect(nextState).toEqual({ fulfilled: true });
   });
 });
