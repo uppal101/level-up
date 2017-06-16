@@ -54,10 +54,15 @@ describe('rewards reducer', () => {
   });
 
   it('should return a new state with the reward', () => {
-    const prevState = { rewards: [] };
+    const prevState = { rewards: [], fetched: false };
     const nextState = rewards(prevState, { type: CONST.REWARDS_CAMPUS_FULFILLED, payload: [{ test: 8 }] });
-
     expect(nextState).toEqual({ fetched: true, rewards: [{ test: 8 }] });
+  });
+
+  it('should return a new state with reset reward', () => {
+    const prevState = { fetched: true, rewards: [{ test: 8 }] };
+    const nextState = rewards(prevState, { type: CONST.RESET_REWARDS_ADMIN, payload: [{ test: 8 }] });
+    expect(nextState).toEqual({ rewards: [] });
   });
 });
 
@@ -84,6 +89,12 @@ describe('requested reward reducer', () => {
     const nextState = requestedReward(prevState, { type: CONST.REWARD_REQUEST_FULFILLED, student_id: 2, reward_id: 11, cohort_id: 1, notes: 'envelope please', category_id: 4 });
     expect(nextState).toEqual({ fulfilled: true });
   });
+
+  it('should return a new state with the reset requested reward', () => {
+    const prevState = { fulfilled: true };
+    const nextState = requestedReward(prevState, { type: CONST.RESET_REQUEST });
+    expect(nextState).toEqual({ fulfilled: false });
+  });
 });
 
 describe('add reward reducer', () => {
@@ -96,15 +107,28 @@ describe('add reward reducer', () => {
     const nextState = addedReward(prevState, { type: CONST.ADD_REWARD_FULFILLED, name: 'gSwag', point_cost: 50, description: 'Galvanize apparel', campus_id: 1, category_id: 4 });
     expect(nextState).toEqual({ fulfilled: true });
   });
+
+  it('should return a new state with reset added reward', () => {
+    const prevState = { fulfilled: true };
+    const nextState = addedReward(prevState, { type: CONST.RESET_ADD_REWARD });
+    expect(nextState).toEqual({ fulfilled: false });
+  });
 });
 
 describe('edit reward reducer', () => {
   it('should return the initial state', () => {
     expect(editedReward(undefined, {})).toEqual({ fulfilled: false });
   });
+
   it('should return a new state with the edited reward', () => {
     const prevState = { fulfilled: false };
     const nextState = editedReward(prevState, { type: CONST.EDIT_REWARD_FULFILLED, name: 'gSwag', point_cost: 50, description: 'Galvanize hat', campus_id: 1, category_id: 4 });
     expect(nextState).toEqual({ fulfilled: true });
+  });
+
+  it('should return a new state with the reset edited reward', () => {
+    const prevState = { fulfilled: true };
+    const nextState = editedReward(prevState, { type: CONST.RESET_EDIT_REWARD });
+    expect(nextState).toEqual({ fulfilled: false });
   });
 });
