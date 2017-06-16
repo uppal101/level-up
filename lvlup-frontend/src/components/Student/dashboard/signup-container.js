@@ -6,13 +6,14 @@ import SignupInfo from './student-signup';
 import { allCohorts } from '../../../actions/admin-signup';
 import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
 
-const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts,
+const mapDispatchToProps = dispatch => bindActionCreators({
+  allCohorts,
   signupStudent,
   moreStudentInfo }, dispatch);
 
 const mapStateToProps = state => ({
   cohorts: state.allCohorts,
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
 });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

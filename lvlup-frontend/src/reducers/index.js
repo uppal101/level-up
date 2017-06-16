@@ -1,47 +1,40 @@
 import { combineReducers } from 'redux';
-import { loginInfo, studentPointsAndCampus, submissions, challenges, requests, selectedChallenge, selectedReward, requestedReward, rewards, submittedChallenge } from './student-reducer';
 import { reducer as formReducer } from 'redux-form';
-import { loggedIn } from './admin-login-reducer';
-import { signedUp, allCampuses, allCohorts, setCampus, setCohort, recruiterDemo } from './admin-signup-reducer';
-import { addedChallenge } from './add-challenge-reducer';
-import { editedReward } from './edit-reward-reducer';
-import { editedChallenge, inactiveChallenge } from './edit-challenge-reducer';
-import { addedReward } from './add-reward-reducer';
-import { adminPendingRequests, adminPendingSubmissions } from './admin-dashboard-reducer';
-import { approveSelectedReward, denySelectedReward, inactiveReward } from './request-reducer';
-import { addedCohort, addAdminCohort } from './admin-config';
+import { studentLoginInfo, studentPointsAndCampus } from './student-reducer';
+import { allCampuses, allCohorts, recruiterDemo } from './general-reducers';
+import { addedChallenge, challenges, editedChallenge, inactiveChallenge, selectedChallenge, submissions, submittedChallenge } from './challenge-reducers';
+import { addedReward, approveSelectedReward, denySelectedReward, editedReward, inactiveReward, requestedReward, rewards, requests, selectedReward } from './reward-reducers';
+import { addedCohort, addAdminCohort, adminPendingRequests, adminPendingSubmissions, adminSignup, adminLoginInfo } from './admin-reducers';
 
 const lvlupApp = combineReducers({
-  loginInfo,
-  studentPointsAndCampus,
-  submissions,
-  requests,
-  form: formReducer,
-  loggedIn,
-  signedUp,
-  allCampuses,
-  allCohorts,
-  setCampus,
-  setCohort,
-  challenges,
-  rewards,
-  selectedReward,
-  requestedReward,
   addedChallenge,
-  editedReward,
-  editedChallenge,
   addedReward,
-  selectedChallenge,
-  submittedChallenge,
+  addedCohort,
+  addAdminCohort,
+  adminLoginInfo,
+  adminSignup,
   adminPendingRequests,
   adminPendingSubmissions,
+  allCampuses,
+  allCohorts,
   approveSelectedReward,
+  challenges,
   denySelectedReward,
+  editedReward,
+  editedChallenge,
+  form: formReducer,
   inactiveReward,
   inactiveChallenge,
   recruiterDemo,
-  addedCohort,
-  addAdminCohort,
+  requestedReward,
+  requests,
+  rewards,
+  selectedReward,
+  selectedChallenge,
+  studentLoginInfo,
+  studentPointsAndCampus,
+  submissions,
+  submittedChallenge,
 });
 
 export default lvlupApp;

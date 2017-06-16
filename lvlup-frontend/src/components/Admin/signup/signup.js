@@ -6,13 +6,13 @@ import './signupview.css';
 
 const AdminSignup = props => (
   <div>
-    {renderIf(!props.signedUp.status)(
+    {renderIf(!props.adminSignup.status)(
       <div className="signup">
         <SignupForm />
-        {props.signedUp.error ? <p className="errorMessage">{props.signedUp.error}</p> : null}
+        {props.adminSignup.error ? <p className="errorMessage">{props.adminSignup.error}</p> : null}
       </div>,
     )}
-    {renderIf(props.signedUp.status)(
+    {renderIf(props.adminSignup.status)(
       <div className="signup">
         <SignUpMessage />
       </div>,

@@ -16,12 +16,13 @@ import { sortChallengeName,
 import './challenges-style.css';
 
 const mapStateToProps = state => ({
-  adminInfo: state.loggedIn,
+  adminInfo: state.adminLoginInfo,
   challenges: state.challenges,
   selectedChallenge: state.selectedChallenge,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ campusChallenges,
+const mapDispatchToProps = dispatch => bindActionCreators({
+  campusChallenges,
   selectChallenge,
   resetEditChallenge,
   submissionsAction,
@@ -39,7 +40,7 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    this.props.campusChallenges(this.props.adminInfo.campus_id);
+    if (!this.props.challenges.fetched) this.props.campusChallenges(this.props.adminInfo.campus_id);
     this.props.resetEditChallenge();
     this.props.resetAddChallenge();
   },

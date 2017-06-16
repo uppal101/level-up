@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   allCohorts }, dispatch);
 
 const mapStateToProps = state => ({
-  signedUp: state.signedUp,
+  adminSignup: state.adminSignup,
   cohorts: state.allCohorts,
   campuses: state.allCampuses,
 });

@@ -8,7 +8,7 @@ import LoginForm from './email';
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
 
 const mapStateToProps = state => ({
-  loggedIn: false,
+  adminLoginInfo: false,
 });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

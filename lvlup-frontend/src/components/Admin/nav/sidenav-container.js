@@ -12,7 +12,7 @@ export const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 export const mapStateToProps = state => ({
-  loggedIn: state.loggedIn,
+  adminLoginInfo: state.adminLoginInfo,
   pendingSubmissions: state.adminPendingSubmissions,
   pendingRequests: state.adminPendingRequests,
   selectedChallenge: state.selectedChallenge,
@@ -23,7 +23,7 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 const onDidMount = lifecycle({
   componentDidMount() {
     const userId = localStorage.getItem('userId');
-    if (!this.props.loggedIn.username && userId) {
+    if (!this.props.adminLoginInfo.username && userId) {
       this.props.resetAdmin(Number(userId));
     }
   },

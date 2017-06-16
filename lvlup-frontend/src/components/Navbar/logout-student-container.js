@@ -7,7 +7,7 @@ import { loggingOutStudent } from '../../actions/navbar';
 const mapDispatchToProps = dispatch => bindActionCreators({ loggingOutStudent }, dispatch);
 
 const mapStateToProps = state => ({
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
 });
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

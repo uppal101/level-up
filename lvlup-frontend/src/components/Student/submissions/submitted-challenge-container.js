@@ -4,7 +4,7 @@ import SubmissionCompleted from './submission-completed';
 
 const mapStateToProps = state => ({
   submission: state.submittedChallenge,
-  loginInfo: state.loginInfo,
+  studentLoginInfo: state.studentLoginInfo,
   selectedChallenge: state.selectedChallenge,
 });
 

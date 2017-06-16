@@ -7,11 +7,11 @@ import { renderField, renderTextAreaField } from '../../Admin/helpers/render-fie
 
 const upload = 'uploadcare-uploader';
 
-const ChallengeSubmissionForm = ({ loginInfo, selectedChallenge, challengeSubmission, handleSubmit }) => {
+const ChallengeSubmissionForm = ({ studentLoginInfo, selectedChallenge, challengeSubmission, handleSubmit }) => {
   const submit = (values) => {
-    values.student_id = loginInfo.id;
+    values.student_id = studentLoginInfo.id;
     values.challenge_id = selectedChallenge.id;
-    values.cohort_id = loginInfo.cohort_id;
+    values.cohort_id = studentLoginInfo.cohort_id;
     values.category_id = selectedChallenge.category_id;
     challengeSubmission(values);
   };

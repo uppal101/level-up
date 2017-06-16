@@ -9,22 +9,22 @@ import SignupInfo from './signup-container';
 import SignUpError from './signup-error';
 
 const StudentDashboard = (props) => {
-  if (props.loginInfo.error) {
+  if (props.studentLoginInfo.error) {
     return (
       <div>
         <SignUpError />
       </div>
     );
   }
-  if (!props.loginInfo.name && !props.lvlUpInfo.totalEarned) {
+  if (!props.studentLoginInfo.name && !props.lvlUpInfo.totalEarned) {
     return <Loader active inline="centered"> Loading </Loader>;
   }
-  if (!props.loginInfo.cohort_id && props.submissions.submissions.length === 0) {
+  if (!props.studentLoginInfo.cohort_id && props.submissions.submissions.length === 0) {
     return <SignupInfo />;
   }
   return (
     <div className="lvl-table">
-      <h1 className="headerStudent">{`Welcome, ${getFirstName(props.loginInfo.name)}!`}</h1>
+      <h1 className="headerStudent">{`Welcome, ${getFirstName(props.studentLoginInfo.name)}!`}</h1>
       <Table celled>
         <Table.Header>
           <Table.Row>
