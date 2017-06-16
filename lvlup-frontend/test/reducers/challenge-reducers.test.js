@@ -8,7 +8,7 @@ describe('add challenge reducer', () => {
 
   it('should return a new state with the added challenge', () => {
     const prevState = { fulfilled: false };
-    const nextState = addedChallenge(prevState, { type: CONST.ADD_CHALLENGE_FULFILLED, name: 'Participate in pushup hour', point_value: 1, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must do some form of exercise for at least 2 minutes' });
+    const nextState = addedChallenge(prevState, { type: CONST.ADD_CHALLENGE_FULFILLED, test: 2 });
     expect(nextState).toEqual({ fulfilled: true });
   });
 });
@@ -20,7 +20,7 @@ describe('edit challenge reducer', () => {
 
   it('should return a new state with the edited challenge', () => {
     const prevState = { fulfilled: false };
-    const nextState = editedChallenge(prevState, { type: CONST.EDIT_CHALLENGE_FULFILLED, name: 'Host a meditation session', point_value: 5, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must be at least 10 minutes long' });
+    const nextState = editedChallenge(prevState, { type: CONST.EDIT_CHALLENGE_FULFILLED, test: 1 });
     expect(nextState).toEqual({ fulfilled: true });
   });
 });
@@ -32,7 +32,7 @@ describe('inactive challenge reducer', () => {
 
   it('should return a new state with the edited challenge', () => {
     const prevState = {};
-    const nextState = inactiveChallenge(prevState, { type: CONST.INACTIVE_CHALLENGE_FULFILLED, name: 'Host a meditation session', point_value: 5, description: 'Commit to a healthy lifestyle', campus_id: 1, category_id: 4, requirement_1: ' Must be at least 10 minutes long' });
+    const nextState = inactiveChallenge(prevState, { type: CONST.INACTIVE_CHALLENGE_FULFILLED, test: 3 });
     expect(nextState).toEqual({ active: 'Inactive' });
   });
 });
@@ -60,6 +60,13 @@ describe('challenges reducer', () => {
     const nextState = challenges(prevState, { type: CONST.CHALLENGES_CAMPUS_FULFILLED, payload: [{ test: 9 }] });
 
     expect(nextState).toEqual({ challenges: [{ test: 9 }], fetched: true });
+  });
+
+  it('should return a new state with the reset challenge', () => {
+    const prevState = { challenges: [{ test: 9 }] };
+    const nextState = challenges(prevState, { type: CONST.RESET_CHALLENGE_ADMIN, challenges: [] });
+
+    expect(nextState).toEqual({ challenges: [] });
   });
 });
 
