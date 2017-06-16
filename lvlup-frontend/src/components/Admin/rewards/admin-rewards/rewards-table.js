@@ -19,12 +19,12 @@ const RewardsTable = (props) => {
               <Table.HeaderCell textAlign="center" colSpan="6">Rewards</Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title <Icon name="sort alphabet ascending" /> <Icon name="sort alphabet descending" /></Table.HeaderCell>
-              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" /> <Icon name="sort alphabet descending" /></Table.HeaderCell>
+              <Table.HeaderCell>Title <Icon name="sort alphabet ascending" onClick={() => props.sortRewardName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardNameReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCatagory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCatagoryReverse()} /></Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points <Icon name="sort numeric ascending" /><Icon name="sort numeric descending" /></Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points <Icon name="sort numeric ascending" onClick={() => props.sortRewardPoints()} /><Icon name="sort numeric descending" onClick={() => props.sortRewardPointsReverse()} /></Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
