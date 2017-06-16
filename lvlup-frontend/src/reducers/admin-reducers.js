@@ -69,7 +69,7 @@ export const adminSignup = (state = initialState.adminSignup, action) => {
     default:
       return state;
   }
-};=
+};
 
 export const adminLoginInfo = (state = { status: false }, action) => {
   switch (action.type) {
