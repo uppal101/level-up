@@ -6,7 +6,8 @@ import SignupInfo from './student-signup';
 import { allCohorts } from '../../../actions/admin-signup';
 import { signupStudent, moreStudentInfo } from '../../../actions/student-signup';
 
-const mapDispatchToProps = dispatch => bindActionCreators({ allCohorts,
+const mapDispatchToProps = dispatch => bindActionCreators({
+  allCohorts,
   signupStudent,
   moreStudentInfo }, dispatch);
 
