@@ -1,5 +1,5 @@
-import * as actions from '../src/actions/add-reward';
-import * as types from '../src/constants/constants';
+import * as actions from '../../src/actions/add-reward';
+import * as types from '../../src/constants/constants';
 
 describe('add reward actions', () => {
   it('should create an action reset add reward', () => {
