@@ -64,7 +64,7 @@ knex seed:run
 
 Front End:
 1. `cd lvlup-frontend`
-2. `npm run-script coverage`
+2. ` npm run-script coverage -- --cache=false`
 
 Back End:
 1. `cd lvlup-backend`
