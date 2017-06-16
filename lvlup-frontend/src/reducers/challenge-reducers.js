@@ -1,4 +1,10 @@
 import * as CONST from '../constants/constants';
+import { selectionSortChallengeRewardName,
+  selectionSortChallengeRewardNameReverse,
+  selectionSortChallengeRewardCatagory,
+  selectionSortChallengeRewardCatagoryReverse,
+  selectionSortChallengeRewardPoints,
+  selectionSortChallengeRewardPointsReverse } from '../helpers/sort';
 
 export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -27,6 +33,30 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
     case CONST.RESET_CHALLENGE_ADMIN:
       return Object.assign({}, {
         challenges: [],
+      });
+    case CONST.SORT_CHALLENGE_TITLE:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardName(state.challenges),
+      });
+    case CONST.SORT_CHALLENGE_CATAGORY:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardCatagory(state.challenges),
+      });
+    case CONST.SORT_CHALLENGE_POINTS:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardPoints(state.challenges),
+      });
+    case CONST.SORT_CHALLENGE_TITLE_REVERSE:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardNameReverse(state.challenges),
+      });
+    case CONST.SORT_CHALLENGE_CATAGORY_REVERSE:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardCatagoryReverse(state.challenges),
+      });
+    case CONST.SORT_CHALLENGE_POINTS_REVERSE:
+      return Object.assign({}, state, {
+        challenges: selectionSortChallengeRewardPointsReverse(state.challenges),
       });
     default:
       return state;

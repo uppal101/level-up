@@ -90,7 +90,7 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
     case CONST.REWARDS_CAMPUS_FULFILLED:
       return Object.assign({}, state, {
         rewards: state.rewards.concat(action.payload),
-        fetched: true;
+        fetched: true,
       });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
