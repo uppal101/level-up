@@ -22,3 +22,19 @@
 #hover-icon:hover {
   cursor: pointer;
 }
+
+#sort {
+  border-left: 0px !important;
+}
+
+#sort-dropdown {
+  border-left: 0px !important;
+  margin-right: 20px;
+  color: black;
+  font-size: 12px;
+}
+
+.table-head {
+  color: #F2711C !important;
+  padding-left: 140px !important;
+}
