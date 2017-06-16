@@ -10,10 +10,10 @@ const mapStateToProps = state => ({
 
 const SubmissionMain = props => (
   <div>
-    {renderIf(this.props.submissionStatus.fulfilled === false)(
+    {renderIf(props.submissionStatus.fulfilled === false)(
       <ChallengeSubmissionForm />,
   )}
-    {renderIf(this.props.submissionStatus.fulfilled === true)(
+    {renderIf(props.submissionStatus.fulfilled === true)(
       <SubmissionCompleted />)}
   </div>
 );
