@@ -52,14 +52,14 @@ describe('submissions reducer', () => {
 
 describe('challenges reducer', () => {
   it('should return the initial state', () => {
-    expect(challenges(undefined, {})).toEqual({ challenges: [] });
+    expect(challenges(undefined, {})).toEqual({ challenges: [], fetched: false });
   });
 
   it('should return a new state with the challenge', () => {
     const prevState = { challenges: [] };
     const nextState = challenges(prevState, { type: CONST.CHALLENGES_CAMPUS_FULFILLED, payload: [{ test: 9 }] });
 
-    expect(nextState).toEqual({ challenges: [{ test: 9 }] });
+    expect(nextState).toEqual({ challenges: [{ test: 9 }], fetched: true });
   });
 });
 

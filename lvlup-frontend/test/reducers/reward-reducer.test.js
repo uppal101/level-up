@@ -50,14 +50,14 @@ describe('selected reward reducer', () => {
 
 describe('rewards reducer', () => {
   it('should return the initial state', () => {
-    expect(rewards(undefined, {})).toEqual({ rewards: [] });
+    expect(rewards(undefined, {})).toEqual({ rewards: [], fetched: false });
   });
 
   it('should return a new state with the reward', () => {
     const prevState = { rewards: [] };
     const nextState = rewards(prevState, { type: CONST.REWARDS_CAMPUS_FULFILLED, payload: [{ test: 8 }] });
 
-    expect(nextState).toEqual({ rewards: [{ test: 8 }] });
+    expect(nextState).toEqual({ fetched: true, rewards: [{ test: 8 }] });
   });
 });
 

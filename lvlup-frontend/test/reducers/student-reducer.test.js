@@ -1,5 +1,5 @@
-import { studentLoginInfo, studentPointsAndCampus } from '../src/reducers/student-reducer';
-import * as CONST from '../src/constants/constants';
+import { studentLoginInfo, studentPointsAndCampus } from '../../src/reducers/student-reducer';
+import * as CONST from '../../src/constants/constants';
 
 
 describe('student login reducer', () => {

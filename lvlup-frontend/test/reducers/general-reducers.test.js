@@ -1,4 +1,4 @@
-import { allCampuses, allCohorts, recruiterDemo } from '../../src/reducers/admin-reducers';
+import { allCampuses, allCohorts } from '../../src/reducers/general-reducers';
 import * as CONST from '../../src/constants/constants';
 
 describe('admin allCampuses reducer', () => {
