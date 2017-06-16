@@ -1,5 +1,5 @@
-import { addedChallenge } from '../src/reducers/add-challenge-reducer';
-import * as CONST from '../src/constants/constants';
+import { addedChallenge, challenges, editedChallenge, inactiveChallenge, selectedChallenge, submissions, submittedChallenge } from '../../src/reducers/challenge-reducers';
+import * as CONST from '../../src/constants/constants';
 
 describe('add challenge reducer', () => {
   it('should return the initial state if incorrect value or nothing is passed in', () => {
@@ -12,4 +12,3 @@ describe('add challenge reducer', () => {
     expect(nextState).toEqual({ fulfilled: true });
   });
 });
-
