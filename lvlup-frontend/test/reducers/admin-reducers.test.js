@@ -17,11 +17,39 @@ describe('admin pending submissions reducer', () => {
   it('should return the initial state', () => {
     expect(adminPendingSubmissions(undefined, {})).toEqual({ submissionsAdmin: [] });
   });
+
+  it('should return a new state with the admin pending submissions', () => {
+    const prevState = { submissionsAdmin: [] };
+    const nextState = adminPendingSubmissions(prevState, { type: CONST.ADMIN_SUBMISSIONS_FULFILLED, payload: [{ test: 1 }] });
+
+    expect(nextState).toEqual({ submissionsAdmin: [{ test: 1 }] });
+  });
+
+  it('should return a new state with the reset admin pending submissions', () => {
+    const prevState = { submissionsAdmin: [{ test: 1 }] };
+    const nextState = adminPendingSubmissions(prevState, { type: CONST.RESET_PENDING_SUBMISSIONS });
+
+    expect(nextState).toEqual({ submissionsAdmin: [] });
+  });
 });
 
 describe('admin pending requests reducer', () => {
   it('should return the initial state', () => {
     expect(adminPendingRequests(undefined, {})).toEqual({ requestsAdmin: [] });
+  });
+
+  it('should return a new state with the admin pending requests', () => {
+    const prevState = { requestsAdmin: [] };
+    const nextState = adminPendingRequests(prevState, { type: CONST.ADMIN_REQUESTS_FULFILLED, payload: [{ test: 2 }] });
+
+    expect(nextState).toEqual({ requestsAdmin: [{ test: 2 }] });
+  });
+
+  it('should return a new state with the reset admin pending requests', () => {
+    const prevState = { requestsAdmin: [{ test: 2 }] };
+    const nextState = adminPendingRequests(prevState, { type: CONST.RESET_PENDING_REWARDS });
+
+    expect(nextState).toEqual({ requestsAdmin: [] });
   });
 });
 
@@ -32,8 +60,14 @@ describe('add cohort reducer', () => {
 
   it('should return a new state with the added cohort', () => {
     const prevState = { fulfilled: false };
-    const nextState = addedCohort(prevState, { type: CONST.ADD_COHORT_FULFILLED, name: 'g100', type: 'WDI', q1_start_date: '2017-06-12', q2_start_date: '2017-07-03', q3_start_date: '2017-08-07', q4_start_date: '2017-09-04', graduation_date: '2017-10-08', campus_id: 1 });
+    const nextState = addedCohort(prevState, { type: CONST.ADD_COHORT_FULFILLED, test: 1 });
     expect(nextState).toEqual({ fulfilled: true });
+  });
+
+  it('should return a new state with reset added cohort', () => {
+    const prevState = { fulfilled: true };
+    const nextState = addedCohort(prevState, { type: CONST.RESET_ADD_COHORT });
+    expect(nextState).toEqual({ fulfilled: false });
   });
 });
 
@@ -46,6 +80,12 @@ describe('add  admin cohort reducer', () => {
     const prevState = { fulfilled: false };
     const nextState = addAdminCohort(prevState, { type: CONST.ADMIN_COHORT_ADD_FULFILLED, name: 'g54' });
     expect(nextState).toEqual({ fulfilled: true });
+  });
+
+  it('should return a new state with reset added admin cohort', () => {
+    const prevState = { fulfilled: true };
+    const nextState = addAdminCohort(prevState, { type: CONST.RESET_ADMIN_COHORT_ADD });
+    expect(nextState).toEqual({ fulfilled: false });
   });
 });
 
