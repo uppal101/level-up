@@ -12,6 +12,12 @@ describe('admin adminSignup reducer', () => {
     expect(nextState).toEqual({ test: 1 });
   });
 
+  it('should return state when request is pending', () => {
+    const prevState = {};
+    const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_PENDING, payload: { test: 1 } });
+    expect(nextState).toEqual({});
+  });
+
   it('should return old state when sent incorrect input for added cohort', () => {
     const prevState = { status: false };
     const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_REJECTED, reject : [test: 1]});
