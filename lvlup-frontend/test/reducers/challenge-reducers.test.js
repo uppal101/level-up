@@ -11,6 +11,12 @@ describe('add challenge reducer', () => {
     const nextState = addedChallenge(prevState, { type: CONST.ADD_CHALLENGE_FULFILLED, test: 2 });
     expect(nextState).toEqual({ fulfilled: true });
   });
+
+  it('should return a new state with reset added challenge', () => {
+    const prevState = { fulfilled: true };
+    const nextState = addedChallenge(prevState, { type: CONST.RESET_ADD_CHALLENGE });
+    expect(nextState).toEqual({ fulfilled: false });
+  });
 });
 
 describe('edit challenge reducer', () => {
@@ -22,6 +28,12 @@ describe('edit challenge reducer', () => {
     const prevState = { fulfilled: false };
     const nextState = editedChallenge(prevState, { type: CONST.EDIT_CHALLENGE_FULFILLED, test: 1 });
     expect(nextState).toEqual({ fulfilled: true });
+  });
+
+  it('should return a new state with the  reset edit challenge', () => {
+    const prevState = { fulfilled: true };
+    const nextState = editedChallenge(prevState, { type: CONST.RESET_EDIT_CHALLENGE });
+    expect(nextState).toEqual({ fulfilled: false });
   });
 });
 
@@ -79,6 +91,12 @@ describe('submitted challenge reducer', () => {
     const prevState = { fulfilled: false };
     const nextState = submittedChallenge(prevState, { type: CONST.CHALLENGE_SUBMISSION_FULFILLED, test: 5 });
     expect(nextState).toEqual({ fulfilled: true });
+  });
+
+  it('should return a new state with the reset submitted challenge', () => {
+    const prevState = { fulfilled: true };
+    const nextState = submittedChallenge(prevState, { type: CONST.RESET_CHALLENGE });
+    expect(nextState).toEqual({ fulfilled: false });
   });
 });
 
