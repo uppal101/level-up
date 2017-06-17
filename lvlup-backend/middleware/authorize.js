@@ -25,7 +25,6 @@ const isAuthorized = (req, res, next) => {
     Student.forge({ id: req.params.id })
     .fetch()
     .then((student) => {
-      console.log(student);
       if (req.session.passport.user._json.email === student.attributes.email) {
         next();
       } else {
