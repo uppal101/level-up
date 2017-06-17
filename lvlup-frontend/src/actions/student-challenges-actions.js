@@ -8,6 +8,10 @@ export const campusChallenges = campusId => ({
   payload: fetchChallenges(campusId),
 });
 
+export const resetCampusChallenges = campusId => ({
+  type: CONST.RESET_AFTER_ADDED_CHALLENGE,
+  payload: fetchChallenges(campusId),
+});
 
 const challengeSubmissionCall = (props) => {
   const url = '/api/submissions';
