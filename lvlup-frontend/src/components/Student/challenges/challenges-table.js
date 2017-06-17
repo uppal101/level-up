@@ -8,7 +8,7 @@ const StudentChallengesTable = (props) => {
   }
   return (
     <div className="lvl-table">
-      <Table celled>
+      <Table celled selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell textAlign="center" colSpan="6">Challenges Available</Table.HeaderCell>

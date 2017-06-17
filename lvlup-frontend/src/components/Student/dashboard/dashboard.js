@@ -25,7 +25,7 @@ const StudentDashboard = (props) => {
   return (
     <div className="lvl-table">
       <h1 className="headerStudent">{`Welcome, ${getFirstName(props.studentLoginInfo.name)}!`}</h1>
-      <Table celled>
+      <Table celled selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Current Quarter</Table.HeaderCell>
@@ -51,7 +51,7 @@ const StudentDashboard = (props) => {
           </Table.Row>
         </Table.Body>
       </Table>
-      <Table celled>
+      <Table celled selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell textAlign="center" colSpan="4">Current Submissions</Table.HeaderCell>
@@ -67,7 +67,7 @@ const StudentDashboard = (props) => {
           {renderSubmissions(props)}
         </Table.Body>
       </Table>
-      <Table celled>
+      <Table celled selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell textAlign="center" colSpan="4">Achievements</Table.HeaderCell>
@@ -83,7 +83,7 @@ const StudentDashboard = (props) => {
           {renderAchievements(props)}
         </Table.Body>
       </Table>
-      <Table celled>
+      <Table celled selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell textAlign="center" colSpan="4">Rewards Earned</Table.HeaderCell>

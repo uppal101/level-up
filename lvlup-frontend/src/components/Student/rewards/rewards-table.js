@@ -9,7 +9,7 @@ const StudentRewardsTable = (props) => {
   return (
     <div className="lvl-table">
       <Container>
-        <Table celled color="orange">
+        <Table celled selectable color="orange">
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell textAlign="center" colSpan="5">Rewards</Table.HeaderCell>

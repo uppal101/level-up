@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const AddCohortComplete = props => (
   <div className="lvl-table">
-    <Table celled>
+    <Table celled selectable>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Add Cohorot Successful!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Add Cohorot Successful!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

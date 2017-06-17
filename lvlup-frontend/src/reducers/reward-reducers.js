@@ -88,7 +88,7 @@ export const requests = (state = { requests: [] }, action) => {
     case CONST.SORT_REQUESTS_CHRONO:
       return { ...state, requests: mergeSort(state.requests) };
     case CONST.SORT_REQUESTS_REV_CHRONO:
-      return { ...state, requests: quickSort(state.requests).reverse() };
+      return { ...state, requests: quickSort(state.requests) };
     case CONST.SORT_REWARDS_ASC:
       return { ...state, requests: insertionSortPointsReward(state.requests) };
     case CONST.SORT_REWARDS_DESC:
@@ -116,7 +116,7 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
     case CONST.SORT_REWARDS_CHRONO:
       return { ...state, rewards: mergeSort(state.rewards) };
     case CONST.SORT_REWARDS_REV_CHRONO:
-      return { ...state, rewards: quickSort(state.rewards).reverse() };
+      return { ...state, rewards: quickSort(state.rewards) };
     case CONST.SORT_REWARD_TITLE:
       return Object.assign({}, state, {
         rewards: selectionSort(state.rewards, 'name'),

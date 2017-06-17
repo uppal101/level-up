@@ -12,7 +12,7 @@ const ChallengesTable = (props) => {
   return (
     <div className="lvl-table">
       <Container>
-        <Table celled>
+        <Table celled selectable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell textAlign="center" colSpan="7">Challenges</Table.HeaderCell>
