@@ -42,16 +42,6 @@ const PendingSubmissionsTable = (props) => {
             <Table.HeaderCell className="sub-head">Name</Table.HeaderCell>
             <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
             <Table.HeaderCell textAlign="center" className="sub-head">Date Submitted
-              <Icon
-                id="hover-icon"
-                name="sort descending"
-                onClick={() => props.sortSubmittedChrono()}
-              />
-              <Icon
-                id="hover-icon"
-                name="sort ascending"
-                onClick={() => props.sortSubmittedRevChrono()}
-              />
             </Table.HeaderCell>
             <Table.HeaderCell textAlign="center" className="sub-head">View</Table.HeaderCell>
           </Table.Row>
