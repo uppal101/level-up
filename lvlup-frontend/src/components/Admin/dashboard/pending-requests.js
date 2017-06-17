@@ -12,28 +12,27 @@ const PendingRequestsTable = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4" className="thead-sortable">Pending Reward Requests</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-              <Dropdown text="Sort">
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="by Name Ascending"
-                    onClick={() => props.sortRequestsAsc()}
-                  />
-                  <Dropdown.Item
-                    text="by Name Descending"
-                    onClick={() => props.sortRequestsDesc()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Chronological"
-                    onClick={() => props.sortRequestsChrono()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Reverse Chronological"
-                    onClick={() => props.sortRequestsRevChrono()}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
+            <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Pending Reward Requests
+                <Dropdown text="Sort" className="sort">
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      text="by Name Ascending"
+                      onClick={() => props.sortRequestsAsc()}
+                    />
+                    <Dropdown.Item
+                      text="by Name Descending"
+                      onClick={() => props.sortRequestsDesc()}
+                    />
+                    <Dropdown.Item
+                      text="by Date Chronological"
+                      onClick={() => props.sortRequestsChrono()}
+                    />
+                    <Dropdown.Item
+                      text="by Date Reverse Chronological"
+                      onClick={() => props.sortRequestsRevChrono()}
+                    />
+                  </Dropdown.Menu>
+                </Dropdown>
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>

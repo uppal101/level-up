@@ -15,9 +15,8 @@ const ChallengesTable = (props) => {
         <Table celled selectable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell textAlign="center" className="thead-sortable" colSpan="6">Challenges</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-                <Dropdown text="Sort">
+              <Table.HeaderCell textAlign="center" className="thead-sortable" colSpan="7">Challenges
+                <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
                       text="by Challenge Ascending"
