@@ -12,7 +12,7 @@ const PendingSubmissionsTable = (props) => {
       <Table celled selectable id="submissions-table">
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="3" className="table-head">
+            <Table.HeaderCell textAlign="center" colSpan="3" className="thead-sortable">
               Pending Challenge Submissions
             </Table.HeaderCell>
             <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
@@ -39,11 +39,11 @@ const PendingSubmissionsTable = (props) => {
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell className="sub-head">Name</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" className="sub-head">Date Submitted
+            <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">Date Submitted
             </Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" className="sub-head">View</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">View</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

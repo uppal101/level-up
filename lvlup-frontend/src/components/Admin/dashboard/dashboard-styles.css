@@ -23,18 +23,6 @@
   cursor: pointer;
 }
 
-#sort {
-  border-left: 0px !important;
-}
-
-.sort-dropdown {
-  border-left: 0px !important;
-  color: black;
-  font-size: 12px;
-  background-color: rgba(74, 74, 74, 0.2) !important;
-
-}
-
 .table-cell {
   background-color: rgba(255, 153, 0, 0.05) !important;
 }

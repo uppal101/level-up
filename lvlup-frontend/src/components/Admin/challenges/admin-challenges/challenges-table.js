@@ -15,16 +15,16 @@ const ChallengesTable = (props) => {
         <Table celled selectable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell textAlign="center" colSpan="6" className="table-head">Challenges</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" className="thead-sortable" colSpan="6">Challenges</Table.HeaderCell>
               <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
                 <Dropdown text="Sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
-                      text="by Title Ascending"
+                      text="by Challenge Ascending"
                       onClick={() => props.sortChallengeName()}
                     />
                     <Dropdown.Item
-                      text="by Title Descending"
+                      text="by Challenge Descending"
                       onClick={() => props.sortChallengeNameReverse()}
                     />
                     <Dropdown.Item
@@ -36,11 +36,11 @@ const ChallengesTable = (props) => {
                       onClick={() => props.sortChallengeCategoryReverse()}
                     />
                     <Dropdown.Item
-                      text="by Points Ascending"
+                      text="by Point Value Ascending"
                       onClick={() => props.sortChallengePoints()}
                     />
                     <Dropdown.Item
-                      text="by Points Descending"
+                      text="by Point Value Descending"
                       onClick={() => props.sortChallengePointsReverse()}
                     />
                   </Dropdown.Menu>
@@ -48,13 +48,13 @@ const ChallengesTable = (props) => {
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title </Table.HeaderCell>
-              <Table.HeaderCell>Category </Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell>Requirements</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Requirements</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Points</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
