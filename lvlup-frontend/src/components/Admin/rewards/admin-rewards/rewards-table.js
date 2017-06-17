@@ -16,9 +16,8 @@ const RewardsTable = (props) => {
         <Table celled selectable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell textAlign="center" colSpan="5" className="table-head">Rewards</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-                <Dropdown text="Sort">
+              <Table.HeaderCell textAlign="center" colSpan="6" className="thead-sortable">Rewards
+                <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
                       text="by Title Ascending"
@@ -49,12 +48,12 @@ const RewardsTable = (props) => {
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title </Table.HeaderCell>
-              <Table.HeaderCell>Category </Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Title </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Category </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Points </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

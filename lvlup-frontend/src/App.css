@@ -109,6 +109,11 @@ body,
   padding-bottom: 0px !important;
 }
 
+.sort {
+  float: right !important;
+  font-size: 12px !important;
+}
+
 #sort {
   border-left: 0px !important;
 }
@@ -136,7 +141,7 @@ body,
 .thead-sortable {
   color: #4a4a4a !important;
   font-size: 18px;
-  padding-left: 160px !important;
+  padding-left: 56px !important;
   background-color: rgba(74, 74, 74, 0.2) !important;
 }
 
