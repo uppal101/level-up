@@ -15,7 +15,7 @@ const StudentChallengesTable = (props) => {
           </Table.Row>
           <Table.Row>
             <Table.HeaderCell>Title <br /><Icon name="sort alphabet ascending" onClick={() => props.sortChallengeName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortChallengeNameReverse()} /></Table.HeaderCell>
-            <Table.HeaderCell>Category <br /> <Icon name="sort alphabet ascending" onClick={() => props.sortChallengeCatagory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortChallengeCatagoryReverse()} /></Table.HeaderCell>
+            <Table.HeaderCell>Category <br /> <Icon name="sort alphabet ascending" onClick={() => props.sortChallengeCategory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortChallengeCategoryReverse()} /></Table.HeaderCell>
             <Table.HeaderCell>Description</Table.HeaderCell>
             <Table.HeaderCell>Requirement</Table.HeaderCell>
             <Table.HeaderCell textAlign="center">Points <br /><Icon name="sort numeric ascending" onClick={() => props.sortChallengePoints()} /><Icon name="sort numeric descending" onClick={() => props.sortChallengePointsReverse()} /></Table.HeaderCell>

@@ -4,10 +4,10 @@ import { bindActionCreators } from 'redux';
 import StudentChallengesTable from './challenges-table';
 import { campusChallenges, selectChallenge, resetChallenge } from '../../../actions/student-challenges-actions';
 import { sortChallengeName,
-  sortChallengeCatagory,
+  sortChallengeCategory,
   sortChallengePoints,
   sortChallengeNameReverse,
-  sortChallengeCatagoryReverse,
+  sortChallengeCategoryReverse,
   sortChallengePointsReverse } from '../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
@@ -21,10 +21,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   selectChallenge,
   resetChallenge,
   sortChallengeName,
-  sortChallengeCatagory,
+  sortChallengeCategory,
   sortChallengePoints,
   sortChallengeNameReverse,
-  sortChallengeCatagoryReverse,
+  sortChallengeCategoryReverse,
   sortChallengePointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

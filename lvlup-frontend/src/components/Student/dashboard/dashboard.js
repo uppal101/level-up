@@ -79,10 +79,10 @@ const StudentDashboard = (props) => {
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Category</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -98,29 +98,29 @@ const StudentDashboard = (props) => {
                 <Dropdown.Menu>
                   <Dropdown.Item
                     text="by Points Least to Most"
-                    onClick={() => props.sortAchvmntsAsc()}
+                    onClick={() => props.sortSubmissionsAsc()}
                   />
                   <Dropdown.Item
                     text="by Points Most to Lease"
-                    onClick={() => props.sortAchvmntsDesc()}
+                    onClick={() => props.sortSubmissionsDesc()}
                   />
                   <Dropdown.Item
                     text="by Date Chronological"
-                    onClick={() => props.sortAchvmntsChrono()}
+                    onClick={() => props.sortSubmissionsChrono()}
                   />
                   <Dropdown.Item
                     text="by Date Reverse Chronological"
-                    onClick={() => props.sortAchvmntsChrono()}
+                    onClick={() => props.sortSubmissionsRevChrono()}
                   />
                 </Dropdown.Menu>
               </Dropdown>
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Category</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -155,10 +155,10 @@ const StudentDashboard = (props) => {
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

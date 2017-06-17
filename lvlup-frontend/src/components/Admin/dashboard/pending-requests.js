@@ -12,7 +12,7 @@ const PendingRequestsTable = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4" className="table-head">Pending Reward Requests</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="4" className="thead-sortable">Pending Reward Requests</Table.HeaderCell>
             <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
               <Dropdown text="Sort">
                 <Dropdown.Menu>
@@ -37,11 +37,11 @@ const PendingRequestsTable = (props) => {
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell className="sub-head">Name</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">Reward</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head" textAlign="center">Date Submitted</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head" textAlign="center">Notes</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head" textAlign="center">Approve</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Reward</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Date Submitted</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Notes</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Approve</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

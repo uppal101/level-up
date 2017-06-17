@@ -16,7 +16,7 @@ const StudentRewardsTable = (props) => {
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Title <br /><Icon name="sort alphabet ascending" onClick={() => props.sortRewardName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardNameReverse()} /></Table.HeaderCell>
-              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCatagory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCatagoryReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCategory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCategoryReverse()} /></Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Points <Icon name="sort numeric ascending" onClick={() => props.sortRewardPoints()} /><Icon name="sort numeric descending" onClick={() => props.sortRewardPointsReverse()} /></Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Request</Table.HeaderCell>

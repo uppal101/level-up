@@ -11,9 +11,9 @@ describe('sort actions', () => {
 
   it('should create an action sort challenge category', () => {
     const expectedAction = {
-      type: types.SORT_CHALLENGE_CATAGORY,
+      type: types.SORT_CHALLENGE_CATEGORY,
     };
-    expect(actions.sortChallengeCatagory()).toEqual(expectedAction);
+    expect(actions.sortChallengeCategory()).toEqual(expectedAction);
   });
 
   it('should create an action sort challenge points', () => {
@@ -32,9 +32,9 @@ describe('sort actions', () => {
 
   it('should create an action sort reward category', () => {
     const expectedAction = {
-      type: types.SORT_REWARD_CATAGORY,
+      type: types.SORT_REWARD_CATEGORY,
     };
-    expect(actions.sortRewardCatagory()).toEqual(expectedAction);
+    expect(actions.sortRewardCategory()).toEqual(expectedAction);
   });
 
   it('should create an action sort reward points', () => {
@@ -53,9 +53,9 @@ describe('sort actions', () => {
 
   it('should create an action sort challenge category reverse', () => {
     const expectedAction = {
-      type: types.SORT_CHALLENGE_CATAGORY_REVERSE,
+      type: types.SORT_CHALLENGE_CATEGORY_REVERSE,
     };
-    expect(actions.sortChallengeCatagoryReverse()).toEqual(expectedAction);
+    expect(actions.sortChallengeCategoryReverse()).toEqual(expectedAction);
   });
 
   it('should create an action sort challenge points reverse', () => {
@@ -74,9 +74,9 @@ describe('sort actions', () => {
 
   it('should create an action sort reward category reverse', () => {
     const expectedAction = {
-      type: types.SORT_REWARD_CATAGORY_REVERSE,
+      type: types.SORT_REWARD_CATEGORY_REVERSE,
     };
-    expect(actions.sortRewardCatagoryReverse()).toEqual(expectedAction);
+    expect(actions.sortRewardCategoryReverse()).toEqual(expectedAction);
   });
 
   it('should create an action sort reward points reverse', () => {
