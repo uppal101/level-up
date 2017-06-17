@@ -30,7 +30,7 @@ const PendingRequestsTable = (props) => {
                   />
                   <Dropdown.Item
                     text="by Date Reverse Chronological"
-                    onClick={() => props.sortRequestsChrono()}
+                    onClick={() => props.sortRequestsRevChrono()}
                   />
                 </Dropdown.Menu>
               </Dropdown>

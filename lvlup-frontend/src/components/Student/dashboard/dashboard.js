@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Loader } from 'semantic-ui-react';
+import { Table, Loader, Dropdown } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import { quarterConverter, quarterPointFinder, getFirstName } from '../helpers/dashboard';
 import renderSubmissions from '../helpers/render-submissions';
@@ -59,20 +59,12 @@ const StudentDashboard = (props) => {
               <Dropdown text="Sort">
                 <Dropdown.Menu>
                   <Dropdown.Item
-                    text="by Name Ascending"
+                    text="by Points Least to Most"
                     onClick={() => props.sortSubmissionsAsc()}
                   />
                   <Dropdown.Item
-                    text="by Name Descending"
+                    text="by Points Most to Lease"
                     onClick={() => props.sortSubmissionsDesc()}
-                  />
-                  <Dropdown.Item
-                    text="by Points Ascending"
-                    // onClick={() => props.()}
-                  />
-                  <Dropdown.Item
-                    text="by Points Descending"
-                    // onClick={() => props.()}
                   />
                   <Dropdown.Item
                     text="by Date Chronological"
@@ -80,7 +72,7 @@ const StudentDashboard = (props) => {
                   />
                   <Dropdown.Item
                     text="by Date Reverse Chronological"
-                    onClick={() => props.sortSubmissionsChrono()}
+                    onClick={() => props.sortSubmissionsRevChrono()}
                   />
                 </Dropdown.Menu>
               </Dropdown>
@@ -88,7 +80,7 @@ const StudentDashboard = (props) => {
           </Table.Row>
           <Table.Row>
             <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Category</Table.HeaderCell>
             <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
             <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
           </Table.Row>
@@ -100,11 +92,33 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="4">Achievements</Table.HeaderCell>
+            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Achievements</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
+              <Dropdown text="Sort">
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    text="by Points Least to Most"
+                    onClick={() => props.sortAchvmntsAsc()}
+                  />
+                  <Dropdown.Item
+                    text="by Points Most to Lease"
+                    onClick={() => props.sortAchvmntsDesc()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Chronological"
+                    onClick={() => props.sortAchvmntsChrono()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Reverse Chronological"
+                    onClick={() => props.sortAchvmntsChrono()}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+            </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
             <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
-            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Category</Table.HeaderCell>
             <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
             <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
           </Table.Row>
@@ -116,7 +130,29 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="4">Rewards Earned</Table.HeaderCell>
+            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Rewards Earned</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
+              <Dropdown text="Sort">
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    text="by Points Least to Most"
+                    onClick={() => props.sortRewardsAsc()}
+                  />
+                  <Dropdown.Item
+                    text="by Points Most to Lease"
+                    onClick={() => props.sortRewardsDesc()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Chronological"
+                    onClick={() => props.sortRewardsChrono()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Reverse Chronological"
+                    onClick={() => props.sortRewardsRevChrono()}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+            </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
             <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>

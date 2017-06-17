@@ -32,7 +32,7 @@ const PendingSubmissionsTable = (props) => {
                   />
                   <Dropdown.Item
                     text="by Date Reverse Chronological"
-                    onClick={() => props.sortSubmittedChrono()}
+                    onClick={() => props.sortSubmittedRevChrono()}
                   />
                 </Dropdown.Menu>
               </Dropdown>
