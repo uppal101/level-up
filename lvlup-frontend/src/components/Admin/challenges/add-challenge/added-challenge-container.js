@@ -17,7 +17,6 @@ const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 
 const onDidMount = lifecycle({
   componentDidMount() {
-    console.log('here');
     this.props.resetCampusChallenges(this.props.adminLoginInfo.campus_id);
   },
 });
