@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const EditRewardCompleted = props => (
   <Container className="lvl-table">
-    <Table celled color="orange">
+    <Table celled selectable color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Reward Edit Successful!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Reward Edit Successful!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

@@ -3,7 +3,7 @@ import {
   mergeSort,
   quickSort,
 } from '../helpers/sort-date';
-import { selectionSort, selectionSortReverse } from '../helpers/sort';
+import { selectionSort, selectionSortReverse, insertionSortPointsReward, insertionSortPointsReverseReward } from '../helpers/sort';
 
 export const addedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -88,7 +88,11 @@ export const requests = (state = { requests: [] }, action) => {
     case CONST.SORT_REQUESTS_CHRONO:
       return { ...state, requests: mergeSort(state.requests) };
     case CONST.SORT_REQUESTS_REV_CHRONO:
-      return { ...state, requests: quickSort(state.requests).reverse() };
+      return { ...state, requests: quickSort(state.requests) };
+    case CONST.SORT_REWARDS_ASC:
+      return { ...state, requests: insertionSortPointsReward(state.requests) };
+    case CONST.SORT_REWARDS_DESC:
+      return { ...state, requests: insertionSortPointsReverseReward(state.requests).reverse() };
     default:
       return state;
   }
@@ -101,6 +105,10 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
         rewards: state.rewards.concat(action.payload),
         fetched: true,
       });
+    case CONST.RESET_AFTER_ADDED_REWARD_FULFILLED:
+      return Object.assign({}, state, {
+        rewards: action.payload,
+      });
     case CONST.REWARDS_CAMPUS_REJECTED:
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
     case CONST.RESET_REWARDS_ADMIN:
@@ -108,7 +116,7 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
     case CONST.SORT_REWARDS_CHRONO:
       return { ...state, rewards: mergeSort(state.rewards) };
     case CONST.SORT_REWARDS_REV_CHRONO:
-      return { ...state, rewards: quickSort(state.rewards).reverse() };
+      return { ...state, rewards: quickSort(state.rewards) };
     case CONST.SORT_REWARD_TITLE:
       return Object.assign({}, state, {
         rewards: selectionSort(state.rewards, 'name'),

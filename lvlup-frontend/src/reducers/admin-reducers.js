@@ -4,6 +4,7 @@ import {
   mergeSort,
   quickSort,
 } from '../helpers/sort-date';
+import { bubbleSortStudent, bubbleSortStudentReverse } from '../helpers/sort';
 
 export const addedCohort = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -45,7 +46,11 @@ export const adminPendingSubmissions = (state = { submissionsAdmin: [] }, action
     case CONST.SORT_SUBMITTED_CHRONO:
       return { ...state, submissionsAdmin: mergeSort(state.submissionsAdmin) };
     case CONST.SORT_SUBMITTED_REV_CHRONO:
-      return { ...state, submissionsAdmin: quickSort(state.submissionsAdmin).reverse() };
+      return { ...state, submissionsAdmin: quickSort(state.submissionsAdmin) };
+    case CONST.SORT_SUBMITTED_ASC:
+      return { ...state, submissionsAdmin: bubbleSortStudent(state.submissionsAdmin) };
+    case CONST.SORT_SUBMITTED_DESC:
+      return { ...state, submissionsAdmin: bubbleSortStudentReverse(state.submissionsAdmin) };
     default:
       return state;
   }
@@ -64,7 +69,11 @@ export const adminPendingRequests = (state = { requestsAdmin: [] }, action) => {
     case CONST.SORT_REQUESTS_CHRONO:
       return { ...state, requestsAdmin: mergeSort(state.requestsAdmin) };
     case CONST.SORT_REQUESTS_REV_CHRONO:
-      return { ...state, requestsAdmin: quickSort(state.requestsAdmin).reverse() };
+      return { ...state, requestsAdmin: quickSort(state.requestsAdmin) };
+    case CONST.SORT_REQUESTS_ASC:
+      return { ...state, requestsAdmin: bubbleSortStudent(state.requestsAdmin) };
+    case CONST.SORT_REQUESTS_DESC:
+      return { ...state, requestsAdmin: bubbleSortStudentReverse(state.requestsAdmin).reverse() };
     default:
       return state;
   }

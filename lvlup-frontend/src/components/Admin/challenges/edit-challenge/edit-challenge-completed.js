@@ -5,10 +5,10 @@ import './edit-challenge-styles.css';
 
 const EditChallengeCompleted = props => (
   <Container className="lvl-table">
-    <Table celled color="orange">
+    <Table celled selectable color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Challenge Edit Successful!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Challenge Edit Successful!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

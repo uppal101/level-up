@@ -9,10 +9,10 @@ const getLocation = (campusId, campuses) => {
 
 const AddChallengeCompleted = props => (
   <Container className="lvl-table">
-    <Table celled color="orange">
+    <Table celled selectable color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Challenge Successfully Added!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Challenge Successfully Added!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

@@ -2,7 +2,7 @@
   text-align: center;
   float: center;
   margin-left: 210px;
-  margin-top: 30px;
+  margin-top: 130px;
   margin-bottom: 30px;
   padding: 20px;
   overflow-y: scroll;
@@ -27,14 +27,45 @@
   border-left: 0px !important;
 }
 
-#sort-dropdown {
+.sort-dropdown {
   border-left: 0px !important;
-  margin-right: 20px;
   color: black;
   font-size: 12px;
+  background-color: rgba(74, 74, 74, 0.2) !important;
+
+}
+
+.sub-head {
+  /*background-color: rgba(255, 153, 0, 0.09) !important;*/
+  background-color: #e9e9e9 !important;
 }
 
 .table-head {
-  color: #F2711C !important;
-  padding-left: 140px !important;
+  /*color: #dd9404 !important;*/
+  color: #4a4a4a !important;
+  /*font-weight: normal !important;*/
+  font-size: 18px;
+  padding-left: 160px !important;
+  /*background-color: rgba(255, 153, 0, 0.18) !important;*/
+  background-color: rgba(74, 74, 74, 0.2) !important;
+  /*background-color: rgba(74, 153, 0, 0.20) !important;*/
+}
+
+.table-cell {
+  background-color: rgba(255, 153, 0, 0.05) !important;
+}
+
+#admin-dash {
+  /*background-color: #EEEEEE;*/
+}
+
+.table {
+  background-color: #ffffff !important;
+  /*background-color: #ffffff !important;*/
+}
+
+#submissions-table {
+  margin-top: 40px;
+  /*border-top-color: #4a4a4a !important;*/
+  margin-bottom: 40px;
 }

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const SubmissionCompleted = props => (
   <div className="lvl-table">
-    <Table celled>
+    <Table celled selectable>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Challenge Submission Successful!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Challenge Submission Successful!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

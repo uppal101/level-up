@@ -9,47 +9,41 @@ const PendingSubmissionsTable = (props) => {
   }
   return (
     <Container>
-      <Table celled selectable color="orange">
+      <Table celled selectable id="submissions-table">
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4" className="table-head">
-              <Dropdown text="Sort" id="sort-dropdown">
-                <Dropdown.Menu>
-                  <Dropdown.Item text="New" />
-                  <Dropdown.Item text="Open..." description="ctrl + o" />
-                  <Dropdown.Item text="Save as..." description="ctrl + s" />
-                  <Dropdown.Item text="Rename" description="ctrl + r" />
-                </Dropdown.Menu>
-              </Dropdown>
+            <Table.HeaderCell textAlign="center" colSpan="3" className="table-head">
               Pending Challenge Submissions
             </Table.HeaderCell>
-            {/* <Table.HeaderCell textAlign="center" colSpan="1" id="sort">
+            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
               <Dropdown text="Sort">
                 <Dropdown.Menu>
-                  <Dropdown.Item text="New" />
-                  <Dropdown.Item text="Open..." description="ctrl + o" />
-                  <Dropdown.Item text="Save as..." description="ctrl + s" />
-                  <Dropdown.Item text="Rename" description="ctrl + r" />
+                  <Dropdown.Item
+                    text="by Name Ascending"
+                    onClick={() => props.sortSubmittedAsc()}
+                  />
+                  <Dropdown.Item
+                    text="by Name Descending"
+                    onClick={() => props.sortSubmittedDesc()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Chronological"
+                    onClick={() => props.sortSubmittedChrono()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Reverse Chronological"
+                    onClick={() => props.sortSubmittedChrono()}
+                  />
                 </Dropdown.Menu>
               </Dropdown>
-            </Table.HeaderCell> */}
+            </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Date Submitted
-              <Icon
-                id="hover-icon"
-                name="sort descending"
-                onClick={() => props.sortSubmittedChrono()}
-              />
-              <Icon
-                id="hover-icon"
-                name="sort ascending"
-                onClick={() => props.sortSubmittedRevChrono()}
-              />
+            <Table.HeaderCell className="sub-head">Name</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="sub-head">Date Submitted
             </Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">View</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="sub-head">View</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
