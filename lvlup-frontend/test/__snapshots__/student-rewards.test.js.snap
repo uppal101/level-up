@@ -3,6 +3,12 @@ exports[`test StudentRewards should render 1`] = `
   campusRewards={[Function]}
   resetRequest={[Function]}
   selectReward={[Function]}
+  sortRewardCatagory={[Function]}
+  sortRewardCatagoryReverse={[Function]}
+  sortRewardName={[Function]}
+  sortRewardNameReverse={[Function]}
+  sortRewardPoints={[Function]}
+  sortRewardPointsReverse={[Function]}
   store={
     Object {
       "clearActions": [Function],

@@ -11,6 +11,18 @@ describe('admin allCampuses reducer', () => {
     const nextState = allCampuses(prevState, { type: CONST.ALL_CAMPUSES_FULFILLED, payload: { test: 2 } });
     expect(nextState).toEqual({ test: 2 });
   });
+
+  it('should return old state when sent incorrect input for all campuses', () => {
+    const prevState = [];
+    const nextState = allCampuses(prevState, { type: CONST.ALL_CAMPUSES_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again'  });
+  });
+
+  it('should return state when request is pending', () => {
+    const prevState = [];
+    const nextState = allCampuses(prevState, { type: CONST.ALL_CAMPUSES_PENDING, payload: { test: 2 }});
+    expect(nextState).toEqual([]);
+  });
 });
 
 describe('admin allCohorts reducer', () => {
@@ -22,6 +34,18 @@ describe('admin allCohorts reducer', () => {
     const prevState = [];
     const nextState = allCohorts(prevState, { type: CONST.ALL_COHORTS_FULFILLED, payload: { test: 3 } });
     expect(nextState).toEqual({ test: 3 });
+  });
+
+  it('should return old state when sent incorrect input for admin all cohorts', () => {
+    const prevState = [];
+    const nextState = allCohorts(prevState, { type: CONST.ALL_COHORTS_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again'  });
+  });
+
+  it('should return state when request is pending', () => {
+    const prevState = [];
+    const nextState = allCohorts(prevState, { type: CONST.ALL_COHORTS_PENDING, payload: { test: 2 }});
+    expect(nextState).toEqual([]);
   });
 });
 

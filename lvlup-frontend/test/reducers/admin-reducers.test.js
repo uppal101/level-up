@@ -11,6 +11,18 @@ describe('admin adminSignup reducer', () => {
     const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_FULFILLED, payload: { test: 1 } });
     expect(nextState).toEqual({ test: 1 });
   });
+
+  it('should return state when request is pending', () => {
+    const prevState = {};
+    const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_PENDING, payload: { test: 1 } });
+    expect(nextState).toEqual({});
+  });
+
+  it('should return old state when sent incorrect input for added cohort', () => {
+    const prevState = { status: false };
+    const nextState = adminSignup(prevState, { type: CONST.ADMIN_SIGNUP_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Please check that you have filled out all the required fields', status: false});
+  });
 });
 
 describe('admin pending submissions reducer', () => {
@@ -30,6 +42,12 @@ describe('admin pending submissions reducer', () => {
     const nextState = adminPendingSubmissions(prevState, { type: CONST.RESET_PENDING_SUBMISSIONS });
 
     expect(nextState).toEqual({ submissionsAdmin: [] });
+  });
+
+  it('should return old state when sent incorrect input for pending submissions', () => {
+    const prevState = { submissionsAdmin: [] };
+    const nextState = adminPendingSubmissions(prevState, { type: CONST.ADMIN_SUBMISSIONS_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again', submissionsAdmin: [] });
   });
 });
 
@@ -51,6 +69,12 @@ describe('admin pending requests reducer', () => {
 
     expect(nextState).toEqual({ requestsAdmin: [] });
   });
+
+  it('should return old state when sent incorrect input for pending requests', () => {
+    const prevState = { requestsAdmin: [] };
+    const nextState = adminPendingRequests(prevState, { type: CONST.ADMIN_REQUESTS_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again', requestsAdmin: [] });
+  });
 });
 
 describe('add cohort reducer', () => {
@@ -68,6 +92,12 @@ describe('add cohort reducer', () => {
     const prevState = { fulfilled: true };
     const nextState = addedCohort(prevState, { type: CONST.RESET_ADD_COHORT });
     expect(nextState).toEqual({ fulfilled: false });
+  });
+
+  it('should return old state when sent incorrect input for added cohort', () => {
+    const prevState = { fulfilled: false };
+    const nextState = addedCohort(prevState, { type: CONST.ADD_COHORT_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again', fulfilled: false });
   });
 });
 
@@ -87,6 +117,12 @@ describe('add  admin cohort reducer', () => {
     const nextState = addAdminCohort(prevState, { type: CONST.RESET_ADMIN_COHORT_ADD });
     expect(nextState).toEqual({ fulfilled: false });
   });
+
+  it('should return old state when sent incorrect input for added admin cohort', () => {
+    const prevState = { fulfilled: false };
+    const nextState = addAdminCohort(prevState, { type: CONST.ADMIN_COHORT_ADD_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Server Error - Please Try Again', fulfilled: false });
+  });
 });
 
 describe('add login reducer', () => {
@@ -104,5 +140,17 @@ describe('add login reducer', () => {
     const prevState = { status: true };
     const nextState = adminLoginInfo(prevState, { type: CONST.ADMIN_LOGOUT_FULFILLED, email: 'sanjeet.uppal92@gmail.com', password: 'youareawizard' });
     expect(nextState).toEqual({ status: false });
+  });
+
+  it('should return a new state with the logged out user', () => {
+    const prevState = { status: false };
+    const nextState = adminLoginInfo(prevState, { type: CONST.RESET_ADMIN_FULFILLED, email: 'sanjeet.uppal92@gmail.com', password: 'youareawizard' });
+    expect(nextState).toEqual({ status: true, updated: true});
+  });
+
+  it('should return old state when sent incorrect input for admin login', () => {
+    const prevState = { status: false };
+    const nextState = adminLoginInfo(prevState, { type: CONST.ADMIN_LOGIN_REJECTED, reject : [test: 1]});
+    expect(nextState).toEqual({ error: 'Login Failed. Please Check your Email and Password', status: false });
   });
 });
