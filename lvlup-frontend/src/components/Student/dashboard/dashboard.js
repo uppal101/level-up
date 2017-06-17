@@ -28,10 +28,10 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Current Quarter</Table.HeaderCell>
-            <Table.HeaderCell>Quarter Points</Table.HeaderCell>
-            <Table.HeaderCell>Cumulative Points</Table.HeaderCell>
-            <Table.HeaderCell>Remaining Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Current Quarter</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Quarter Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Cumulative Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Remaining Points</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -54,13 +54,43 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4">Current Submissions</Table.HeaderCell>
+            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Current Submissions</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
+              <Dropdown text="Sort">
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    text="by Name Ascending"
+                    onClick={() => props.sortSubmissionsAsc()}
+                  />
+                  <Dropdown.Item
+                    text="by Name Descending"
+                    onClick={() => props.sortSubmissionsDesc()}
+                  />
+                  <Dropdown.Item
+                    text="by Points Ascending"
+                    // onClick={() => props.()}
+                  />
+                  <Dropdown.Item
+                    text="by Points Descending"
+                    // onClick={() => props.()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Chronological"
+                    onClick={() => props.sortSubmissionsChrono()}
+                  />
+                  <Dropdown.Item
+                    text="by Date Reverse Chronological"
+                    onClick={() => props.sortSubmissionsChrono()}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+            </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Catagory</Table.HeaderCell>
-            <Table.HeaderCell>Points</Table.HeaderCell>
-            <Table.HeaderCell>Date</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -70,13 +100,13 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4">Achievements</Table.HeaderCell>
+            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="4">Achievements</Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Catagory</Table.HeaderCell>
-            <Table.HeaderCell>Points</Table.HeaderCell>
-            <Table.HeaderCell>Date</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -86,13 +116,13 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4">Rewards Earned</Table.HeaderCell>
+            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="4">Rewards Earned</Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Catagory</Table.HeaderCell>
-            <Table.HeaderCell>Points</Table.HeaderCell>
-            <Table.HeaderCell>Date</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Title</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">CATEGORY</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Points</Table.HeaderCell>
+            <Table.HeaderCell className="sub-head">Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

@@ -5,6 +5,8 @@ import PendingRequestsTable from './pending-requests';
 import { approveSelectedReward, denySelectedReward } from '../../../actions/pending-rewards-actions';
 import { requestsAction } from '../../../actions/admin-dash-actions';
 import { resetPendingRequests } from '../../../actions/reset-actions';
+import { sortRequestsChrono, sortRequestsRevChrono } from '../../../actions/sort-date-actions';
+import { sortRequestsAsc, sortRequestsDesc } from '../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.adminLoginInfo,
@@ -15,7 +17,12 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   approveSelectedReward,
   denySelectedReward,
   requestsAction,
-  resetPendingRequests }, dispatch);
+  resetPendingRequests,
+  sortRequestsChrono,
+  sortRequestsRevChrono,
+  sortRequestsAsc,
+  sortRequestsDesc,
+}, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 

@@ -6,6 +6,7 @@ import { selectChallenge } from '../../../actions/student-challenges-actions';
 import { submissionsAction } from '../../../actions/admin-dash-actions';
 import { resetPendingSubmissions } from '../../../actions/reset-actions';
 import { sortSubmittedChrono, sortSubmittedRevChrono } from '../../../actions/sort-date-actions';
+import { sortSubmittedAsc, sortSubmittedDesc } from '../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
   adminInfo: state.adminLoginInfo,
@@ -18,7 +19,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   submissionsAction,
   resetPendingSubmissions,
   sortSubmittedChrono,
-  sortSubmittedRevChrono }, dispatch);
+  sortSubmittedRevChrono,
+  sortSubmittedAsc,
+  sortSubmittedDesc,
+}, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
 

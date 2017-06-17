@@ -48,34 +48,34 @@ export const sortRewardPointsReverse = () => ({
   type: CONST.SORT_REWARD_POINTS_REVERSE,
 });
 
-export const SortSubmittedAsc = () => ({
+export const sortSubmittedAsc = () => ({
   type: CONST.SORT_SUBMITTED_ASC,
 });
 
-export const SortSubmittedDesc = () => ({
+export const sortSubmittedDesc = () => ({
   type: CONST.SORT_SUBMITTED_DESC,
 });
 
-export const SortRequestsAsc = () => ({
+export const sortRequestsAsc = () => ({
   type: CONST.SORT_REQUESTS_ASC,
 });
 
-export const SortRequestsDesc = () => ({
+export const sortRequestsDesc = () => ({
   type: CONST.SORT_REQUESTS_DESC,
 });
 
-export const SortSubmissionsAsc = () => ({
+export const sortSubmissionsAsc = () => ({
   type: CONST.SORT_SUBMISSIONS_ASC,
 });
 
-export const SortSubmissionsDesc = () => ({
+export const sortSubmissionsDesc = () => ({
   type: CONST.SORT_SUBMISSIONS_DESC,
 });
 
-export const SortRewardsAsc = () => ({
+export const sortRewardsAsc = () => ({
   type: CONST.SORT_REWARDS_ASC,
 });
 
-export const SortRewardsDesc = () => ({
+export const sortRewardsDesc = () => ({
   type: CONST.SORT_REWARDS_DESC,
 });
