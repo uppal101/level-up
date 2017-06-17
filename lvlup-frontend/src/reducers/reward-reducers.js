@@ -95,9 +95,9 @@ export const requests = (state = { requests: [] }, action) => {
     case CONST.SORT_REWARDS_DESC:
       return { ...state, requests: reverse(insertionSortPointsReward(state.requests)) };
     case CONST.SORT_REWARDS_CHRONO:
-      return { ...state, requests: mergeSort(state.rewards) };
+      return { ...state, requests: mergeSort(state.requests) };
     case CONST.SORT_REWARDS_REV_CHRONO:
-      return { ...state, requests: quickSort(state.rewards) };
+      return { ...state, requests: reverse(quickSort(state.requests)) };
     default:
       return state;
   }
