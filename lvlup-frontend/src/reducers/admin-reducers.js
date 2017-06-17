@@ -73,7 +73,7 @@ export const adminPendingRequests = (state = { requestsAdmin: [] }, action) => {
     case CONST.SORT_REQUESTS_ASC:
       return { ...state, requestsAdmin: bubbleSortStudent(state.requestsAdmin) };
     case CONST.SORT_REQUESTS_DESC:
-      return { ...state, requestsAdmin: bubbleSortStudentReverse(state.requestsAdmin).reverse() };
+      return { ...state, requestsAdmin: bubbleSortStudentReverse(state.requestsAdmin) };
     default:
       return state;
   }
