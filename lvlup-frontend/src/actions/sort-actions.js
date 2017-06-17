@@ -47,3 +47,35 @@ export const sortRewardCatagoryReverse = () => ({
 export const sortRewardPointsReverse = () => ({
   type: CONST.SORT_REWARD_POINTS_REVERSE,
 });
+
+export const SortSubmittedAsc = () => ({
+  type: CONST.SORT_SUBMITTED_ASC,
+});
+
+export const SortSubmittedDesc = () => ({
+  type: CONST.SORT_SUBMITTED_DESC,
+});
+
+export const SortRequestsAsc = () => ({
+  type: CONST.SORT_REQUESTS_ASC,
+});
+
+export const SortRequestsDesc = () => ({
+  type: CONST.SORT_REQUESTS_DESC,
+});
+
+export const SortSubmissionsAsc = () => ({
+  type: CONST.SORT_SUBMISSIONS_ASC,
+});
+
+export const SortSubmissionsDesc = () => ({
+  type: CONST.SORT_SUBMISSIONS_DESC,
+});
+
+export const SortRewardsAsc = () => ({
+  type: CONST.SORT_REWARDS_ASC,
+});
+
+export const SortRewardsDesc = () => ({
+  type: CONST.SORT_REWARDS_DESC,
+});

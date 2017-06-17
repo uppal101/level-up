@@ -3,7 +3,7 @@ import {
   mergeSort,
   quickSort,
 } from '../helpers/sort-date';
-import { selectionSort, selectionSortReverse } from '../helpers/sort';
+import { selectionSort, selectionSortReverse, insertionSortPointsChal, insertionSortPointsReverseChal } from '../helpers/sort';
 
 export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -115,6 +115,10 @@ export const submissions = (state = { submissions: [] }, action) => {
       return { ...state, submissions: mergeSort(state.submissions) };
     case CONST.SORT_SUBMISSIONS_REV_CHRONO:
       return { ...state, submissions: quickSort(state.submissions).reverse() };
+    case CONST.SORT_SUBMISSIONS_ASC:
+      return { ...state, submissions: insertionSortPointsChal(state.submissions) };
+    case CONST.SORT_SUBMISSIONS_DESC:
+      return { ...state, submissions: insertionSortPointsReverseChal(state.submissions) };
     default:
       return state;
   }
