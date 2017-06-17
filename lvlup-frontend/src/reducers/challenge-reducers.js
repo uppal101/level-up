@@ -41,7 +41,7 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
       return Object.assign({}, state, {
         challenges: selectionSort(state.challenges, 'name'),
       });
-    case CONST.SORT_CHALLENGE_CATAGORY:
+    case CONST.SORT_CHALLENGE_CATEGORY:
       return Object.assign({}, state, {
         challenges: selectionSort(state.challenges, 'category_id'),
       });
@@ -53,7 +53,7 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
       return Object.assign({}, state, {
         challenges: selectionSortReverse(state.challenges, 'name'),
       });
-    case CONST.SORT_CHALLENGE_CATAGORY_REVERSE:
+    case CONST.SORT_CHALLENGE_CATEGORY_REVERSE:
       return Object.assign({}, state, {
         challenges: selectionSortReverse(state.challenges, 'category_id'),
       });

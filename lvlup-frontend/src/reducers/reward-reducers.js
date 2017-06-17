@@ -121,7 +121,7 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       return Object.assign({}, state, {
         rewards: selectionSort(state.rewards, 'name'),
       });
-    case CONST.SORT_REWARD_CATAGORY:
+    case CONST.SORT_REWARD_CATEGORY:
       return Object.assign({}, state, {
         rewards: selectionSort(state.rewards, 'category_id'),
       });
@@ -133,7 +133,7 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       return Object.assign({}, state, {
         rewards: selectionSortReverse(state.rewards, 'name'),
       });
-    case CONST.SORT_REWARD_CATAGORY_REVERSE:
+    case CONST.SORT_REWARD_CATEGORY_REVERSE:
       return Object.assign({}, state, {
         rewards: selectionSortReverse(state.rewards, 'category_id'),
       });
