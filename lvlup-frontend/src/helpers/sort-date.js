@@ -1,4 +1,5 @@
 import moment from 'moment';
+import reverse from './reverse';
 
 const swap = (arr, idx1, idx2) => [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
 
@@ -14,14 +15,6 @@ const merge = (left, right) => {
     }
   }
   return result.concat(left.slice(l), right.slice(r));
-};
-
-export const reverse = (arr) => {
-  const reversed = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    reversed.push(arr[i]);
-  }
-  return reversed;
 };
 
 export const mergeSort = (arr) => {

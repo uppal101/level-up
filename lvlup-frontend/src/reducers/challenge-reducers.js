@@ -3,7 +3,8 @@ import {
   mergeSort,
   quickSort,
 } from '../helpers/sort-date';
-import { selectionSort, selectionSortReverse, insertionSortPointsChal, insertionSortPointsReverseChal } from '../helpers/sort';
+import { selectionSort, insertionSortPointsChal } from '../helpers/sort';
+import reverse from '../helpers/reverse';
 
 export const addedChallenge = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -51,15 +52,15 @@ export const challenges = (state = { challenges: [], fetched: false }, action) =
       });
     case CONST.SORT_CHALLENGE_TITLE_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortReverse(state.challenges, 'name'),
+        challenges: reverse(selectionSort(state.challenges, 'name')),
       });
     case CONST.SORT_CHALLENGE_CATEGORY_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortReverse(state.challenges, 'category_id'),
+        challenges: reverse(selectionSort(state.challenges, 'category_id')),
       });
     case CONST.SORT_CHALLENGE_POINTS_REVERSE:
       return Object.assign({}, state, {
-        challenges: selectionSortReverse(state.challenges, 'point_value'),
+        challenges: reverse(selectionSort(state.challenges, 'point_value')),
       });
     default:
       return state;
@@ -118,7 +119,7 @@ export const submissions = (state = { submissions: [] }, action) => {
     case CONST.SORT_SUBMISSIONS_ASC:
       return { ...state, submissions: insertionSortPointsChal(state.submissions) };
     case CONST.SORT_SUBMISSIONS_DESC:
-      return { ...state, submissions: insertionSortPointsReverseChal(state.submissions) };
+      return { ...state, submissions: reverse(insertionSortPointsChal(state.submissions)) };
     default:
       return state;
   }
