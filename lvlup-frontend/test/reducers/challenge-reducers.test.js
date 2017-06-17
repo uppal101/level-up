@@ -103,6 +103,12 @@ describe('challenges reducer', () => {
     expect(nextState).toEqual({ challenges: [] });
   });
 
+  it('should return a new state with the reset after added challenge', () => {
+    const prevState = { challenges: [{ test: 9 }] };
+    const nextState = challenges(prevState, { type: CONST.RESET_AFTER_ADDED_CHALLENGE_FULFILLED, payload: [] });
+    expect(nextState).toEqual({ challenges: [] });
+  });
+
   it('should return old state when sent incorrect input for challenge', () => {
     const prevState = { challenges: [] };
     const nextState = challenges(prevState, { type: CONST.CHALLENGES_CAMPUS_REJECTED, reject : [test: 1]});
