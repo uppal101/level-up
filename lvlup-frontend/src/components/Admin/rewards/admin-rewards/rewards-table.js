@@ -1,6 +1,6 @@
 import React from 'react';
 import renderRewards from '../../helpers/render-rewards';
-import { Table, Container, Button, Loader, Icon } from 'semantic-ui-react';
+import { Table, Container, Button, Loader, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../../dashboard/dashboard-styles.css';
 import './rewards-styles.css';
@@ -16,15 +16,45 @@ const RewardsTable = (props) => {
         <Table celled selectable>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell textAlign="center" colSpan="6">Rewards</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" colSpan="5" className="table-head">Rewards</Table.HeaderCell>
+              <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
+                <Dropdown text="Sort">
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      text="by Title Ascending"
+                      onClick={() => props.sortRewardName()}
+                    />
+                    <Dropdown.Item
+                      text="by Title Descending"
+                      onClick={() => props.sortRewardNameReverse()}
+                    />
+                    <Dropdown.Item
+                      text="by Category Ascending"
+                      onClick={() => props.sortRewardCategory()}
+                    />
+                    <Dropdown.Item
+                      text="by Category Descending"
+                      onClick={() => props.sortRewardCategoryReverse()}
+                    />
+                    <Dropdown.Item
+                      text="by Points Ascending"
+                      onClick={() => props.sortRewardPoints()}
+                    />
+                    <Dropdown.Item
+                      text="by Points Descending"
+                      onClick={() => props.sortRewardPointsReverse()}
+                    />
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title <Icon name="sort alphabet ascending" onClick={() => props.sortRewardName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardNameReverse()} /></Table.HeaderCell>
-              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCategory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCategoryReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell>Title </Table.HeaderCell>
+              <Table.HeaderCell>Category </Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points <Icon name="sort numeric ascending" onClick={() => props.sortRewardPoints()} /><Icon name="sort numeric descending" onClick={() => props.sortRewardPointsReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell textAlign="center">Points </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

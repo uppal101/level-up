@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Button, Loader, Icon, Dropdown } from 'semantic-ui-react';
+import { Table, Container, Button, Loader, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './challenges-style.css';
 import renderChallenges from '../../helpers/render-challenges';

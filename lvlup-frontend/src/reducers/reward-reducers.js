@@ -3,7 +3,7 @@ import {
   mergeSort,
   quickSort,
 } from '../helpers/sort-date';
-import { selectionSort, selectionSortReverse, insertionSortPointsReward, insertionSortPointsReverseReward } from '../helpers/sort';
+import { selectionSort, insertionSortPointsReward } from '../helpers/sort';
 import reverse from '../helpers/reverse';
 
 export const addedReward = (state = { fulfilled: false }, action) => {
@@ -93,7 +93,7 @@ export const requests = (state = { requests: [] }, action) => {
     case CONST.SORT_REWARDS_ASC:
       return { ...state, requests: insertionSortPointsReward(state.requests) };
     case CONST.SORT_REWARDS_DESC:
-      return { ...state, requests: insertionSortPointsReverseReward(state.requests) };
+      return { ...state, requests: reverse(insertionSortPointsReward(state.requests)) };
     case CONST.SORT_REWARDS_CHRONO:
       return { ...state, requests: mergeSort(state.requests) };
     case CONST.SORT_REWARDS_REV_CHRONO:
@@ -132,15 +132,15 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       });
     case CONST.SORT_REWARD_TITLE_REVERSE:
       return Object.assign({}, state, {
-        rewards: selectionSortReverse(state.rewards, 'name'),
+        rewards: reverse(selectionSort(state.rewards, 'name')),
       });
     case CONST.SORT_REWARD_CATEGORY_REVERSE:
       return Object.assign({}, state, {
-        rewards: selectionSortReverse(state.rewards, 'category_id'),
+        rewards: reverse(selectionSort(state.rewards, 'category_id')),
       });
     case CONST.SORT_REWARD_POINTS_REVERSE:
       return Object.assign({}, state, {
-        rewards: selectionSortReverse(state.rewards, 'point_cost'),
+        rewards: reverse(selectionSort(state.rewards, 'point_cost')),
       });
     default:
       return state;

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import reverse from './reverse';
 
 const merge = (left, right) => {
   const result = [];
