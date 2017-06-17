@@ -16,17 +16,26 @@ const merge = (left, right) => {
   return result.concat(left.slice(l), right.slice(r));
 };
 
-export const mergeSort = (arr) => {
+export const reverse = (arr) => {
   console.log(arr);
+  const reversed = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversed.push(arr[i]);
+  }
+  console.log(arr);
+  return reversed;
+};
+
+export const mergeSort = (arr) => {
   if (arr.length < 2) return arr;
-  let mid = Math.floor(arr.length / 2),
-    left = arr.slice(0, mid),
-    right = arr.slice(mid);
+  const mid = Math.floor(arr.length / 2);
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
   return merge(mergeSort(left), mergeSort(right));
 };
 
-export const quickSort = (arr) => {
-  console.log(arr);
+const quickSortForward = (arr) => {
+  console.log('qsf');
   if (arr.length <= 1) return arr;
   const pivot = [arr[arr.length - 1]];
   const leftArr = [];
@@ -38,5 +47,7 @@ export const quickSort = (arr) => {
       leftArr.push(arr[i]);
     }
   }
-  return quickSort(leftArr).concat(pivot, quickSort(rightArr));
+  return quickSortForward(leftArr).concat(pivot, quickSortForward(rightArr));
 };
+
+export const quickSort = arr => reverse(quickSortForward(arr));

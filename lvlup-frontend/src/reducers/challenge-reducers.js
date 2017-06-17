@@ -110,7 +110,7 @@ export const submissions = (state = { submissions: [] }, action) => {
     case CONST.SORT_SUBMISSIONS_CHRONO:
       return { ...state, submissions: mergeSort(state.submissions) };
     case CONST.SORT_SUBMISSIONS_REV_CHRONO:
-      return { ...state, submissions: quickSort(state.submissions).reverse() };
+      return { ...state, submissions: quickSort(state.submissions) };
     default:
       return state;
   }

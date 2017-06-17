@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const AddRewardCompleted = props => (
   <Container className="lvl-table">
-    <Table celled color="orange">
+    <Table celled selectable color="orange">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell textAlign="center">Reward Successfully Added!</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="completed-thead">Reward Successfully Added!</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>

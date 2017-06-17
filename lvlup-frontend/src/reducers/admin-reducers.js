@@ -45,7 +45,7 @@ export const adminPendingSubmissions = (state = { submissionsAdmin: [] }, action
     case CONST.SORT_SUBMITTED_CHRONO:
       return { ...state, submissionsAdmin: mergeSort(state.submissionsAdmin) };
     case CONST.SORT_SUBMITTED_REV_CHRONO:
-      return { ...state, submissionsAdmin: quickSort(state.submissionsAdmin).reverse() };
+      return { ...state, submissionsAdmin: quickSort(state.submissionsAdmin) };
     default:
       return state;
   }
@@ -64,7 +64,7 @@ export const adminPendingRequests = (state = { requestsAdmin: [] }, action) => {
     case CONST.SORT_REQUESTS_CHRONO:
       return { ...state, requestsAdmin: mergeSort(state.requestsAdmin) };
     case CONST.SORT_REQUESTS_REV_CHRONO:
-      return { ...state, requestsAdmin: quickSort(state.requestsAdmin).reverse() };
+      return { ...state, requestsAdmin: quickSort(state.requestsAdmin) };
     default:
       return state;
   }
