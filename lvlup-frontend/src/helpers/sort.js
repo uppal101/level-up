@@ -6,12 +6,26 @@ const swap = (arr, idx1, idx2) => {
   return arr;
 };
 
-export const bubbleSort = (arr) => {
+export const bubbleSortStudent = (arr) => {
   let done = false;
   while (!done) {
     done = true;
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i - 1] > arr[i]) {
+      if (arr[i - 1].student.name > arr[i].student.name) {
+        done = false;
+        swap(arr, i - 1, i);
+      }
+    }
+  }
+  return arr;
+};
+
+export const bubbleSortStudentReverse = (arr) => {
+  let done = false;
+  while (!done) {
+    done = true;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i - 1].student.name < arr[i].student.name) {
         done = false;
         swap(arr, i - 1, i);
       }
@@ -47,11 +61,50 @@ export const selectionSortReverse = (arr, key) => {
 };
 
 
-export const insertionSort = (arr) => {
+export const insertionSortPointsChal = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     let key = i;
     for (let j = i - 1; j >= 0; j--) {
-      if (arr[key] < arr[j]) {
+      if (arr[key].challenge.point_value < arr[j].challenge.point_value) {
+        swap(arr, key, j);
+        key--;
+      }
+    }
+  }
+  return arr;
+};
+
+export const insertionSortPointsReverseChal = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    let key = i;
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[key].challenge.point_value < arr[j].challenge.point_value) {
+        swap(arr, key, j);
+        key--;
+      }
+    }
+  }
+  return arr;
+};
+
+export const insertionSortPointsReward = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    let key = i;
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[key].reward.point_cost < arr[j].reward.point_cost) {
+        swap(arr, key, j);
+        key--;
+      }
+    }
+  }
+  return arr;
+};
+
+export const insertionSortPointsReverseReward = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    let key = i;
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[key].reward.point_cost < arr[j].reward.point_cost) {
         swap(arr, key, j);
         key--;
       }
