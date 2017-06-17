@@ -7,10 +7,10 @@ import { resetEditReward, makeRewardInactive } from '../../../../actions/edit-re
 import { resetAddReward } from '../../../../actions/add-reward';
 import { resetRewardsList } from '../../../../actions/reset-actions';
 import { sortRewardName,
-  sortRewardCatagory,
+  sortRewardCategory,
   sortRewardPoints,
   sortRewardNameReverse,
-  sortRewardCatagoryReverse,
+  sortRewardCategoryReverse,
   sortRewardPointsReverse } from '../../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
@@ -25,10 +25,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({ campusRewards,
   makeRewardInactive,
   resetRewardsList,
   sortRewardName,
-  sortRewardCatagory,
+  sortRewardCategory,
   sortRewardPoints,
   sortRewardNameReverse,
-  sortRewardCatagoryReverse,
+  sortRewardCategoryReverse,
   sortRewardPointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);

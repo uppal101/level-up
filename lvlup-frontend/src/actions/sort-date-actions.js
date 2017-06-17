@@ -20,7 +20,7 @@ export const sortSubmissionsChrono = () => ({
   type: CONST.SORT_SUBMISSIONS_CHRONO,
 });
 
-export const sortSubmissionRevChrono = () => ({
+export const sortSubmissionsRevChrono = () => ({
   type: CONST.SORT_SUBMISSIONS_REV_CHRONO,
 });
 

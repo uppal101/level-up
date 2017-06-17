@@ -58,7 +58,6 @@ router.route('/admins/:id/cohorts')
       .fetchAll({ withRelated: { cohort: q => q.column('id', 'name') } }))
     .then((adminsCohorts) => {
       const cohortsList = adminsCohorts.models.map(ele => ele.relations.cohort.attributes.name);
-      console.log(cohortsList);
       res.status(200).json(cohortsList);
     })
     .catch((err) => {

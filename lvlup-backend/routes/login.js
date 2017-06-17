@@ -149,7 +149,6 @@ router.route('/admin/signup')
         if (error) {
           return console.log(error);
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
       });
       // sends the information to the front end for the front end to display for the admin to confirm via email
       res.status(200).json({

@@ -93,6 +93,10 @@ export const requests = (state = { requests: [] }, action) => {
       return { ...state, requests: insertionSortPointsReward(state.requests) };
     case CONST.SORT_REWARDS_DESC:
       return { ...state, requests: insertionSortPointsReverseReward(state.requests).reverse() };
+    case CONST.SORT_REWARDS_CHRONO:
+      return { ...state, requests: mergeSort(state.rewards) };
+    case CONST.SORT_REWARDS_REV_CHRONO:
+      return { ...state, requests: quickSort(state.rewards) };
     default:
       return state;
   }
@@ -113,10 +117,6 @@ export const rewards = (state = { rewards: [], fetched: false }, action) => {
       return Object.assign({}, { error: 'Server Error - Please Try Again' }, state);
     case CONST.RESET_REWARDS_ADMIN:
       return Object.assign({}, { rewards: [] });
-    case CONST.SORT_REWARDS_CHRONO:
-      return { ...state, rewards: mergeSort(state.rewards) };
-    case CONST.SORT_REWARDS_REV_CHRONO:
-      return { ...state, rewards: quickSort(state.rewards) };
     case CONST.SORT_REWARD_TITLE:
       return Object.assign({}, state, {
         rewards: selectionSort(state.rewards, 'name'),

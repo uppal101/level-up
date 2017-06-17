@@ -8,10 +8,10 @@ import { campusChallenges, selectChallenge } from '../../../../actions/student-c
 import { submissionsAction } from '../../../../actions/admin-dash-actions';
 import { resetChallengeList } from '../../../../actions/reset-actions';
 import { sortChallengeName,
-  sortChallengeCatagory,
+  sortChallengeCategory,
   sortChallengePoints,
   sortChallengeNameReverse,
-  sortChallengeCatagoryReverse,
+  sortChallengeCategoryReverse,
   sortChallengePointsReverse } from '../../../../actions/sort-actions';
 import './challenges-style.css';
 
@@ -30,10 +30,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   makeChallengeInactive,
   resetChallengeList,
   sortChallengeName,
-  sortChallengeCatagory,
+  sortChallengeCategory,
   sortChallengePoints,
   sortChallengeNameReverse,
-  sortChallengeCatagoryReverse,
+  sortChallengeCategoryReverse,
   sortChallengePointsReverse }, dispatch);
 
 const connectToStore = connect(mapStateToProps, mapDispatchToProps);
