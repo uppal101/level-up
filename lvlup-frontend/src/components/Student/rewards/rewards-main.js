@@ -4,10 +4,10 @@ import { compose, lifecycle } from 'recompose';
 import { campusRewards, selectReward, resetRequest } from '../../../actions/student-rewards-actions';
 import StudentRewardsTable from './rewards-table';
 import { sortRewardName,
-  sortRewardCatagory,
+  sortRewardCategory,
   sortRewardPoints,
   sortRewardNameReverse,
-  sortRewardCatagoryReverse,
+  sortRewardCategoryReverse,
   sortRewardPointsReverse } from '../../../actions/sort-actions';
 
 const mapStateToProps = state => ({
@@ -20,10 +20,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   resetRequest,
   selectReward,
   sortRewardName,
-  sortRewardCatagory,
+  sortRewardCategory,
   sortRewardPoints,
   sortRewardNameReverse,
-  sortRewardCatagoryReverse,
+  sortRewardCategoryReverse,
   sortRewardPointsReverse }, dispatch);
 
 

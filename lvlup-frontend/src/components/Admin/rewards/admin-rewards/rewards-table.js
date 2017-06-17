@@ -20,7 +20,7 @@ const RewardsTable = (props) => {
             </Table.Row>
             <Table.Row>
               <Table.HeaderCell>Title <Icon name="sort alphabet ascending" onClick={() => props.sortRewardName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardNameReverse()} /></Table.HeaderCell>
-              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCatagory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCatagoryReverse()} /></Table.HeaderCell>
+              <Table.HeaderCell>Category <Icon name="sort alphabet ascending" onClick={() => props.sortRewardCategory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortRewardCategoryReverse()} /></Table.HeaderCell>
               <Table.HeaderCell>Description</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
               <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>

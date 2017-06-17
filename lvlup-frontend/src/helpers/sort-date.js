@@ -17,12 +17,10 @@ const merge = (left, right) => {
 };
 
 export const reverse = (arr) => {
-  console.log(arr);
   const reversed = [];
   for (let i = arr.length - 1; i >= 0; i--) {
     reversed.push(arr[i]);
   }
-  console.log(arr);
   return reversed;
 };
 
@@ -35,7 +33,6 @@ export const mergeSort = (arr) => {
 };
 
 const quickSortForward = (arr) => {
-  console.log('qsf');
   if (arr.length <= 1) return arr;
   const pivot = [arr[arr.length - 1]];
   const leftArr = [];
