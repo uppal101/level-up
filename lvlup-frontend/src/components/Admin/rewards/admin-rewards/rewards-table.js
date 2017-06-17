@@ -49,12 +49,12 @@ const RewardsTable = (props) => {
               </Table.HeaderCell>
             </Table.Row>
             <Table.Row>
-              <Table.HeaderCell>Title </Table.HeaderCell>
-              <Table.HeaderCell>Category </Table.HeaderCell>
-              <Table.HeaderCell>Description</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Edit</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center">Points </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Title </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Category </Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
+              <Table.HeaderCell className="thead-secondary" textAlign="center">Points </Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Loader, Icon } from 'semantic-ui-react';
+import { Table, Loader, Dropdown } from 'semantic-ui-react';
 import renderChallenges from '../helpers/render-challenges';
 
 const StudentChallengesTable = (props) => {
@@ -11,15 +11,45 @@ const StudentChallengesTable = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="6">Challenges Available</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Challenges Available</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
+              <Dropdown text="Sort">
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    text="by Challenge Ascending"
+                    onClick={() => props.sortChallengeName()}
+                  />
+                  <Dropdown.Item
+                    text="by Challenge Descending"
+                    onClick={() => props.sortChallengeNameReverse()}
+                  />
+                  <Dropdown.Item
+                    text="by Category Ascending"
+                    onClick={() => props.sortChallengeCategory()}
+                  />
+                  <Dropdown.Item
+                    text="by Category Descending"
+                    onClick={() => props.sortChallengeCategoryReverse()}
+                  />
+                  <Dropdown.Item
+                    text="by Point Value Ascending"
+                    onClick={() => props.sortChallengePoints()}
+                  />
+                  <Dropdown.Item
+                    text="by Point Value Descending"
+                    onClick={() => props.sortChallengePointsReverse()}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+            </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
-            <Table.HeaderCell>Title <br /><Icon name="sort alphabet ascending" onClick={() => props.sortChallengeName()} /> <Icon name="sort alphabet descending" onClick={() => props.sortChallengeNameReverse()} /></Table.HeaderCell>
-            <Table.HeaderCell>Category <br /> <Icon name="sort alphabet ascending" onClick={() => props.sortChallengeCategory()} /> <Icon name="sort alphabet descending" onClick={() => props.sortChallengeCategoryReverse()} /></Table.HeaderCell>
-            <Table.HeaderCell>Description</Table.HeaderCell>
-            <Table.HeaderCell>Requirement</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Points <br /><Icon name="sort numeric ascending" onClick={() => props.sortChallengePoints()} /><Icon name="sort numeric descending" onClick={() => props.sortChallengePointsReverse()} /></Table.HeaderCell>
-            <Table.HeaderCell textAlign="center">Submit</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Title </Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Requirement</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Points</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Submit</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
