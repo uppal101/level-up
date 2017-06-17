@@ -4,6 +4,7 @@ import {
   quickSort,
 } from '../helpers/sort-date';
 import { selectionSort, selectionSortReverse, insertionSortPointsReward, insertionSortPointsReverseReward } from '../helpers/sort';
+import reverse from '../helpers/reverse';
 
 export const addedReward = (state = { fulfilled: false }, action) => {
   switch (action.type) {
@@ -92,11 +93,11 @@ export const requests = (state = { requests: [] }, action) => {
     case CONST.SORT_REWARDS_ASC:
       return { ...state, requests: insertionSortPointsReward(state.requests) };
     case CONST.SORT_REWARDS_DESC:
-      return { ...state, requests: insertionSortPointsReverseReward(state.requests).reverse() };
+      return { ...state, requests: insertionSortPointsReverseReward(state.requests) };
     case CONST.SORT_REWARDS_CHRONO:
-      return { ...state, requests: mergeSort(state.rewards) };
+      return { ...state, requests: mergeSort(state.requests) };
     case CONST.SORT_REWARDS_REV_CHRONO:
-      return { ...state, requests: quickSort(state.rewards) };
+      return { ...state, requests: reverse(quickSort(state.requests)) };
     default:
       return state;
   }
