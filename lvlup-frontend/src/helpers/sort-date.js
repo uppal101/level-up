@@ -25,7 +25,7 @@ export const mergeSort = (arr) => {
   return merge(mergeSort(left), mergeSort(right));
 };
 
-const quickSortForward = (arr) => {
+export const quickSort = (arr) => {
   if (arr.length <= 1) return arr;
   const pivot = [arr[arr.length - 1]];
   const leftArr = [];
@@ -37,7 +37,5 @@ const quickSortForward = (arr) => {
       leftArr.push(arr[i]);
     }
   }
-  return quickSortForward(leftArr).concat(pivot, quickSortForward(rightArr));
+  return quickSort(leftArr).concat(pivot, quickSort(rightArr));
 };
-
-export const quickSort = arr => reverse(quickSortForward(arr));
