@@ -29,24 +29,24 @@ const StudentDashboard = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Current Quarter</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Quarter Points</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Cumulative Points</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Remaining Points</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">Current Quarter</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">Quarter Points</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">Cumulative Points</Table.HeaderCell>
+            <Table.HeaderCell textAlign="center" className="thead-secondary">Remaining Points</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           <Table.Row>
-            <Table.Cell>
+            <Table.Cell textAlign="center">
               {quarterConverter(props.lvlUpInfo.currentQuarter)}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell textAlign="center">
               {quarterPointFinder(props.lvlUpInfo)}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell textAlign="center">
               {props.lvlUpInfo.totalEarned}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell textAlign="center">
               {props.lvlUpInfo.currentTotal}
             </Table.Cell>
           </Table.Row>
