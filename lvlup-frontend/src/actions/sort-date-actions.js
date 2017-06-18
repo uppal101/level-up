@@ -24,14 +24,6 @@ export const sortSubmissionsRevChrono = () => ({
   type: CONST.SORT_SUBMISSIONS_REV_CHRONO,
 });
 
-export const sortAchvmntsChrono = () => ({
-  type: CONST.SORT_ACHVMNTS_CHRONO,
-});
-
-export const sortAchvmntsRevChrono = () => ({
-  type: CONST.SORT_ACHVMNTS_REV_CHRONO,
-});
-
 export const sortRewardsChrono = () => ({
   type: CONST.SORT_REWARDS_CHRONO,
 });
