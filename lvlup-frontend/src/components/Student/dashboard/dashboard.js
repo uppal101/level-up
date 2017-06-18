@@ -4,9 +4,9 @@ import './dashboard-styles.css';
 import { quarterConverter, quarterPointFinder, getFirstName } from '../helpers/dashboard';
 import SignupInfo from './signup-container';
 import SignUpError from './signup-error';
-import Achievements from './achievements-container';
 import Submissions from './submissions-container';
 import RewardsEarned from './rewards-earned-container';
+import AchievementsCarousel from './achievements-carousel-container';
 
 const StudentDashboard = (props) => {
   if (props.studentLoginInfo.error) {
@@ -25,6 +25,7 @@ const StudentDashboard = (props) => {
   return (
     <div className="lvl-table">
       <h1 className="headerStudent">{`Welcome, ${getFirstName(props.studentLoginInfo.name)}!`}</h1>
+      <AchievementsCarousel />
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
@@ -52,8 +53,8 @@ const StudentDashboard = (props) => {
         </Table.Body>
       </Table>
       <Submissions />
-      <Achievements />
       <RewardsEarned />
+
     </div>
   );
 };
