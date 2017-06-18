@@ -1,10 +1,10 @@
 .lvl-table {
   text-align: center;
-  float: center;
-  margin-left: 210px;
-  margin-top: 130px;
+  /*float: center;*/
+  /*margin-left: 210px;*/
+  /*margin-top: 130px;*/
   margin-bottom: 30px;
-  padding: 20px;
+  /*padding: 20px;*/
   overflow-y: scroll;
 }
 
@@ -32,5 +32,5 @@
 }
 
 #submissions-table {
-  margin-top: 40px; margin-bottom: 40px;
+  margin-bottom: 40px;
 }

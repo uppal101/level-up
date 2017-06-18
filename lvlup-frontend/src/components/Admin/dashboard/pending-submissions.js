@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Loader, Icon, Dropdown } from 'semantic-ui-react';
+import { Table, Loader, Dropdown } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import renderPendingSubmissions from '../helpers/render-pending-submissions';
 
@@ -8,11 +8,10 @@ const PendingSubmissionsTable = (props) => {
     return <Loader active inline="centered"> Loading </Loader>;
   }
   return (
-    <Container>
-      <Table celled selectable id="submissions-table">
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="4" className="thead-sortable">
+    <Table celled selectable id="submissions-table">
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell textAlign="center" colSpan="4" className="thead-sortable">
               Pending Challenge Submissions
                 <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
@@ -34,21 +33,20 @@ const PendingSubmissionsTable = (props) => {
                     />
                   </Dropdown.Menu>
                 </Dropdown>
+          </Table.HeaderCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
+          <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+          <Table.HeaderCell textAlign="center" className="thead-secondary">Date Submitted
             </Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" className="thead-secondary">Date Submitted
-            </Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" className="thead-secondary">View</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {renderPendingSubmissions(props)}
-        </Table.Body>
-      </Table>
-    </Container>
+          <Table.HeaderCell textAlign="center" className="thead-secondary">View</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {renderPendingSubmissions(props)}
+      </Table.Body>
+    </Table>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Form, Loader, Container, Segment } from 'semantic-ui-react';
+import { Form, Loader, Container, Segment, Grid } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import { renderMultiSelectField } from '../../helpers/render-fields';
 import { required } from '../../helpers/validations';
@@ -39,7 +39,11 @@ class AddAdminCohortForm extends PureComponent {
                   {cohortsFilter(this.props.cohorts, this.props.admin.cohorts).map(option => <option value={option.id}>{`${option.type} ${option.name}`}</option>)}
                 </Field>
               </Form.Field>
-              <Form.Button basic color="orange">Add a Cohort</Form.Button>
+              <Grid centered>
+                <Grid.Row>
+                  <Form.Button basic color="orange">Add a Cohort</Form.Button>
+                </Grid.Row>
+              </Grid>
             </Form>
           </Segment>
         </Container>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Loader, Container, Segment } from 'semantic-ui-react';
+import { Form, Loader, Container, Segment, Grid } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import { renderField, renderSelectField } from '../../helpers/render-fields';
 import { required } from '../../helpers/validations';
@@ -102,7 +102,11 @@ const AddACohortForm = (props) => {
                 validate={[required]}
               />
             </Form.Field>
-            <Form.Button basic color="orange">Add a Cohort</Form.Button>
+            <Grid centered>
+              <Grid.Row>
+                <Form.Button basic color="orange">Add a Cohort</Form.Button>
+              </Grid.Row>
+            </Grid>
           </Form>
         </Segment>
       </Container>

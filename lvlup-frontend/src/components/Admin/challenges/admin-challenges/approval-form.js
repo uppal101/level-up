@@ -15,6 +15,7 @@ const SubmissionApprovalForm = ({ selectedChallenge, submissionFormAdmin, handle
           <Grid.Row>
             <Form.Field centered width={12}>
               <Field
+                id="evaluation-message"
                 name="evaluation_message"
                 component={renderField}
                 type="text"

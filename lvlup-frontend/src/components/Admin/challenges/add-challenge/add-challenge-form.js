@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Form, Container, Segment, Button, Loader } from 'semantic-ui-react';
+import { Form, Container, Segment, Button, Loader, Grid } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import renderIf from 'render-if';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
@@ -60,7 +60,7 @@ class AddChallengeForm extends PureComponent {
               <Form.Field width={4}>
                 {renderIf(this.state.numberOfRequestInputs < 5 && this.state.maxRequestInputs === false)(
                   <Button basic color="orange" onClick={() => this.addRequirement()}>Add Requirement</Button>,
-                )}˚
+                )}
               </Form.Field>
             </Form.Group>
             <Form.Group>
@@ -104,9 +104,11 @@ class AddChallengeForm extends PureComponent {
                 />
               </Form.Field>
             </Form.Group>
-            <Form.Group>
-              <Form.Button basic color="orange">Submit</Form.Button>
-            </Form.Group>
+            <Grid centered>
+              <Grid.Row>
+                <Form.Button basic color="orange">Submit</Form.Button>
+              </Grid.Row>
+            </Grid>
           </Form>
         </Segment>
       </Container>
