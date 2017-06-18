@@ -1,6 +1,6 @@
 import React from 'react';
 import renderIf from 'render-if';
-import EditRewardForm from './edit-reward-form';
+import EditRewardForm from './edit-reward-form-container';
 import EditRewardCompleted from './edit-reward-completed-container';
 
 const EditReward = (props) => {
