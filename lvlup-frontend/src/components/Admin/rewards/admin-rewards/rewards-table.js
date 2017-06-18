@@ -1,6 +1,6 @@
 import React from 'react';
 import renderRewards from '../../helpers/render-rewards';
-import { Table, Container, Button, Loader, Dropdown } from 'semantic-ui-react';
+import { Table, Button, Loader, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import '../../dashboard/dashboard-styles.css';
 import './rewards-styles.css';
@@ -12,11 +12,10 @@ const RewardsTable = (props) => {
   }
   return (
     <div className="lvl-table">
-      <Container>
-        <Table celled selectable>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell textAlign="center" colSpan="6" className="thead-sortable">Rewards
+      <Table celled selectable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell textAlign="center" colSpan="6" className="thead-sortable">Rewards
                 <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
@@ -45,23 +44,22 @@ const RewardsTable = (props) => {
                     />
                   </Dropdown.Menu>
                 </Dropdown>
-              </Table.HeaderCell>
-            </Table.Row>
-            <Table.Row>
-              <Table.HeaderCell className="thead-secondary">Title </Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary">Category </Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Points </Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {renderRewards(props)}
-          </Table.Body>
-        </Table>
-        <Link to="/admin/reward-add"><Button basic color="orange" content="Add Reward" /></Link>
-      </Container>
+            </Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.HeaderCell className="thead-secondary">Title </Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category </Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Points </Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {renderRewards(props)}
+        </Table.Body>
+      </Table>
+      <Link to="/admin/reward-add"><Button basic color="orange" content="Add Reward" /></Link>
     </div>
   );
 };

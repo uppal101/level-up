@@ -8,11 +8,10 @@ const PendingRequestsTable = (props) => {
     return <Loader active inline="centered"> Loading </Loader>;
   }
   return (
-    <Container className="subsequent-table">
-      <Table celled selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Pending Reward Requests
+    <Table celled selectable className="subsequent-table">
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Pending Reward Requests
                 <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
@@ -33,22 +32,21 @@ const PendingRequestsTable = (props) => {
                     />
                   </Dropdown.Menu>
                 </Dropdown>
-            </Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Reward</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary" textAlign="center">Date Submitted</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary" textAlign="center">Notes</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary" textAlign="center">Approve</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+          </Table.HeaderCell>
+        </Table.Row>
+        <Table.Row>
+          <Table.HeaderCell className="thead-secondary">Name</Table.HeaderCell>
+          <Table.HeaderCell className="thead-secondary">Reward</Table.HeaderCell>
+          <Table.HeaderCell className="thead-secondary" textAlign="center">Date Submitted</Table.HeaderCell>
+          <Table.HeaderCell className="thead-secondary" textAlign="center">Notes</Table.HeaderCell>
+          <Table.HeaderCell className="thead-secondary" textAlign="center">Approve</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
 
-        <Table.Body>
-          {renderPendingRequests(props)}
-        </Table.Body>
-      </Table>
-    </Container>
+      <Table.Body>
+        {renderPendingRequests(props)}
+      </Table.Body>
+    </Table>
   );
 };
 

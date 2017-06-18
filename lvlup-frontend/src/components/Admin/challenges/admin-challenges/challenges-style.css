@@ -8,10 +8,14 @@
   margin-left: 25%;
 }
 
-#approval-form {
-  margin-top: 40px;
-}
-
 #hover-icon:hover {
   cursor: pointer;
+}
+
+#submission-info {
+  font-size: 14px;
+}
+
+#challenge-info {
+  font-size: 14px;
 }

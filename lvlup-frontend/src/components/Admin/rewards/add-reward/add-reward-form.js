@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Container, Segment, Loader } from 'semantic-ui-react';
+import { Form, Container, Segment, Loader, Grid } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 import { renderField, renderTextAreaField, renderSelectField, categories } from '../../helpers/render-fields';
 import { required, number } from '../../helpers/validations';
@@ -77,9 +77,11 @@ const AddRewardForm = (props) => {
               />
             </Form.Field>
           </Form.Group>
-          <Form.Group>
-            <Form.Button basic color="orange">Submit</Form.Button>
-          </Form.Group>
+          <Grid centered>
+            <Grid.Row>
+              <Form.Button basic color="orange">Submit</Form.Button>
+            </Grid.Row>
+          </Grid>
         </Form>
       </Segment>
     </Container>

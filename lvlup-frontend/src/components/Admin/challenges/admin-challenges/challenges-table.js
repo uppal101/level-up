@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container, Button, Loader, Dropdown } from 'semantic-ui-react';
+import { Table, Button, Loader, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import './challenges-style.css';
 import renderChallenges from '../../helpers/render-challenges';
@@ -11,11 +11,10 @@ const ChallengesTable = (props) => {
   }
   return (
     <div className="lvl-table">
-      <Container>
-        <Table celled selectable>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell textAlign="center" className="thead-sortable" colSpan="7">Challenges
+      <Table celled selectable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell textAlign="center" className="thead-sortable" colSpan="7">Challenges
                 <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
@@ -44,28 +43,27 @@ const ChallengesTable = (props) => {
                     />
                   </Dropdown.Menu>
                 </Dropdown>
-              </Table.HeaderCell>
-            </Table.Row>
-            <Table.Row>
-              <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary">Requirements</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
-              <Table.HeaderCell className="thead-secondary" textAlign="center">Points</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
+            </Table.HeaderCell>
+          </Table.Row>
+          <Table.Row>
+            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Description</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary">Requirements</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Edit</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Remove</Table.HeaderCell>
+            <Table.HeaderCell className="thead-secondary" textAlign="center">Points</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
 
-          <Table.Body>
-            {renderChallenges(props)}
-          </Table.Body>
+        <Table.Body>
+          {renderChallenges(props)}
+        </Table.Body>
 
-        </Table>
-        <Link to="/admin/challenge-add">
-          <Button basic color="orange" content="Add Challenge" />
-        </Link>
-      </Container>
+      </Table>
+      <Link to="/admin/challenge-add">
+        <Button basic color="orange" content="Add Challenge" />
+      </Link>
     </div>
   );
 };
