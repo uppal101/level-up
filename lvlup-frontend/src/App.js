@@ -19,7 +19,7 @@ import StudentRewardRequest from './components/Student/requests/request-containe
 import StudentSidenav from './components/Student/nav/sidenav-container';
 import AdminSidenav from './components/Admin/nav/sidenav-container';
 import StudentDashboard from './components/Student/dashboard/dashboard-container';
-import AdminConfiguration from './components/Admin/config/config-main';
+import AdminConfiguration from './components/Admin/config/config-main-container';
 import AddCohortPage from './components/Admin/config/add-cohort/added-cohort-container';
 import AddAminCohort from './components/Admin/config/add-admin-cohort/added-admin-cohort-container';
 
