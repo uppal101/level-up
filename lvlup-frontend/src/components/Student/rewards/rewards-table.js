@@ -12,9 +12,8 @@ const StudentRewardsTable = (props) => {
         <Table celled selectable color="orange">
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell textAlign="center" colSpan="4" className="thead-sortable">Rewards</Table.HeaderCell>
-              <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-                <Dropdown text="Sort">
+              <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Rewards
+                <Dropdown text="Sort" className="sort">
                   <Dropdown.Menu>
                     <Dropdown.Item
                       text="by Title Ascending"

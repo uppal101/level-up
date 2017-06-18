@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react';
 import formatDate from '../../../helpers/format-date';
 
 const renderAchievements = props => (
-  props.submissions.submissions.filter(submission => submission.submission_status === 'Approved').map(item => (
+  props.submissions.filter(submission => submission.submission_status === 'Approved').map(item => (
     <Table.Row key={`${item.id}student-dashboard3`}>
       <Table.Cell>{item.challenge.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>
@@ -12,6 +12,5 @@ const renderAchievements = props => (
     </Table.Row>
   ))
 );
-
 
 export default renderAchievements;

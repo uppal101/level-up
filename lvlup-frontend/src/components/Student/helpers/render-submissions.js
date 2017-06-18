@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react';
 import formatDate from '../../../helpers/format-date';
 
 const renderSubmissions = props => (
-  props.submissions.submissions.filter(submission => submission.submission_status !== 'Approved').map((item) => {
+  props.filter(submission => submission.submission_status !== 'Approved').map((item) => {
     if (item.submission_status === 'Denied') {
       return (
         <Table.Row negative key={`${item.id}student-dashboard1`}>

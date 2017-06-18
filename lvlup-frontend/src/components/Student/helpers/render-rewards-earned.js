@@ -3,7 +3,7 @@ import { Table } from 'semantic-ui-react';
 import formatDate from '../../../helpers/format-date';
 
 const renderRewardsEarned = props => (
-  props.requests.requests.filter(request => request.status === 'Approved').map(item => (
+  props.filter(request => request.status === 'Approved').map(item => (
     <Table.Row key={`${item.id}student-dashboard3`}>
       <Table.Cell>{item.reward.name}</Table.Cell>
       <Table.Cell>{item.category.category}</Table.Cell>

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Table, Loader, Dropdown } from 'semantic-ui-react';
+import { Table, Loader } from 'semantic-ui-react';
 import './dashboard-styles.css';
 import { quarterConverter, quarterPointFinder, getFirstName } from '../helpers/dashboard';
-import renderSubmissions from '../helpers/render-submissions';
-import renderAchievements from '../helpers/render-achievements';
-import renderRewardsEarned from '../helpers/render-rewards-earned';
 import SignupInfo from './signup-container';
 import SignUpError from './signup-error';
+import Achievements from './achievements-container';
+import Submissions from './submissions-container';
+import RewardsEarned from './rewards-earned-container';
 
 const StudentDashboard = (props) => {
   if (props.studentLoginInfo.error) {
@@ -51,120 +51,9 @@ const StudentDashboard = (props) => {
           </Table.Row>
         </Table.Body>
       </Table>
-      <Table celled selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Current Submissions</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-              <Dropdown text="Sort">
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="by Points Least to Most"
-                    onClick={() => props.sortSubmissionsAsc()}
-                  />
-                  <Dropdown.Item
-                    text="by Points Most to Lease"
-                    onClick={() => props.sortSubmissionsDesc()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Chronological"
-                    onClick={() => props.sortSubmissionsChrono()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Reverse Chronological"
-                    onClick={() => props.sortSubmissionsRevChrono()}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
-            </Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {renderSubmissions(props)}
-        </Table.Body>
-      </Table>
-      <Table celled selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Achievements</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-              <Dropdown text="Sort">
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="by Points Least to Most"
-                    onClick={() => props.sortSubmissionsAsc()}
-                  />
-                  <Dropdown.Item
-                    text="by Points Most to Lease"
-                    onClick={() => props.sortSubmissionsDesc()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Chronological"
-                    onClick={() => props.sortSubmissionsChrono()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Reverse Chronological"
-                    onClick={() => props.sortSubmissionsRevChrono()}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
-            </Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {renderAchievements(props)}
-        </Table.Body>
-      </Table>
-      <Table celled selectable>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell className="thead-sortable" textAlign="center" colSpan="3">Rewards Earned</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-              <Dropdown text="Sort">
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="by Points Least to Most"
-                    onClick={() => props.sortRewardsAsc()}
-                  />
-                  <Dropdown.Item
-                    text="by Points Most to Lease"
-                    onClick={() => props.sortRewardsDesc()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Chronological"
-                    onClick={() => props.sortRewardsChrono()}
-                  />
-                  <Dropdown.Item
-                    text="by Date Reverse Chronological"
-                    onClick={() => props.sortRewardsRevChrono()}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
-            </Table.HeaderCell>
-          </Table.Row>
-          <Table.Row>
-            <Table.HeaderCell className="thead-secondary">Title</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Category</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Points</Table.HeaderCell>
-            <Table.HeaderCell className="thead-secondary">Date</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {renderRewardsEarned(props)}
-        </Table.Body>
-      </Table>
+      <Submissions />
+      <Achievements />
+      <RewardsEarned />
     </div>
   );
 };
