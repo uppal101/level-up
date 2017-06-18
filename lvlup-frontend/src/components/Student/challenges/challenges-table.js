@@ -11,36 +11,35 @@ const StudentChallengesTable = (props) => {
       <Table celled selectable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Challenges Available</Table.HeaderCell>
-            <Table.HeaderCell textAlign="center" colSpan="1" className="sort-dropdown">
-              <Dropdown text="Sort">
-                <Dropdown.Menu>
-                  <Dropdown.Item
-                    text="by Challenge Ascending"
-                    onClick={() => props.sortChallengeName()}
-                  />
-                  <Dropdown.Item
-                    text="by Challenge Descending"
-                    onClick={() => props.sortChallengeNameReverse()}
-                  />
-                  <Dropdown.Item
-                    text="by Category Ascending"
-                    onClick={() => props.sortChallengeCategory()}
-                  />
-                  <Dropdown.Item
-                    text="by Category Descending"
-                    onClick={() => props.sortChallengeCategoryReverse()}
-                  />
-                  <Dropdown.Item
-                    text="by Point Value Ascending"
-                    onClick={() => props.sortChallengePoints()}
-                  />
-                  <Dropdown.Item
-                    text="by Point Value Descending"
-                    onClick={() => props.sortChallengePointsReverse()}
-                  />
-                </Dropdown.Menu>
-              </Dropdown>
+            <Table.HeaderCell textAlign="center" colSpan="6" className="thead-sortable">Challenges Available
+                <Dropdown text="Sort" className="sort">
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      text="by Challenge Ascending"
+                      onClick={() => props.sortChallengeName()}
+                    />
+                    <Dropdown.Item
+                      text="by Challenge Descending"
+                      onClick={() => props.sortChallengeNameReverse()}
+                    />
+                    <Dropdown.Item
+                      text="by Category Ascending"
+                      onClick={() => props.sortChallengeCategory()}
+                    />
+                    <Dropdown.Item
+                      text="by Category Descending"
+                      onClick={() => props.sortChallengeCategoryReverse()}
+                    />
+                    <Dropdown.Item
+                      text="by Point Value Ascending"
+                      onClick={() => props.sortChallengePoints()}
+                    />
+                    <Dropdown.Item
+                      text="by Point Value Descending"
+                      onClick={() => props.sortChallengePointsReverse()}
+                    />
+                  </Dropdown.Menu>
+                </Dropdown>
             </Table.HeaderCell>
           </Table.Row>
           <Table.Row>
