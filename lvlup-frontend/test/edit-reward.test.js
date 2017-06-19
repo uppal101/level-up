@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('EditReward should render', () => {
   const store = mockStore({ lvlupApp });
   const edit = shallow(
-    <EditReward store={store} />,
+    <EditReward editStatus={{ fulfilled: true }} store={store} />,
   );
   expect(shallowToJson(edit)).toMatchSnapshot();
 });

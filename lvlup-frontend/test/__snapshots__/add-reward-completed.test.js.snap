@@ -1,32 +1,77 @@
 exports[`test AddRewardCompleted should render 1`] = `
-<AddRewardCompleted
-  dispatch={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<Container
+  className="lvl-table">
+  <Table
+    as="table"
+    celled={true}
+    color="orange"
+    selectable={true}>
+    <TableHeader
+      as="thead">
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableHeaderCell
+          as="th"
+          className="completed-thead"
+          textAlign="center">
+          Reward Successfully Added!
+        </TableHeaderCell>
+      </TableRow>
+    </TableHeader>
+    <TableBody
+      as="tbody">
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableCell
+          as="td">
+          <Label
+            ribbon={true}>
+            Reward
+          </Label>
+          Test
+        </TableCell>
+      </TableRow>
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableCell
+          as="td">
+          <Label
+            ribbon={true}>
+            Point Cost
+          </Label>
+          0
+        </TableCell>
+      </TableRow>
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableCell
+          as="td">
+          <Label
+            ribbon={true}>
+            Description
+          </Label>
+          This is for the test
+        </TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+  <Grid
+    centered={true}>
+    <Link
+      replace={false}
+      to="/admin/rewards">
+      <Button
+        as="button"
+        basic={true}
+        color="orange"
+        id="completed-btn">
+        Back to Rewards
+      </Button>
+    </Link>
+  </Grid>
+</Container>
 `;

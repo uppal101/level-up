@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('EditChallengeApproved should render', () => {
   const store = mockStore({ lvlupApp });
   const edit = shallow(
-    <EditChallengeApproved store={store} />,
+    <EditChallengeApproved editedChallenge={{ data: { name: 'Feed Hamid', point_value: 5, description: 'Feed your favorite instructor with the evil laugh' } }} store={store} />,
   );
   expect(shallowToJson(edit)).toMatchSnapshot();
 });

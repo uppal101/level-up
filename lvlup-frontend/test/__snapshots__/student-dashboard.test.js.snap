@@ -1,5 +1,6 @@
 exports[`test StudentDashboard should render 1`] = `
-<lifecycle(StudentDashboard)
+<StudentDashboard
+  dispatch={[Function]}
   store={
     Object {
       "clearActions": [Function],
@@ -27,6 +28,5 @@ exports[`test StudentDashboard should render 1`] = `
       },
       "unsubscribe": null,
     }
-  }
-  submissionsAction={[Function]} />
+  } />
 `;

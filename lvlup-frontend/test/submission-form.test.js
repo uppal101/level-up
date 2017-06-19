@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('SubmissionMainForm should render', () => {
   const store = mockStore({ lvlupApp });
   const sub = shallow(
-    <SubmissionMainForm store={store} />,
+    <SubmissionMainForm selectedChallenge={{ name: 'Feed the Hamid' }} handleSubmit={jest.fn} store={store} />,
   );
   expect(shallowToJson(sub)).toMatchSnapshot();
 });

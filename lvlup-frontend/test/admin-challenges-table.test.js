@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('ChallengesTable should render', () => {
   const store = mockStore({ lvlupApp });
   const adminchallenges = shallow(
-    <ChallengesTable store={store} />,
+    <ChallengesTable challenges={{ challenges: { length: 5, challenges: ['test'] } }} renderChallenges={jest.fn} store={store} />,
   );
   expect(shallowToJson(adminchallenges)).toMatchSnapshot();
 });

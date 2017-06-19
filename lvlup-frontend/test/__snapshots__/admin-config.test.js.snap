@@ -1,15 +1,33 @@
 exports[`test AdminConfiguration should render 1`] = `
-<AdminConfiguration
-  resetAddCohort={[Function]}
-  resetAdminCohort={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  } />
+<Container>
+  <Segment
+    className="cohortOptions"
+    textAlign="center">
+    <h2>
+      Cohort Options
+    </h2>
+    <Link
+      replace={false}
+      to="/admin/configuration/addcohort">
+      <Button
+        as="button"
+        color="orange"
+        inverted={true}>
+         Click here to add a Cohort
+      </Button>
+    </Link>
+    <br />
+    <br />
+    <Link
+      replace={false}
+      to="/admin/configuration/addadmincohort">
+      <Button
+        as="button"
+        color="orange"
+        inverted={true}>
+         Click here to add a Cohort to your Profile
+      </Button>
+    </Link>
+  </Segment>
+</Container>
 `;

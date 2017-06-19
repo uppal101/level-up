@@ -1,32 +1,32 @@
 exports[`test NavBar should render 1`] = `
-<NavBar
-  dispatch={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<Menu
+  className="nav"
+  secondary={true}
+  size="small">
+  <MenuItem
+    className="center"
+    header={true}>
+    <Link
+      replace={false}
+      to="/student/dashboard">
+      <div
+        className="nav-logo">
+        lvl^
+      </div>
+    </Link>
+    <Link
+      replace={false}
+      to="/admin/dashboard">
+      <div
+        className="nav-logo">
+        lvl^
+      </div>
+    </Link>
+  </MenuItem>
+  <MenuItem
+    className="right">
+    <Connect(LogOutGithub) />
+    <Connect(LogOutAdmin) />
+  </MenuItem>
+</Menu>
 `;

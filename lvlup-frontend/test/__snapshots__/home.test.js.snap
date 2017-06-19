@@ -11,8 +11,10 @@ exports[`test Home should render 1`] = `
     </GridRow>
   </Grid>
   <Grid
+    id="landing-grid"
     padded={true}>
-    <GridRow>
+    <GridRow
+      id="intro-row">
       <div
         id="intro-text">
         <u>
@@ -22,7 +24,8 @@ exports[`test Home should render 1`] = `
       </div>
     </GridRow>
     <GridRow
-      centered={true}>
+      centered={true}
+      id="intro-row">
       <div
         className="demo-section1">
         <RecruiterModal />

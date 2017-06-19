@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('StudentRewardRequestForm should render', () => {
   const store = mockStore({ lvlupApp });
   const req = shallow(
-    <StudentRewardRequestForm store={store} />,
+    <StudentRewardRequestForm reward={{ name: 'Pizza Party' }} store={store} />,
   );
   expect(shallowToJson(req)).toMatchSnapshot();
 });

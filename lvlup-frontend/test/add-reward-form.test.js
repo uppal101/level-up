@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('AddRewardForm should render', () => {
   const store = mockStore({ lvlupApp });
   const add = shallow(
-    <AddRewardForm store={store} />,
+    <AddRewardForm campuses={5} handleSubmit={jest.fn} store={store} map={jest.fn} />,
   );
   expect(shallowToJson(add)).toMatchSnapshot();
 });

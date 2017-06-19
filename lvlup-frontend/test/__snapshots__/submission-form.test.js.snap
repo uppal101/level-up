@@ -1,32 +1,120 @@
 exports[`test SubmissionMainForm should render 1`] = `
-<ReduxForm
-  challengeSubmission={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<div
+  className="submission-container">
+  <Container>
+    <div
+      className="challenge-submission">
+      <h2
+        className="header">
+        Challenge Submission: Feed the Hamid
+      </h2>
+      <Segment
+        inverted={true}>
+        <Form
+          as="form"
+          className="challenge-submission-form"
+          onSubmit={[Function]}>
+          <FormField
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Submission Message"
+              name="submission_message"
+              placeholder="Enter Submission Message"
+              type="text"
+              validate={
+                Array [
+                  [Function],
+                  [Function],
+                ]
+              } />
+          </FormField>
+          <FormField
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Attachment Link 1"
+              name="submission_attachment_1"
+              placeholder="Please add your attachment here"
+              type="text" />
+          </FormField>
+          <FormField
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Attachment Link 2"
+              name="submission_attachment_2"
+              placeholder="Please add your attachment here"
+              type="text" />
+          </FormField>
+          <FormField
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Attachment Link 3"
+              name="submission_attachment_3"
+              placeholder="Please add your attachment here"
+              type="text" />
+          </FormField>
+          <FormField
+            id="submit-image"
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Submission Image 1"
+              name="submission_image_link_1"
+              placeholder="Please choose a file below and copy link here"
+              type="text" />
+          </FormField>
+          <div>
+            <input
+              name="submission_image_link_1"
+              role="uploadcare-uploader"
+              type="text" />
+          </div>
+          <FormField
+            id="submit-image"
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Submission Image 2"
+              name="submission_image_link_2"
+              placeholder="Please choose a file below and copy link here"
+              type="text" />
+          </FormField>
+          <div>
+            <input
+              name="submission_image_link_2"
+              role="uploadcare-uploader"
+              type="text" />
+          </div>
+          <FormField
+            id="submit-image"
+            inline={true}>
+            <Field
+              component={[Function]}
+              label="Submission Image 3"
+              name="submission_image_link_3"
+              placeholder="Please choose a file below and copy link here"
+              type="text" />
+          </FormField>
+          <div>
+            <input
+              name="submission_image_link_3"
+              role="uploadcare-uploader"
+              type="text" />
+          </div>
+          <FormButton
+            as={[Function]}
+            basic={true}
+            color="orange"
+            control={[Function]}
+            floated="right">
+            lvl^
+          </FormButton>
+        </Form>
+      </Segment>
+    </div>
+  </Container>
+</div>
 `;

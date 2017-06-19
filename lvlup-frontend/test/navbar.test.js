@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('NavBar should render', () => {
   const store = mockStore({ lvlupApp });
   const nav = shallow(
-    <NavBar store={store} />,
+    <NavBar studentLoginInfo={{ status: true }} adminLoginInfo={{ status: true }} store={store} />,
   );
   expect(shallowToJson(nav)).toMatchSnapshot();
 });
