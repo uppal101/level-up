@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('PendingChallenges should render', () => {
   const store = mockStore({ lvlupApp });
   const approveChallenge = shallow(
-    <PendingChallenges store={store} />,
+    <PendingChallenges pendingSubmissions={{ subsmissionsAdmin: { length: 5 } }} store={store} />,
   );
   expect(shallowToJson(approveChallenge)).toMatchSnapshot();
 });
