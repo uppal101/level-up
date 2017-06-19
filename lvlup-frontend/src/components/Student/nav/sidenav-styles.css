@@ -10,11 +10,19 @@
   border-right: 1px solid !important;
   border-color: #F2711C !important;
   background-color: #4A4A4A !important;
+  font-family: 'Anaheim', sans-serif !important;
+  font-size: 16px !important;
+}
+
+h4 {
+  font-family: 'Anaheim', sans-serif !important;
+  font-size: 24px;
 }
 
 .userdiv {
   margin-top: 5px;
   text-align: center;
+  font-family: 'Anaheim', sans-serif !important;
 }
 
 .headerStudent{
@@ -22,8 +30,9 @@
 }
 
 #student-sidenav-info {
-   margin-top: 30px;
-   margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  font-family: 'Anaheim', sans-serif !important;
 }
 
 .signupPage {

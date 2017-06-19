@@ -16,10 +16,10 @@ const AdminSidenav = (props) => {
           <h4>{props.adminLoginInfo.username}</h4>
         </div>
       </Menu.Item>
-      <Link to={'/admin/dashboard'}><Menu.Item><Icon name="dashboard" />Dashboard</Menu.Item></Link>
-      <Link to={'/admin/challenges'}><Menu.Item><Icon name="chevron up" />Challenges</Menu.Item></Link>
-      <Link to={'/admin/rewards'}><Menu.Item><Icon name="gift" />Rewards</Menu.Item></Link>
-      <Link to={'/admin/configuration'}><Menu.Item><Icon name="setting" />Configuration</Menu.Item></Link>
+      <Link to={'/admin/dashboard'}><Menu.Item><Icon className="dash-icon" name="dashboard" /><br />Dashboard</Menu.Item></Link>
+      <Link to={'/admin/challenges'}><Menu.Item><Icon name="chevron up" /><br />Challenges</Menu.Item></Link>
+      <Link to={'/admin/rewards'}><Menu.Item><Icon name="gift" /><br />Rewards</Menu.Item></Link>
+      <Link to={'/admin/configuration'}><Menu.Item><Icon name="setting" /><br />Configuration</Menu.Item></Link>
     </Menu>
   );
 };

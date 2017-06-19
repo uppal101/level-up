@@ -1,5 +1,5 @@
 #about-column {
-  padding: 60px 40px 0px 40px;
+  padding: 100px 40px 40px 40px;
 }
 
 #about-header {
@@ -11,7 +11,7 @@
 
 .about-links {
   margin-top: 55px;
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
   font-size: 18px;
 }
 
@@ -35,12 +35,12 @@
   line-height: 32px;
   background-color: #4A4A4A;
   text-align: center;
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
 }
 
 .about-reveal {
   padding: 10px;
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
   font-size: 1.0em;
   line-height: 24px;
 }
@@ -71,7 +71,7 @@
   line-height: 32px;
   background-color: #CCCCCC;
   text-align: center;
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
 }
 
 #challenge-column {
@@ -104,7 +104,7 @@
 
 .demo-section1 {
   padding-top: 20px;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 .demo-section2 {
@@ -132,7 +132,7 @@ div.description {
   border-top: 1px solid;
   border-color: #F2711C;
   color: #F2711C;
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
   font-size: 18px;
 }
 
@@ -161,14 +161,18 @@ div.description {
 }
 
 #intro-text {
-  font-size: 24px;
+  font-size: 26px;
   line-height: 38px;
-  margin-top: 60px;
+  margin-top: 80px;
   margin-right: 10%;
   margin-left: 10%;
-  margin-bottom: 0px;
+  margin-bottom: 40px;
   text-align: center;
   font-family: 'Nova Square', sans-serif;
+}
+
+#intro-row {
+  background-color: white;
 }
 
 .modalGreeting {
@@ -218,7 +222,7 @@ div.description {
 
 .team-cards {
   background-color: #4A4A4A;
-  padding: 60px 40px 100px 40px;
+  padding: 60px 40px 140px 40px;
 }
 
 .team-card {
@@ -232,13 +236,13 @@ div.description {
 }
 
 .technologyCards {
-  font-family: 'Nova Square', sans-serif;
+  font-family: 'Anaheim', sans-serif;
   text-align: center !important;
 }
 
 .techCards {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 100px;
+  margin-bottom: 140px;
 }
 
 .techHeader {

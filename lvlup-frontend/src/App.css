@@ -61,6 +61,11 @@ body,
   margin-top: 30px;
 }
 
+h2 {
+  font-family: 'Nova Square', sans-serif !important;
+  /*font-family: 'Anaheim', sans-serif !important;*/
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -68,14 +73,13 @@ body,
 
 .lvl-table {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   overflow-y: scroll;
 }
 
 .lvl-form {
   text-align: center;
   float: center;
-  margin-left: 210px;
   margin-top: 30px;
 }
 
@@ -108,7 +112,7 @@ body,
 }
 
 .sort {
-  float: right !important;
+  float: left !important;
   font-size: 12px !important;
 }
 
@@ -131,7 +135,7 @@ body,
 .thead-sortable {
   color: #4a4a4a !important;
   font-size: 16px;
-  padding-left: 56px !important;
+  padding-right: 56px !important;
   background-color: rgba(74, 74, 74, 0.2) !important;
 }
 
@@ -141,17 +145,23 @@ body,
   background-color: rgba(74, 74, 74, 0.2) !important;
 }
 
+.ui.button {
+  font-family: 'Anaheim', sans-serif !important;
+}
+
 .ui.inverted.segment {
   background-color: #4A4A4A !important;
   color: #DDDDDD !important;
   border: 1px solid #F2711C !important;
   margin: 0 5.5em !important;
   padding: 30px !important;
+  font-family: 'Anaheim', sans-serif !important;
 }
 
 .ui.table {
   border-bottom: 1px solid #F2711C !important;
   border-top: 2px solid #F2711C !important;
+  font-family: 'Anaheim', sans-serif !important;
 }
 
 .ui.table.thead {
@@ -162,6 +172,7 @@ body,
 .ui.vertical.menu {
   width: 18rem !important;
   padding: 40px 10px !important;
+  float: center !important;
  }
 
  #user-col {
