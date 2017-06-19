@@ -8,7 +8,7 @@ const PendingRequestsTable = (props) => {
     return <Loader active inline="centered"> Loading </Loader>;
   }
   return (
-    <Table celled selectable className="subsequent-table">
+    <Table celled selectable id="requests-table">
       <Table.Header>
         <Table.Row>
           <Table.HeaderCell textAlign="center" colSpan="5" className="thead-sortable">Pending Reward Requests
