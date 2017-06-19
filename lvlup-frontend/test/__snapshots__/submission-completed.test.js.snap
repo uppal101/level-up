@@ -1,32 +1,60 @@
-exports[`test SubissionCompleted should render 1`] = `
-<SubmissionCompleted
-  dispatch={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+exports[`test SubmissionCompleted should render 1`] = `
+<div
+  className="lvl-table">
+  <Table
+    as="table"
+    celled={true}
+    selectable={true}>
+    <TableHeader
+      as="thead">
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableHeaderCell
+          as="th"
+          className="completed-thead"
+          textAlign="center">
+          Challenge Submission Successful!
+        </TableHeaderCell>
+      </TableRow>
+    </TableHeader>
+    <TableBody
+      as="tbody">
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableCell
+          as="td">
+          <Label
+            ribbon={true}>
+            Name
+          </Label>
+          Feed the Hamid
+        </TableCell>
+      </TableRow>
+      <TableRow
+        as="tr"
+        cellAs="td">
+        <TableCell
+          as="td">
+          <Label
+            ribbon={true}>
+            Message
+          </Label>
+          Good job
+        </TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+  <Link
+    replace={false}
+    to="/student/challenges">
+    <Button
+      as="button"
+      basic={true}
+      color="orange">
+      Back to Challenges
+    </Button>
+  </Link>
+</div>
 `;

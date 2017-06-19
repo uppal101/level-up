@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('AddChallengeCompleted should render', () => {
   const store = mockStore({ lvlupApp });
   const completed = shallow(
-    <AddChallengeCompleted store={store} />,
+    <AddChallengeCompleted addedChallenge={{ data: { name: 'Feed the Hamid', point_value: 5 } }} campuses={{ id: 1, location: 'SF' }} store={store} />,
   );
   expect(shallowToJson(completed)).toMatchSnapshot();
 });

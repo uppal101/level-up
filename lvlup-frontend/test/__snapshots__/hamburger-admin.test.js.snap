@@ -1,34 +1,68 @@
 exports[`test AdminSidenav should render 1`] = `
-<AdminSidenav
-  requestsAction={[Function]}
-  resetAdmin={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  }
-  submissionsAction={[Function]} />
+<Menu
+  className="adminSidenav"
+  inverted={true}
+  vertical={true}>
+  <MenuItem
+    id="admin-sidenav-info">
+    <Image
+      as="img"
+      centered={true}
+      shape="circular"
+      size="tiny"
+      src="https://ucarecdn.com/d50ece0e-f5e1-47fd-a492-d8561fe02ebb/"
+      ui={true} />
+    <div
+      className="userdiv">
+      <h4>
+        jennyboo
+      </h4>
+    </div>
+  </MenuItem>
+  <Link
+    replace={false}
+    to="/admin/dashboard">
+    <MenuItem>
+      <Icon
+        as="i"
+        className="dash-icon"
+        name="dashboard" />
+      <br />
+      Dashboard
+    </MenuItem>
+  </Link>
+  <Link
+    replace={false}
+    to="/admin/challenges">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="chevron up" />
+      <br />
+      Challenges
+    </MenuItem>
+  </Link>
+  <Link
+    replace={false}
+    to="/admin/rewards">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="gift" />
+      <br />
+      Rewards
+    </MenuItem>
+  </Link>
+  <Link
+    replace={false}
+    to="/admin/configuration">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="setting" />
+      <br />
+      Configuration
+    </MenuItem>
+  </Link>
+</Menu>
 `;

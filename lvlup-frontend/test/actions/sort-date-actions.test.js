@@ -41,21 +41,7 @@ describe('sort date actions', () => {
     const expectedAction = {
       type: types.SORT_SUBMISSIONS_REV_CHRONO,
     };
-    expect(actions.sortSubmissionRevChrono()).toEqual(expectedAction);
-  });
-
-  it('should create an action sort achievements chronologically', () => {
-    const expectedAction = {
-      type: types.SORT_ACHVMNTS_CHRONO,
-    };
-    expect(actions.sortAchvmntsChrono()).toEqual(expectedAction);
-  });
-
-  it('should create an action sort reverse achievements chronologically', () => {
-    const expectedAction = {
-      type: types.SORT_ACHVMNTS_REV_CHRONO,
-    };
-    expect(actions.sortAchvmntsRevChrono()).toEqual(expectedAction);
+    expect(actions.sortSubmissionsRevChrono()).toEqual(expectedAction);
   });
 
   it('should create an action sort rewards chronologically', () => {

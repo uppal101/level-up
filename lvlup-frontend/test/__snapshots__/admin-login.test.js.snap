@@ -1,32 +1,18 @@
 exports[`test AdminLogin should render 1`] = `
-<Component
-  dispatch={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<div>
+  <div
+    className="login">
+    <Connect(ReduxForm) />
+    <p
+      id="need-account">
+      Need an account?
+      <Link
+        replace={false}
+        to="/signup-admin">
+         Sign Up
+      </Link>
+      . Valid Galvanize email required. 
+    </p>
+  </div>
+</div>
 `;

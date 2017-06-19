@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('SelectedChallenge should render', () => {
   const store = mockStore({ lvlupApp });
   const challenge = shallow(
-    <SelectedChallenge selectedChallenge={{ id: 1 }} store={store} />,
+    <SelectedChallenge selectedChallenge={{ id: 1, challenge: { name: 'Feed the Hamid' }, category: { category: 'Life' }, student: 'Thomas Stang' }} adminLoginInfo={{ cohorts: ['g42', 'g52'] }} store={store} />,
   );
   expect(shallowToJson(challenge)).toMatchSnapshot();
 });

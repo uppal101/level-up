@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('AdminLogin should render', () => {
   const store = mockStore({ lvlupApp });
   const edit = shallow(
-    <AdminLogin store={store} />,
+    <AdminLogin adminLoginInfo={{ status: false }} store={store} />,
   );
   expect(shallowToJson(edit)).toMatchSnapshot();
 });

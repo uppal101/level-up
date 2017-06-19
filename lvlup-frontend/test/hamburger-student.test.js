@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('StudentSidenav should render', () => {
   const store = mockStore({ lvlupApp });
   const student = shallow(
-    <StudentSidenav store={store} />,
+    <StudentSidenav studentLoginInfo={{ id: 1 }} studentPointsAndCampus={{ currentTotal: 500, totalEarned: 500 }} store={store} />,
   );
   expect(shallowToJson(student)).toMatchSnapshot();
 });

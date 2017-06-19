@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('StudentSignup should render', () => {
   const store = mockStore({ lvlupApp });
   const signup = shallow(
-    <StudentSignup store={store} />,
+    <StudentSignup cohorts={{ length: 5 }} studentLoginInfo={{ name: 'John Doe' }} store={store} />,
   );
   expect(shallowToJson(signup)).toMatchSnapshot();
 });

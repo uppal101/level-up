@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('AddChallengeForm should render', () => {
   const store = mockStore({ lvlupApp });
   const addchallenge = shallow(
-    <AddChallengeForm store={store} />,
+    <AddChallengeForm campuses={{ length: 5 }} store={store} />,
   );
   expect(shallowToJson(addchallenge)).toMatchSnapshot();
 });

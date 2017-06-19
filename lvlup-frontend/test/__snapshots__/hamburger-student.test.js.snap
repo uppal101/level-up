@@ -1,35 +1,58 @@
 exports[`test StudentSidenav should render 1`] = `
-<StudentSidenav
-  loggingInAction={[Function]}
-  moreStudentInfo={[Function]}
-  requestsAction={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  }
-  submissionsAction={[Function]} />
+<Menu
+  className="studentSidenav"
+  inverted={true}
+  vertical={true}>
+  <MenuItem
+    id="student-sidenav-info">
+    <Image
+      as="img"
+      centered={true}
+      shape="circular"
+      size="tiny"
+      ui={true} />
+    <div
+      className="userdiv">
+      <h4 />
+      <p>
+        500  Points Earned
+      </p>
+      <p>
+         
+        500 Points Remaining
+      </p>
+      <p />
+    </div>
+  </MenuItem>
+  <Link
+    replace={false}
+    to="/student/dashboard">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="dashboard" />
+      Dashboard
+    </MenuItem>
+  </Link>
+  <Link
+    replace={false}
+    to="/student/challenges">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="chevron up" />
+      Challenges
+    </MenuItem>
+  </Link>
+  <Link
+    replace={false}
+    to="/student/rewards">
+    <MenuItem>
+      <Icon
+        as="i"
+        name="gift" />
+      Rewards
+    </MenuItem>
+  </Link>
+</Menu>
 `;

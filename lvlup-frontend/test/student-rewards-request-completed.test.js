@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('StudentRewardRequestCompleted should render', () => {
   const store = mockStore({ lvlupApp });
   const req = shallow(
-    <StudentRewardRequestCompleted store={store} />,
+    <StudentRewardRequestCompleted reward={{ name: 'Pizza Party' }} requestedReward={{ data: { notes: 'No anchovies' } }} store={store} />,
   );
   expect(shallowToJson(req)).toMatchSnapshot();
 });

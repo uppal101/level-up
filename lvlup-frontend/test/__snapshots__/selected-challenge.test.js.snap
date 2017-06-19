@@ -1,32 +1,178 @@
 exports[`test SelectedChallenge should render 1`] = `
-<SelectedChallenge
-  dispatch={[Function]}
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
-  storeSubscription={
-    Subscription {
-      "listeners": Object {
-        "notify": [Function],
-      },
-      "onStateChange": [Function],
-      "parentSub": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "unsubscribe": null,
-    }
-  } />
+<div
+  className="lvl-table">
+  <Container>
+    <h1
+      className="header">
+      Challenge Submission Review: Feed the Hamid
+    </h1>
+    <div>
+      <h3>
+        undefined, ,
+      </h3>
+      <Table
+        as="table"
+        celled={true}
+        selectable={true}>
+        <TableHeader
+          as="thead">
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableHeaderCell
+              as="th"
+              className="table-head"
+              colSpan="5"
+              id="challenge-info"
+              textAlign="center">
+              Challenge Information
+            </TableHeaderCell>
+          </TableRow>
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Title
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Category
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Description
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Requirement
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Points
+            </TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          as="tbody">
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableCell
+              as="td"
+              textAlign="center">
+              Feed the Hamid
+            </TableCell>
+            <TableCell
+              as="td"
+              textAlign="center">
+              Life
+            </TableCell>
+            <TableCell
+              as="td"
+              textAlign="center" />
+            <TableCell
+              as="td"
+              textAlign="center">
+              No requirements!
+            </TableCell>
+            <TableCell
+              as="td"
+              textAlign="center" />
+          </TableRow>
+        </TableBody>
+      </Table>
+      <Table
+        as="table"
+        celled={true}
+        selectable={true}>
+        <TableHeader
+          as="thead">
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableHeaderCell
+              as="th"
+              className="table-head"
+              colSpan="5"
+              id="submission-info"
+              textAlign="center">
+              Submission Information
+            </TableHeaderCell>
+          </TableRow>
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Submission Message
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Attachment 1
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Attachment 2
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Attachment 3
+            </TableHeaderCell>
+            <TableHeaderCell
+              as="th"
+              className="thead-secondary"
+              textAlign="center">
+              Images
+            </TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody
+          as="tbody">
+          <TableRow
+            as="tr"
+            cellAs="td">
+            <TableCell
+              as="td" />
+            <TableCell
+              as="td">
+              No Attachment Available
+            </TableCell>
+            <TableCell
+              as="td">
+              No Attachment Available
+            </TableCell>
+            <TableCell
+              as="td">
+              No Attachment Available
+            </TableCell>
+            <TableCell
+              as="td">
+              No phots submitted
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+      <Connect(ReduxForm) />
+    </div>
+  </Container>
+</div>
 `;

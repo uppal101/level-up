@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 test('AdminSidenav should render', () => {
   const store = mockStore({ lvlupApp });
   const admin = shallow(
-    <AdminSidenav store={store} />,
+    <AdminSidenav adminLoginInfo={{ username: 'jennyboo' }} store={store} />,
   );
   expect(shallowToJson(admin)).toMatchSnapshot();
 });
